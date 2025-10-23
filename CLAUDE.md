@@ -1,18 +1,19 @@
-# ModelE项目概览
+# ModelE2.1.2_Lazenca项目概览
 
 ## 项目基本信息
 
-**项目名称**: ModelE - NASA GISS地球系统模型
-**版本**: modelE-3-0 (v2.1.2)
-**开发机构**: NASA戈达德空间研究所(GISS)
+**项目名称**: ModelE2.1.2_Lazenca - NASA GISS地球系统模型Lazenca分支
+**版本**: v0.0.2 (基于ModelE 2.1.2的独立分支)
+**开发者**: Lazenca (基于NASA GISS ModelE 2.1.2)
 **项目类型**: 大气环流模型(GCM)/地球系统模型
 **主要语言**: Fortran 90/95, 部分C代码
 **代码规模**: 超过33万行代码
 **许可证**: NASA开源许可证
+**Fork性质**: 基于ModelE 2.1.2的个人分支，版本自主管理
 
 ## 项目用途
 
-ModelE是NASA GISS开发的综合性地球系统模型，主要用于：
+ModelE2.1.2_Lazenca是NASA GISS ModelE 2.1.2的个人分支版本，主要用于：
 - 气候变化研究和预测
 - 古气候模拟
 - 天气和气候过程研究
@@ -188,7 +189,7 @@ modelE/
 **doc/PROJECT_MEMORY_INDEX.md** - Project memory system index and usage guide
 
 ### 当前项目状态 | Current Project Status
-- **版本信息 | Version Information**: modelE-3-0 (v2.1.2) + Documentation v1.2.4
+- **版本信息 | Version Information**: ModelE Fork v0.0.2 (基于 modelE-3-0 v2.1.2)
 - **文档系统 | Documentation System**: 段落级中英对照格式，支持连续阅读
 **Documentation System**: Paragraph-level bilingual format, supporting continuous reading
 - **维护状态 | Maintenance Status**: 活跃维护，文档系统持续完善

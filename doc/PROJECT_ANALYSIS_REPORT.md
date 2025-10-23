@@ -1,9 +1,9 @@
-# ModelE项目全面分析报告 | Comprehensive ModelE Project Analysis Report
+# ModelE2.1.2_Lazenca项目全面分析报告 | Comprehensive ModelE2.1.2_Lazenca Project Analysis Report
 
 ## 执行摘要 | Executive Summary
 
-This report provides a comprehensive analysis of the NASA GISS ModelE Earth System Model (version 2.1.2/3.0). ModelE represents a sophisticated, mature scientific computing project with over 330,000 lines of primarily Fortran code, designed for climate research and weather simulation.
-**本报告提供了NASA GISS ModelE地球系统模型（版本2.1.2/3.0）的全面分析。ModelE代表了一个复杂的、成熟的科学计算项目，包含超过33万行主要是Fortran代码，专为气候研究和天气模拟而设计。**
+This report provides a comprehensive analysis of the ModelE2.1.2_Lazenca project, which is a personal fork of the NASA GISS ModelE Earth System Model (version 2.1.2). ModelE2.1.2_Lazenca represents a sophisticated, mature scientific computing project with over 330,000 lines of primarily Fortran code, designed for climate research and weather simulation, now enhanced with improved documentation and project management.
+**本报告提供了ModelE2.1.2_Lazenca项目的全面分析，这是NASA GISS ModelE地球系统模型（版本2.1.2）的个人fork分支。ModelE2.1.2_Lazenca代表了一个复杂的、成熟的科学计算项目，包含超过33万行主要是Fortran代码，专为气候研究和天气模拟而设计，现在通过改进的文档系统和项目管理得到增强。**
 
 ### 主要发现 | Key Findings
 

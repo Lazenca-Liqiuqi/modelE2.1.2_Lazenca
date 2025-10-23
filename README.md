@@ -1,4 +1,4 @@
-# ModelE - NASA GISS Earth System Model
+# ModelE2.1.2_Lazenca - NASA GISS Earth System Model (Lazenca Fork)
 
 NOTE: The full documentation on how to run the model is in
 **注意：** 关于如何运行模型的完整文档位于
@@ -16,10 +16,10 @@ This summary is not complete, and not necessarily up-to-date either.
 PLEASE READ THE FULL DOCUMENTATION - IT REALLY WILL MAKE YOUR LIFE EASIER!
 **请阅读完整文档 - 它真的会让你的生活更轻松！**
 
-The directory tree of the modelE has the following structure:
-**ModelE的目录树结构如下：**
+The directory tree of the modelE2.1.2_Lazenca has the following structure:
+**ModelE2.1.2_Lazenca的目录树结构如下：**
 
-modelE
+modelE2.1.2_Lazenca
       |
       |-/model   (the source code for GCM model)
       |            **模型源代码目录**
@@ -168,7 +168,7 @@ If you run "gmake" without arguments it will print a short help.
 **doc/PROJECT_MEMORY_INDEX.md** - Project memory system index and usage guide
 
 ### 当前状态 | Current Status
-- **版本 | Version**: modelE-3-0 (v2.1.2) + Documentation v1.2.4
+- **版本 | Version**: ModelE Fork v0.0.2 (基于 modelE-3-0 v2.1.2)
 - **文档更新 | Documentation Update**: 2025-10-23
 - **文档格式 | Documentation Format**: 段落级中英对照 | Paragraph-level bilingual format
 - **维护状态 | Maintenance Status**: 活跃维护，持续改进 | Active maintenance, continuous improvement

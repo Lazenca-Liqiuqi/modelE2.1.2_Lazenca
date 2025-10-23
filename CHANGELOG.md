@@ -1,13 +1,15 @@
-# ModelE版本变更记录
+# ModelE2.1.2_Lazenca版本变更记录
 
 ## 当前版本
-- **Version**: modelE-3-0 (v2.1.2) + Documentation v1.2.4
+- **Version**: ModelE2.1.2_Lazenca v0.0.2 (基于 ModelE 2.1.2)
 - **Release Date**: 2025-10-23
-- **Status**: Current stable release with enhanced documentation
+- **Developer**: Lazenca
+- **Status**: 基于ModelE 2.1.2的个人fork分支，增强文档系统
+- **Status**: Personal fork branch based on ModelE v2.1.2 with enhanced documentation system
 
 ---
 
-## Version v1.2.4 - Documentation Enhancement (2025-10-23)
+## Version v0.0.2 - Documentation Enhancement (2025-10-23)
 
 ### 主要变更 | Key Changes
 
