@@ -23,7 +23,7 @@ ModelE2.1.2_Lazenca是NASA GISS ModelE 2.1.2的个人分支版本，主要用于
 
 ### 目录结构
 ```
-modelE/
+modelE2.1.2_Lazenca/
 ├── model/          # 核心模型源代码
 │   ├── main.F90    # 主程序入口
 │   ├── ATM_DRV.f   # 大气驱动程序
@@ -189,13 +189,16 @@ modelE/
 **doc/PROJECT_MEMORY_INDEX.md** - Project memory system index and usage guide
 
 ### 当前项目状态 | Current Project Status
-- **版本信息 | Version Information**: ModelE Fork v0.0.2 (基于 modelE-3-0 v2.1.2)
+- **版本信息 | Version Information**: ModelE2.1.2_Lazenca v0.0.2 (基于 ModelE 2.1.2)
 - **文档系统 | Documentation System**: 段落级中英对照格式，支持连续阅读
 **Documentation System**: Paragraph-level bilingual format, supporting continuous reading
 - **维护状态 | Maintenance Status**: 活跃维护，文档系统持续完善
 **Maintenance Status**: Active maintenance, documentation system continuously improved
 - **技术债务 | Technical Debt**: 识别的关键问题包括代码现代化、测试基础设施、构建系统改进
 **Technical Debt**: Key identified issues include code modernization, testing infrastructure, build system improvements
+- **GitHub仓库 | GitHub Repository**: https://github.com/Lazenca-Liqiuqi/modelE2.1.2_Lazenca
+- **项目类型 | Project Type**: 基于NASA GISS ModelE 2.1.2的个人fork分支
+**Project Type**: Personal fork branch based on NASA GISS ModelE 2.1.2
 
 ### 近期工作重点 | Recent Work Focus
 1. **文档系统建立 | Documentation System Establishment** - 完整的现代化文档架构
