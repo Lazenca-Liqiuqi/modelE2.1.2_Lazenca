@@ -14,7 +14,12 @@
       "mcp__shrimp-task-manager__execute_task",
       "mcp__codex__codex",
       "mcp__codex__codex-reply",
-      "Bash(rm:*)"
+      "Bash(rm:*)",
+      "mcp__shrimp-task-manager__process_thought",
+      "Bash(grep:*)",
+      "Bash(git worktree add:*)",
+      "Bash(git worktree:*)",
+      "Bash(mcp__shrimp-task-manager__list_tasks:*)"
     ],
     "deny": [],
     "ask": []
