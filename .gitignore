@@ -16,3 +16,6 @@ build/*
 *.pik
 spack-build.*
 spconfig.py
+
+# Git worktree directories for parallel development
+.tree/
