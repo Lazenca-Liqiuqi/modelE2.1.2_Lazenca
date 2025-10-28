@@ -1,563 +1,132 @@
 {
   "tasks": [
     {
-      "id": "d7da1749-607f-49a7-b7e3-82644215c7b3",
-      "name": "项目启动与规划 - 确立翻译基准",
-      "description": "启动ModelE2.1.2_Lazenca全面翻译项目，基于准确文件统计：20个UserGuide HTML + 40个ModelDescription HTML + 532个Fortran文件 + 25个Shell脚本 + 其他配置文件，总计约620+个文件需要翻译。",
-      "notes": "任务规划阶段已完成 - 已建立完整的翻译项目计划，包含18个任务覆盖620+个文件的中英对照翻译工作。项目准备就绪，可以开始执行阶段0：术语词典与工具配置。",
-      "status": "completed",
-      "dependencies": [],
-      "createdAt": "2025-10-28T11:43:42.130Z",
-      "updatedAt": "2025-10-28T11:57:06.897Z",
-      "relatedFiles": [
-        {
-          "path": "CLAUDE.md",
-          "type": "REFERENCE",
-          "description": "项目概览和现有文档结构"
-        },
-        {
-          "path": "README.md",
-          "type": "REFERENCE",
-          "description": "现有用户指南和项目说明"
-        }
-      ],
-      "implementationGuide": "1. 确认最终翻译范围和文件清单\n2. 制定中英对照格式标准（单文件叠放模式）\n3. 建立项目管理工作流程和质量控制机制\n4. 配置基础的翻译和验证环境\n5. 制定详细的里程碑时间表（6-8周计划）",
-      "verificationCriteria": "项目启动完成，文件清单确认，工作流程建立，工具环境基础配置完成",
-      "analysisResult": "基于精确文件统计重新拆分的ModelE2.1.2_Lazenca全面翻译项目，将620+个文件按目录结构和功能模块细化为18个可执行任务，确保工作量评估准确和任务可追踪性。",
-      "summary": "项目启动与规划任务已全面完成。建立了完整的项目基础设施：1) 翻译范围确认文件 - 基于715个文件的精确统计，确认620+个文件需要翻译；2) 中英对照格式标准 - 制定了详细的HTML、Fortran、脚本文件翻译规范；3) 项目管理工作流程 - 建立了9周详细工作流程和质量控制机制；4) 环境配置方案 - 配置了完整的工具链和自动化检查脚本；5) 里程碑时间表 - 制定了详细的6-8周完成计划。所有交付物符合要求，项目准备就绪可以开始阶段0执行。",
-      "completedAt": "2025-10-28T11:57:06.892Z"
-    },
-    {
-      "id": "d66b86dc-81bf-4487-846c-3204761cdf4c",
-      "name": "阶段0：术语词典与工具配置 - 翻译基础设施",
-      "description": "建立气候科学和Fortran编程专业术语词典，配置大模型翻译工具链，开发代码注释格式保持算法，建立质量检查流水线，为全面翻译做好技术准备。",
-      "notes": "术语一致性是项目成功的关键，需要投入充足时间建立高质量的术语词典",
-      "status": "completed",
-      "dependencies": [
-        {
-          "taskId": "d7da1749-607f-49a7-b7e3-82644215c7b3"
-        }
-      ],
-      "createdAt": "2025-10-28T11:43:42.130Z",
-      "updatedAt": "2025-10-28T12:06:44.532Z",
-      "relatedFiles": [
-        {
-          "path": ".claude/terminology-dictionary.md",
-          "type": "CREATE",
-          "description": "包含500+专业术语的完整术语词典"
-        },
-        {
-          "path": ".claude/translation-tools-config.md",
-          "type": "CREATE",
-          "description": "大模型翻译工具链配置文件"
-        },
-        {
-          "path": ".claude/fortran-comment-format-preservation.py",
-          "type": "CREATE",
-          "description": "Fortran注释格式保持算法"
-        },
-        {
-          "path": ".claude/quality-control-pipeline.py",
-          "type": "CREATE",
-          "description": "自动化质量检查流水线"
-        },
-        {
-          "path": ".claude/test-samples-and-validation.py",
-          "type": "CREATE",
-          "description": "测试样本和验证工具"
-        },
-        {
-          "path": ".claude/test-report.md",
-          "type": "CREATE",
-          "description": "工具链测试报告"
-        }
-      ],
-      "implementationGuide": "1. 扫描现有文档提取专业术语，建立中英对照术语库\n2. 配置大模型翻译API和专业领域参数\n3. 开发Fortran注释格式保持算法（确保编译兼容性）\n4. 建立自动化质量检查工具（格式验证、链接检查等）\n5. 创建小规模测试样本验证翻译效果和工具链",
-      "verificationCriteria": "术语词典包含至少500个专业术语，翻译工具链配置完成，测试样本翻译质量达标",
-      "analysisResult": "基于精确文件统计重新拆分的ModelE2.1.2_Lazenca全面翻译项目，将620+个文件按目录结构和功能模块细化为18个可执行任务，确保工作量评估准确和任务可追踪性。",
-      "summary": "阶段0：术语词典与工具配置 - 翻译基础设施已全面完成！\n\n**✅ 完成的工作内容：**\n\n1. **术语词典建设** - 创建了包含500+专业术语的完整术语词典(.claude/terminology-dictionary.md)，涵盖：\n   - 气候科学基础术语（大气环流模型、地球系统模型等）\n   - Fortran编程术语（固定格式、自由格式、模块等）\n   - 物理过程术语（辐射传输、云微物理、边界层等）\n   - 数值方法术语（时间积分、并行计算等）\n   - 12个主要类别，完整的中英对照\n\n2. **翻译工具链配置** - 建立了完整的翻译工具链配置(.claude/translation-tools-config.md)：\n   - Claude 3.5 Sonnet主翻译模型配置\n   - 专业领域参数优化\n   - 术语一致性控制系统\n   - 批处理和错误处理机制\n\n3. **格式保持算法** - 开发了Fortran注释格式保持算法(.claude/fortran-comment-format-preservation.py)：\n   - 自动检测固定格式和自由格式Fortran\n   - 确保翻译后注释格式完全兼容编译\n   - 处理续行、缩进等复杂格式规则\n   - 600+行Python代码的完整实现\n\n4. **质量检查流水线** - 建立了自动化质量检查系统(.claude/quality-control-pipeline.py)：\n   - 术语一致性检查器\n   - 格式正确性验证器\n   - 内容完整性检查器\n   - 编译兼容性检查器\n   - 综合质量评分系统\n\n5. **测试验证系统** - 创建了完整的测试样本和验证工具(.claude/test-samples-and-validation.py)：\n   - 固定格式和自由格式Fortran测试样本\n   - HTML和Markdown文档测试样本\n   - 自动化测试流程\n   - 详细的测试报告生成\n\n**✅ 验证结果：**\n- 测试覆盖率：100%（所有核心功能均已测试）\n- 工具链可用性：83.3%测试通过，核心功能全部正常\n- 术语词典规模：500+专业术语，超出要求的500个\n- 质量控制系统：完全部署并验证有效\n\n**✅ 交付物清单：**\n1. terminology-dictionary.md - 专业术语词典\n2. translation-tools-config.md - 翻译工具链配置\n3. fortran-comment-format-preservation.py - 格式保持算法\n4. quality-control-pipeline.py - 质量检查流水线\n5. test-samples-and-validation.py - 测试验证工具\n6. test-report.md - 测试报告\n\n阶段0任务已完全达成验证标准，为后续翻译工作奠定了坚实的技术基础！",
-      "completedAt": "2025-10-28T12:06:44.527Z"
-    },
-    {
-      "id": "9812be88-dba4-4dc5-a6e6-63928e3a7207",
-      "name": "阶段1.2：UserGuide核心文档翻译 - 编译和运行指南",
-      "description": "翻译UserGuide目录下最关键的8个文档：Compiling_the_model.html、Configuring_modelE_on_your_machine.html、Running_the_model.html、System_requirements.html、Installing_NetCDF_library.html、Creating_a_rundeck.html、ModelE_rundeck.html、Major_rundeck_parameters.html。",
-      "notes": "这8个文档是用户上手必须掌握的内容，优先级最高",
+      "id": "0ab966d1-4d91-4176-b52d-62f89015c937",
+      "name": "并行任务1：编译指南翻译（独立）",
+      "description": "翻译Compiling_the_model.html编译指南文档。这是ModelE使用的基础操作指南之一，包含make命令使用、编译流程、串行/并行编译配置、MPI设置、冷启动流程等核心内容。该文档独立性极高，不依赖其他文档，可以独立完成翻译工作。需要严格遵循术语词典v1.4和四道闸质量检查机制，确保技术准确性和用户友好性。",
+      "notes": "编译指南是用户上手ModelE的第一个关键步骤，必须确保技术准确性。由于独立性极高，可以与其他3个文档完全并行执行。",
       "status": "pending",
-      "dependencies": [
-        {
-          "taskId": "4d37bdcd-26c9-4d41-af54-6e82637006c0"
-        }
-      ],
-      "createdAt": "2025-10-28T11:43:42.130Z",
-      "updatedAt": "2025-10-28T12:14:21.550Z",
+      "dependencies": [],
+      "createdAt": "2025-10-28T14:44:17.886Z",
+      "updatedAt": "2025-10-28T14:44:17.886Z",
       "relatedFiles": [
         {
           "path": "doc/UserGuide/Compiling_the_model.html",
           "type": "TO_MODIFY",
-          "description": "模型编译指南 - 用户上手第一步"
+          "description": "模型编译指南，包含make命令、编译流程、MPI配置等核心内容",
+          "lineStart": 1,
+          "lineEnd": 100
         },
         {
-          "path": "doc/UserGuide/Configuring_modelE_on_your_machine.html",
-          "type": "TO_MODIFY",
-          "description": "模型配置指南"
+          "path": ".claude/terminology-dictionary.md",
+          "type": "REFERENCE",
+          "description": "术语词典v1.4，确保编译相关术语一致性"
         },
+        {
+          "path": ".claude/html-markdown-conversion-rules.md",
+          "type": "REFERENCE",
+          "description": "HTML到Markdown转换规则"
+        }
+      ],
+      "implementationGuide": "1. 使用现有的HTML到Markdown转换规则\n2. 严格遵循术语词典v1.4确保术语一致性\n3. 保持所有命令行（make setup）、参数（MPI=YES）、路径（<RunID>.R）100%保真\n4. 应用段落级中英对照格式\n5. 执行四道闸质量检查：结构闸、保真闸、术语闸、链接闸\n6. 重点处理编译流程、MPI配置、冷启动等核心技术概念",
+      "verificationCriteria": "1. 编译指南翻译完成，中英对照格式规范\n2. 所有命令行、参数、路径100%保真\n3. 术语使用与词典v1.4完全一致\n4. 通过四道闸质量检查（结构、保真、术语、链接）\n5. 用户能够按照中文说明成功完成模型编译\n6. 质量评分≥95分，独立完成编译指南的完整翻译",
+      "analysisResult": "阶段1.2 Day 2-3真正并行翻译任务：通过真正并行策略同时翻译4个独立的技术指南文档（编译指南、运行指南、配置详解、参数详解），实现真正的效率提升，同时保持高质量标准。"
+    },
+    {
+      "id": "fcfacd29-3be7-4347-afa9-4ddeeb6ea215",
+      "name": "并行任务2：运行指南翻译（独立）",
+      "description": "翻译Running_the_model.html运行指南文档。这是ModelE使用的第二个基础操作指南，包含runE脚本使用、检查点文件管理、批处理作业、MPI线程配置、运行时间控制等核心内容。该文档独立性高，只需要基本的ModelE概念，不依赖编译指南的具体内容，可以独立完成翻译工作。",
+      "notes": "运行指南是用户上手ModelE的第二个关键步骤，必须确保与编译指南的术语一致性。由于独立性高，可以与其他3个文档完全并行执行。",
+      "status": "pending",
+      "dependencies": [],
+      "createdAt": "2025-10-28T14:44:17.886Z",
+      "updatedAt": "2025-10-28T14:44:17.886Z",
+      "relatedFiles": [
         {
           "path": "doc/UserGuide/Running_the_model.html",
           "type": "TO_MODIFY",
-          "description": "模型运行指南"
+          "description": "模型运行指南，包含runE脚本、检查点管理、批处理作业等核心内容",
+          "lineStart": 1,
+          "lineEnd": 150
         },
         {
-          "path": "docs/user-guide/",
-          "type": "CREATE",
-          "description": "创建新的Markdown格式用户指南目录"
+          "path": ".claude/terminology-dictionary.md",
+          "type": "REFERENCE",
+          "description": "术语词典v1.4，确保运行相关术语一致性"
+        },
+        {
+          "path": ".claude/html-markdown-conversion-rules.md",
+          "type": "REFERENCE",
+          "description": "HTML到Markdown转换规则"
         }
       ],
-      "implementationGuide": "1. 优先翻译用户最需要的使用指南文档\n2. 转换HTML到Markdown格式，应用单文件叠放中英对照\n3. 重点处理编译配置、系统要求、运行流程等核心内容\n4. 保持命令行示例和配置参数的准确性\n5. 进行初步的格式检查和内容验证",
-      "verificationCriteria": "8个核心用户指南文档翻译完成，Markdown格式正确，中英对照完整，用户测试满意度≥90%",
-      "analysisResult": "基于精确文件统计重新拆分的ModelE2.1.2_Lazenca全面翻译项目，将620+个文件按目录结构和功能模块细化为18个可执行任务，确保工作量评估准确和任务可追踪性。"
+      "implementationGuide": "1. 使用现有的HTML到Markdown转换规则\n2. 严格遵循术语词典v1.4确保术语一致性\n3. 保持所有命令行（runE）、参数（-np、-cold-restart）、路径100%保真\n4. 应用段落级中英对照格式\n5. 执行四道闸质量检查：结构闸、保真闸、术语闸、链接闸\n6. 重点处理运行流程、检查点管理、批处理作业等核心技术概念",
+      "verificationCriteria": "1. 运行指南翻译完成，中英对照格式规范\n2. 所有命令行、参数、路径100%保真\n3. 术语使用与词典v1.4完全一致\n4. 通过四道闸质量检查（结构、保真、术语、链接）\n5. 用户能够按照中文说明成功运行模型\n6. 质量评分≥95分，独立完成运行指南的完整翻译",
+      "analysisResult": "阶段1.2 Day 2-3真正并行翻译任务：通过真正并行策略同时翻译4个独立的技术指南文档（编译指南、运行指南、配置详解、参数详解），实现真正的效率提升，同时保持高质量标准。"
     },
     {
-      "id": "8f8ba8d2-32b3-4377-b08a-7111b0aa2126",
-      "name": "阶段1.3：UserGuide辅助文档翻译 - 工具和诊断指南",
-      "description": "翻译UserGuide目录下剩余的12个文档：index.html、Getting_the_code_form_GISS_repository.html、Downloading_necessary_input_files.html、diagnostics.html、Tracer_Preprocessor_Options.html、Tracer_Rundeck_Parameters.html、Vegetation_Guide.html以及其他辅助文档。",
-      "notes": "完成UserGuide的完整翻译，为用户提供全面的使用指导",
+      "id": "df984f27-bd9e-433f-ab0a-0f0a60627660",
+      "name": "并行任务3：配置详解翻译（独立）",
+      "description": "翻译ModelE_rundeck.html配置详解文档。这是高复杂度文档，详细说明了rundeck的结构、9个核心section的作用、Object modules、Components、Namelist等配置概念。该文档独立性中等，需要基本的配置概念，但可以独立学习和翻译，不直接依赖编译指南和运行指南的具体内容。",
+      "notes": "配置详解是理解ModelE配置架构的关键文档，技术复杂度高。由于独立性中等，需要特别关注配置术语的一致性，但可以独立完成翻译工作。",
       "status": "pending",
-      "dependencies": [
-        {
-          "taskId": "9812be88-dba4-4dc5-a6e6-63928e3a7207"
-        }
-      ],
-      "createdAt": "2025-10-28T11:43:42.130Z",
-      "updatedAt": "2025-10-28T12:17:34.805Z",
+      "dependencies": [],
+      "createdAt": "2025-10-28T14:44:17.886Z",
+      "updatedAt": "2025-10-28T14:44:17.886Z",
       "relatedFiles": [
         {
-          "path": "doc/UserGuide/index.html",
+          "path": "doc/UserGuide/ModelE_rundeck.html",
           "type": "TO_MODIFY",
-          "description": "用户指南索引文档"
+          "description": "运行配置详解，包含rundeck结构、Object modules、Components等高复杂度内容",
+          "lineStart": 1,
+          "lineEnd": 200
         },
         {
-          "path": "doc/UserGuide/diagnostics.html",
-          "type": "TO_MODIFY",
-          "description": "诊断工具使用指南"
+          "path": ".claude/terminology-dictionary.md",
+          "type": "REFERENCE",
+          "description": "术语词典v1.4，确保配置相关术语一致性"
         },
         {
-          "path": "doc/UserGuide/Getting_the_code_form_GISS_repository.html",
-          "type": "TO_MODIFY",
-          "description": "代码获取指南"
+          "path": ".claude/html-markdown-conversion-rules.md",
+          "type": "REFERENCE",
+          "description": "HTML到Markdown转换规则"
         }
       ],
-      "implementationGuide": "1. 翻译辅助性的用户指南文档\n2. 处理代码下载、输入文件、诊断工具等补充内容\n3. 翻译示踪物配置和植被模型等专题指南\n4. 保持文档间的交叉引用链接正确性\n5. 完成UserGuide目录的整体翻译工作",
-      "verificationCriteria": "12个辅助用户指南文档翻译完成，UserGuide目录全部翻译完毕，文档导航完整性验证通过",
-      "analysisResult": "基于精确文件统计重新拆分的ModelE2.1.2_Lazenca全面翻译项目，将620+个文件按目录结构和功能模块细化为18个可执行任务，确保工作量评估准确和任务可追踪性。"
+      "implementationGuide": "1. 使用现有的HTML到Markdown转换规则\n2. 严格遵循术语词典v1.4确保术语一致性\n3. 重点处理rundeck结构的9个核心section\n4. 保持所有配置参数名称和格式的100%保真\n5. 应用段落级中英对照格式\n6. 执行四道闸质量检查：结构闸、保真闸、术语闸、链接闸\n7. 确保配置概念与编译运行文档的一致性",
+      "verificationCriteria": "1. 配置详解翻译完成，中英对照格式规范\n2. rundeck结构翻译完整准确\n3. 9个核心section的概念解释清晰\n4. 所有配置参数名称和格式100%保真\n5. 通过四道闸质量检查（结构、保真、术语、链接）\n6. 质量评分≥95分，独立完成配置详解的完整翻译",
+      "analysisResult": "阶段1.2 Day 2-3真正并行翻译任务：通过真正并行策略同时翻译4个独立的技术指南文档（编译指南、运行指南、配置详解、参数详解），实现真正的效率提升，同时保持高质量标准。"
     },
     {
-      "id": "48a30f0f-cbb9-4d22-a394-749833d11be1",
-      "name": "阶段2.1：ModelDescription核心模块翻译 - 大气和物理过程",
-      "description": "翻译ModelDescription目录下关于大气和物理过程的核心文档，包括大气动力学、辐射传输、云微物理、边界层过程、对流参数化等关键物理模块的技术说明文档。",
-      "notes": "大气模块是模型的核心，需要最高的翻译质量",
+      "id": "4a31ac98-39ef-4a50-952c-b6799230af24",
+      "name": "并行任务4：参数详解翻译（独立）",
+      "description": "翻译Major_rundeck_parameters.html参数详解文档。这是最高复杂度文档，详细解释了关键参数的设置和含义，包括master_yr、各类*_yr变量、transient simulation、JYEAR等高级概念。该文档独立性中等，需要理解基本参数概念，但可以直接学习参数详解内容，不直接依赖其他文档的具体内容。",
+      "notes": "参数详解是最高复杂度文档，包含大量技术细节。由于独立性中等，需要特别关注参数术语的一致性，但可以独立完成翻译工作。这是用户进行高级配置的关键参考文档。",
       "status": "pending",
-      "dependencies": [
-        {
-          "taskId": "8f8ba8d2-32b3-4377-b08a-7111b0aa2126"
-        }
-      ],
-      "createdAt": "2025-10-28T11:43:42.130Z",
-      "updatedAt": "2025-10-28T11:43:42.130Z",
+      "dependencies": [],
+      "createdAt": "2025-10-28T14:44:17.886Z",
+      "updatedAt": "2025-10-28T14:44:17.886Z",
       "relatedFiles": [
         {
-          "path": "doc/ModelDescription/",
+          "path": "doc/UserGuide/Major_rundeck_parameters.html",
           "type": "TO_MODIFY",
-          "description": "大气和物理过程相关的技术文档"
+          "description": "主要参数详解，包含master_yr、transient simulation等最高复杂度内容",
+          "lineStart": 1,
+          "lineEnd": 250
         },
         {
-          "path": "docs/technical-reference/atmosphere/",
-          "type": "CREATE",
-          "description": "创建大气技术参考文档目录"
-        }
-      ],
-      "implementationGuide": "1. 识别并翻译大气相关的核心物理过程文档\n2. 重点处理复杂的物理概念和数学公式\n3. 确保专业术语的准确性和一致性\n4. 保持数学符号和公式的正确渲染\n5. 建立物理过程文档的交叉引用体系",
-      "verificationCriteria": "大气和物理过程文档翻译完成，科学概念翻译准确，公式渲染正确，专业审查通过",
-      "analysisResult": "基于精确文件统计重新拆分的ModelE2.1.2_Lazenca全面翻译项目，将620+个文件按目录结构和功能模块细化为18个可执行任务，确保工作量评估准确和任务可追踪性。"
-    },
-    {
-      "id": "e0056fee-a4cc-477c-a187-2220606250a6",
-      "name": "阶段2.2：ModelDescription海洋和陆面模块翻译",
-      "description": "翻译ModelDescription目录下关于海洋、陆面、海冰等模块的技术文档，包括海洋动力学、陆面过程、海冰模型、生物地球化学循环等相关技术说明文档。",
-      "notes": "海洋和陆面模块是地球系统模型的重要组成部分",
-      "status": "pending",
-      "dependencies": [
-        {
-          "taskId": "48a30f0f-cbb9-4d22-a394-749833d11be1"
-        }
-      ],
-      "createdAt": "2025-10-28T11:43:42.130Z",
-      "updatedAt": "2025-10-28T11:43:42.130Z",
-      "relatedFiles": [
-        {
-          "path": "doc/ModelDescription/",
-          "type": "TO_MODIFY",
-          "description": "海洋、陆面、海冰相关的技术文档"
+          "path": ".claude/terminology-dictionary.md",
+          "type": "REFERENCE",
+          "description": "术语词典v1.4，确保参数相关术语一致性"
         },
         {
-          "path": "docs/technical-reference/ocean-land/",
-          "type": "CREATE",
-          "description": "创建海洋陆面技术参考文档目录"
+          "path": ".claude/html-markdown-conversion-rules.md",
+          "type": "REFERENCE",
+          "description": "HTML到Markdown转换规则"
         }
       ],
-      "implementationGuide": "1. 翻译海洋模块技术文档（动力学、混合、示踪物等）\n2. 翻译陆面过程文档（水文、植被、雪冰等）\n3. 翻译海冰模型相关技术说明\n4. 处理生物地球化学循环和生态系统相关文档\n5. 确保各模块间接口描述的一致性",
-      "verificationCriteria": "海洋陆面模块文档翻译完成，技术术语一致性验证通过，模块接口描述准确",
-      "analysisResult": "基于精确文件统计重新拆分的ModelE2.1.2_Lazenca全面翻译项目，将620+个文件按目录结构和功能模块细化为18个可执行任务，确保工作量评估准确和任务可追踪性。"
-    },
-    {
-      "id": "97753603-4de8-4ad6-9b97-c2a576d5f1b0",
-      "name": "阶段3.1：核心驱动模块注释翻译 - ATM_DRV和核心驱动",
-      "description": "翻译最核心的驱动模块注释，包括ATM_DRV.f（大气驱动主程序，61KB）、ATM_COM.f、ATM_UTILS.f等核心驱动文件的注释，约15-20个关键文件。",
-      "notes": "ATM_DRV.f是模型的核心入口，注释翻译质量直接影响代码理解",
-      "status": "pending",
-      "dependencies": [
-        {
-          "taskId": "e0056fee-a4cc-477c-a187-2220606250a6"
-        }
-      ],
-      "createdAt": "2025-10-28T11:43:42.130Z",
-      "updatedAt": "2025-10-28T11:43:42.130Z",
-      "relatedFiles": [
-        {
-          "path": "model/ATM_DRV.f",
-          "type": "TO_MODIFY",
-          "description": "大气驱动主程序，需要翻译函数和参数注释"
-        },
-        {
-          "path": "model/ATM_COM.f",
-          "type": "TO_MODIFY",
-          "description": "大气模块共享变量和状态管理"
-        }
-      ],
-      "implementationGuide": "1. 翻译ATM_DRV.f主程序的函数头部和关键算法注释\n2. 处理大气驱动流程中的重要参数和配置说明\n3. 翻译ATM_COM.f中共享变量和状态管理注释\n4. 应用Fortran注释格式保持算法确保编译兼容性\n5. 进行编译测试验证翻译后的代码可正常编译",
-      "verificationCriteria": "核心驱动模块注释翻译完成，代码编译测试通过，关键函数注释完整性≥95%",
-      "analysisResult": "基于精确文件统计重新拆分的ModelE2.1.2_Lazenca全面翻译项目，将620+个文件按目录结构和功能模块细化为18个可执行任务，确保工作量评估准确和任务可追踪性。"
-    },
-    {
-      "id": "849c1a1a-5d51-4832-a6eb-d0549f816917",
-      "name": "阶段3.2：物理过程模块注释翻译 - RADIATION和CLOUDS",
-      "description": "翻译辐射传输和云微物理核心模块的注释，包括RADIATION.f（330KB）、CLOUDS2.F90（259KB）、RAD_DRV.f、RAD_UTILS.f等关键物理过程文件，约10-15个文件。",
-      "notes": "辐射和云模块包含复杂的物理过程，需要专业知识确保翻译准确性",
-      "status": "pending",
-      "dependencies": [
-        {
-          "taskId": "97753603-4de8-4ad6-9b97-c2a576d5f1b0"
-        }
-      ],
-      "createdAt": "2025-10-28T11:43:42.130Z",
-      "updatedAt": "2025-10-28T11:43:42.130Z",
-      "relatedFiles": [
-        {
-          "path": "model/RADIATION.f",
-          "type": "TO_MODIFY",
-          "description": "辐射传输模块，包含复杂的物理过程注释"
-        },
-        {
-          "path": "model/CLOUDS2.F90",
-          "type": "TO_MODIFY",
-          "description": "云微物理过程，需要精确翻译科学概念"
-        }
-      ],
-      "implementationGuide": "1. 翻译RADIATION.f中的辐射传输算法和参数注释\n2. 处理CLOUDS2.F90中的云微物理过程复杂注释\n3. 翻译辐射驱动程序和工具函数注释\n4. 重点处理物理常数、参数化方案的说明\n5. 确保物理过程描述的科学准确性",
-      "verificationCriteria": "物理过程模块注释翻译完成，物理概念翻译准确，编译测试通过，专家审查通过",
-      "analysisResult": "基于精确文件统计重新拆分的ModelE2.1.2_Lazenca全面翻译项目，将620+个文件按目录结构和功能模块细化为18个可执行任务，确保工作量评估准确和任务可追踪性。"
-    },
-    {
-      "id": "c73bc1a6-15fd-4f37-a5f0-1c86f1a1dc3e",
-      "name": "阶段4.1：海洋和陆面模块注释翻译 - OCEAN和GHY系列",
-      "description": "翻译海洋和陆面模块的注释，包括OCNDYN.f（212KB）、OCN_DRV.f、GHY_DRV.f（159KB）、GHY.f、SOILDRV.f等约20-25个文件。",
-      "notes": "海洋和陆面模块的注释对理解地球系统过程至关重要",
-      "status": "pending",
-      "dependencies": [
-        {
-          "taskId": "849c1a1a-5d51-4832-a6eb-d0549f816917"
-        }
-      ],
-      "createdAt": "2025-10-28T11:43:42.130Z",
-      "updatedAt": "2025-10-28T11:43:42.130Z",
-      "relatedFiles": [
-        {
-          "path": "model/OCNDYN.f",
-          "type": "TO_MODIFY",
-          "description": "海洋动力学模块注释翻译"
-        },
-        {
-          "path": "model/GHY_DRV.f",
-          "type": "TO_MODIFY",
-          "description": "陆面过程驱动程序注释翻译"
-        }
-      ],
-      "implementationGuide": "1. 翻译海洋动力学模块OCNDYN.f的核心算法注释\n2. 处理海洋驱动程序OCN_DRV.f的流程说明\n3. 翻译陆面过程驱动GHY_DRV.f和水文过程注释\n4. 处理土壤、植被、雪冰等过程的参数说明\n5. 确保海陆耦合过程的描述准确性",
-      "verificationCriteria": "海洋陆面模块注释翻译完成，海陆耦合过程描述准确，代码编译通过",
-      "analysisResult": "基于精确文件统计重新拆分的ModelE2.1.2_Lazenca全面翻译项目，将620+个文件按目录结构和功能模块细化为18个可执行任务，确保工作量评估准确和任务可追踪性。"
-    },
-    {
-      "id": "2dc75d09-31af-468f-838d-505f07f11ebb",
-      "name": "阶段4.2：诊断和工具模块注释翻译 - DIAG系列和工具函数",
-      "description": "翻译诊断系统和工具函数的注释，包括DIAG.f（238KB）、DIAG_PRT.f、DIAG_COM.f以及各种工具函数，约30-40个文件。",
-      "notes": "诊断系统是模型调试和验证的重要工具，注释需要特别清晰",
-      "status": "pending",
-      "dependencies": [
-        {
-          "taskId": "c73bc1a6-15fd-4f37-a5f0-1c86f1a1dc3e"
-        }
-      ],
-      "createdAt": "2025-10-28T11:43:42.130Z",
-      "updatedAt": "2025-10-28T11:43:42.130Z",
-      "relatedFiles": [
-        {
-          "path": "model/DIAG.f",
-          "type": "TO_MODIFY",
-          "description": "诊断系统核心模块注释翻译"
-        },
-        {
-          "path": "model/DIAG_PRT.f",
-          "type": "TO_MODIFY",
-          "description": "诊断输出模块注释翻译"
-        }
-      ],
-      "implementationGuide": "1. 翻译诊断系统DIAG.f的诊断变量和计算逻辑注释\n2. 处理诊断输出和打印模块的格式说明\n3. 翻译各种工具函数和实用程序的使用说明\n4. 处理诊断配置和参数设置的相关注释\n5. 确保诊断系统的使用说明清晰易懂",
-      "verificationCriteria": "诊断和工具模块注释翻译完成，诊断系统使用说明清晰，代码功能验证通过",
-      "analysisResult": "基于精确文件统计重新拆分的ModelE2.1.2_Lazenca全面翻译项目，将620+个文件按目录结构和功能模块细化为18个可执行任务，确保工作量评估准确和任务可追踪性。"
-    },
-    {
-      "id": "44dcfe6b-bcda-4b3d-803d-c6972627ce3e",
-      "name": "阶段4.3：剩余Fortran模块注释翻译 - 完整代码库覆盖",
-      "description": "翻译剩余的450+个Fortran文件注释，包括示踪物模块、化学过程、海冰模块、数值求解器、辅助函数等，完成整个代码库的注释翻译覆盖。",
-      "notes": "这是工作量最大的阶段，需要充分运用大模型的批量处理能力",
-      "status": "pending",
-      "dependencies": [
-        {
-          "taskId": "2dc75d09-31af-468f-838d-505f07f11ebb"
-        }
-      ],
-      "createdAt": "2025-10-28T11:43:42.130Z",
-      "updatedAt": "2025-10-28T11:43:42.130Z",
-      "relatedFiles": [
-        {
-          "path": "model/",
-          "type": "TO_MODIFY",
-          "description": "剩余450+个Fortran文件需要注释翻译"
-        }
-      ],
-      "implementationGuide": "1. 按模块重要性分批处理：示踪物→化学→海冰→求解器→辅助函数\n2. 使用自动化批量翻译结合人工重点审查的方式\n3. 应用统一的注释格式标准和术语词典\n4. 建立代码注释翻译质量抽查机制（抽查20%）\n5. 处理特殊格式：固定格式Fortran、续行处理等",
-      "verificationCriteria": "所有Fortran文件注释翻译完成，代码库编译测试通过，注释格式统一，整体质量达标",
-      "analysisResult": "基于精确文件统计重新拆分的ModelE2.1.2_Lazenca全面翻译项目，将620+个文件按目录结构和功能模块细化为18个可执行任务，确保工作量评估准确和任务可追踪性。"
-    },
-    {
-      "id": "d456f095-9115-434f-a5ca-5b1063f2f02f",
-      "name": "阶段5.1：脚本和工具翻译 - _aux目录工具脚本",
-      "description": "翻译_aux目录下的辅助工具和脚本，包括数据转换脚本、网格处理工具、文件格式转换程序等约15-20个脚本和程序的说明注释。",
-      "notes": "_aux目录包含重要的辅助工具，对数据处理和模型准备很重要",
-      "status": "pending",
-      "dependencies": [
-        {
-          "taskId": "44dcfe6b-bcda-4b3d-803d-c6972627ce3e"
-        }
-      ],
-      "createdAt": "2025-10-28T11:43:42.130Z",
-      "updatedAt": "2025-10-28T11:43:42.130Z",
-      "relatedFiles": [
-        {
-          "path": "_aux/",
-          "type": "TO_MODIFY",
-          "description": "辅助工具和脚本需要翻译说明"
-        },
-        {
-          "path": "_aux/Makefile",
-          "type": "TO_MODIFY",
-          "description": "辅助工具构建文件翻译"
-        }
-      ],
-      "implementationGuide": "1. 翻译数据转换脚本的功能说明和使用方法\n2. 处理网格处理工具的参数解释和操作指南\n3. 翻译文件格式转换程序的注释和说明\n4. 处理Makefile中的构建目标和依赖说明\n5. 确保工具脚本的可用性和说明准确性",
-      "verificationCriteria": "_aux目录脚本和工具翻译完成，工具功能测试通过，使用说明清晰",
-      "analysisResult": "基于精确文件统计重新拆分的ModelE2.1.2_Lazenca全面翻译项目，将620+个文件按目录结构和功能模块细化为18个可执行任务，确保工作量评估准确和任务可追踪性。"
-    },
-    {
-      "id": "e168c3b9-2922-471b-bca2-6466bcf69961",
-      "name": "阶段5.2：执行脚本翻译 - exec目录运行脚本",
-      "description": "翻译exec目录下的执行脚本和工具，包括模型运行脚本、编辑工具、提取工具等约5-10个脚本的注释和说明。",
-      "notes": "exec目录的脚本是模型运行和操作的重要工具",
-      "status": "pending",
-      "dependencies": [
-        {
-          "taskId": "d456f095-9115-434f-a5ca-5b1063f2f02f"
-        }
-      ],
-      "createdAt": "2025-10-28T11:43:42.130Z",
-      "updatedAt": "2025-10-28T11:43:42.130Z",
-      "relatedFiles": [
-        {
-          "path": "exec/",
-          "type": "TO_MODIFY",
-          "description": "执行脚本需要翻译注释"
-        },
-        {
-          "path": "exec/editRundeck.sh",
-          "type": "TO_MODIFY",
-          "description": "运行配置编辑脚本翻译"
-        }
-      ],
-      "implementationGuide": "1. 翻译模型运行脚本的功能说明和配置参数\n2. 处理编辑工具和提取工具的使用指南\n3. 翻译Python脚本的功能注释和API说明\n4. 处理脚本中的配置选项和错误处理说明\n5. 确保脚本的实用性和可操作性",
-      "verificationCriteria": "exec目录脚本翻译完成，脚本功能验证通过，操作说明准确",
-      "analysisResult": "基于精确文件统计重新拆分的ModelE2.1.2_Lazenca全面翻译项目，将620+个文件按目录结构和功能模块细化为18个可执行任务，确保工作量评估准确和任务可追踪性。"
-    },
-    {
-      "id": "168e4515-afe4-4b0e-b932-96b7a338c9cb",
-      "name": "阶段5.3：配置和构建系统翻译 - config和主构建文件",
-      "description": "翻译config目录下的配置文件、主Makefile、decks目录下的运行配置文件等的说明注释，确保构建和运行配置的说明完整。",
-      "notes": "构建和配置系统的翻译对用户搭建运行环境很重要",
-      "status": "pending",
-      "dependencies": [
-        {
-          "taskId": "e168c3b9-2922-471b-bca2-6466bcf69961"
-        }
-      ],
-      "createdAt": "2025-10-28T11:43:42.130Z",
-      "updatedAt": "2025-10-28T11:43:42.130Z",
-      "relatedFiles": [
-        {
-          "path": "config/",
-          "type": "TO_MODIFY",
-          "description": "配置文件和构建脚本翻译"
-        },
-        {
-          "path": "Makefile",
-          "type": "TO_MODIFY",
-          "description": "主Makefile的目标说明翻译"
-        },
-        {
-          "path": "decks/",
-          "type": "TO_MODIFY",
-          "description": "运行配置文件模板翻译"
-        }
-      ],
-      "implementationGuide": "1. 翻译config目录下编译器和平台配置文件说明\n2. 处理主Makefile的构建目标和依赖关系说明\n3. 翻译decks目录下的运行配置模板和参数说明\n4. 处理诊断配置文件的选项解释\n5. 确保构建和运行配置的可理解性和可用性",
-      "verificationCriteria": "配置和构建系统翻译完成，构建测试通过，配置文件可用性验证通过",
-      "analysisResult": "基于精确文件统计重新拆分的ModelE2.1.2_Lazenca全面翻译项目，将620+个文件按目录结构和功能模块细化为18个可执行任务，确保工作量评估准确和任务可追踪性。"
-    },
-    {
-      "id": "98330cbe-789e-4fcf-979e-c57753f39777",
-      "name": "阶段6：全面质量检查 - 编译验证和格式统一",
-      "description": "进行项目的全面质量检查，包括所有翻译后代码的编译验证、文档格式一致性检查、术语使用统一性验证，以及整体翻译质量的评估。",
-      "notes": "质量检查是项目成功的关键阶段，需要全面验证所有翻译内容的质量和可用性",
-      "status": "pending",
-      "dependencies": [
-        {
-          "taskId": "168e4515-afe4-4b0e-b932-96b7a338c9cb"
-        }
-      ],
-      "createdAt": "2025-10-28T11:43:42.130Z",
-      "updatedAt": "2025-10-28T11:43:42.130Z",
-      "relatedFiles": [
-        {
-          "path": ".claude/",
-          "type": "CREATE",
-          "description": "创建质量检查报告、工作记录和问题跟踪"
-        }
-      ],
-      "implementationGuide": "1. 执行完整的代码库编译测试（532个Fortran文件）\n2. 运行自动化格式检查工具验证Markdown和代码注释格式\n3. 进行术语一致性检查和修正（基于术语词典）\n4. 验证所有文档的链接和引用正确性\n5. 执行用户测试和专家审查\n6. 生成详细的质量检查报告和改进建议",
-      "verificationCriteria": "编译测试100%通过，格式检查达标，术语一致性≥95%，用户满意度≥90%",
-      "analysisResult": "基于精确文件统计重新拆分的ModelE2.1.2_Lazenca全面翻译项目，将620+个文件按目录结构和功能模块细化为18个可执行任务，确保工作量评估准确和任务可追踪性。"
-    },
-    {
-      "id": "9ca5815b-994b-44a3-a882-a99086cf5625",
-      "name": "阶段7：用户测试和反馈收集 - 社区验证",
-      "description": "组织中文开发者社区进行用户测试，收集使用反馈，识别翻译中的问题和改进机会，确保翻译内容真正满足中文用户的需求。",
-      "notes": "用户测试是验证翻译实用性的重要环节，真实的用户反馈比自动化测试更有价值",
-      "status": "pending",
-      "dependencies": [
-        {
-          "taskId": "98330cbe-789e-4fcf-979e-c57753f39777"
-        }
-      ],
-      "createdAt": "2025-10-28T11:43:42.130Z",
-      "updatedAt": "2025-10-28T11:43:42.130Z",
-      "relatedFiles": [
-        {
-          "path": ".claude/",
-          "type": "CREATE",
-          "description": "用户测试反馈收集、分析和报告文件"
-        }
-      ],
-      "implementationGuide": "1. 招募中文气候科学研究者和开发者参与测试\n2. 设计测试场景：模型编译、配置、运行、调试等完整流程\n3. 收集用户体验反馈和改进建议\n4. 分析反馈数据，识别优先改进项\n5. 制定基于反馈的优化方案和实施计划\n6. 准备用户反馈分析报告和改进计划",
-      "verificationCriteria": "用户测试完成，收集至少10个有效反馈，用户满意度调查≥85%，反馈分析报告完成",
-      "analysisResult": "基于精确文件统计重新拆分的ModelE2.1.2_Lazenca全面翻译项目，将620+个文件按目录结构和功能模块细化为18个可执行任务，确保工作量评估准确和任务可追踪性。"
-    },
-    {
-      "id": "f14c9fd9-8840-4724-9791-c3d34e558519",
-      "name": "阶段8：最终优化和发布准备 - 项目收尾",
-      "description": "基于用户测试反馈进行最终优化，完善翻译细节，准备项目发布。包括最终质量审查、文档整理、发布包制作等项目收尾工作。",
-      "notes": "这是项目的最后阶段，需要确保所有交付物达到最高质量标准，为中文用户提供完整的使用体验",
-      "status": "pending",
-      "dependencies": [
-        {
-          "taskId": "9ca5815b-994b-44a3-a882-a99086cf5625"
-        }
-      ],
-      "createdAt": "2025-10-28T11:43:42.130Z",
-      "updatedAt": "2025-10-28T11:43:42.130Z",
-      "relatedFiles": [
-        {
-          "path": "CHANGELOG.md",
-          "type": "TO_MODIFY",
-          "description": "更新项目变更日志，记录翻译工作成果和里程碑"
-        },
-        {
-          "path": "README.md",
-          "type": "TO_MODIFY",
-          "description": "更新项目说明，添加中文支持信息和使用指南"
-        },
-        {
-          "path": "CLAUDE.md",
-          "type": "TO_MODIFY",
-          "description": "更新AI项目概览，记录翻译成果和新文档结构"
-        }
-      ],
-      "implementationGuide": "1. 基于用户反馈优化翻译内容和格式\n2. 进行最终的技术审查和质量把关\n3. 整理和标准化所有文档格式和结构\n4. 制作发布包和安装部署说明\n5. 编写项目总结报告和最佳实践文档\n6. 准备社区推广材料和使用培训文档\n7. 更新项目文档记录翻译成果和使用指南",
-      "verificationCriteria": "所有优化完成，项目质量达到发布标准，交付物齐全，中文用户可以使用完整的双语版本进行科学计算研究",
-      "analysisResult": "基于精确文件统计重新拆分的ModelE2.1.2_Lazenca全面翻译项目，将620+个文件按目录结构和功能模块细化为18个可执行任务，确保工作量评估准确和任务可追踪性。"
-    },
-    {
-      "id": "4d37bdcd-26c9-4d41-af54-6e82637006c0",
-      "name": "阶段1.1：根目录文件翻译 - README、Makefile和配置文件",
-      "description": "翻译项目根目录下的关键文件，包括README.md（完善中英对照内容）、主Makefile（翻译help信息和构建注释）、modele-control.pyar（CMake配置说明翻译），确保用户从项目入口就能获得完整的中文支持。",
-      "notes": "根目录文件是用户接触项目的第一印象，需要最优先确保中英对照的完整性和准确性",
-      "status": "completed",
-      "dependencies": [
-        {
-          "taskId": "d66b86dc-81bf-4487-846c-3204761cdf4c"
-        }
-      ],
-      "createdAt": "2025-10-28T11:46:33.525Z",
-      "updatedAt": "2025-10-28T12:26:59.506Z",
-      "relatedFiles": [
-        {
-          "path": "README.md",
-          "type": "TO_MODIFY",
-          "description": "项目主说明文档，需要完善中英对照内容"
-        },
-        {
-          "path": "Makefile",
-          "type": "TO_MODIFY",
-          "description": "主构建文件，需要翻译help信息和构建注释"
-        },
-        {
-          "path": "modele-control.pyar",
-          "type": "TO_MODIFY",
-          "description": "CMake配置文件，需要翻译配置说明和注释"
-        }
-      ],
-      "implementationGuide": "1. 完善README.md的中英对照内容，确保项目介绍和使用指南完整准确\n2. 翻译Makefile中的help信息、默认目标说明、更新流程注释\n3. 翻译modele-control.pyar中的CMake配置说明和参数注释\n4. 确保根目录文件格式统一，信息一致\n5. 验证根目录文件的实用性和可读性",
-      "verificationCriteria": "根目录文件翻译完成，README中英对照完整，Makefile帮助信息可读，项目第一印象友好度≥95%",
-      "analysisResult": "添加根目录文件翻译任务，确保项目入口的完整中文支持，这是用户接触项目的第一印象。",
-      "summary": "阶段1.1根目录文件翻译任务已全面完成：\n1. README.md - 已检查，文件本身就有完整的中英对照内容，格式规范，信息全面\n2. 主Makefile - 已翻译help信息和构建注释，添加了完整的中英对照说明，包括默认目标、help命令和完整的CVS更新流程说明\n3. modele-control.pyar - 已翻译CMake配置说明，包含了使用方法、必需参数、可选参数和实用示例的完整中英对照\n\n所有根目录关键文件现在都提供了友好的中文支持，用户从项目入口就能获得完整的中英对照指导。项目第一印象友好度达到预期标准。",
-      "completedAt": "2025-10-28T12:26:59.503Z"
+      "implementationGuide": "1. 使用现有的HTML到Markdown转换规则\n2. 严格遵循术语词典v1.4确保术语一致性\n3. 重点处理年份配置、变量含义、模拟模式等高级概念\n4. 保持所有参数名称、变量名、格式的100%保真\n5. 应用段落级中英对照格式\n6. 执行四道闸质量检查：结构闸、保真闸、术语闸、链接闸\n7. 提供详细的参数使用示例和说明\n8. 确保参数术语与前面文档的一致性",
+      "verificationCriteria": "1. 参数详解翻译完成，中英对照格式规范\n2. 关键参数翻译完整准确\n3. 高级概念解释清晰易懂\n4. 所有参数名称、变量名、格式100%保真\n5. 通过四道闸质量检查（结构、保真、术语、链接）\n6. 提供实用的参数使用指导\n7. 质量评分≥95分，独立完成参数详解的完整翻译",
+      "analysisResult": "阶段1.2 Day 2-3真正并行翻译任务：通过真正并行策略同时翻译4个独立的技术指南文档（编译指南、运行指南、配置详解、参数详解），实现真正的效率提升，同时保持高质量标准。"
     }
   ]
 }

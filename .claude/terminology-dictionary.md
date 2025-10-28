@@ -300,7 +300,58 @@ This dictionary provides standardized terminology for the ModelE2.1.2_Lazenca pr
 
 ---
 
-## 12. 翻译质量标准 | Translation Quality Standards
+## 12. 编译和系统配置术语 | Compilation and System Configuration Terminology
+
+### Fortran编译相关 | Fortran Compilation Related
+| English | 中文 | 注释 |
+|---------|------|------|
+| Namelist | Fortran名录/参数名录 | Fortran语言中用于参数输入的特殊格式，保留Namelist并附中文注释 |
+| Preprocessor Options | 预处理选项 | 编译前的代码处理选项，通常以#开头 |
+| Object modules | 对象模块 | 编译生成的目标文件模块 |
+| Components | 组件库 | 模型中可复用的功能组件集合 |
+
+### 并行计算术语 | Parallel Computing Terms
+| English | 中文 | 注释 |
+|---------|------|------|
+| MPI进程 | MPI进程 | Message Passing Interface的并行执行单元，优先使用"进程"而非"线程" |
+| OpenMPI | OpenMPI | 开源MPI实现的一种，保留英文专名 |
+| Intel MPI | Intel MPI | Intel公司的MPI实现，保留英文专名 |
+| MPICH | MPICH | MPI的标准实现之一，保留英文专名 |
+| MPICH2 | MPICH2 | MPICH的第二代版本，与MPICH基本同义，保留英文专名 |
+| MVAPICH2 | MVAPICH2 | 基于InfiniBand的MPI实现，保留英文专名 |
+| SCALI | SCALI | 并行计算通信库，保留英文专名 |
+| mpt | mpt | MPI并行传输工具，保留英文专名 |
+
+### 系统配置术语 | System Configuration Terms
+| English | 中文 | 注释 |
+|---------|------|------|
+| MacPorts | MacPorts | macOS系统的包管理器，保留英文专名 |
+| devtoolset-6 | devtoolset-6 | CentOS开发工具集第6版，保留英文专名 |
+| module load | 模块加载命令 | Linux模块系统命令，保留英文不翻译 |
+| SCL | 软件集合 | Software Collections，软件版本管理工具，保留英文缩写 |
+| scl enable | SCL启用命令 | 启用特定软件集合版本的命令，保留英文不翻译 |
+| QSUB_STRING | 作业提交模板字符串 | 用于批量作业系统提交的命令模板，保留英文不翻译 |
+| ESMF | 地球系统建模框架 | Earth System Modeling Framework的缩写，保留简称+中文注释 |
+| checkpoint file | 检查点文件 | 保存模型计算状态的文件，用于重启 |
+| restart file | 重启文件 | 从检查点恢复计算的文件 |
+
+### 模型配置参数 | Model Configuration Parameters
+| English | 中文 | 注释 |
+|---------|------|------|
+| &INPUTZ | 重启与计时参数名录节 | 控制重启和时间的参数节名称，保留原名并中文解释 |
+| master_yr | 主控制年份 | 模型运行的主控年份参数，保留参数名+中文解释 |
+| ghg_yr | 温室气体年份 | 温室气体浓度参考年份参数 |
+| volc_yr | 火山年份 | 火山气溶胶参考年份参数 |
+| *_yr | 各类年份参数 | 各种参考年份参数的通用表示模式 |
+| transient simulation | 瞬态模拟 | 从起始年份到结束年份的时间变化模拟 |
+| JYEAR | 当前模拟年份 | 模型代码中访问当前模拟年份的变量 |
+| *_day | 各类天数参数 | 各种天数相关参数的通用表示模式 |
+| variable_orb_par | 可变轨道参数 | 控制地球轨道参数变化的开关 |
+| orb_par_year_bp | 轨道参数距今年份 | 轨道参数的参考年份（距今年份） |
+
+---
+
+## 13. 翻译质量标准 | Translation Quality Standards
 
 ### 术语一致性规则 | Terminology Consistency Rules
 1. **严格使用标准译名**：所有专业术语必须使用本词典中的标准译名
@@ -324,9 +375,10 @@ This dictionary provides standardized terminology for the ModelE2.1.2_Lazenca pr
 
 ---
 
-**词典版本 | Dictionary Version**: v1.0
+**词典版本 | Dictionary Version**: v1.4
 **创建日期 | Creation Date**: 2025-10-28
 **最后更新 | Last Updated**: 2025-10-28
+**更新内容 | Update Notes**: v1.1添加12个编译和系统配置相关术语；v1.2基于Codex审查结果添加MacPorts、module load、scl enable等5个系统配置术语；v1.3添加MPICH2术语以确保文档与词典一致性；v1.4为Day 2-3任务添加transient simulation、JYEAR等关键参数术语
 **维护者 | Maintainer**: ModelE2.1.2_Lazenca翻译团队
 
 **使用说明 | Usage Notes**:
