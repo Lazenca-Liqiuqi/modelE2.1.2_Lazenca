@@ -1,9 +1,14 @@
 {
 	"mcpServers": {
-		"serena": {
-            "command": "uvx",
-            "args": ["--from", "git+https://github.com/oraios/serena", "serena", "start-mcp-server"]
-        },
+		"sequential-thinking": {
+			"type": "stdio",
+			"command": "npx",
+			"args": [
+				"-y",
+				"@modelcontextprotocol/server-sequential-thinking"
+			],
+			"env": {}
+		},
 		"repomix": {
 			"type": "stdio",
 			"command": "npx",
@@ -74,6 +79,14 @@
 			"args": [
 				"@browsermcp/mcp@latest"
 			]
+		},
+		"codex": {
+			"type": "stdio",
+			"command": "codex",
+			"args": [
+				"mcp-server"
+			],
+			"env": {}
 		}
 	}
 }

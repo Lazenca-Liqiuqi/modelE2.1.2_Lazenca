@@ -3,7 +3,7 @@
 ## 项目基本信息
 
 **项目名称**: ModelE2.1.2_Lazenca - NASA GISS地球系统模型Lazenca分支
-**版本**: v0.0.2 (基于ModelE 2.1.2的独立分支)
+**版本**: v0.1.0 (基于ModelE 2.1.2的独立分支)
 **开发者**: Lazenca (基于NASA GISS ModelE 2.1.2)
 **项目类型**: 大气环流模型(GCM)/地球系统模型
 **主要语言**: Fortran 90/95, 部分C代码
@@ -189,7 +189,7 @@ modelE2.1.2_Lazenca/
 **doc/PROJECT_MEMORY_INDEX.md** - Project memory system index and usage guide
 
 ### 当前项目状态 | Current Project Status
-- **版本信息 | Version Information**: ModelE2.1.2_Lazenca v0.0.2 (基于 ModelE 2.1.2)
+- **版本信息 | Version Information**: ModelE2.1.2_Lazenca v0.1.0 (基于 ModelE 2.1.2)
 - **文档系统 | Documentation System**: 段落级中英对照格式，支持连续阅读
 **Documentation System**: Paragraph-level bilingual format, supporting continuous reading
 - **维护状态 | Maintenance Status**: 活跃维护，文档系统持续完善
@@ -209,6 +209,12 @@ modelE2.1.2_Lazenca/
 **In-depth code analysis and architecture assessment**
 4. **知识组织 | Knowledge Organization** - 系统性信息管理和检索
 **Systematic information management and retrieval**
+5. **翻译项目规划 | Translation Project Planning** - 全面翻译计划制定
+**Comprehensive translation project planning for 620+ files**
+6. **任务管理系统 | Task Management System** - shrimp task manager配置
+**shrimp task manager configuration with 18 detailed tasks**
+7. **翻译策略制定 | Translation Strategy Development** - 中英对照格式确立
+**Bilingual translation format establishment and quality control system**
 
 ---
 
