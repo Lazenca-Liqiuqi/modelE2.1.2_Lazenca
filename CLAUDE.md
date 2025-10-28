@@ -3,7 +3,7 @@
 ## 项目基本信息
 
 **项目名称**: ModelE2.1.2_Lazenca - NASA GISS地球系统模型Lazenca分支
-**版本**: v0.1.1 (基于ModelE 2.1.2的独立分支)
+**版本**: v0.1.2 (基于ModelE 2.1.2的独立分支)
 **开发者**: Lazenca (基于NASA GISS ModelE 2.1.2)
 **项目类型**: 大气环流模型(GCM)/地球系统模型
 **主要语言**: Fortran 90/95, 部分C代码
@@ -38,10 +38,10 @@ modelE2.1.2_Lazenca/
 ├── config/         # 编译配置文件
 ├── decks/          # 运行配置目录
 ├── doc/           # 文档目录
-├── aux/           # 辅助程序
+├── _aux/          # 辅助程序
 ├── exec/          # 执行脚本
 ├── init_cond/     # 初始条件
-├── diags/         # 诊断工具
+├── diags/         # 诊断输出
 └── tests/         # 测试文件
 ```
 
@@ -234,10 +234,11 @@ modelE2.1.2_Lazenca/
 - **已完成任务 | Completed Tasks**:
   - 项目启动与规划（18个任务规划完成）
   - 阶段0：术语词典与工具配置（翻译基础设施完成）
-- **下一阶段 | Next Phase**: 阶段1.1 - UserGuide核心文档翻译（编译和运行指南）
-**Phase 1.1: UserGuide Core Document Translation (Compiling and Running Guide)**
-- **总体进度 | Overall Progress**: 2/18个任务完成（11.1%）
-**2/18 tasks completed (11.1%)**
+  - 阶段1.1：根目录文件翻译（README.md、Makefile、modele-control.pyar）- Codex审查评分95/100
+- **下一阶段 | Next Phase**: 阶段1.2 - UserGuide核心文档翻译（编译和运行指南）
+**Phase 1.2: UserGuide Core Document Translation (Compiling and Running Guide)**
+- **总体进度 | Overall Progress**: 3/18个任务完成（16.7%）
+**3/18 tasks completed (16.7%)**
 
 ---
 

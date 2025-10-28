@@ -30,7 +30,7 @@
 ```
 modelE2.1.2_Lazenca
 ├── 📁 model/          # 核心模型源代码 | Core GCM model source code
-├── 📁 aux/            # 辅助程序（预处理/后处理） | Auxiliary programs (pre/post-processing)
+├── 📁 _aux/           # 辅助程序（预处理/后处理） | Auxiliary programs (pre/post-processing)
 ├── 📁 exec/           # 编译和设置脚本 | Compilation and setup scripts
 ├── 📁 doc/            # 文档目录 | Documentation directory
 ├── 📁 decks/          # 运行配置目录 | Rundecks directory
@@ -39,7 +39,7 @@ modelE2.1.2_Lazenca
 │   └── 🔗 <run_name_1>          # 运行目录链接 | Run directory link
 ├── 📁 config/         # 配置文件 | Configuration files
 ├── 📁 init_cond/      # 初始条件 | Initial conditions
-├── 📁 diags/          # 诊断工具 | Diagnostic tools
+├── 📁 diags/          # 诊断输出 | Diagnostic output
 └── 📁 tests/          # 测试文件 | Test files
 ```
 
@@ -53,7 +53,9 @@ modelE2.1.2_Lazenca
 
 ```bash
 # 配置系统（以 gfortran 为例）
-make config COMPILER=gfortran ModelE_Support=$HOME/ModelE_Support
+# 注意：推荐使用 gmake，如果系统只支持 make 也可以使用
+# Note: Recommend using gmake; if your system only supports make, that works too
+gmake config COMPILER=gfortran ModelE_Support=$HOME/ModelE_Support
 ```
 
 **此命令会 | This command will**:
@@ -197,8 +199,8 @@ This project has a complete modernized documentation system with paragraph-level
    - Before running any other commands, must first create rundeck using `gmake rundeck RUN=run_name`
 
 2. **二进制文件位置 | Binary Files Location**
-   - 所有由 `make` 创建的二进制文件都存储在 `/decks/run_name.bin` 中
-   - All binaries created by `make` are stored in `/decks/run_name.bin`
+   - 所有由 `gmake` 创建的二进制文件都存储在 `decks/<RUN>_bin/` 中
+   - All binaries created by `gmake` are stored in `decks/<RUN>_bin/`
 
 3. **配置文件编辑 | Configuration File Editing**
    - 务必编辑 `~/.modelErc` 文件以正确设置编译选项和路径

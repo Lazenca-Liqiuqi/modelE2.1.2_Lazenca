@@ -1,49 +1,56 @@
 ======================== FILE ./CMakeLists.txt
 FILE: ./CMakeLists.txt
 # ------------------------------------------------------------------------ #
-# modelE cmake setup
+# modelE cmake setup | modelE CMake 设置
 # ------------------------------------------------------------------------ #
 #
-# Usage: cmake -DRUN=<modelE run> /path/to/my/repo [optional arguments]  
+# Usage: cmake -DRUN=<modelE run> /path/to/my/repo [optional arguments]
+# 使用方法: cmake -DRUN=<modelE 运行配置> /path/to/my/repo [可选参数]
 #
-# Required argument:
+# Required argument | 必需参数:
 #
-#	-DRUN=<modelE run>
-#       /path/to/my/repo
+#	-DRUN=<modelE run> | -DRUN=<modelE 运行配置>
+#       /path/to/my/repo | /path/to/my/repo (仓库路径)
 #
-# Optional arguments (when possible a default is assigned):
+# Optional arguments (when possible a default is assigned) | 可选参数 (尽可能分配默认值):
 #
-# 	-DCMAKE_CXX_COMPILER=<c++ compiler> (default is system's compiler)
-#	-DCMAKE_C_COMPILER=<c compiler> (default is system's)
-#	-DCMAKE_Fortran_COMPILER=<fortran compiler> (default is system's)
-#	-DCMAKE_BUILD_TYPE=Debug (or Release)
-#	-DCOMPILE_WITH_TRAPS=NO (or YES)
-#	-DCOMPILE_IC=NO (or YES to compile init_cond directory)
-#	-DCOMPILE_DIAGS=NO (or YES to compile mk_diags directory)
-#	-DCOMPILE_AUX=NO (or YES to compile aux directory)
-#	-DMPI=YES (or NO)
-#	-DRUNSRC=<modelE template> (default is none)
-#       -DMODEL_DECKS_DIR=/path/to/my/decks (default is none)
+# 	-DCMAKE_CXX_COMPILER=<c++ compiler> (default is system's compiler) | C++编译器 (默认系统编译器)
+#	-DCMAKE_C_COMPILER=<c compiler> (default is system's) | C编译器 (默认系统编译器)
+#	-DCMAKE_Fortran_COMPILER=<fortran compiler> (default is system's) | Fortran编译器 (默认系统编译器)
+#	-DCMAKE_BUILD_TYPE=Debug (or Release) | 构建类型：调试版本或发布版本
+#	-DCOMPILE_WITH_TRAPS=NO (or YES) | 是否启用异常陷阱（浮点异常捕获）
+#	-DCOMPILE_IC=NO (or YES to compile init_cond directory) | 是否编译初始条件目录
+#	-DCOMPILE_DIAGS=NO (or YES to compile mk_diags directory) | 是否编译诊断输出目录
+#	-DCOMPILE_AUX=NO (or YES to compile auxiliary programs directory (_aux)) | 是否编译辅助程序目录(_aux)
+#	-DMPI=YES (or NO) | 是否启用MPI并行
+#	-DRUNSRC=<modelE template> (default is none) | Rundeck模板（运行配置模板）(默认无)
+#       -DMODEL_DECKS_DIR=/path/to/my/decks (default is none) | 模型运行配置目录路径 (默认无)
 #
-# NOTE: RUN must be specified with full path.
+# NOTE: RUN can be a filename (created in current build directory) or an absolute path.
+# If -DMODEL_DECKS_DIR is specified, it will be created in that directory.
+# 注意：RUN可为文件名（在当前build目录生成），也可为绝对路径；若指定-DMODEL_DECKS_DIR则在该目录下创建。
 #
-# Examples:
+# Examples | 示例:
 #
-#  Run cmake in a temporary directory: 
+#  Run cmake in a temporary directory | 在临时目录中运行cmake:
 #
 #    1) cmake -DRUN=/path/my/decks/ef40cc.R /path/to/my/repo
 #
 #    Uses specified e4f40cc.R rundeck using source code in /path/to/my/repo
+#    使用指定的 e4f40cc.R 运行配置，源代码位于 /path/to/my/repo
 #
 #  It is common to create a "build" subdirectory in the source directory ,
 #  cd to it and run cmake as follows:
+#  通常在源代码目录中创建"build"子目录，进入后运行cmake，如下所示：
 #
 #    2) cmake -DRUN=e4f0.R -DRUNSRC=E4F40.R ..
 #
 #    Creates e4f0.R rundeck in current directory using the specified template.
+#    在当前目录中使用指定模板创建 e4f0.R 运行配置。
 #
-#  If you want to store or share your rundeck, specify where it should be 
+#  If you want to store or share your rundeck, specify where it should be
 #  created using the MODEL_DECKS_DIR option:
+#  如果要存储或共享运行配置，使用 MODEL_DECKS_DIR 选项指定创建位置：
 #
 #    3) cmake -DMODEL_DECKS_DIR=/path/to/my/decks -DRUN=e4f0.R -DRUNSRC=E4F40.R ..
 #
