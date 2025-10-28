@@ -7,7 +7,10 @@
       "Skill(项目记忆)",
       "mcp__repomix__pack_codebase",
       "mcp__shrimp-task-manager__split_tasks",
-      "mcp__shrimp-task-manager__get_task_detail"
+      "mcp__shrimp-task-manager__get_task_detail",
+      "mcp__shrimp-task-manager__verify_task",
+      "mcp__shrimp-task-manager__list_tasks",
+      "Bash(python:*)"
     ],
     "deny": [],
     "ask": []
