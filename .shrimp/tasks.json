@@ -80,17 +80,17 @@
     },
     {
       "id": "9812be88-dba4-4dc5-a6e6-63928e3a7207",
-      "name": "阶段1.1：UserGuide核心文档翻译 - 编译和运行指南",
+      "name": "阶段1.2：UserGuide核心文档翻译 - 编译和运行指南",
       "description": "翻译UserGuide目录下最关键的8个文档：Compiling_the_model.html、Configuring_modelE_on_your_machine.html、Running_the_model.html、System_requirements.html、Installing_NetCDF_library.html、Creating_a_rundeck.html、ModelE_rundeck.html、Major_rundeck_parameters.html。",
       "notes": "这8个文档是用户上手必须掌握的内容，优先级最高",
       "status": "pending",
       "dependencies": [
         {
-          "taskId": "d66b86dc-81bf-4487-846c-3204761cdf4c"
+          "taskId": "4d37bdcd-26c9-4d41-af54-6e82637006c0"
         }
       ],
       "createdAt": "2025-10-28T11:43:42.130Z",
-      "updatedAt": "2025-10-28T11:43:42.130Z",
+      "updatedAt": "2025-10-28T12:14:21.550Z",
       "relatedFiles": [
         {
           "path": "doc/UserGuide/Compiling_the_model.html",
@@ -119,7 +119,7 @@
     },
     {
       "id": "8f8ba8d2-32b3-4377-b08a-7111b0aa2126",
-      "name": "阶段1.2：UserGuide辅助文档翻译 - 工具和诊断指南",
+      "name": "阶段1.3：UserGuide辅助文档翻译 - 工具和诊断指南",
       "description": "翻译UserGuide目录下剩余的12个文档：index.html、Getting_the_code_form_GISS_repository.html、Downloading_necessary_input_files.html、diagnostics.html、Tracer_Preprocessor_Options.html、Tracer_Rundeck_Parameters.html、Vegetation_Guide.html以及其他辅助文档。",
       "notes": "完成UserGuide的完整翻译，为用户提供全面的使用指导",
       "status": "pending",
@@ -129,7 +129,7 @@
         }
       ],
       "createdAt": "2025-10-28T11:43:42.130Z",
-      "updatedAt": "2025-10-28T11:43:42.130Z",
+      "updatedAt": "2025-10-28T12:17:34.805Z",
       "relatedFiles": [
         {
           "path": "doc/UserGuide/index.html",
@@ -525,17 +525,17 @@
     },
     {
       "id": "4d37bdcd-26c9-4d41-af54-6e82637006c0",
-      "name": "阶段1：根目录文件翻译 - README、Makefile和配置文件",
+      "name": "阶段1.1：根目录文件翻译 - README、Makefile和配置文件",
       "description": "翻译项目根目录下的关键文件，包括README.md（完善中英对照内容）、主Makefile（翻译help信息和构建注释）、modele-control.pyar（CMake配置说明翻译），确保用户从项目入口就能获得完整的中文支持。",
       "notes": "根目录文件是用户接触项目的第一印象，需要最优先确保中英对照的完整性和准确性",
-      "status": "pending",
+      "status": "completed",
       "dependencies": [
         {
           "taskId": "d66b86dc-81bf-4487-846c-3204761cdf4c"
         }
       ],
       "createdAt": "2025-10-28T11:46:33.525Z",
-      "updatedAt": "2025-10-28T11:46:33.525Z",
+      "updatedAt": "2025-10-28T12:26:59.506Z",
       "relatedFiles": [
         {
           "path": "README.md",
@@ -555,7 +555,9 @@
       ],
       "implementationGuide": "1. 完善README.md的中英对照内容，确保项目介绍和使用指南完整准确\n2. 翻译Makefile中的help信息、默认目标说明、更新流程注释\n3. 翻译modele-control.pyar中的CMake配置说明和参数注释\n4. 确保根目录文件格式统一，信息一致\n5. 验证根目录文件的实用性和可读性",
       "verificationCriteria": "根目录文件翻译完成，README中英对照完整，Makefile帮助信息可读，项目第一印象友好度≥95%",
-      "analysisResult": "添加根目录文件翻译任务，确保项目入口的完整中文支持，这是用户接触项目的第一印象。"
+      "analysisResult": "添加根目录文件翻译任务，确保项目入口的完整中文支持，这是用户接触项目的第一印象。",
+      "summary": "阶段1.1根目录文件翻译任务已全面完成：\n1. README.md - 已检查，文件本身就有完整的中英对照内容，格式规范，信息全面\n2. 主Makefile - 已翻译help信息和构建注释，添加了完整的中英对照说明，包括默认目标、help命令和完整的CVS更新流程说明\n3. modele-control.pyar - 已翻译CMake配置说明，包含了使用方法、必需参数、可选参数和实用示例的完整中英对照\n\n所有根目录关键文件现在都提供了友好的中文支持，用户从项目入口就能获得完整的中英对照指导。项目第一印象友好度达到预期标准。",
+      "completedAt": "2025-10-28T12:26:59.503Z"
     }
   ]
 }

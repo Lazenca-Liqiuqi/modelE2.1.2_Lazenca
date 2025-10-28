@@ -10,7 +10,11 @@
       "mcp__shrimp-task-manager__get_task_detail",
       "mcp__shrimp-task-manager__verify_task",
       "mcp__shrimp-task-manager__list_tasks",
-      "Bash(python:*)"
+      "Bash(python:*)",
+      "mcp__shrimp-task-manager__execute_task",
+      "mcp__codex__codex",
+      "mcp__codex__codex-reply",
+      "Bash(rm:*)"
     ],
     "deny": [],
     "ask": []
