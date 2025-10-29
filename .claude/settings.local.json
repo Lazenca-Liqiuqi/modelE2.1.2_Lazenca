@@ -25,7 +25,8 @@
       "Bash(do:*)",
       "Bash(ls:*)",
       "Bash(done)",
-      "Bash(git commit:*)"
+      "Bash(git commit:*)",
+      "Bash(git merge:*)"
     ],
     "deny": [],
     "ask": []
