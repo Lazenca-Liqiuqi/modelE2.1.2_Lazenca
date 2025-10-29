@@ -19,7 +19,12 @@
       "Bash(grep:*)",
       "Bash(git worktree add:*)",
       "Bash(git worktree:*)",
-      "Bash(mcp__shrimp-task-manager__list_tasks:*)"
+      "Bash(mcp__shrimp-task-manager__list_tasks:*)",
+      "Bash(git branch:*)",
+      "Bash(for:*)",
+      "Bash(do:*)",
+      "Bash(ls:*)",
+      "Bash(done)"
     ],
     "deny": [],
     "ask": []
