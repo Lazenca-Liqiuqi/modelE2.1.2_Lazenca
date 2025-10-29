@@ -76,24 +76,17 @@
       "status": "in_progress",
       "dependencies": [],
       "createdAt": "2025-10-28T14:44:17.886Z",
-      "updatedAt": "2025-10-29T05:33:33.792Z",
+      "updatedAt": "2025-10-29T14:23:45.411Z",
       "relatedFiles": [
         {
-          "path": "doc/UserGuide/ModelE_rundeck.html",
+          "path": "docs/user-guide/ModelE_rundeck.md",
           "type": "TO_MODIFY",
-          "description": "运行配置详解，包含rundeck结构、Object modules、Components等高复杂度内容",
-          "lineStart": 1,
-          "lineEnd": 200
+          "description": "ModelE rundeck配置详解文档，涵盖9个核心section"
         },
         {
-          "path": ".claude/terminology-dictionary.md",
+          "path": ".claude/review-report-rundeck-details.md",
           "type": "REFERENCE",
-          "description": "术语词典v1.4，确保配置相关术语一致性"
-        },
-        {
-          "path": ".claude/html-markdown-conversion-rules.md",
-          "type": "REFERENCE",
-          "description": "HTML到Markdown转换规则"
+          "description": "Task3四道闸质量检查报告"
         }
       ],
       "implementationGuide": "1. 使用现有的HTML到Markdown转换规则\n2. 严格遵循术语词典v1.4确保术语一致性\n3. 重点处理rundeck结构的9个核心section\n4. 保持所有配置参数名称和格式的100%保真\n5. 应用段落级中英对照格式\n6. 执行四道闸质量检查：结构闸、保真闸、术语闸、链接闸\n7. 确保配置概念与编译运行文档的一致性",
@@ -108,24 +101,12 @@
       "status": "pending",
       "dependencies": [],
       "createdAt": "2025-10-28T14:44:17.886Z",
-      "updatedAt": "2025-10-28T14:44:17.886Z",
+      "updatedAt": "2025-10-29T08:24:44.326Z",
       "relatedFiles": [
         {
-          "path": "doc/UserGuide/Major_rundeck_parameters.html",
+          "path": "docs/user-guide/Major_rundeck_parameters.md",
           "type": "TO_MODIFY",
-          "description": "主要参数详解，包含master_yr、transient simulation等最高复杂度内容",
-          "lineStart": 1,
-          "lineEnd": 250
-        },
-        {
-          "path": ".claude/terminology-dictionary.md",
-          "type": "REFERENCE",
-          "description": "术语词典v1.4，确保参数相关术语一致性"
-        },
-        {
-          "path": ".claude/html-markdown-conversion-rules.md",
-          "type": "REFERENCE",
-          "description": "HTML到Markdown转换规则"
+          "description": "Major rundeck参数详解文档，包含高级参数配置"
         }
       ],
       "implementationGuide": "1. 使用现有的HTML到Markdown转换规则\n2. 严格遵循术语词典v1.4确保术语一致性\n3. 重点处理年份配置、变量含义、模拟模式等高级概念\n4. 保持所有参数名称、变量名、格式的100%保真\n5. 应用段落级中英对照格式\n6. 执行四道闸质量检查：结构闸、保真闸、术语闸、链接闸\n7. 提供详细的参数使用示例和说明\n8. 确保参数术语与前面文档的一致性",
