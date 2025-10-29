@@ -39,7 +39,11 @@
       "Bash(if [ ! -f \"$mdfile\" ])",
       "Bash(while read:*)",
       "mcp__shrimp-task-manager__delete_task",
-      "mcp__shrimp-task-manager__query_task"
+      "mcp__shrimp-task-manager__query_task",
+      "Bash(awk:*)",
+      "Bash([ \"$file\" != \"placeholder.html\" ])",
+      "Bash([:*)",
+      "Bash(then wc -l \"$file\")"
     ],
     "deny": [],
     "ask": []
