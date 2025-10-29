@@ -1,0 +1,70 @@
+# Adding information for automatic documentation
+# 为自动化文档添加信息
+
+**We are using a special format for adding in-line documentation inside the modelE source code. This serves two purposes. First, users know where to look for important information. Second, we are using an automatic documentation system which can process such specially formatted comments and generate an online documentation.**
+我们在ModelE源代码中采用一种特殊格式来添加内联文档。其目的有二：其一，便于用户定位重要信息；其二，自动文档系统可解析这些特殊格式的注释并生成在线文档。
+
+**Each line of such comments should start from one of the following special tags:**
+这些注释的每一行都应以以下特殊标签之一开头：
+
+```text
+!@sum     Brief summary/description of the current program unit or file
+!@auth    Author (if known)
+!@ver     Version (if relevant)
+!@var     <name> Describes a variable (in the FORTRAN sense)
+!@param   <name> Describes a parameter (in the FORTRAN sense)
+!@dbparam <name> Describes a database parameter (in the modelE sense)
+!@nlparam <name> Describes a NAMELIST parameter (in the modelE sense)
+!@+       Continuation line
+```
+
+**标签说明：**
+- `!@sum` - 当前程序单元或文件的简要概述/说明
+- `!@auth` - 作者（若已知）
+- `!@ver` - 版本（如相关）
+- `!@var` <名称> - 变量说明（Fortran意义）
+- `!@param` <名称> - 参数说明（Fortran意义）
+- `!@dbparam` <名称> - 数据库参数说明（ModelE特定）
+- `!@nlparam` <名称> - NAMELIST参数说明（ModelE特定）
+- `!@+` - 续行标记
+
+**We require that each module, each subroutine and each function are given a brief summary which describes their functionality. This should be done by adding a line immediately after their declaration which starts from `!@sum` (written from the first position) and which provides such description. If description consists of more than one line a continuation tag `!@+` should be put at the beginning of each new line. When author (or authors) is known his/her name should be included on a line which starts from `!@auth` and immediately follows the summary. If the entire module was written primarily by the same author, it is enough to mention his/her name at the beginning of the module and not to include it with each subroutine or function. Version tag `!@ver` proved to be not very informative and you don't need to use it unless you have a reason to explicitly mention the version of a particular piece of code in the documentation.**
+我们要求每个模块、每个子程序和每个函数都提供简要概述，说明其功能。这应在声明后立即添加一行以`!@sum`（从第一列开始）开头的注释来提供描述。如果描述超过一行，应在每个新行开头放置续行标记`!@+`。当作者（或多位作者）已知时，其姓名应包含在以`!@auth`开头的行中，并紧随概述之后。如果整个模块主要由同一作者编写，只需在模块开头提及作者姓名，无需在每个子程序或函数中重复。版本标签`!@ver`被证明信息量不大，除非有明确理由需要在文档中提及特定代码片段的版本，否则无需使用。
+
+**Each global module variable and each argument in declaration of function or subroutine should be described using `!@var` tag. This can be done either on a separate line which starts from `!@var` immediately followed by the variable name and then by its description, or one can include a description on the same line the variable is declared (if declaration contains only one variable). In latter case one should not include the variable name after `!@var`. The description of each variable should include its physical units.**
+每个全局模块变量和函数或子程序声明中的每个参数都应使用`!@var`标签进行描述。可以在以`!@var`开头的独立行中，紧接着变量名然后是其描述；或者，如果声明只包含一个变量，可以在变量声明的同一行中包含描述。在后一种情况下，`!@var`后不应包含变量名。每个变量的描述都应包含其物理单位。
+
+**There are two types of variables for which one has to use different tags: the ones which are defined in the rundeck in the "parameters" and namelist sections. These should be described using `!@dbparam` and `!@nlparam` respectively (instead of `!@var`).**
+有两种类型的变量需要使用不同的标签：在运行配置的"parameters"和namelist部分中定义的变量。这些变量应分别使用`!@dbparam`和`!@nlparam`进行描述（而不是`!@var`）。
+
+**Example:**
+**示例：**
+
+```fortran
+      module ghy
+!@sum This module contains ground hydrology routines.
+!@+   Most of its functionality is described in Abramopoulos 1988 paper.
+!@auth John Smith
+
+!@var asnsh sensible heat accumulated over the time step (J)
+      real*8 :: asnsh
+!@dbparam max_snow maximal allowed snow thickness from rundeck (m)
+      real*8 :: max_snow
+
+      contains
+      subroutine advnc(dt, w, ht)
+!@sum advances ground prognostic variables one time step
+      real*8 :: dt    !@var time step (s)
+      real*8 :: w(:)  !@var soil layer water content (m)
+      real*8 :: ht(:) !@var soil layer heat content (J)
+      ...........................
+      end subroutine advnc
+      end module ghy
+```
+
+**代码说明：**
+- `!@sum` - 模块功能概述
+- `!@+` - 续行标记，提供补充说明
+- `!@auth` - 作者信息
+- `!@var` - 变量说明（包含物理单位）
+- `!@dbparam` - 运行配置数据库参数说明
