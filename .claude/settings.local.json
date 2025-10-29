@@ -37,7 +37,9 @@
       "Bash(wc:*)",
       "Bash(fi:*)",
       "Bash(if [ ! -f \"$mdfile\" ])",
-      "Bash(while read:*)"
+      "Bash(while read:*)",
+      "mcp__shrimp-task-manager__delete_task",
+      "mcp__shrimp-task-manager__query_task"
     ],
     "deny": [],
     "ask": []
