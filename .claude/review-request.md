@@ -1,38 +1,47 @@
-# 运行指南翻译深度审查请求
+# 全面审查请求：4个并行翻译任务
 
 ## 审查目标
-对Running_the_model.html运行指南翻译进行全面深度审查，确保翻译质量和用户可用性。
+
+请对ModelE2.1.2_Lazenca项目阶段1.2的4个并行UserGuide翻译任务进行全面深度审查。
+
+## 任务背景
+
+### 项目概览
+- **项目名称**: ModelE2.1.2_Lazenca - NASA GISS地球系统模型Lazenca分支
+- **任务阶段**: 阶段1.2 - UserGuide核心文档翻译
+- **翻译目标**: 将4个核心UserGuide HTML文档翻译为中英对照Markdown格式
+
+### 4个并行任务
+1. **任务1 - 编译指南翻译**: Compiling_the_model.html
+2. **任务2 - 运行指南翻译**: Running_the_model.html
+3. **任务3 - 配置详解翻译**: ModelE_rundeck.html
+4. **任务4 - 参数详解翻译**: Major_rundeck_parameters.html
 
 ## 审查范围
-- 翻译文档：doc/UserGuide/Running_the_model.html
-- 翻译内容：模型运行指南，包含runE脚本使用、检查点文件管理、批处理作业、MPI线程配置、运行时间控制等核心内容
-- 翻译格式：中英对照叠放模式，原文在上，译文在下
 
-## 需求完整性分析 - 审查清单
+### 1. 任务设计质量审查
+- 任务独立性评估
+- 依赖关系合理性
+- 任务分解完整性
+- 工作量分配合理性
 
-### 目标验证
-- 验证4个UserGuide核心文档的翻译质量和完整性
-- 评估建立的翻译基础设施的有效性
-- 确认四道闸质量检查机制的可靠性
-- 为后续Day 2-3的高复杂度文档提供质量基准
+### 2. 翻译基础设施审查
+- 术语词典v1.4完备性
+- HTML到Markdown转换规则质量
+- 四道闸质量检查机制有效性
+- 并行工作环境设计
 
-### 范围界定
-**翻译文档清单**:
-1. System_requirements.md - 系统要求
-2. Installing_NetCDF_library.md - NetCDF安装指南
-3. Configuring_modelE_on_your_machine.md - 机器配置指南
-4. Creating_a_rundeck.md - 运行配置创建指南
+### 3. 执行过程质量审查
+- Git worktree管理规范性
+- 分支策略合理性
+- 冲突处理质量
+- 提交信息规范性
 
-**基础设施文件**:
-- terminology-dictionary.md (v1.1) - 术语词典
-- html-markdown-conversion-rules.md - 转换规则
-- analyze-report.md - Codex分析报告
-
-### 交付物完整性
-- 4个中英对照Markdown文档
-- 完整的质量检查记录
-- 标准化的翻译规则和术语词典
-- 可复用的质量检查机制
+### 4. 成果整合质量审查
+- 合并策略有效性
+- 冲突解决方案
+- 最终状态完整性
+- 项目环境整洁度
 
 ### 审查要点和验收标准
 **技术维度审查要点**:
