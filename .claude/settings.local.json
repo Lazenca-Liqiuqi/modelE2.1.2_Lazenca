@@ -27,7 +27,12 @@
       "Bash(done)",
       "Bash(git commit:*)",
       "Bash(git merge:*)",
-      "Read(//d/data/project/**)"
+      "Read(//d/data/project/**)",
+      "mcp__repomix__file_system_read_directory",
+      "Bash(git mv:*)",
+      "Bash(git reset:*)",
+      "mcp__shrimp-task-manager__update_task",
+      "Bash(git tag:*)"
     ],
     "deny": [],
     "ask": []

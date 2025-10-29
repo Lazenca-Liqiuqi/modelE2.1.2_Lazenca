@@ -3,7 +3,7 @@
 ## 项目基本信息
 
 **项目名称**: ModelE2.1.2_Lazenca - NASA GISS地球系统模型Lazenca分支
-**版本**: v0.1.2 (基于ModelE 2.1.2的独立分支)
+**版本**: v0.1.3 (基于ModelE 2.1.2的独立分支)
 **开发者**: Lazenca (基于NASA GISS ModelE 2.1.2)
 **项目类型**: 大气环流模型(GCM)/地球系统模型
 **主要语言**: Fortran 90/95, 部分C代码
@@ -189,7 +189,7 @@ modelE2.1.2_Lazenca/
 **doc/PROJECT_MEMORY_INDEX.md** - Project memory system index and usage guide
 
 ### 当前项目状态 | Current Project Status
-- **版本信息 | Version Information**: ModelE2.1.2_Lazenca v0.1.1 (基于 ModelE 2.1.2)
+- **版本信息 | Version Information**: ModelE2.1.2_Lazenca v0.1.3 (基于 ModelE 2.1.2)
 - **文档系统 | Documentation System**: 段落级中英对照格式，支持连续阅读
 **Documentation System**: Paragraph-level bilingual format, supporting continuous reading
 - **维护状态 | Maintenance Status**: 活跃维护，文档系统持续完善
@@ -235,10 +235,11 @@ modelE2.1.2_Lazenca/
   - 项目启动与规划（18个任务规划完成）
   - 阶段0：术语词典与工具配置（翻译基础设施完成）
   - 阶段1.1：根目录文件翻译（README.md、Makefile、modele-control.pyar）- Codex审查评分95/100
-- **下一阶段 | Next Phase**: 阶段1.2 - UserGuide核心文档翻译（编译和运行指南）
-**Phase 1.2: UserGuide Core Document Translation (Compiling and Running Guide)**
-- **总体进度 | Overall Progress**: 3/18个任务完成（16.7%）
-**3/18 tasks completed (16.7%)**
+  - 阶段1.2：4个核心UserGuide文档翻译（编译指南、运行指南、配置详解、参数详解）- Codex审查平均分96.5+
+- **下一阶段 | Next Phase**: 阶段1.3 - UserGuide辅助文档翻译（12个辅助工具文档）
+**Phase 1.3: UserGuide Auxiliary Document Translation (12 auxiliary tool documents)**
+- **总体进度 | Overall Progress**: 7/20个任务完成（35%）
+**7/20 tasks completed (35%)**
 
 ---
 
