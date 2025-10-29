@@ -23,7 +23,7 @@
 ```
 
 **Normally, once the model is compiled and before you start a long run, you want to perform a "cold start", i.e. you want to start your simulations from initial conditions, run the model for 1 hour of model time and save its state into a checkpoint file (restart file). This can be done with a command**
-通常，一旦模型编译完成，在开始长时间运行之前，您需要执行"冷启动"，即您想从初始条件开始模拟，运行模型1小时的模型时间，并将其状态保存到检查点文件（重启文件）中。这可以通过以下命令完成：
+通常，一旦模型编译完成，在开始长时间运行之前，您需要执行"冷启动"，即您想从初始条件开始模拟，运行模型1小时的模型时间，并将其状态保存到检查点文件中。这可以通过以下命令完成：
 
 ```bash
     ../exec/runE <RunID> -np <NP> -cold-restart
