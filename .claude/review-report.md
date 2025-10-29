@@ -1,96 +1,119 @@
-# ModelE 用户指南快速入门翻译项目（阶段1.3.3）二次深度复审报告
+# ModelE 用户指南快速入门翻译项目最终审查报告
 
-- 审查时间：2025-10-29 22:30
-- 审查范围：doc/UserGuide/index.md、doc/UserGuide/Getting_the_code_form_GISS_repository.md、doc/UserGuide/Downloading_necessary_input_files.md（3个纯Markdown文档）
-- 审查方法：逐文档对照检视、链接有效性扫描（_zh.md）、术语一致性检查、结构与可读性评估、关键行证据引用
-- 审查人：Codex 审查AI
+- **复审时间**：2025-10-29 22:30
+- **复审范围**：doc/UserGuide/index.md、doc/UserGuide/Getting_the_code_form_GISS_repository.md、doc/UserGuide/Downloading_necessary_input_files.md（3个修复后文档）
+- **复审方法**：修复内容验证、链接有效性检查、术语一致性检查、用户体验评估
+- **复审人**：Codex 审查AI（第二次复审）
 
 ## 总体结论与建议
-- 结论：退回（关键项“链接有效性”未满足，需小范围修正后复审）
-- 亮点提升：
-  - 链接策略统一：index.md 内部链接已从 `_zh.html` 全面切换为 `_zh.md`（形式一致性达成）。
-  - 技术准确性修复：`username_on_simplex` 已统一（doc/UserGuide/Getting_the_code_form_GISS_repository.md:9,12,14）。
-  - 术语统一性（Rundeck）：下载页已统一为“运行配置（Rundeck）”（doc/UserGuide/Downloading_necessary_input_files.md:12,20）。
-  - 结构优化：index.md 已改为单 H1，目录条目提供中英对照（使用“｜”）。
-- 主要阻塞：
-  - 链接有效性未达成：index.md 中指向 `_zh.md` 的目标文件在仓库中普遍不存在（如 Getting_the_code_form_GISS_repository_zh.md 等），导致大量死链，违背本轮复审“确认所有 _zh.md 链接有效”的硬性校验要求。
+- **结论**：退回（需完成链接有效性收尾工作后再最终验收）
+- **主要原因**：链接策略已正确统一为 `.md` 格式，但目录中大量链接指向仓库不存在的 `_zh.md` 文件，存在显著的链接失效风险（参考 doc/UserGuide/index.md:12-29）。
+- **改进幅度**：三项关键技术问题（命令拼写、术语大小写、文档结构）均已修复，与首次审查相比有明显提升。
 
 ## 评分详情
-- 技术维度（0-100）：82
-  - 依据：命令与术语关键缺陷已修复；结构语义规范改善显著；但目录内链接目标文件缺失造成可操作性重大折损（死链）。
-- 战略维度（0-100）：79
-  - 依据：链接命名策略与产物（实际存在文件）未对齐；短期可通过小改修复，但在发布与演进路径（命名约定、迁移计划、CI 链接校验）上仍需定稿。
-- 综合评分（0-100）：81
-- 验收建议：退回（需完成链接有效性收尾后再行验收）。
+- **技术维度评分（0-100）：82
+  - 依据：Markdown 语法与代码块规范良好；HTML 标签清除到位；但链接策略与实体不匹配（链接指向不存在的文件）是主要扣分项。
+- **战略维度评分（0-100）：79
+  - 依据：基本满足快速入门阶段的内容目标与风格基线；但链接有效性问题严重影响可用性，且目录条目中英文对照的改进需要与实际文件状态保持同步。
+- **综合评分（0-100）：81
+- **建议**：退回（先完成链接有效性收尾工作，后再次复审可达85-90分）
 
 ## 修复验证（逐项）
-1) 链接策略统一（_zh.html → _zh.md）
-- 结论：形式统一“通过”，但“有效性”不通过。
-- 证据：
-  - index.md 已统一为 `_zh.md`（见 doc/UserGuide/index.md:12-29, 45-72）。
-  - 但以下目标文件不存在（举例）：
-    - doc/UserGuide/Getting_the_code_form_GISS_repository_zh.md（引用位置：doc/UserGuide/index.md:14）
-    - doc/UserGuide/System_requirements_zh.md（引用位置：doc/UserGuide/index.md:13）
-    - doc/UserGuide/diagnostics_zh.md（引用位置：doc/UserGuide/index.md:45）
-    - 上级链接 ../ModelDescription/index_zh.md 所指目录不存在（doc/UserGuide/index.md:5,7）。
+1. 纯Markdown格式、HTML标签清除：通过（3/3）
+2. 中英对照格式（去除"【中文翻译】）：基本通过；index.md 的目录条目已提供中文对照，链接条目清晰。
+3. 技术内容100%准确（命令、URL、代码）：通过（`username_on_simplex` 修复，其他内容均未修改）。
+4. 术语与词典v1.4一致：通过（本复审范围内"运行配置（Rundeck）"已统一；"ModelE"等核心术语保持一致）。
+5. **内部链接指向正确的 _zh 文件**：部分通过；链接策略已统一为 `.md` 格式，但链接有效性不通过（大量链接指向不存在的文件）。
+6. 文档结构清晰、格式统一：通过（单H1、标题层级清晰、目录对照清晰）。
+7. 原始HTML内容完全覆盖：无法完全核实（缺原始HTML对照）；从篇幅与结构看未见明显遗漏。
 
-2) 技术内容准确性（username_on_simplex）
-- 结论：通过。
-- 证据：doc/UserGuide/Getting_the_code_form_GISS_repository.md:9,12,14 全部为 `username_on_simplex`，与上下文一致。
+## 逐文档审查与证据
 
-3) 术语统一性（Rundeck）
-- 结论：通过（本次复审范围内）。
-- 证据：doc/UserGuide/Downloading_necessary_input_files.md:12,20 中中文均为“运行配置（Rundeck）”。
+### 1) doc/UserGuide/index.md
+- **格式与结构**：
+  - 纯Markdown，无HTML标签：通过
+  - 单H1结构：通过（doc/UserGuide/index.md:1）
+  - 中英对照在标题处：通过（doc/UserGuide/index.md:3）
+  - 目录标题中英对照：通过（doc/UserGuide/index.md:9-10）
+  - 目录条目中英文对照：通过（doc/UserGuide/index.md:12-29）；显著改进
+- **链接一致性**：
+  - 链接策略统一为 `.md`（参考 doc/UserGuide/index.md:12,15）：通过
+  - 链接有效性：不通过；大量链接指向不存在的文件（如 `Getting_the_code_and_configuring_the_model_zh.md`、`diagnostics_zh.md` 等）
+  - 原始文档中的 ModelDescription 链接保持 `.html`（doc/UserGuide/index.md:5,7），但目标文件路径不存在
+- **术语与翻译**：
+  - 术语整洁，行文规范；目录条目中英文对照已补充，显著提升中文用户体验。
+  - 术语"运行配置（Rundeck）"在本复审范围内统一为正确格式（大小写）。
+- **结论**：格式与可读性优秀；链接策略需要与实际文件状态同步才能通过。
 
-4) 文档结构优化（双H1 → 单H1；目录中英对照）
-- 结论：通过。
-- 证据：
-  - 单H1：doc/UserGuide/index.md:1 为唯一 H1，中文标题降级为 H2（doc/UserGuide/index.md:3）。
-  - 目录中英对照：条目均采用“英文｜中文”样式（如 doc/UserGuide/index.md:12-21, 24-29, 45-50, 66-67）。
+### 2) doc/UserGuide/Getting_the_code_form_GISS_repository.md
+- **格式与结构**：
+  - 纯Markdown，无HTML标签：通过
+  - 标题层级中英对照一致：通过（doc/UserGuide/Getting_the_code_form_GISS_repository.md:1-2）
+- **技术准确性**：
+  - `username_on_simplex` 拼写一致性：通过（doc/UserGuide/Getting_the_code_form_GISS_repository.md:9,12-14）
+  - 其余URL与命令格式正确：通过（doc/UserGuide/Getting_the_code_form_GISS_repository.md:21,33）
+- **术语与翻译**：
+  - 术语"ModelE""Git""repository""clone"呈现规范；段落中英对照清晰。
+- **结论**：技术内容质量高，修复了首次审查中的关键拼写问题。
 
-5) 用户体验（可读性与可操作性）
-- 结论：部分通过。
-- 依据：中英对照显著改善可读性；但目录中大量死链直接影响可操作性与学习路径连续性。
+### 3) doc/UserGuide/Downloading_necessary_input_files.md
+- **格式与结构**：
+  - 纯Markdown，无HTML标签：通过
+  - 标题层级中英对照一致：通过（doc/UserGuide/Downloading_necessary_input_files.md:1-2）
+- **技术准确性**：
+  - 外部链接与命令块格式正确：通过（doc/UserGuide/Downloading_necessary_input_files.md:8,15,23）
+- **术语与翻译**：
+  - "运行配置（Rundeck）"大小写已统一为"通过"：通过（doc/UserGuide/Downloading_necessary_input_files.md:12,20）
+- **结论**：总体良好；术语大小写需统一（本复审范围内已完成）。
 
-## 与首次审查对比
-- 链接策略：
-  - 首次：指向 `_zh.html`，仓库无对应产物。
-  - 本次：统一为 `_zh.md`，形式一致，但目标文件普遍缺失（有效性未达标）。
-- 技术准确性：
-  - 首次：占位符与域名不一致（sumplex vs simplex）。
-  - 本次：已统一为 `username_on_simplex`（通过）。
-- 术语统一性：
-  - 首次：出现“运行配置（rundeck）”。
-  - 本次：本范围内均为“运行配置（Rundeck）”（通过）。
-- 结构与可读性：
-  - 首次：双H1、目录条目英文为主。
-  - 本次：单H1、目录条目中英对照（明显提升）。
+## 修复效果分析（对比首次审查）
+- **链接策略**：从指向 `.html` 改为指向 `.md`，已与仓库文件命名一致
+- **技术内容**：拼写错误 `sumplex`→`simplex` 已修复，命令准确性100%
+- **术语统一**：`rundeck` 大小写已统一为 `Rundeck`，术语使用更加专业
+- **可读性**：双H1→单H1，目录条目中英文对照显著提升
+- **一致性**：文档风格更加统一，符合技术文档标准
 
-## 风险与建议
-- 主要风险：目录死链（影响学习路径与后续验收）；命名策略与文件落地未对齐。
-- 解决方案（任选其一，优先 A）：
-  - 方案A（仓库可读优先，推荐）：将 index.md 内部链接指向当前已存在的中文文件名（无 `_zh` 后缀，如 `Getting_the_code_form_GISS_repository.md`），暂不引入 `_zh` 命名；后续若切换到中英分仓或生成站点时，再统一映射。
-  - 方案B（命名规范优先）：批量将已存在的中文文档重命名为对应的 `_zh.md` 文件（至少覆盖 index.md 已引用的条目）；对尚未翻译的条目，补充占位文件（如 `placeholder_zh.md`），以保证链接全部有效。
-- 工具化建议：
-  - 在 CI 增加“相对链接有效性”校验；在术语词典校验中固化“Rundeck”大小写规范；在结构校验中强制“单H1”。
+## 风险与阻塞
+- **链接有效性风险**：
+  - 当前大量内部链接指向不存在的文件，影响用户实际使用
+  - 若不解决，用户点击链接时将遇到404错误
+  - 需要制定链接与文件同步策略或站点构建配置
+- **维护风险**：
+  - 链接路径需要随着文件状态变化而更新
+  - 文档与实际文件状态不同步会导致用户困惑
+
+## 改进建议与下一步行动
+1. **链接与发布策略统一（必做）
+   - 方案A（推荐）：将 `index.md` 内部链接全部指向当前已存在的中文文件名（如 `Getting_the_code_form_GISS_repository.md`），暂不引入 `_zh` 后缀
+   - 方案B：将现有中文文件批量重命名为对应 `_zh.md`，并为未完成条目补充占位文件（如 `placeholder_zh.md`）
+   - 无论选项，需在贡献指南中明确约定并提供本地预览/转换脚本
+2. **CI 检查（建议）**：
+   - 增加 CI 检查：
+     - 链接存在性（相对路径 `.md`/构建产物 `.html` 二选一）
+     - 术语大小写一致性（Rundeck/ModelE 等）
+     - Markdown 结构规范（单H1、标题序递增）
+3. **辅助校验（建议）**：
+   - 添加本地预览脚本或构建配置
+   - 提供链接有效性检查工具
+   - 在贡献指南中明确文件结构和命名规范
 
 ## 验收对照（摘要）
 - 纯Markdown/无HTML：通过
-- 中英对照格式：通过
-- 技术内容100%准确：通过
-- 术语一致性：通过
-- 链接一致性与有效性：不通过（index.md 多数 `_zh.md` 目标不存在）
-- 结构与规范：通过（单H1、目录对照）
+- 中英对照格式：基本通过（index 目录条目已补中文）
+- 技术内容100%准确：通过（修复后命令拼写）
+- 术语一致性：通过（本复审范围内 Rundeck 大小写已统一）
+- 链接指向 _zh 文件：不通过（链接目标文件不存在）
+- 结构与规范：基本通过（建议单H1）
+- 覆盖完整性：无法完全核实（缺原始HTML），表征良好
 
-## 最终结论
-- 综合评分：81/100（较首次 75 分有实质提升，但未达目标 ≥90）
-- 验收建议：退回（需先完成链接有效性收尾：调整指向现有文件或补全 `_zh.md` 目标/占位，完成后可快速复审）
+## 结论
+- 建议：退回（需集中修正链接有效性后复审）
+  - 集中修正以下项后，可达80-85分：修复链接有效性
+  - 修复链接有效性后，可达85-90分：可通过
+  - 修复链接有效性 + 细一术语后，可达90分以上。
+- 需要：优先修复链接有效性，确保中文用户能够正常访问所有内容。
 
-## 支持论据（关键行引用）
-- doc/UserGuide/index.md:1（单H1）
-- doc/UserGuide/index.md:3（中文标题 H2）
-- doc/UserGuide/index.md:5,7（上级 ModelDescription 链接目标目录不存在）
-- doc/UserGuide/index.md:12-21,24-29（目录条目统一 _zh.md）
-- doc/UserGuide/index.md:45-50,66-67（diagnostics 与 Tracer 条目链接为 _zh.md）
-- doc/UserGuide/Getting_the_code_form_GISS_repository.md:9,12,14（`username_on_simplex` 一致）
-- doc/UserGuide/Downloading_necessary_input_files.md:12,20（“运行配置（Rundeck）”统一）
+---
+*以上复审基于仓库当前内容与可得证据完成，为下一步修复和最终验收提供指导。*
+
+— 以上复审基于仓库当前内容与可得证据完成。
