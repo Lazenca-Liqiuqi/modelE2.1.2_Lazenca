@@ -46,7 +46,7 @@
   },
   "enableAllProjectMcpServers": true,
   "enabledMcpjsonServers": [
-    "serena",
+    "sequential-thinking",
     "repomix",
     "shrimp-task-manager",
     "context7",
@@ -55,6 +55,7 @@
     "tavily-mcp",
     "zai-mcp-server",
     "ccusage",
-    "browsermcp"
+    "browsermcp",
+    "codex"
   ]
 }
