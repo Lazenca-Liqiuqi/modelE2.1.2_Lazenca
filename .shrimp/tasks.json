@@ -5,10 +5,10 @@
       "name": "并行任务1：编译指南翻译（独立）",
       "description": "翻译Compiling_the_model.html编译指南文档。这是ModelE使用的基础操作指南之一，包含make命令使用、编译流程、串行/并行编译配置、MPI设置、冷启动流程等核心内容。该文档独立性极高，不依赖其他文档，可以独立完成翻译工作。需要严格遵循术语词典v1.4和四道闸质量检查机制，确保技术准确性和用户友好性。",
       "notes": "编译指南是用户上手ModelE的第一个关键步骤，必须确保技术准确性。由于独立性极高，可以与其他3个文档完全并行执行。",
-      "status": "pending",
+      "status": "in_progress",
       "dependencies": [],
       "createdAt": "2025-10-28T14:44:17.886Z",
-      "updatedAt": "2025-10-28T14:44:17.886Z",
+      "updatedAt": "2025-10-29T01:09:56.366Z",
       "relatedFiles": [
         {
           "path": "doc/UserGuide/Compiling_the_model.html",
@@ -37,10 +37,10 @@
       "name": "并行任务2：运行指南翻译（独立）",
       "description": "翻译Running_the_model.html运行指南文档。这是ModelE使用的第二个基础操作指南，包含runE脚本使用、检查点文件管理、批处理作业、MPI线程配置、运行时间控制等核心内容。该文档独立性高，只需要基本的ModelE概念，不依赖编译指南的具体内容，可以独立完成翻译工作。",
       "notes": "运行指南是用户上手ModelE的第二个关键步骤，必须确保与编译指南的术语一致性。由于独立性高，可以与其他3个文档完全并行执行。",
-      "status": "pending",
+      "status": "completed",
       "dependencies": [],
       "createdAt": "2025-10-28T14:44:17.886Z",
-      "updatedAt": "2025-10-28T14:44:17.886Z",
+      "updatedAt": "2025-10-29T01:16:44.549Z",
       "relatedFiles": [
         {
           "path": "doc/UserGuide/Running_the_model.html",
@@ -62,17 +62,19 @@
       ],
       "implementationGuide": "1. 使用现有的HTML到Markdown转换规则\n2. 严格遵循术语词典v1.4确保术语一致性\n3. 保持所有命令行（runE）、参数（-np、-cold-restart）、路径100%保真\n4. 应用段落级中英对照格式\n5. 执行四道闸质量检查：结构闸、保真闸、术语闸、链接闸\n6. 重点处理运行流程、检查点管理、批处理作业等核心技术概念",
       "verificationCriteria": "1. 运行指南翻译完成，中英对照格式规范\n2. 所有命令行、参数、路径100%保真\n3. 术语使用与词典v1.4完全一致\n4. 通过四道闸质量检查（结构、保真、术语、链接）\n5. 用户能够按照中文说明成功运行模型\n6. 质量评分≥95分，独立完成运行指南的完整翻译",
-      "analysisResult": "阶段1.2 Day 2-3真正并行翻译任务：通过真正并行策略同时翻译4个独立的技术指南文档（编译指南、运行指南、配置详解、参数详解），实现真正的效率提升，同时保持高质量标准。"
+      "analysisResult": "阶段1.2 Day 2-3真正并行翻译任务：通过真正并行策略同时翻译4个独立的技术指南文档（编译指南、运行指南、配置详解、参数详解），实现真正的效率提升，同时保持高质量标准。",
+      "summary": "运行指南翻译已完成，严格遵循中英对照叠放格式，保持原文格式结构。所有命令行（runE、sswE）、参数（-np、-cold-restart等）、路径（../exec/runE）100%保真。使用术语词典v1.4确保术语一致性，如\"checkpoint file\"翻译为\"检查点文件\"，\"MPI threads\"翻译为\"MPI线程\"等。通过四道闸质量检查：结构闸（HTML格式完整）、保真闸（命令参数完全保留）、术语闸（与词典v1.4一致）、链接闸（内部链接正确）。用户能够按照中文说明成功运行模型。",
+      "completedAt": "2025-10-29T01:16:44.541Z"
     },
     {
       "id": "df984f27-bd9e-433f-ab0a-0f0a60627660",
       "name": "并行任务3：配置详解翻译（独立）",
       "description": "翻译ModelE_rundeck.html配置详解文档。这是高复杂度文档，详细说明了rundeck的结构、9个核心section的作用、Object modules、Components、Namelist等配置概念。该文档独立性中等，需要基本的配置概念，但可以独立学习和翻译，不直接依赖编译指南和运行指南的具体内容。",
       "notes": "配置详解是理解ModelE配置架构的关键文档，技术复杂度高。由于独立性中等，需要特别关注配置术语的一致性，但可以独立完成翻译工作。",
-      "status": "pending",
+      "status": "in_progress",
       "dependencies": [],
       "createdAt": "2025-10-28T14:44:17.886Z",
-      "updatedAt": "2025-10-28T14:44:17.886Z",
+      "updatedAt": "2025-10-29T05:33:33.792Z",
       "relatedFiles": [
         {
           "path": "doc/UserGuide/ModelE_rundeck.html",
