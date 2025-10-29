@@ -638,6 +638,156 @@
       "implementationGuide": "1. 基于用户反馈优化翻译内容和格式\n2. 进行最终的技术审查和质量把关\n3. 整理和标准化所有文档格式和结构\n4. 制作发布包和安装部署说明\n5. 编写项目总结报告和最佳实践文档\n6. 准备社区推广材料和使用培训文档\n7. 更新项目文档记录翻译成果和使用指南",
       "verificationCriteria": "所有优化完成，项目质量达到发布标准，交付物齐全，中文用户可以使用完整的双语版本进行科学计算研究",
       "analysisResult": "恢复完整的18个任务清单，基于620+个文件的ModelE2.1.2_Lazenca全面翻译项目。包含从项目启动到最终发布的完整工作流程，涵盖UserGuide文档、ModelDescription技术文档、Fortran代码注释、脚本工具翻译等全部内容。"
+    },
+    {
+      "id": "8a140ad8-405f-47e1-993f-e23b159cb4b1",
+      "name": "阶段1.3.1：核心诊断指南翻译 - 诊断工具文档",
+      "description": "翻译最复杂的技术文档diagnostics.html（268行），这是一个关键的诊断工具使用指南，包含模型输出分析、诊断控制、二进制输出格式等重要内容。需要保持技术术语的准确性和一致性。",
+      "notes": "这是最复杂的技术文档，需要特别仔细处理技术术语和概念解释",
+      "status": "pending",
+      "dependencies": [],
+      "createdAt": "2025-10-29T10:45:06.431Z",
+      "updatedAt": "2025-10-29T10:45:06.431Z",
+      "relatedFiles": [
+        {
+          "path": "old-doc/UserGuide/diagnostics.html",
+          "type": "REFERENCE",
+          "description": "待翻译的诊断工具HTML文档"
+        },
+        {
+          "path": "doc/UserGuide/diagnostics.md",
+          "type": "CREATE",
+          "description": "翻译后的诊断工具Markdown文档"
+        }
+      ],
+      "implementationGuide": "使用标准的中英对照段落格式进行翻译，重点关注诊断相关术语的准确性，如'diagnostics'、'binary output'、'model score'等专业词汇。保持与已翻译文档的格式一致性。",
+      "verificationCriteria": "翻译内容完整，格式符合项目标准，技术术语准确，与已翻译文档格式一致，中英对照段落格式正确",
+      "analysisResult": "阶段1.3：UserGuide辅助文档翻译 - 将原任务拆分为4个可并行的子任务，分别处理不同类型和复杂度的文档，提高翻译效率并确保质量。每个子任务都有明确的交付标准和验收条件。"
+    },
+    {
+      "id": "8228d021-4368-49d5-9b60-59728b340b45",
+      "name": "阶段1.3.2：示踪物专题翻译 - 预处理和运行参数",
+      "description": "翻译两个相关的示踪物技术文档：Tracer_Preprocessor_Options.html（116行）和Tracer_Rundeck_Parameters.html（155行）。这两个文档涉及示踪物系统的预处理选项和运行配置参数，内容相关性强。",
+      "notes": "示踪物是ModelE的重要功能，需要确保术语准确性和文档间的技术一致性",
+      "status": "pending",
+      "dependencies": [],
+      "createdAt": "2025-10-29T10:45:06.431Z",
+      "updatedAt": "2025-10-29T10:45:06.431Z",
+      "relatedFiles": [
+        {
+          "path": "old-doc/UserGuide/Tracer_Preprocessor_Options.html",
+          "type": "REFERENCE",
+          "description": "待翻译的示踪物预处理选项HTML文档"
+        },
+        {
+          "path": "old-doc/UserGuide/Tracer_Rundeck_Parameters.html",
+          "type": "REFERENCE",
+          "description": "待翻译的示踪物运行参数HTML文档"
+        },
+        {
+          "path": "doc/UserGuide/Tracer_Preprocessor_Options.md",
+          "type": "CREATE",
+          "description": "翻译后的示踪物预处理选项Markdown文档"
+        },
+        {
+          "path": "doc/UserGuide/Tracer_Rundeck_Parameters.md",
+          "type": "CREATE",
+          "description": "翻译后的示踪物运行参数Markdown文档"
+        }
+      ],
+      "implementationGuide": "先翻译Tracer_Preprocessor_Options.html，再翻译Tracer_Rundeck_Parameters.html。确保示踪物相关术语（如'tracer'、'preprocessor'、'rundeck parameters'等）在两个文档中保持一致。",
+      "verificationCriteria": "两个文档翻译完整，示踪物术语使用一致，格式符合项目标准，中英对照段落格式正确",
+      "analysisResult": "阶段1.3：UserGuide辅助文档翻译 - 将原任务拆分为4个可并行的子任务，分别处理不同类型和复杂度的文档，提高翻译效率并确保质量。每个子任务都有明确的交付标准和验收条件。"
+    },
+    {
+      "id": "fc6b0486-7122-4787-a4a4-956283b09ac0",
+      "name": "阶段1.3.3：快速入门指南翻译 - 基础配置文档",
+      "description": "翻译3个基础配置相关的小型文档：index.html（113行，用户指南主页）、Getting_the_code_form_GISS_repository.html（45行，代码获取）、Downloading_necessary_input_files.html（43行，输入文件下载）。这些文档是用户入门的基础。",
+      "notes": "这些是用户首次接触ModelE的文档，需要确保清晰易懂，操作步骤准确",
+      "status": "pending",
+      "dependencies": [],
+      "createdAt": "2025-10-29T10:45:06.431Z",
+      "updatedAt": "2025-10-29T10:45:06.431Z",
+      "relatedFiles": [
+        {
+          "path": "old-doc/UserGuide/index.html",
+          "type": "REFERENCE",
+          "description": "待翻译的用户指南主页HTML文档"
+        },
+        {
+          "path": "old-doc/UserGuide/Getting_the_code_form_GISS_repository.html",
+          "type": "REFERENCE",
+          "description": "待翻译的代码获取HTML文档"
+        },
+        {
+          "path": "old-doc/UserGuide/Downloading_necessary_input_files.html",
+          "type": "REFERENCE",
+          "description": "待翻译的输入文件下载HTML文档"
+        },
+        {
+          "path": "doc/UserGuide/index.md",
+          "type": "CREATE",
+          "description": "翻译后的用户指南主页Markdown文档"
+        },
+        {
+          "path": "doc/UserGuide/Getting_the_code_form_GISS_repository.md",
+          "type": "CREATE",
+          "description": "翻译后的代码获取Markdown文档"
+        },
+        {
+          "path": "doc/UserGuide/Downloading_necessary_input_files.md",
+          "type": "CREATE",
+          "description": "翻译后的输入文件下载Markdown文档"
+        }
+      ],
+      "implementationGuide": "先翻译index.html作为主页，然后翻译代码获取和输入文件下载指南。确保链接路径正确，保持导航结构完整性。特别注意版本控制、仓库操作等术语的准确性。",
+      "verificationCriteria": "3个文档翻译完整，导航链接正确，基础概念解释清晰，格式符合项目标准",
+      "analysisResult": "阶段1.3：UserGuide辅助文档翻译 - 将原任务拆分为4个可并行的子任务，分别处理不同类型和复杂度的文档，提高翻译效率并确保质量。每个子任务都有明确的交付标准和验收条件。"
+    },
+    {
+      "id": "ffb15019-83dc-4932-b820-1ca6dce0afa3",
+      "name": "阶段1.3.4：辅助工具文档翻译 - 开发和配置指南",
+      "description": "翻译3个辅助开发相关的中型文档：Adding_info_for_automatic_documentation.html（91行，自动文档）、Vegetation_Guide.html（84行，植被指南）、Choosing_proper_ISTART.html（70行，ISTART选择）。这些文档涉及模型开发和特定配置。",
+      "notes": "这些文档针对有特定需求的开发者，需要保持技术细节的精确性",
+      "status": "pending",
+      "dependencies": [],
+      "createdAt": "2025-10-29T10:45:06.431Z",
+      "updatedAt": "2025-10-29T10:45:06.431Z",
+      "relatedFiles": [
+        {
+          "path": "old-doc/UserGuide/Adding_info_for_automatic_documentation.html",
+          "type": "REFERENCE",
+          "description": "待翻译的自动文档HTML文档"
+        },
+        {
+          "path": "old-doc/UserGuide/Vegetation_Guide.html",
+          "type": "REFERENCE",
+          "description": "待翻译的植被指南HTML文档"
+        },
+        {
+          "path": "old-doc/UserGuide/Choosing_proper_ISTART.html",
+          "type": "REFERENCE",
+          "description": "待翻译的ISTART选择HTML文档"
+        },
+        {
+          "path": "doc/UserGuide/Adding_info_for_automatic_documentation.md",
+          "type": "CREATE",
+          "description": "翻译后的自动文档Markdown文档"
+        },
+        {
+          "path": "doc/UserGuide/Vegetation_Guide.md",
+          "type": "CREATE",
+          "description": "翻译后的植被指南Markdown文档"
+        },
+        {
+          "path": "doc/UserGuide/Choosing_proper_ISTART.md",
+          "type": "CREATE",
+          "description": "翻译后的ISTART选择Markdown文档"
+        }
+      ],
+      "implementationGuide": "翻译顺序：自动文档 → 植被指南 → ISTART选择。重点处理开发相关术语，如'documentation'、'vegetation'、'ISTART parameter'等。确保技术细节准确。",
+      "verificationCriteria": "3个文档翻译完整，开发相关术语准确，技术细节正确，格式符合项目标准",
+      "analysisResult": "阶段1.3：UserGuide辅助文档翻译 - 将原任务拆分为4个可并行的子任务，分别处理不同类型和复杂度的文档，提高翻译效率并确保质量。每个子任务都有明确的交付标准和验收条件。"
     }
   ]
 }

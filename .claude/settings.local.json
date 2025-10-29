@@ -32,7 +32,12 @@
       "Bash(git mv:*)",
       "Bash(git reset:*)",
       "mcp__shrimp-task-manager__update_task",
-      "Bash(git tag:*)"
+      "Bash(git tag:*)",
+      "Bash(then echo \"$file:\")",
+      "Bash(wc:*)",
+      "Bash(fi:*)",
+      "Bash(if [ ! -f \"$mdfile\" ])",
+      "Bash(while read:*)"
     ],
     "deny": [],
     "ask": []
