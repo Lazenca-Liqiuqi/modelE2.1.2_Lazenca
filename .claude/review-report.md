@@ -1,177 +1,91 @@
-# 阶段1.2 Day 1 翻译修复后最终审查报告
-# NASA GISS ModelE 编译指南翻译文档审查报告
+# 1.3.2 任务修复后最终质量审查报告
 
-审查时间：2025-10-29 09:20
-审查对象：Compiling_the_model.md（编译指南翻译文档）
-审查范围：完整文档（与源文档逐段对照核验）
-源文档：doc/UserGuide/Compiling_the_model.html
-辅助资料：.claude/terminology-dictionary.md v1.4；.claude/html-markdown-conversion-rules.md v1.0
-执行角色：Codex（审查）
+- 生成时间：2025-10-29 23:24
+- 审查范围：`doc/UserGuide/Tracer_Preprocessor_Options.md`、`doc/UserGuide/Tracer_Rundeck_Parameters.md`
+- 审查依据：用户“最终审查”验收标准（HTML 清理、Markdown 规范、内容完整性、专业表达、格式统一）
 
----
+## 结论与建议
+- 结论：大部分P0/P1问题已修复（HTML 注释清理完成；预处理器文档无重复；主要条目配对完整）。Rundeck 参数文档仍存在少量格式一致性与代码块保真问题。
+- 明确建议：需讨论（小范围修订后可通过）。
+- 关键点：无HTML残留；个别段落中文解释仍在代码块内，且存在少量重复/未按“双语两行”配对的条目。
 
-## 1. 元数据信息
-- 文档路径：Compiling_the_model.md
-- 源文档路径：doc/UserGuide/Compiling_the_model.html
-- 术语词典版本：v1.4
-- 转换规则版本：v1.0（HTML→Markdown）
-- 审查方法：逐段对照、术语与命令行保真核查、结构一致性检查、可读性评估
+## 评分
+- 技术维度（0-100）：86
+  - 代码与结构：88（标题/列表/围栏基本规范，链接与目录清晰）
+  - 内容完整性：84（参数大体齐全；个别条目仍需配对与格式统一）
+  - 规范遵循：86（双语叠放基本一致；示例代码保真仍可优化）
+  - 可读性：86（整体清晰；Dust/TES段落可再统一风格）
+- 战略维度（0-100）：90
+  - 需求匹配：91（核心修复目标基本达成）
+  - 架构一致：92（与项目既有文档风格一致）
+  - 风险评估：88（剩余问题为可控的格式与呈现问题）
+  - 交付质量：89（可用性良好，建议小修后定稿）
+- 综合评分（0-100）：88
 
-## 2. 技术维度评分（满分100）
-- 代码质量（30%）：98
-  - 代码与命令行完全保真；占位符、大小写、空格、路径均保持一致。
-  - 证据：`Compiling_the_model.md:11-13`、`21-23`、`28-30`、`38-40`、`48-50` 与源文档中各 `<pre>` 区域逐字一致。
-- 规范遵循（25%）：94
-  - 基本符合“英文原文加粗+中文对照”的双语段落规范；标题采用“英/中”同行样式，符合项目示例。
-  - 细微偏差：中英段落未额外插入空行分隔（转换规则“空一行分隔”条款）；不影响渲染与阅读，但可优化一致性。
-- 用户友好性（25%）：95
-  - 中文表达自然准确，术语与上下文一致；操作逻辑清晰，适合按步骤执行。
-  - 证据：重启/检查点说明与批处理提示完整保留（`Compiling_the_model.md:25-33`）。
-- 结构完整性（20%）：96
-  - 与源文档段落、顺序、信息层级一致；所有关键信息（串/并行、冷启动、setup-run、clean、gcm）均覆盖。
-  - 证据：与源文档 `<H3>` 标题及所有 `<P>`+`<pre>` 组合完全一一对应。
+## 核对结果（对照验收项）
+1) HTML 标记完全清理：通过
+- 证据：针对两份文档全量检索未发现任何 `<!-- -->` 或其它 HTML 标签；例如：
+  - `doc/UserGuide/Tracer_Preprocessor_Options.md`：未检出 “<” 相关标记
+  - `doc/UserGuide/Tracer_Rundeck_Parameters.md`：未检出 “<” 相关标记
 
-加权技术得分：96（= 98×0.30 + 94×0.25 + 95×0.25 + 96×0.20）
+2) Markdown 格式规范：基本通过（存在少量改进点）
+- 标题、列表、代码块使用规范；中英对照多为“一英一中”两行叠放。
+- 改进点（代码块保真）：Rundeck 示例与“附加条目”段落仍包含中文说明置于代码块内，影响复制保真。
+  - 证据：
+    - `doc/UserGuide/Tracer_Rundeck_Parameters.md:175`（示例代码围栏内英文注释上方有中文注释行）
+    - `doc/UserGuide/Tracer_Rundeck_Parameters.md:201`（示例行内含“/ 这是CO部门”中文注释）
 
-## 3. 战略维度评分（满分100）
-- 需求匹配（35%）：98
-  - 覆盖审查请求“范围”所列全部要点（编译流程、MPI配置、冷启动、setup-run、clean、gcm）。
-- 架构一致性（30%）：94
-  - 整体符合项目双语与转换规则；存在轻微格式细节可统一（中英段落空行分隔）。
-- 风险评估（20%）：95
-  - 原文中的交互式MPI限制与批处理提交提示完整保留；有效降低用户误操作风险。
-- 可维护性（15%）：96
-  - 术语与占位符一致，后续增补与自动化检查成本低；无与词典冲突的自造译名。
+3) 内容完整性（技术内容、术语一致）：基本通过（少量条目需统一风格）
+- 缺失项已补：`itime_tr0`、`to_per_mil`、`supsatfac` 等已出现并给出中文解释。
+- 改进点（配对与重复）：
+  - Dust 段落存在条目重复或格式不统一：
+    - `doc/UserGuide/Tracer_Rundeck_Parameters.md:115`
+    - `doc/UserGuide/Tracer_Rundeck_Parameters.md:116`
+  - “附加条目”段落含重复与未按双语两行配对：
+    - `doc/UserGuide/Tracer_Rundeck_Parameters.md:140`（`TESCatVariableHDOAKOnly` 重复）
+    - `doc/UserGuide/Tracer_Rundeck_Parameters.md:143`（`base_isopreneX` 重复）
+    - `doc/UserGuide/Tracer_Rundeck_Parameters.md:146`（`AMP_RAD_KEY` 重复）
+    - `doc/UserGuide/Tracer_Rundeck_Parameters.md:153`（`be7_src_param` 重复）
+    - `doc/UserGuide/Tracer_Rundeck_Parameters.md:149`（`frHemaInQuarAggr` 单行重复风格不一致）
+    - `doc/UserGuide/Tracer_Rundeck_Parameters.md:150`（`pureByTotalHematite` 单/双语混杂不一致）
+- 术语一致性：总体良好；个别拼写建议修正（见下）。
 
-加权战略得分：96（= 98×0.35 + 94×0.30 + 95×0.20 + 96×0.15）
+4) 专业表达（气候科学术语）：通过
+- 术语映射与上下文含义准确；建议修正个别英文拼写以避免歧义：
+  - `doc/UserGuide/Tracer_Preprocessor_Options.md:32` 中 “Rremember”→“Remember”， “Isprene”→“Isoprene”。
 
-## 4. 综合评分
-- 综合评分：96/100（技术与战略维度综合评估，四道闸全部通过）
+## 具体问题与改进建议（按优先级）
+- 代码块保真（P1）
+  - 将中文解释移出代码块，代码块内仅保留可复制的示例/英文注释。
+  - 定位：
+    - `doc/UserGuide/Tracer_Rundeck_Parameters.md:175`
+    - `doc/UserGuide/Tracer_Rundeck_Parameters.md:201`
 
-## 5. 明确建议
-- 建议：通过
-- 说明：技术保真度与结构完整性表现优秀；存在极少量格式一致性可优化项，不构成阻塞。
+- 重复与配对统一（P1）
+  - Dust 段落清理重复：保留“一英一中”两行；示例：仅保留一处 `adiurn_dust`，另一处移除。
+    - `doc/UserGuide/Tracer_Rundeck_Parameters.md:115`
+    - `doc/UserGuide/Tracer_Rundeck_Parameters.md:116`
+  - “附加条目”段落：
+    - 将以下参数改为“英文一行 + 中文一行”的配对，并移出代码块：
+      `itime_tr0`、`to_per_mil`、`supsatfac`、`water_tracer_ic`、`TESObsDiagnosticsOn`、`TESObsMinDegFr`、`TESObsDataDir`、`TESCatDiagnosticsOn`、`TESCatMinQuality`、`TESCatUseColloc`、`TESCatVariableHDOAKOnly`、`checktracer_on`、`base_isopreneX`、`AMP_DIAG_FC`、`AMP_RAD_KEY`、`FreeFe`、`frHemaInQuarAggr`、`pureByTotalHematite`、`be7_src_param`。
+    - 去重示例：
+      - `doc/UserGuide/Tracer_Rundeck_Parameters.md:140`（`TESCatVariableHDOAKOnly`）
+      - `doc/UserGuide/Tracer_Rundeck_Parameters.md:143`（`base_isopreneX`）
+      - `doc/UserGuide/Tracer_Rundeck_Parameters.md:146`（`AMP_RAD_KEY`）
+      - `doc/UserGuide/Tracer_Rundeck_Parameters.md:153`（`be7_src_param`）
 
-## 6. 支持论据（基于文件证据）
-- 命令行保真：
-  - `Compiling_the_model.md:12` 与源 `make setup RUN=<RunID>` 一致；保留5个前置空格（源 `<pre>` 格式）。
-  - `Compiling_the_model.md:22` 与源 `make setup RUN=<RunID> MPI=YES` 一致。
-  - `Compiling_the_model.md:29` 与源 `../exec/runE <RunID> -np <NP> -cold-restart` 一致。
-  - `Compiling_the_model.md:39` 与源 `make setup-run RUN=<RunID> MPI=YES NPES=<NP>` 一致。
-  - `Compiling_the_model.md:49` 与源 `make clean` 一致。
-- 术语一致性：
-  - “Rundeck → 运行配置”（`Compiling_the_model.md:15-16`），与术语词典 v1.4 一致。
-  - “checkpoint file → 检查点文件；restart file → 重启文件”（`Compiling_the_model.md:25-33`），与词典一致。
-  - “MPI 线程”原文在中文处理为“MPI进程数”（`Compiling_the_model.md:32-33`、`42-43`），符合词典“优先使用进程”的规范，减少概念歧义。
-- 结构对照：
-  - 段落与代码块一一对应，覆盖源HTML所有信息块（见 `doc/UserGuide/Compiling_the_model.html` 中 `<P>`+`<pre>` 序列）。
+- 拼写与细节一致性（P3）
+  - `doc/UserGuide/Tracer_Preprocessor_Options.md:32`：更正 “Rremember/Isprene”。
+  - 可考虑在代码块围栏上标注语言（如 ```ini 或 ```text），提升可读性；列表缩进统一使用“- ”。
 
-## 7. 关键发现
-- 高保真代码与命令：所有命令、占位符、大小写、空格均与源一致，满足100%保真要求。
-- 术语处理优良：遵循词典对“Rundeck/检查点/重启/MPI进程”等规范译法，消除常见歧义。
-- 中英对照稳定：英文加粗+中文直下；可考虑统一在每对中英段落之间加入空行以完全贴合“转换规则”描述。
-- 轻微可读性提升点：
-  - “link it to the current directory with the name <RunID>” 可在中文处补充“符号链接（symlink）”注解以消除“链接”类型歧义（保持原文不变前提下以注释说明）。
-  - “perl” 可统一大小写为“Perl”以贴合惯例（不影响技术正确性）。
+## 风险评估
+- 复制保真风险：中文解释混入代码块，可能导致用户复制示例到配置时出现非预期字符（P1）。
+- 阅读一致性风险：重复/未配对条目可能干扰理解与搜索（P1）。
+- 语义风险：个别拼写可能造成检索或术语理解偏差（P3）。
 
-## 8. 核对结果（四道闸）
-- 结构检查：通过
-  - 标题、段落、代码块完整对应；标题层级与信息顺序一致。
-- 保真检查：通过
-  - 命令、占位符、路径、大小写、空格均与源一致，示例可执行。
-- 术语检查：通过
-  - 与术语词典 v1.4 一致，无冲突或自造译名。
-- 链接检查：通过
-  - 本页不涉及外链/锚点；无失效链接风险。
-
-## 9. 风险与阻塞
-- 当前阻塞：无。
-- 低风险提示：
-  - 中英段落空行分隔未严格统一到“转换规则”表述；建议作为风格一致性优化。
-  - “link/链接”语义可能被误解为复制或移动；可在不改动原文的前提下，于中文说明后加（符号链接）注解以消除歧义。
-
-## 10. 反馈建议（不影响通过）
-- 样式一致性：在每对中英段落间增加一个空行，完全贴合“.claude/html-markdown-conversion-rules.md v1.0”的“空一行分隔”描述。
-- 术语注解：在“链接到当前目录”处追加“（符号链接 symlink）”注解，帮助新手明确含义。
-- 专名大小写：将“perl”统一为“Perl”（可选）。
-
-— 以上审查基于文件逐行对照与项目词典/规范核验，结论：通过。
-
-**审查时间**: 2025-10-28 22:30
-**审查范围**: 4个UserGuide核心文档 + 翻译基础设施（修复后版本）
-**依据文档**: `.claude/review-request-final.md`
-
-## 一、审查对象
-- 文档：
-  - `docs/user-guide/System_requirements.md`
-  - `docs/user-guide/Installing_NetCDF_library.md`
-  - `docs/user-guide/Configuring_modelE_on_your_machine.md`
-  - `docs/user-guide/Creating_a_rundeck.md`
-- 基础设施：
-  - `.claude/terminology-dictionary.md`（v1.2）
-  - `.claude/html-markdown-conversion-rules.md`
-  - `.claude/analyze-report.md`
-
-## 二、修复验证结果（逐项核对）
-- 英文原文保真性错误（通过）
-  - 位置：`docs/user-guide/Creating_a_rundeck.md:19`
-  - 结果：`for permanent storage` 已正确；未检出其它同类污染
-- MPI发行版列表中英对照（通过）
-  - 位置：`docs/user-guide/System_requirements.md:18-23`
-  - 结果：6项均含中文解释，专名保留，中英对照等量
-- 示例名称前导空格（部分通过）
-  - 已修正：`docs/user-guide/Creating_a_rundeck.md:97` → `sensitivity_test_co2`
-  - 遗留问题：`docs/user-guide/Creating_a_rundeck.md:98` 仍为 `` historical_simulation_v2``（存在前导空格）
-- 代码块语言标识（通过）
-  - 位置：`docs/user-guide/Installing_NetCDF_library.md:12-14`
-  - 结果：纯URL代码块已去除 `bash` 语言标识
-- 术语词典新增5项（通过）
-  - 位置：`.claude/terminology-dictionary.md:322-338`（系统配置术语段）
-  - 结果：新增 MacPorts、devtoolset-6、module load、SCL、scl enable；并在文末标注版本：`v1.2`（`…:375-380`）
-
-## 三、新增发现与一致性检查
-- 术语一致性（轻微建议）
-  - 文档使用“MPICH2”（如 `System_requirements.md:20`），词典“并行计算术语”列为“MPICH”。建议在词典中补充“MPICH2”为历史变体或同义项，以提升一致性与术语lint可覆盖性。
-- 示例列表格式一致性（需修正）
-  - `Creating_a_rundeck.md:98` 前导空格影响复制可用性；与“去除前导空格”的修复目标不完全一致。
-
-## 四、评分（修复后）
-- 技术维度：93/100
-  - 保真性：100/100（目标段已纠正；未发现新污染）
-  - 术语一致性：92/100（MPICH/MPICH2一致性建议扣分）
-  - 结构完整性：95/100（列表对照已等量；结构清晰）
-  - 格式规范性：90/100（URL代码块标识已修正；示例列表尚有1处前导空格）
-- 战略维度：94/100
-  - 需求匹配：95/100（覆盖Day 1全链路）
-  - 用户体验：93/100（中英并列、平台/版本注释完善）
-  - 可扩展性：94/100（词典v1.2完善、规则文件健全）
-- 综合评分：94/100
-
-## 五、验收对齐
-- 综合≥90分：满足
-- 技术维度≥90分：满足
-- 战略维度≥90分：满足
-- 关键问题100%修复：未完全满足（示例名称前导空格仍有1处遗漏）
-
-## 六、最终结论
-- 结论：需讨论
-- 论据：所有关键修复均已落实且评分达标，仅余“示例名称前导空格”一处遗漏；属低风险格式问题，不影响内容保真与技术准确性，但与本次修复目标“去除前导空格”不完全一致。
-
-## 七、建议与下一步
-- 快速修正（建议提交单行补丁）
-  - 文件：`docs/user-guide/Creating_a_rundeck.md:98`
-  - 操作：将 `` historical_simulation_v2`` 改为 ``historical_simulation_v2``（去除前导空格）
-- 术语词典对齐（可选增强）
-  - 在“.并行计算术语”处新增“MPICH2”条目或标注为“MPICH历史变体/同义项”，保持文档-词典一致
-- 通过后续安排
-  - 若同意视为“轻微格式瑕疵不阻断”，可在合入后立刻补丁修复，并推进 Day 2-3 文档
-
-## 八、Day 2-3 翻译注意事项（通过后参考）
-- 列表对照：保持“中英等量+专名保留+中文解释”的格式
-- 代码块：仅URL/路径片段不标注语言；命令行统一 `bash`
-- 术语lint：以词典v1.2为基准，新增术语先入库再使用
-- 历史版本标注：将过时版本集中到“版本说明”段，不干扰正文
+## 建议结论
+- 建议：需讨论（工作量小，建议一次性清理上述行后即通过）。
+- 复审建议：完成上述清理后提交终稿，我方可进行快速复核（仅核对涉及行号与围栏段落）。
 
 ---
-（本报告基于仓库内实际文件逐项比对与证据定位生成）
-
+备注：本报告基于实际文件（含文件与行号引用）给出客观结论；如需我方直接提交修订版，可按上述行号定位批量处理，确保“英文一行 + 中文一行、解释不入代码块”的统一规则。
