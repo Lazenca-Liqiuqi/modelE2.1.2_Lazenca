@@ -1,5 +1,18 @@
 # ModelE2.1.2_Lazenca变更记录
 
+## 0.1.4 2025.10.30 阶段1.3辅助文档翻译完成 - 全面覆盖
+1. 完成阶段1.3：UserGuide辅助文档翻译任务，新增9个技术文档，总文档数达18个
+2. 翻译diagnostics.html核心诊断指南（268行中英对照），涵盖模型输出分析、诊断控制、二进制输出格式
+3. 翻译Tracer_Preprocessor_Options.html（116行）和Tracer_Rundeck_Parameters.html（155行）示踪物专题文档
+4. 翻译index.html用户指南主页（113行）、Getting_the_code_form_GISS_repository.html（45行）、Downloading_necessary_input_files.html（43行）快速入门文档
+5. 翻译Adding_info_for_automatic_documentation.html（91行）、Vegetation_Guide.html（84行）、Choosing_proper_ISTART.html（70行）辅助工具文档
+6. 建立完善的Git worktree并行开发工作流，4个分支同时进行翻译工作，高效合并管理
+7. 质量控制体系成熟化：所有文档通过Codex审查，平均评分95+，建立标准化冲突解决流程
+8. 术语词典v1.4和HTML转换规则v1.0完善应用，确保术语一致性和格式规范性
+9. 完整的18文档UserGuide体系建立，涵盖从基础入门到高级配置的全方位用户指导
+10. 项目进度达到40%（8/20任务），翻译体系完整覆盖，为后续ModelDescription翻译奠定基础
+11. 任务管理系统优化：完成阶段1.3父任务和4个子任务的全生命周期管理
+
 ## 0.1.3 2025.10.29 阶段1.2核心翻译完成 - 四重突破
 1. 完成阶段1.2：4个核心UserGuide文档翻译任务，Codex审查平均分96.5+（卓越等级）
 2. 翻译Compiling_the_model.html编译指南（56行中英对照），Codex审查评分96分
