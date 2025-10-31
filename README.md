@@ -15,7 +15,7 @@
 >
 > **完整文档位置 | Full Documentation Location**:
 >
-> - 📁 本地文档 | Local: doc/UserGuide/0-index.md
+> - 📁 本地文档 | Local: [UserGuide_Index](doc/UserGuide/0-index.md)
 > - 🌐 在线文档 | Online: http://simplex.giss.nasa.gov/gcm/doc/UserGuide/index.html
 >
 > **本README仅为摘要，可能不完整或不是最新 | This README is only a summary and may not be complete or up-to-date**
