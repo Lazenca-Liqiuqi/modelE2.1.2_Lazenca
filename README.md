@@ -257,8 +257,5 @@ If you encounter issues, please report them via:
 
 *基于 NASA GISS ModelE 2.1.2 | Based on NASA GISS ModelE 2.1.2*
 
-</div>
 
----
----
-**📖 README 文件结束 | End of README file**
+
