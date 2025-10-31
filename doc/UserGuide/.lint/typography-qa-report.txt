@@ -1,0 +1,7 @@
+# Typography QA Report
+Generated: 2025-10-31 19:11
+Root: doc/UserGuide
+
+格式: file:line|type|severity|message
+
+

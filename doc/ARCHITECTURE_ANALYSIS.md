@@ -13,7 +13,7 @@ ModelE is a complex Earth system model with a hierarchical, component-based arch
 
 #### Main Program Flow
 **主程序流程**
-```
+```text
 main.F90
     ↓
 modelE_mainDriver() (in MODELE.f)
@@ -90,7 +90,7 @@ Various physics and dynamics modules
 
 #### Atmospheric Components
 **大气组件**
-```
+```text
 ATM_DRV.f (Main Driver)
     ├── ATMDYN.f (Dynamics Core)
     │   ├── DYNAM (B-grid dynamics)
@@ -104,7 +104,7 @@ ATM_DRV.f (Main Driver)
 
 #### Surface Components
 **表面组件**
-```
+```text
 Surface Module System
     ├── GHY_DRV.f (Land Surface)
     │   ├── VEGETATION.f
@@ -133,7 +133,7 @@ Surface Module System
 
 #### Primary Data Flow
 **主要数据流**
-```
+```text
 Atmospheric State (ATM_COM)
     ↓
 Dynamics (ATMDYN)
@@ -171,7 +171,7 @@ Back to Atmosphere (via fluxes)
 
 #### Dependency Hierarchy (Bottom-up)
 **依赖层次结构（自下而上）**
-```
+```text
 Level 1 (Base):
 ├── shared/ (Constants, utilities, time management)
 └── MODEL_COM.f (Global model state)
@@ -312,7 +312,7 @@ ModelE是一个复杂的地球系统模型，采用分层、基于组件的架�
 
 #### 主程序流程
 **主程序流程**
-```
+```text
 main.F90
     ↓
 modelE_mainDriver() (在MODELE.f中)
@@ -389,7 +389,7 @@ ATM_DRV.f (大气驱动程序)
 
 #### 大气组件
 **大气组件**
-```
+```text
 ATM_DRV.f (主驱动程序)
     ├── ATMDYN.f (动力学核心)
     │   ├── DYNAM (B网格动力学)
@@ -403,7 +403,7 @@ ATM_DRV.f (主驱动程序)
 
 #### 表面组件
 **表面组件**
-```
+```text
 表面模块系统
     ├── GHY_DRV.f (陆面)
     │   ├── VEGETATION.f
@@ -432,7 +432,7 @@ ATM_DRV.f (主驱动程序)
 
 #### 主要数据流
 **主要数据流**
-```
+```text
 大气状态 (ATM_COM)
     ↓
 动力学 (ATMDYN)
@@ -470,7 +470,7 @@ ATM_DRV.f (主驱动程序)
 
 #### 依赖层次结构（自下而上）
 **依赖层次结构（自下而上）**
-```
+```text
 第1层（基础）:
 ├── shared/ (常数、工具、时间管理)
 └── MODEL_COM.f (全局模型状态)

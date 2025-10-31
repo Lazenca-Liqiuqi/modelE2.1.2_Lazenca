@@ -43,7 +43,11 @@
       "Bash(awk:*)",
       "Bash([ \"$file\" != \"placeholder.html\" ])",
       "Bash([:*)",
-      "Bash(then wc -l \"$file\")"
+      "Bash(then wc -l \"$file\")",
+      "Bash(temp_file)",
+      "mcp__sequential-thinking__sequentialthinking",
+      "mcp__shrimp-task-manager__plan_task",
+      "mcp__shrimp-task-manager__analyze_task"
     ],
     "deny": [],
     "ask": []
@@ -61,5 +65,6 @@
     "ccusage",
     "browsermcp",
     "codex"
-  ]
+  ],
+  "outputStyle": "default"
 }

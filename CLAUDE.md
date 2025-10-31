@@ -22,7 +22,7 @@ ModelE2.1.2_Lazenca是NASA GISS ModelE 2.1.2的个人分支版本，主要用于
 ## 项目架构
 
 ### 目录结构
-```
+```text
 modelE2.1.2_Lazenca/
 ├── model/          # 核心模型源代码
 │   ├── main.F90    # 主程序入口
@@ -189,7 +189,7 @@ modelE2.1.2_Lazenca/
 **doc/PROJECT_MEMORY_INDEX.md** - Project memory system index and usage guide
 
 ### 当前项目状态 | Current Project Status
-- **版本信息 | Version Information**: ModelE2.1.2_Lazenca v0.1.4 (基于 ModelE 2.1.2)
+- **版本信息 | Version Information**: ModelE2.1.2_Lazenca v0.2.0 (基于 ModelE 2.1.2)
 - **文档系统 | Documentation System**: 段落级中英对照格式，支持连续阅读
 **Documentation System**: Paragraph-level bilingual format, supporting continuous reading
 - **维护状态 | Maintenance Status**: 活跃维护，文档系统持续完善
@@ -239,8 +239,8 @@ modelE2.1.2_Lazenca/
   - 阶段1.3：9个UserGuide辅助文档翻译（诊断指南、示踪物专题、快速入门、辅助工具）- Codex审查平均分95+
 - **下一阶段 | Next Phase**: 阶段2.1 - ModelDescription核心模块翻译（大气和物理过程）
 **Phase 2.1: ModelDescription Core Module Translation (Atmosphere and Physics)**
-- **总体进度 | Overall Progress**: 8/20个任务完成（40%）
-**8/20 tasks completed (40%)**
+- **总体进度 | Overall Progress**: 9/20个任务完成（45%）
+**9/20 tasks completed (45%)**
 
 ---
 
