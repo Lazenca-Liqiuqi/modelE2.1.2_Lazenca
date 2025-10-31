@@ -237,10 +237,12 @@ modelE2.1.2_Lazenca/
   - 阶段1.1：根目录文件翻译（README.md、Makefile、modele-control.pyar）- Codex审查评分95/100
   - 阶段1.2：4个核心UserGuide文档翻译（编译指南、运行指南、配置详解、参数详解）- Codex审查平均分96.5+
   - 阶段1.3：9个UserGuide辅助文档翻译（诊断指南、示踪物专题、快速入门、辅助工具）- Codex审查平均分95+
+  - 阶段1.3.5：UserGuide辅助文档阶段收尾与质量验收（文档完整性重构完成）
+  - 版本v0.2.0发布：文档体系重构完成（依赖关系：阶段1.3.5 → v0.2.0 → 阶段2.1）
 - **下一阶段 | Next Phase**: 阶段2.1 - ModelDescription核心模块翻译（大气和物理过程）
 **Phase 2.1: ModelDescription Core Module Translation (Atmosphere and Physics)**
-- **总体进度 | Overall Progress**: 9/20个任务完成（45%）
-**9/20 tasks completed (45%)**
+- **总体进度 | Overall Progress**: 10/20个任务完成（50%）
+**10/20 tasks completed (50%）**
 
 ---
 
