@@ -148,15 +148,3 @@
 2. 基础动力学框架建立
 3. 简化物理过程实现
 4. 初步耦合系统开发
-
-## 参考信息
-
-1. 完整的项目记忆系统索引，包含所有相关文档链接
-2. 版本管理遵循语义版本控制原则
-3. 相关文档链接：CLAUDE.md(技术概览)、README.md(使用指南)、doc/PROJECT_MEMORY_INDEX.md(完整索引)、doc/ARCHITECTURE_ANALYSIS.md(架构分析)、doc/PROJECT_ANALYSIS_REPORT.md(项目分析)
-4. 版本格式：主版本号.次版本号.修订版本号 YYYY.MM.DD 摘要
-
----
-
-**ModelE2.1.2_Lazenca项目变更记录**
-*基于NASA GISS ModelE 2.1.2的个人分支*
