@@ -3,7 +3,7 @@
 [![GitHub release](https://img.shields.io/github/release/Lazenca-Liqiuqi/modelE2.1.2_Lazenca.svg)](https://github.com/Lazenca-Liqiuqi/modelE2.1.2_Lazenca)
 [![License](https://img.shields.io/badge/License-NASA%20Open%20Source-blue.svg)](LICENSE)
 [![Fortran](https://img.shields.io/badge/Fortran-90%2F95-blue.svg)](https://en.wikipedia.org/wiki/Fortran)
-[![Version](https://img.shields.io/badge/Version-v0.2.0-green.svg)](https://github.com/Lazenca-Liqiuqi/modelE2.1.2_Lazenca)
+[![Version](https://img.shields.io/badge/Version-0.2.1-green.svg)](https://github.com/Lazenca-Liqiuqi/modelE2.1.2_Lazenca)
 
 **基于NASA GISS ModelE 2.1.2的个人分支 | Personal fork based on NASA GISS ModelE 2.1.2**
 
@@ -142,22 +142,23 @@ gmake setup RUN=my_run       # 编译模型并准备运行目录
 
 - **项目类型**: NASA GISS 地球系统模型中文翻译
 - **翻译范围**: 620+ 文件（HTML文档、Fortran代码、脚本、配置文件）
-- **当前进度**: 10/20个任务完成（50%）
+- **当前进度**: 14/26个任务完成（53.8%）
+- **当前版本**: 0.2.1
 - **基础设施状态**: 完全就绪
 
 #### 主要里程碑
-- ✅ 项目启动与规划（18个任务规划完成）
+- ✅ 项目启动与规划（翻译计划和管理系统）
 - ✅ 翻译基础设施建设（术语词典、工具链、质量系统）
-- ✅ 阶段1：根目录和UserGuide文档翻译（Codex审查平均分95+）
-- ✅ 版本v0.2.0发布：文档体系重构完成
-- 🔄 阶段2.1：ModelDescription核心模块翻译（进行中）
+- ✅ 根目录和UserGuide文档翻译（Codex审查平均分95+）
+- ✅ 版本0.2.0发布：UserGuide体系重构完成
+- 🔄 ModelDescription大气模块翻译（下一阶段）
 
 #### 翻译基础设施
-- **✅ 术语词典系统**: 500+ 专业术语，12个类别
-- **✅ 翻译工具链**: Claude 3.5 Sonnet + 术语一致性控制
-- **✅ 格式保持算法**: Fortran注释100%编译兼容
-- **✅ 质量检查流水线**: 多维度自动化检查
-- **✅ 测试验证系统**: 完整的测试样本和验证流程
+- **✅ 术语词典系统**: 500+ 专业术语，12个类别完整覆盖
+- **✅ 翻译工具链**: Claude 3.5 Sonnet驱动，术语一致性自动控制
+- **✅ 格式保持算法**: Python实现，Fortran注释100%编译兼容
+- **✅ 质量检查流水线**: 四重校验（术语、格式、内容、编译）
+- **✅ AI审查机制**: Codex深度分析，持续质量改进
 
 ---
 
@@ -231,7 +232,7 @@ ModelE2.1.2_Lazenca 是 NASA GISS ModelE 2.1.2 的个人分支版本，主要用
 ### 📚 更多资源
 
 - 🔬 [NASA GISS ModelE 官方网站](https://www.giss.nasa.gov/tools/modelE/)
-- 📖 [完整用户指南](doc/UserGuide/index.html)
+- 📖 [完整用户指南](doc/UserGuide/0-index.md)
 - 📋 [项目变更记录](CHANGELOG.md)
 
 ---
