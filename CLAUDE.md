@@ -107,18 +107,24 @@ gmake setup RUN=run_name       # 编译和设置
 - [x] **版本0.2.0发布**: UserGuide体系重构完成
 
 #### ⏳ 待执行的任务
-- [ ] **ModelDescription大气模块翻译**: 大气动力学、辐射、云物理等核心模块技术文档
-- [ ] **ModelDescription海洋陆面模块翻译**: 海洋、陆面、海冰模块技术文档
-- [ ] **核心驱动模块注释翻译**: ATM_DRV和核心驱动程序注释
-- [ ] **辐射云模块注释翻译**: RADIATION和CLOUDS模块注释
-- [ ] **海洋陆面模块注释翻译**: OCNDYN、GHY_DRV等模块注释
-- [ ] **诊断工具模块注释翻译**: 诊断和工具模块注释
-- [ ] **剩余Fortran模块注释翻译**: 其他所有Fortran源码注释
-- [ ] **辅助工具脚本翻译**: _aux目录工具脚本说明
-- [ ] **执行脚本翻译**: exec目录运行脚本说明
-- [ ] **全面质量检查和编译验证**: 完整性测试和编译验证
-- [ ] **用户测试和反馈收集**: 社区测试和问题修复
-- [ ] **最终优化和发布准备**: 最终版本发布准备
+
+**🌪️ 第一阶段：ModelDescription技术文档翻译**
+- [ ] **大气模块文档翻译** (6个文件): Atmospheric_model, Dynamics, Radiation, Cloud_processes, Turbulence_and_Dry_convection, Surface_fluxes
+- [ ] **陆面模块文档翻译** (6个文件): Land_Surface_model, Ground_Hydrology, Vegetation_model, Snow_model, Lake_model, Rivers
+- [ ] **海洋模块文档翻译** (4个文件): Ocean_models, GISS_Dynamic_ocean_model, Q-flux_mixed_layer_model, Ocean_Tracers
+- [ ] **海冰模块文档翻译** (2个文件): Sea_ice_model, Basic_thermodynamics
+- [ ] **示踪物模块文档翻译** (5个文件): Tracers, Aerosol_Tracers, Gas_Tracers, Air_mass_Tracers, Special_Tracers
+- [ ] **系统架构文档翻译** (6个文件): Overall_model_structure, Source_code, Initialisation, Main_time_stepping, Diagnostics, Input_Output
+
+**🔧 第二阶段：支持文档翻译**
+- [ ] **misc目录文档翻译** (16个文件): ModelE_Coding_Standards.tex, CHANGES.txt, 诊断配置文件等
+- [ ] **HOWTO目录文档翻译** (5个文件): git_howto.html, newio.html等开发者指南
+
+**📋 第三阶段：项目完善**
+- [ ] **文档结构优化和导航建立**: 建立完整的文档导航系统
+- [ ] **术语词典扩展**: 覆盖地球系统模型专业术语
+- [ ] **全面质量检查和一致性验证**: 确保翻译质量和术语一致性
+- [ ] **最终优化和发布准备**: 完整性检查和版本发布
 
 ## 项目进展
 
@@ -140,16 +146,16 @@ gmake setup RUN=run_name       # 编译和设置
 
 ### 当前状态
 - **版本**: 0.2.1（以CHANGELOG为准）
-- **进度**: 14/26（53.8%）——口径：shrimp任务，自2025-10-29起生效
-- **阶段**: 2.1（ModelDescription大气模块翻译）
+- **进度**: 6/17（35.3%）——专注文档翻译，排除代码注释
+- **阶段**: 第一阶段大气模块文档翻译
 - **质量**: Codex审查均分95+
 - **统计更新**: 2025.11.12
 
 ### 下一步计划与风险提示
-- **当前任务**: 完成阶段2.1大气模块翻译，推进至阶段2.2海洋陆面模块
+- **当前任务**: 完成第一阶段大气模块文档翻译（6个文件）
+- **文档策略**: 严格按科学领域分组，先文档后注释（注释暂不执行）
 - **版本同步**: 将0.2.0变更补录至CHANGELOG，建立稳定锚点
-- **路径统一**: 清理历史引用，统一目录名为doc/UserGuide
 - **质量保障**: 建立CLAUDE↔CHANGELOG一致性校验，确保版本/日期/路径准确
-- **技术风险**: 构建系统现代化、测试基础设施补齐待优化
+- **技术风险**: 术语一致性保障，地球系统专业术语覆盖
 
 [详细信息见CHANGELOG.md]
