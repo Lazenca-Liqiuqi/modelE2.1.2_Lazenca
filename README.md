@@ -9,7 +9,7 @@
 
 ---
 
-## 📚 文档导航
+## 文档导航
 
 > **⚠️ 重要提示**
 >
@@ -22,26 +22,26 @@
 
 ---
 
-## 📁 项目结构
+## 项目结构
 
 ```text
 modelE2.1.2_Lazenca
-├── 📁 model/          # 核心模型源代码
-├── 📁 _aux/           # 辅助程序（预处理/后处理）
-├── 📁 exec/           # 编译和设置脚本
-├── 📁 doc/            # 文档目录
-├── 📁 decks/          # 运行配置目录
-├── 📁 config/         # 配置文件
-├── 📁 init_cond/      # 初始条件
-├── 📁 diags/          # 诊断输出
-└── 📁 tests/          # 测试文件
+├── model/          # 核心模型源代码
+├── _aux/           # 辅助程序（预处理/后处理）
+├── exec/           # 编译和设置脚本
+├── doc/            # 文档目录
+├── decks/          # 运行配置目录
+├── config/         # 配置文件
+├── init_cond/      # 初始条件
+├── diags/          # 诊断输出
+└── tests/          # 测试文件
 ```
 
 ---
 
-## 🚀 快速开始
+## 快速开始
 
-### 1️⃣ 系统配置
+### 系统配置
 
 **工作目录**: `modelE2.1.2_Lazenca/decks`
 
@@ -57,30 +57,30 @@ gmake config COMPILER=gfortran ModelE_Support=$HOME/ModelE_Support
 
 ---
 
-## 🔧 编译和运行指南
+## 编译和运行指南
 
 ### 基本工作流程
 
-> **所有操作都应在 `decks` 目录中进行**
+> 所有操作都应在 `decks` 目录中进行
 
 ```bash
 cd decks    # 进入工作目录
 ```
 
-#### 步骤 1: 创建 Rundeck
+#### 步骤1: 创建 Rundeck
 ```bash
 gmake rundeck RUN=my_run     # 创建运行配置
 ```
 
-#### 步骤 2: 编辑配置
+#### 步骤2: 编辑配置
 编辑 `my_run.R` 文件以选择适当的配置
 
-#### 步骤 3: 编译和设置
+#### 步骤3: 编译和设置
 ```bash
 gmake setup RUN=my_run       # 编译模型并准备运行目录
 ```
 
-#### 步骤 4: 运行模型
+#### 步骤4: 运行模型
 ```bash
 # 从初始条件开始
 ../exec/runE my_run -cold-restart
@@ -91,7 +91,7 @@ gmake setup RUN=my_run       # 编译模型并准备运行目录
 
 ---
 
-## 📋 Makefile 命令参考
+## Makefile 命令参考
 
 | 命令 | 功能描述 |
 |------|----------|
@@ -108,33 +108,32 @@ gmake setup RUN=my_run       # 编译模型并准备运行目录
 | `exe` | 编译 gcm 并将可执行文件放入运行目录 |
 | `htmldoc` | 为此运行创建基于 Web 的文档 |
 
-> **💡 提示**: 运行 `gmake` 不带参数将显示简短帮助信息
+> 提示: 运行 `gmake` 不带参数将显示简短帮助信息
 
 ---
 
-## 📊 项目文档系统
+## 项目文档系统
 
-### 🏗️ 文档架构
+### 文档架构
 
 本项目采用完整的现代化文档系统：
 
 | 文档 | 描述 |
 |------|------|
-| 📄 **CLAUDE.md** | 🤖 AI 技术概览 |
-| 📄 **README.md** | 👥 用户指南 (this file) |
-| 📄 **CHANGELOG.md** | 📝 版本历史 |
+| **CLAUDE.md** | AI 技术概览 |
+| **README.md** | 用户指南 (this file) |
+| **CHANGELOG.md** | 版本历史 |
 
-### 🔬 技术文档
+### 技术文档
 
 | 文档 | 内容 |
 |------|---------|
-| 📄 **doc/ARCHITECTURE_ANALYSIS.md** | 🏛️ 详细的 ModelE 架构分析和模块依赖关系 |
-| 📄 **doc/PROJECT_ANALYSIS_REPORT.md** | 📊 全面项目分析报告和现代化路线图 |
-| 📄 **doc/PROJECT_MEMORY_INDEX.md** | 🗂️ 项目记忆系统索引和使用指南 |
+| **doc/PROJECT_ANALYSIS_REPORT.md** | 全面项目分析报告和现代化路线图 |
+| **doc/PROJECT_MEMORY_INDEX.md** | 项目记忆系统索引和使用指南 |
 
-### 📈 翻译项目状态
+### 翻译项目状态
 
-#### ✅ 已完成的任务
+#### 已完成的任务
 - [x] **项目启动与规划**: 建立翻译计划和管理系统
 - [x] **术语词典与工具配置**: 建立翻译基础设施
 - [x] **根目录文件翻译**: README.md, Makefile等核心文件
@@ -142,7 +141,7 @@ gmake setup RUN=my_run       # 编译模型并准备运行目录
 - [x] **UserGuide辅助文档翻译**: 诊断、示踪物、入门指南
 - [x] **版本0.2.0发布**: UserGuide体系重构完成
 
-#### ⏳ 待执行的任务
+#### 待执行的任务
 - [ ] **ModelDescription大气模块翻译**: 大气动力学、辐射、云物理等核心模块技术文档
 - [ ] **ModelDescription海洋陆面模块翻译**: 海洋、陆面、海冰模块技术文档
 - [ ] **核心驱动模块注释翻译**: ATM_DRV和核心驱动程序注释
@@ -156,7 +155,17 @@ gmake setup RUN=my_run       # 编译模型并准备运行目录
 - [ ] **用户测试和反馈收集**: 社区测试和问题修复
 - [ ] **最终优化和发布准备**: 最终版本发布准备
 
-### 📊 项目进展
+---
+
+## 当前状态
+
+- **版本**: 0.2.1（以CHANGELOG为准）
+- **进度**: 14/26（53.8%）——口径：shrimp任务
+- **阶段**: 2.1（ModelDescription大气模块翻译）
+- **质量**: Codex审查均分95+
+- **统计更新**: 2025.11.12
+
+### 项目进展
 
 #### 最新版本概览
 
@@ -174,13 +183,6 @@ gmake setup RUN=my_run       # 编译模型并准备运行目录
 - **0.1.2** 2025.10.28 根目录文件翻译完成，项目入口中英对照优化 [详情]
 - **0.1.1** 2025.10.28 翻译基础设施完成，术语词典与工具链就绪 [详情]
 
-#### 当前状态
-- **版本**: 0.2.1（以CHANGELOG为准）
-- **进度**: 14/26（53.8%）——口径：shrimp任务，自2025-10-29起生效
-- **阶段**: 2.1（ModelDescription大气模块翻译）
-- **质量**: Codex审查均分95+
-- **统计更新**: 2025.11.12
-
 #### 下一步计划与风险提示
 - **当前任务**: 完成阶段2.1大气模块翻译，推进至阶段2.2海洋陆面模块
 - **版本同步**: 将0.2.0变更补录至CHANGELOG，建立稳定锚点
@@ -191,36 +193,36 @@ gmake setup RUN=my_run       # 编译模型并准备运行目录
 [详细信息见CHANGELOG.md]
 
 #### 翻译基础设施
-- **✅ 术语词典系统**: 500+ 专业术语，12个类别完整覆盖
-- **✅ 翻译工具链**: Claude 3.5 Sonnet驱动，术语一致性自动控制
-- **✅ 格式保持算法**: Python实现，Fortran注释100%编译兼容
-- **✅ 质量检查流水线**: 四重校验（术语、格式、内容、编译）
-- **✅ AI审查机制**: Codex深度分析，持续质量改进
+- **术语词典系统**: 500+ 专业术语，12个类别完整覆盖
+- **翻译工具链**: Claude 3.5 Sonnet驱动，术语一致性自动控制
+- **格式保持算法**: Python实现，Fortran注释100%编译兼容
+- **质量检查流水线**: 四重校验（术语、格式、内容、编译）
+- **AI审查机制**: Codex深度分析，持续质量改进
 
 ---
 
-## 🛠️ 开发环境要求
+## 开发环境要求
 
 ### 必需软件
 
 | 软件 | 版本要求 |
 |------|----------|
-| 🔨 Fortran 编译器 | gfortran 4.8+, Intel 15+, PGI 15+ |
-| 🌐 MPI | OpenMPI 1.6+, MPICH 3.0+ |
-| 📊 NetCDF | 4.0+ |
-| 🔢 LAPACK/BLAS | 3.0+ |
+| Fortran 编译器 | gfortran 4.8+, Intel 15+, PGI 15+ |
+| MPI | OpenMPI 1.6+, MPICH 3.0+ |
+| NetCDF | 4.0+ |
+| LAPACK/BLAS | 3.0+ |
 
 ### 支持平台
 
-- 🐧 **Linux** - 主要支持平台
-- 🍎 **macOS** - 支持
-- 🪟 **Windows** - 通过 WSL 支持
+- **Linux** - 主要支持平台
+- **macOS** - 支持
+- **Windows** - 通过 WSL 支持
 
 ---
 
-## 🚨 重要提醒
+## 重要提醒
 
-### ⚠️ 运行注意事项
+### 运行注意事项
 
 1. **创建 Rundeck 优先**
    - 在运行任何其他命令之前，必须先使用 `gmake rundeck RUN=run_name` 创建 rundeck
@@ -233,9 +235,9 @@ gmake setup RUN=my_run       # 编译模型并准备运行目录
 
 ---
 
-## 🤝 项目信息
+## 项目信息
 
-### 📋 项目详情
+### 项目详情
 
 - **项目名称**: ModelE2.1.2_Lazenca
 - **基础项目**: NASA GISS ModelE 2.1.2
@@ -246,37 +248,37 @@ gmake setup RUN=my_run       # 编译模型并准备运行目录
 - **代码规模**: 超过33万行代码
 - **主要语言**: Fortran 90/95, 部分C代码
 
-### 🌟 项目用途
+### 项目用途
 
 ModelE2.1.2_Lazenca 是 NASA GISS ModelE 2.1.2 的个人分支版本，主要用于：
 
-- 🌡️ 气候变化研究和预测
-- 🦕 古气候模拟
-- 🌤️ 天气和气候过程研究
-- 🌍 地球系统相互作用分析
+- 气候变化研究和预测
+- 古气候模拟
+- 天气和气候过程研究
+- 地球系统相互作用分析
 
 ---
 
-## 📞 支持与联系
+## 支持与联系
 
-### 🐛 问题报告
+### 问题报告
 
 如果遇到问题，请通过以下方式报告：
 
-- 🌐 [GitHub Issues](https://github.com/Lazenca-Liqiuqi/modelE2.1.2_Lazenca/issues)
-- 📧 直接联系开发者
+- [GitHub Issues](https://github.com/Lazenca-Liqiuqi/modelE2.1.2_Lazenca/issues)
+- 直接联系开发者
 
-### 📚 更多资源
+### 更多资源
 
-- 🔬 [NASA GISS ModelE 官方网站](https://www.giss.nasa.gov/tools/modelE/)
-- 📖 [完整用户指南](doc/UserGuide/0-index.md)
-- 📋 [项目变更记录](CHANGELOG.md)
+- [NASA GISS ModelE 官方网站](https://www.giss.nasa.gov/tools/modelE/)
+- [完整用户指南](doc/UserGuide/0-index.md)
+- [项目变更记录](CHANGELOG.md)
 
 ---
 
 <div align="center">
 
-**🌍 探索地球系统，理解气候变化 | Explore Earth Systems, Understand Climate Change 🌍**
+**探索地球系统，理解气候变化 | Explore Earth Systems, Understand Climate Change**
 
 *基于 NASA GISS ModelE 2.1.2 | Based on NASA GISS ModelE 2.1.2*
 

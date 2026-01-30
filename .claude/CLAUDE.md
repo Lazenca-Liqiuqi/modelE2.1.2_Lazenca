@@ -1,6 +1,6 @@
 # ModelE2.1.2_Lazenca - NASA GISS地球系统模型中文翻译
 
-## 项目简介
+## 项目背景信息
 
 ModelE2.1.2_Lazenca是基于NASA GISS ModelE 2.1.2的个人fork分支，专注于地球系统模型的中文翻译和本地化。项目涵盖大气环流模型(GCM)、海洋、陆面、海冰、化学等完整地球系统组件，主要服务于气候变化研究、古气候模拟和天气气候过程分析。
 
@@ -14,19 +14,7 @@ ModelE2.1.2_Lazenca是基于NASA GISS ModelE 2.1.2的个人fork分支，专注�
 ```
 modelE2.1.2_Lazenca/
 ├── model/              # 核心模型源代码
-│   ├── main.F90        # 主程序入口
-│   ├── ATM_DRV.f       # 大气驱动程序
-│   ├── ATMDYN.f        # 大气动力学核心
-│   ├── RADIATION.f     # 辐射传输模块
-│   ├── CLOUDS2.F90     # 云微物理过程
-│   ├── OCEAN.f         # 海洋模块
-│   ├── GHY_DRV.f       # 陆面过程驱动
-│   ├── SEAICE.f        # 海冰模块
-│   ├── TRACERS_DRV.f   # 示踪物传输
-│   └── shared/         # 共享工具模块
 ├── doc/                # 文档目录
-│   ├── UserGuide/      # 用户指南（已翻译完成）
-│   └── ModelDescription/ # 模型描述文档（翻译中）
 ├── config/             # 编译配置文件
 ├── decks/              # 运行配置目录
 ├── _aux/               # 辅助程序
@@ -38,7 +26,7 @@ modelE2.1.2_Lazenca/
 
 [详细信息见项目记忆系统的repomix打包文件]
 
-## 核心技术栈与技术路线
+## 技术栈与技术路线
 
 ### 地球系统模型组件
 - **大气模块**: ATM_DRV.f（驱动）、ATMDYN.f（动力学）、RADIATION.f（辐射）、CLOUDS2.F90（云微物理）
@@ -89,14 +77,13 @@ gmake setup RUN=run_name       # 编译和设置
 - [项目GitHub仓库](https://github.com/Lazenca-Liqiuqi/modelE2.1.2_Lazenca)
 
 ### 技术文档
-- [架构分析文档](doc/ARCHITECTURE_ANALYSIS.md) - 详细架构分析和模块依赖
 - [项目分析报告](doc/PROJECT_ANALYSIS_REPORT.md) - 技术债务评估和现代化路线图
 - [项目记忆索引](doc/PROJECT_MEMORY_INDEX.md) - 记忆系统使用指南
 
 ### 学术文献
 - Schmidt, G.A., et al. (2014). Configuration and assessment of the GISS ModelE2 contributions to the CMIP5 archive
 
-## TODO
+## 工作阶段
 
 #### ✅ 已完成的任务
 - [x] **项目启动与规划**: 建立翻译计划和管理系统
@@ -126,6 +113,14 @@ gmake setup RUN=run_name       # 编译和设置
 - [ ] **全面质量检查和一致性验证**: 确保翻译质量和术语一致性
 - [ ] **最终优化和发布准备**: 完整性检查和版本发布
 
+## 当前状态
+
+- **版本**: 0.2.1（以CHANGELOG为准）
+- **进度**: 14/26（53.8%）——口径：shrimp任务
+- **阶段**: 2.1（ModelDescription大气模块翻译）
+- **质量**: Codex审查均分95+
+- **统计更新**: 2025.11.12
+
 ## 项目进展
 
 ### 最新版本概览
@@ -144,14 +139,8 @@ gmake setup RUN=run_name       # 编译和设置
 - **0.1.2** 2025.10.28 根目录文件翻译完成，项目入口中英对照优化 [详情]
 - **0.1.1** 2025.10.28 翻译基础设施完成，术语词典与工具链就绪 [详情]
 
-### 当前状态
-- **版本**: 0.2.1（以CHANGELOG为准）
-- **进度**: 6/17（35.3%）——专注文档翻译，排除代码注释
-- **阶段**: 第一阶段大气模块文档翻译
-- **质量**: Codex审查均分95+
-- **统计更新**: 2025.11.12
-
 ### 下一步计划与风险提示
+
 - **当前任务**: 完成第一阶段大气模块文档翻译（6个文件）
 - **文档策略**: 严格按科学领域分组，先文档后注释（注释暂不执行）
 - **版本同步**: 将0.2.0变更补录至CHANGELOG，建立稳定锚点

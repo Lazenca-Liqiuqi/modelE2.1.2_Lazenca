@@ -47,7 +47,10 @@
       "Bash(temp_file)",
       "mcp__sequential-thinking__sequentialthinking",
       "mcp__shrimp-task-manager__plan_task",
-      "mcp__shrimp-task-manager__analyze_task"
+      "mcp__shrimp-task-manager__analyze_task",
+      "mcp__repomix__attach_packed_output",
+      "mcp__shrimp-task-manager__reflect_task",
+      "Bash(find:*)"
     ],
     "deny": [],
     "ask": []
