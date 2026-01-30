@@ -3,7 +3,7 @@
 [![GitHub release](https://img.shields.io/github/release/Lazenca-Liqiuqi/modelE2.1.2_Lazenca.svg)](https://github.com/Lazenca-Liqiuqi/modelE2.1.2_Lazenca)
 [![License](https://img.shields.io/badge/License-NASA%20Open%20Source-blue.svg)](LICENSE)
 [![Fortran](https://img.shields.io/badge/Fortran-90%2F95-blue.svg)](https://en.wikipedia.org/wiki/Fortran)
-[![Version](https://img.shields.io/badge/Version-0.2.1-green.svg)](https://github.com/Lazenca-Liqiuqi/modelE2.1.2_Lazenca)
+[![Version](https://img.shields.io/badge/Version-0.2.2-green.svg)](https://github.com/Lazenca-Liqiuqi/modelE2.1.2_Lazenca)
 
 **基于NASA GISS ModelE 2.1.2的个人分支 | Personal fork based on NASA GISS ModelE 2.1.2**
 
@@ -159,7 +159,7 @@ gmake setup RUN=my_run       # 编译模型并准备运行目录
 
 ## 当前状态
 
-- **版本**: 0.2.1（以CHANGELOG为准）
+- **版本**: 0.2.2（以CHANGELOG为准）
 - **进度**: 14/26（53.8%）——口径：shrimp任务
 - **阶段**: 2.1（ModelDescription大气模块翻译）
 - **质量**: Codex审查均分95+
@@ -168,6 +168,14 @@ gmake setup RUN=my_run       # 编译模型并准备运行目录
 ### 项目进展
 
 #### 最新版本概览
+
+##### 0.2.2 2025.11.12 记忆系统格式重构 - 项目结构优化
+- **结果**: 记忆系统格式规范化，移动CLAUDE.md到.claude/目录，建立进度记录机制
+- **质量**: 项目结构优化完成，清理旧文件和废弃文档，为后续翻译工作建立清晰基础
+- **变更**: 重新组织翻译任务，按科学领域分组，专注文档翻译策略
+- **影响**: 记忆系统符合规范，工作区干净，可随时开始ModelDescription技术文档翻译
+
+[查看详情 → CHANGELOG.md#0.2.2]
 
 ##### 0.2.0 2025.11.12 UserGuide翻译完成 - 项目里程碑
 - **结果**: UserGuide 18篇翻译完成，用户引导体系闭环，为ModelDescription翻译建立流水线
