@@ -115,3 +115,316 @@
 ---
 
 [CONVERSATION_ID]: codex-20251112-p0-review-recheck
+
+---
+
+# 任务#10 陆面模块翻译质量审查报告（doc/technical-reference/land）
+
+- 时间: 2026-02-02 22:41
+- 审查对象:
+  - doc/technical-reference/land/Land_Surface_model.md
+  - doc/technical-reference/land/Ground_Hydrology.md
+  - doc/technical-reference/land/Snow_model.md
+- 源文件对照:
+  - old-doc/ModelDescription/Land_Surface_model.html
+  - old-doc/ModelDescription/Ground_Hydrology.html
+  - old-doc/ModelDescription/Snow_model.html
+- 术语标准参考: .claude/terminology-dictionary.md（v1.4）
+- 格式参考: doc/UserGuide/2.3-Compiling_the_model.md
+
+---
+
+## 结论与建议
+
+- 综合评分: 85/100
+- 建议: 退回（小幅修改后可通过；预计修订后可达 ≥90）
+
+主要结论（摘要）:
+- 内容无遗漏：Ground_Hydrology 的正文与 MathJax 测试段落均已覆盖，公式保留正确（见 Ground_Hydrology.md:19–27；对应源文件 Ground_Hydrology.html:26–31）。
+- 译意总体准确：关键句含义基本对齐原文，但个别表述偏生硬，且部分术语中文译名不够自然/不够标准化（见 Ground_Hydrology.md:3–13，Snow_model.md:3–4）。
+- 格式基本一致：标题“English / 中文”符合现有 technical-reference 风格；但与 .claude/html-markdown-conversion-rules.md 中“英文加粗+空行分隔”的规范存在口径不一致风险（需项目层面确认）。
+
+---
+
+## 评分详情（按请求的分项）
+
+### 1) 技术维度（0-100）
+
+- 术语一致性: 38/50
+  - 优点: canopy layer→冠层、Runoff→径流、TOPmodel→TOPmodel（保留专名）均语义正确（Ground_Hydrology.md:3–13）。
+  - 问题: 词典 v1.4 未覆盖本次多项关键术语（如 Runoff、Evapotranspiration、surface pools、rooting depths、TOPmodel），导致“一致性”只能在文内与跨文档风格层面评估（terminology-dictionary.md 未检索到对应条目）。
+  - 译名可读性待改进: “植被土”“变深度层”“根深”“地表蓄水层”等用词偏口语/不够常见，建议标准化（Ground_Hydrology.md:3–10）。
+
+- 翻译准确性: 42/50
+  - 核心语义对齐: 原文“分别对裸地/植被覆盖部分建模”“6层可变深度”“TOPmodel 计算径流”等均已表达（Ground_Hydrology.html:15–20 → Ground_Hydrology.md:3–13）。
+  - 主要扣分点: 关键句译法偏“直译+括号解释”，导致逻辑不够自然（Ground_Hydrology.md:9–10）。
+
+技术维度小计: 80/100
+
+### 2) 格式维度（0-60）
+
+- Markdown 格式: 28/30
+  - 标题层级、分隔线、代码块与公式块均可被常见渲染器解析（Ground_Hydrology.md:1–30；Snow_model.md:1–4）。
+
+- 中英对照格式: 26/30
+  - 优点: “英文在上、中文在下”的叠放形式与 doc/UserGuide/2.3-Compiling_the_model.md 的示例一致。
+  - 风险: .claude/html-markdown-conversion-rules.md 要求“英文原文加粗 + 中英文间空一行分隔 + 段落结构严格一致”，与当前项目示例与既有 technical-reference 文件存在不一致口径（需确认以谁为准）。
+
+格式维度小计: 54/60
+
+### 3) 完整性维度（0-20）
+
+- 完整性: 18/20
+  - 无明显遗漏；公式未被误译；引用（Stieglitz, 1994）保持不变（Snow_model.md:3–4）。
+  - 结构保真性方面：源 HTML 的单个 <p> 被拆为多个句对（Ground_Hydrology.html:15–21 → Ground_Hydrology.md:3–13），若以“严格保留段落结构”为硬标准，则应扣分。
+
+### 4) 综合评分（0-100，按权重折算）
+
+- 折算方法（与请求一致）:
+  - 技术维度贡献 = (术语一致性+翻译准确性)/100 × 50 = 80/100 × 50 = 40
+  - 格式维度贡献 = (Markdown+中英对照)/60 × 30 = 54/60 × 30 = 27
+  - 完整性维度贡献 = 完整性/20 × 20 = 18/20 × 20 = 18
+- 综合得分 = 40 + 27 + 18 = 85/100
+
+---
+
+## 关键发现（可复现证据）
+
+1) 关键句译法可读性不足（建议重写）
+- 源文: “Evapotransiration takes water from the surface pools, and from below as a function of rooting depths.”（Ground_Hydrology.html:18–19）
+- 译文现状: “蒸散发从地表蓄水层和下部（作为根深函数的）获取水分。”（Ground_Hydrology.md:9–10）
+- 问题: “作为…函数”的表述在中文技术文档中偏生硬，且“根深”过于简略。
+
+2) 若以“段落结构严格一致”为准，则存在结构保真偏差
+- 源 HTML：单段 <p> 内包含多句（Ground_Hydrology.html:15–21）
+- 译文：拆为 4 组句对（Ground_Hydrology.md:3–13）
+- 影响: 不影响理解，但与“保持原有段落结构/段落数量严格相等”的规范存在冲突风险。
+
+3) 术语词典覆盖缺口会放大后续不一致风险
+- 词典 v1.4 未覆盖本次关键术语（如 Runoff、Evapotranspiration、TOPmodel、surface pools、rooting depths），后续翻译可能出现“径流/地表径流”“蒸散/蒸散发”“根系深度/根深”等口径分裂。
+
+---
+
+## 修改记录（问题清单 + 建议 + 优先级）
+
+### P0（建议本轮修订必须处理）
+
+1) 优化关键句中文表达（提升准确性与可读性）
+- 位置: doc/technical-reference/land/Ground_Hydrology.md:9–10
+- 建议改法（示例，保持语义不增删）:
+  - “蒸散发从地表积水（surface pools）以及更深层取水，取水深度取决于根系深度。”
+  - 备选（更贴近原句结构）: “蒸散发从地表蓄水与下部土层取水，其取水深度是根系深度的函数（即取决于根系深度）。”
+
+2) 统一/优化若干术语译名（避免生硬或歧义）
+- 位置: doc/technical-reference/land/Ground_Hydrology.md:3–10
+- 建议:
+  - “植被土”→“植被覆盖土壤/植被覆盖区土壤”
+  - “变深度层”→“可变深度层/可变厚度层”（二选一并全局统一）
+  - “根深”→“根系深度”
+  - “地表蓄水层”→“地表蓄水/地表积水/地表水洼（结合上下文择优）”
+
+3) Snow_model 句末“可具有可变范围”用词不自然
+- 位置: doc/technical-reference/land/Snow_model.md:3–4
+- 建议:
+  - “可具有可变范围”→“其覆盖范围可变/其空间覆盖范围可变”
+
+### P1（建议尽快处理，降低规范冲突风险）
+
+4) 明确“段落结构保真”口径，并据此选择是否合并句对
+- 位置: doc/technical-reference/land/Ground_Hydrology.md:3–13
+- 选项:
+  - A（严格保真）: 将 4 组句对合并为“1 个英文段落 + 1 个中文段落”，对应源 HTML 的单个 <p>。
+  - B（可读性优先）: 保持拆分，但在 .claude/rules 或 conversion rules 中明确允许“按句拆分”。
+
+5) “Evapotransiration”拼写疑点处理策略需要统一
+- 位置: doc/technical-reference/land/Ground_Hydrology.md:9
+- 建议:
+  - 若保留原文不改：在中文行或脚注补充“原文拼写如此；学术常用为 Evapotranspiration”。
+  - 若允许勘误：英文行改为 Evapotranspiration，并在括注说明源文拼写（保留可追溯性）。
+
+### P2（可规划）
+
+6) 补充术语词典 v1.4 的缺口条目（降低后续一致性成本）
+- 建议新增候选条目（需项目组确认最终译名）:
+  - Runoff → 径流
+  - Evapotranspiration → 蒸散发/蒸散（择一）
+  - rooting depth(s) → 根系深度
+  - surface pool(s) → 地表蓄水/地表积水
+  - TOPmodel → TOPmodel（保留）/ TOPmodel 方法
+
+---
+
+## 对“翻译难点”的回应（给出可执行建议）
+
+1) TOPmodel: 建议保留英文专名，中文用“TOPmodel 方法/ TOPmodel 方案”作说明，避免音译。
+2) Evapotransiration 拼写: 建议“保留原文 + 标注（原文拼写如此/学术常用拼写）”，除非项目明确允许对英文原文做勘误。
+3) MathJax 测试段: 源文包含说明文字与公式。建议保留公式不变、翻译说明文字；当前处理方式正确（Ground_Hydrology.md:19–30）。
+
+---
+
+[CONVERSATION_ID]: 019c1ec0-f93f-7f72-94a9-1f11e741bb2a
+
+---
+
+# ModelDescription 第二批文档翻译质量审查报告（任务#12/#18/#20，共6文件）
+
+- 时间: 2026-02-02 23:27
+- 审查对象（译文）:
+  - doc/ModelDescription/Input_Output.md
+  - doc/ModelDescription/Lake_model.md
+  - doc/ModelDescription/Rivers.md
+  - doc/ModelDescription/Overall_model_structure.md
+  - doc/ModelDescription/Source_code_and_directory_structure.md
+  - doc/ModelDescription/Initialisation.md
+- 源文件对照（HTML）:
+  - old-doc/ModelDescription/Input_Output.html
+  - old-doc/ModelDescription/Lake_model.html
+  - old-doc/ModelDescription/Rivers.html
+  - old-doc/ModelDescription/Overall_model_structure.html
+  - old-doc/ModelDescription/Source_code_and_directory_structure.html
+  - old-doc/ModelDescription/Initialisation.html
+- 术语标准参考: .claude/terminology-dictionary.md（v1.4）
+- 翻译规范参考: .claude/rules/translation-standards.md（v1.0，2026-02-02）
+
+---
+
+## 结论与建议
+
+- 综合评分: 83/100
+- 建议: 退回修改（修复 P0 后预计可达 ≥90）
+
+摘要:
+- 内容覆盖完整：6 个文件均无明显遗漏；专有名词与 <TT> 包裹内容保留良好。
+- 主要问题集中在：① 术语词典一致性（“restart file”译名不一致、若干新术语未入词典）；② Rivers 末句“deposited”译为“沉积”可能造成技术语义误导；③ 段落结构保真口径存在偏差（源 HTML 单段 <p> 被拆分为多组句对）。
+
+---
+
+## 评分详情（按审查请求口径）
+
+### 1) 技术维度（0-100）
+
+#### 1.1 术语一致性（0-50）：38/50
+
+主要发现:
+- 词典已收录且译法一致的术语：Precipitation→降水、Evaporation→蒸发、Tracer(s)→示踪物、Diagnostics→诊断输出、Subroutine→子程序（见 terminology-dictionary.md:82/142/190/191/213；对应译文见 Lake_model.md:9–10，Input_Output.md:12–13，Initialisation.md:3–4）。
+- restart file 的标准译名冲突：
+  - 词典 v1.4：restart file→“重启文件”（terminology-dictionary.md:336）
+  - 译文现状：Input_Output.md:4 使用“重启动文件”
+  - 审查请求表中也写为“重启动文件”，与词典不一致（属于流程口径问题，但仍应以词典为准或先更新词典后再统一）。
+- 多个本批次关键术语未在词典 v1.4 收录，按 translation-standards.md:2.3 需要补录，否则后续批次容易出现译名分裂：
+  - driver routine（驱动例程/驱动例程）
+  - prognostic variables（预报变量）
+  - runoff（径流）
+  - downstream direction（下游方向）
+  - sill depth（门槛深度）
+  - heat diffusion（热扩散）
+  - convective overturning（对流翻转）
+  - temperature stratification（温度层结）
+  - land grid boxes / ocean box（陆地网格/海洋网格 等）
+
+#### 1.2 翻译准确性（0-50）：43/50
+
+主要发现:
+- 大多数句对语义对齐良好（可复现对照）：
+  - Input_Output.html:12–21 → Input_Output.md:3–13
+  - Lake_model.html:12–18 → Lake_model.md:3–16
+  - Initialisation.html:12–19 → Initialisation.md:3–13
+- Rivers 存在 1 处高优先级语义风险：
+  - 源文：“the water is deposited uniformly within that box.”（Rivers.html:19–20）
+  - 译文：“水在该网格内均匀沉积。”（Rivers.md:18–19）
+  - 风险：中文“沉积”更易被理解为“沉积物沉降/沉积作用”，与“水量被均匀加入/分配到该海洋网格”可能不一致，建议改为“均匀注入/均匀分配/均匀加入”类表达。
+- Rivers 运输句译法偏拗口，可能降低可读性与可验证性：
+  - 源文包含 “the depth … above a predefined sill depth”（Rivers.html:16–18）
+  - 译文现状出现“超过…的深度”的重复结构（Rivers.md:12–13），建议改写为“超过预定义门槛深度的那部分水深/水位”。
+
+技术维度小计: 81/100
+
+### 2) 格式维度（0-60）
+
+#### 2.1 Markdown 格式（0-30）：29/30
+
+结论:
+- 标题与段落换行清晰，未发现会导致解析失败的语法问题。
+- <TT> 标签保留与源 HTML 一致（Input_Output.md:3–13；Initialisation.md:3–10），可视为“保真优先”的实现方式（但若目标渲染器不支持 <TT>，需另行制定转换规则）。
+
+#### 2.2 中英对照格式（0-30）：24/30
+
+结论:
+- 均采用“英文在上、中文在下”叠放形式且中英间有空行（符合 translation-standards.md:4.1）。
+- 但段落结构保真存在偏差：多份源 HTML 的单个 <p>/<P> 被拆成多组句对（例如 Input_Output.html:12–21 → Input_Output.md:3–13；Lake_model.html:12–18 → Lake_model.md:3–16；Rivers.html:12–20 → Rivers.md:3–19；Initialisation.html:12–19 → Initialisation.md:3–13）。若以 translation-standards.md:4.1/5.5 “保持原有段落结构”为硬规则，需要修订。
+
+格式维度小计: 53/60
+
+### 3) 完整性维度（0-20）：16/20
+
+#### 3.1 内容完整性（0-10）：10/10
+
+结论:
+- 无明显内容遗漏；极简文档处理合理：
+  - Overall_model_structure.html 的 “See particular sections.” 已翻译（Overall_model_structure.md:3–4）
+  - Source_code_and_directory_structure.html 空正文保留标题（Source_code_and_directory_structure.md:1）
+
+#### 3.2 结构保真性（0-10）：6/10
+
+主要扣分点:
+- 段落拆分问题（见上）。
+- 原文拼写错误处理策略需统一（审查请求中写“当前翻译保留原文拼写”，但实际译文已将源文拼写错误更正为正确拼写）：
+  - 源文：intereaction / Tranpsort（Rivers.html:15）
+  - 译文：interaction / Transport（Rivers.md:9/12）
+  - 建议明确策略：A 保留原文拼写以便逐字对照；或 B 纠正拼写但在译文中标注“源文如此”以保留可追溯性（见 translation-standards.md:6 问题2）。
+
+---
+
+## 综合评分（0-100，按权重折算）
+
+- 技术维度贡献 = 81/100 × 50 = 40.5
+- 格式维度贡献 = 53/60 × 30 = 26.5
+- 完整性维度贡献 = 16/20 × 20 = 16
+- 综合得分 = 40.5 + 26.5 + 16 = 83/100
+
+---
+
+## 修改记录（问题清单 + 建议 + 优先级）
+
+### P0（必须修复，否则不建议通过）
+
+1) 统一“restart file”标准译名（以词典为准或先更新词典）
+- 位置: doc/ModelDescription/Input_Output.md:4
+- 现状: “重启动文件”
+- 建议: 若以 terminology-dictionary.md v1.4 为准，统一为“重启文件”（terminology-dictionary.md:336）；并同步修正审查请求中的术语对照表口径。
+
+2) 修正 Rivers 末句“deposited”译法，避免误导为“沉积作用”
+- 位置: doc/ModelDescription/Rivers.md:18–19
+- 建议: “当河水到达海洋网格时，水量在该网格内均匀分配/均匀加入/均匀注入。”
+
+### P1（建议尽快处理，显著提升评分与可维护性）
+
+3) 明确并执行“原文拼写错误”策略（保留 vs 勘误+标注）
+- 位置: doc/ModelDescription/Rivers.md:9/12 对照 old-doc/ModelDescription/Rivers.html:15
+- 建议: 若选择“勘误”，在英文行或中文行追加简短说明（不超过一行），保证可追溯性；并在 translation-standards.md 固化策略。
+
+4) 段落结构保真口径统一：是否允许将单段 <p> 拆为多组句对
+- 影响范围: Input_Output.md/Lake_model.md/Rivers.md/Initialisation.md
+- 选项:
+  - A（严格保真）: 合并为“1 个英文段落 + 1 个中文段落”，对应源 HTML 的单段 <p>/<P>
+  - B（可读性优先）: 保持现状，但在 translation-standards.md 明确允许“按句拆分”，并定义“拆分边界”（例如仅按句号拆分，保持顺序不变）
+
+5) Rivers 运输句改写以避免“超过…的深度”的重复结构
+- 位置: doc/ModelDescription/Rivers.md:12–13
+- 建议: 将 “超过预定义门槛深度的深度” 改为 “超过预定义门槛深度的那部分水深/水位（above-sill depth）”，并尽量贴合原句逻辑。
+
+### P2（可规划：降低后续批次一致性成本）
+
+6) 补齐术语词典 v1.4 的缺口条目（建议最小集合）
+- driver routine → 驱动例程（或驱动例程/驱动子程序，择一并统一）
+- prognostic variables → 预报变量
+- runoff → 径流
+- downstream direction (file) → 下游方向（文件）
+- sill depth → 门槛深度
+- heat diffusion → 热扩散
+- convective overturning → 对流翻转
+- temperature stratification → 温度层结
+
+---
+
+[CONVERSATION_ID]: 019c1ec0-f93f-7f72-94a9-1f11e741bb2a
