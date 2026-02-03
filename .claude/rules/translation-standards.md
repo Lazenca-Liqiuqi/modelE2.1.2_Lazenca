@@ -322,10 +322,129 @@ Here is an example of in-line formula: $W_i = x$
 ### 历史评分参考
 - 任务#10：85/100（修改后预计≥90）
 - 任务#12/#18/#20：83/100（修改后预计≥90）
+- 任务#11/#9/#8：84/100（修改后预计≥90）
+
+---
+
+## 十一、经验教训总结（基于任务#11/#9/#8审查）
+
+### 11.1 同根术语一致性
+
+**问题**：Vegetation_model.md中conductance相关术语译法不一致
+- stomatal conductance → 气孔导度 ✅
+- water vapor conductance → 水汽传导 ❌
+- canopy conductance → 冠层传导 ❌
+
+**教训**：同根术语必须保持译词一致，避免同根不同译
+**修正**：
+- 统一为"导度"：水汽导度、冠层导度、植被导度
+- 翻译时检查同一词根的所有相关术语
+
+### 11.2 术语辨识度不足
+
+**问题**：SUBSIDENCE译为"下沉循环"，与DOWNDRAFT"下沉气流"中文高度同形，术语辨识度不足
+- SUBSIDENCE = 补偿环境下沉（质量守恒补偿）
+- DOWNDRAFT = 对流尺度下沉气流（负浮力驱动）
+
+**教训**：不同物理过程的术语需要足够区分度，避免中文同形
+**修正**：
+- SUBSIDENCE → 补偿环境下沉/环境下沉循环
+- 在解释中明确其"补偿上升/下沉质量通量"的背景
+
+### 11.3 位置概念错误
+
+**问题**：EVAP_PRECIP段首句将cloud top误译为"云底"
+- 原文：`loops from the level below cloud top (LMAX-1)`
+- 误译：从**云底**以下的层级（`LMAX-1`）…
+
+**教训**：位置概念错误属于P0级严重问题，必须准确理解cloud top/base等空间关系
+**修正**：仔细核对云顶（cloud top）和云底（cloud base）的所有相关表述
+
+### 11.4 口语化表达需避免
+
+**问题**："根深"过于口语化，不够规范
+- 不推荐：根深、根深分布
+- 推荐：根系深度、根系深度分布
+
+**教训**：选择技术术语时需考虑规范性和专业性，避免过于简略
+**修正**：参考translation-standards.md:3.2示例，使用"根系深度"
+
+### 11.5 新术语及时补录
+
+**问题**：第三批文档涉及大量新术语未在词典v1.4中
+- 植被模型术语：canopy、biogeochemistry、phenology、LAI等
+- PBL术语：roughness length、drag coefficient、Monin-Obukhov length等
+- 云微物理术语：entrainment、detrainment、autoconversion、accretion、glaciation等
+- 湍流术语：second-order closure、nonlocal transport等
+
+**教训**：每批次翻译完成后，必须及时补录新术语到词典，避免后续译名分裂
+**需要补录的术语**（17个）：
+- canopy conductance / water vapor conductance → 冠层/水汽导度
+- root depth distribution → 根系深度分布
+- entrainment / detrainment → 卷入 / 夹卷
+- autoconversion / accretion → 自动转化 / 碰并
+- glaciation / Bergeron-Findeisen process → 冰川化 / Bergeron-Findeisen过程
+- Monin-Obukhov length → Monin-Obukhov长度
+- roughness length → 粗糙长度
+- drag coefficient → 曳力系数
+- Stanton number / Dalton number → Stanton数 / Dalton数
+- nonlocal vertical transport → 非局地垂直输送
+- second-order closure (SOC) → 二阶闭合（SOC）
+- bulk Richardson number → 总体理查森数
+
+### 11.6 原文拼写错误处理一致性
+
+**问题**：本批次多处原文拼写错误需要统一处理策略
+- Farqhuar → Farquhar（Vegetation_model.html）
+- decidous → deciduous（Vegetation_model.html）
+- Monin-Obukov → Monin-Obukhov（Surface_fluxes.html）
+- ATURB_E1,f → ATURB_E1.f（Turbulence_and_Dry_convection.html）
+- autconversion → autoconversion（Cloud_processes.html）
+
+**教训**：必须严格执行"更正+标注"策略，在中文译文后添加"（原文拼写：xxx）"
+**修正**（已在6.2节中明确）：
+- 在译文中使用正确拼写
+- 在中文译文后添加"（原文拼写：xxx）"说明
+- 确保读者可以回溯到原文
+
+---
+
+## 十二、审查流程优化建议（更新）
+
+基于前三批次的审查经验，优化以下流程：
+
+### 12.1 翻译前检查
+- [ ] 查阅术语词典v1.4，确认所有已知术语的标准译法
+- [ ] 列出本次翻译涉及的新术语，准备补录到词典
+- [ ] 检查原文是否有拼写错误，准备处理策略
+
+### 12.2 翻译中注意
+- [ ] 避免重复结构，保持句式流畅
+- [ ] 注意译词在专业领域的其他含义
+- [ ] 按句拆分时保持顺序和格式一致
+- [ ] **新增**：检查同根术语的译词一致性（如conductance系列）
+- [ ] **新增**：注意位置概念的准确性（如cloud top/base、above/below）
+
+### 12.3 翻译后补录
+- [ ] 将新术语补录到术语词典v1.4
+- [ ] 记录原文拼写错误及处理方式
+- [ ] 更新translation-standards.md相关条款
+
+---
+
+## 十三、常见错误模式（更新）
+
+| 错误类型 | 示例 | 正确做法 |
+|---------|------|----------|
+| 术语不一致 | "传导"与"导度"混用（conductance） | 同根术语统一译词 |
+| 术语辨识度不足 | "下沉循环"与"下沉气流"混淆 | 明确物理过程，增加区分度 |
+| 位置概念错误 | "云底"应为"云顶" | 准确理解空间关系 |
+| 口语化表达 | "根深"过于简略 | 使用"根系深度" |
+| 拼写处理 | 直接更正，无说明 | 更正+标注"（原文拼写：xxx）" |
 
 ---
 
 **创建日期**: 2026-02-02
-**版本**: v1.1
-**最后更新**: 2026-02-02（基于任务#12/#18/#20 Codex审查报告）
-**更新内容**: 新增第八、九章节，总结第二批文档审查经验
+**版本**: v1.2
+**最后更新**: 2026-02-03（基于任务#11/#9/#8 Codex审查报告）
+**更新内容**: 新增第十一、十二、十三章，总结第三批文档审查经验，更新历史评分参考

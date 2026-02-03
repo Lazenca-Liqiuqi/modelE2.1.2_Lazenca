@@ -266,6 +266,48 @@
 
 ---
 
+# 审查请求文档审查（.claude/request.md）
+
+- 时间: 2026-02-03 18:19
+- 对象: .claude/request.md（ModelDescription 第三批文档审查请求）
+
+## 结论
+
+- request.md 结构完整，可直接用于后续翻译质量审查。
+- 已修正若干“口径不一致/易误解”的点（见“修正记录”），降低后续审查沟通成本。
+
+## 关键发现
+
+1) 分项权重口径易引发误解
+- 原文在“技术维度”下将两项均标为 30%，与“技术维度权重50%”不一致。
+- 已将两项改为 25%（与评分标准中“25+25=50”一致）。
+
+2) “关键术语对照表”中大量术语未被词典 v1.4 覆盖
+- 已将表头与栏目改为“本批次暂定译法（待确认/待补录）”，避免误导为“词典已收录标准译法”。
+
+3) 跨批次一致性描述存在语义偏差
+- “植被相关术语与#10（Ground_Hydrology）一致”表述不准确，已改为“陆面水文相关术语与#10 一致”。
+
+4) 会话ID缺失
+- 已补齐会话ID，便于审查记录串联。
+
+## 修正记录（已落地）
+
+- .claude/request.md：将 1.1/1.2 的 30% 调整为 25%，与评分标准一致
+- .claude/request.md：在输出要求中补齐每项子分上限（0-25/0-15/0-10）
+- .claude/request.md：将“关键术语对照表”标注为本批次暂定译法，并提示审查后补录词典
+- .claude/request.md：补齐会话ID
+
+## 后续建议（不阻断）
+
+- 建议在审查完成后，将“暂定译法”中最终采用的译名补录到 .claude/terminology-dictionary.md（v1.4→v1.5），避免后续批次口径分裂。
+
+---
+
+[CONVERSATION_ID]: 019c1ec0-f93f-7f72-94a9-1f11e741bb2a
+
+---
+
 # ModelDescription 第二批文档翻译质量审查报告（任务#12/#18/#20，共6文件）
 
 - 时间: 2026-02-02 23:27
@@ -428,3 +470,151 @@
 ---
 
 [CONVERSATION_ID]: 019c1ec0-f93f-7f72-94a9-1f11e741bb2a
+
+---
+
+# ModelDescription 翻译质量审查报告（第三批文档：任务#11/#9/#8）
+
+- 时间: 2026-02-03 19:32
+- 审查依据: .claude/request.md（第三批文档审查请求）
+- 对照源文件: old-doc/ModelDescription/对应HTML文件
+- 术语标准参考: .claude/terminology-dictionary.md（v1.4）
+- 格式标准参考: .claude/rules/translation-standards.md（v1.1）
+
+## 覆盖文件
+
+- doc/ModelDescription/Vegetation_model.md ↔ old-doc/ModelDescription/Vegetation_model.html
+- doc/ModelDescription/Surface_fluxes.md ↔ old-doc/ModelDescription/Surface_fluxes.html
+- doc/ModelDescription/Cloud_processes.md ↔ old-doc/ModelDescription/Cloud_processes.html
+- doc/ModelDescription/Turbulence_and_Dry_convection.md ↔ old-doc/ModelDescription/Turbulence_and_Dry_convection.html
+
+---
+
+## 结论与建议
+
+- 综合评分: 84/100
+- 建议: 退回修改（存在P0语义错误；修复后预计≥90）
+
+---
+
+## 评分详情（按 request.md 维度）
+
+### 1) 技术维度评分（0-50）
+
+#### 1.1 术语一致性（0-25）：20/25
+
+主要发现:
+- 关键缩写/专有名词保留较好：Ent、DGVM、PFT、PBL、MSTCNV、LSCOND、ATURB/ATURB_E1 等均能稳定保留。
+- “canopy”在本批次内整体统一为“冠层”，符合审查要点。
+- 但“conductance/导度”译法在 Vegetation_model.md 中出现不一致与不够规范的倾向：
+  - 同文件内已存在 “stomatal conductance → 气孔导度”（符合 request.md 暂定译法），但 “water vapor conductance / canopy conductance”多处采用“传导”（例如 Vegetation_model.md 表格与正文均出现），容易造成同根术语分裂。
+- Cloud_processes.md 内 “SUBSIDENCE” 对应的中文标签沿用“下沉循环”，与 “DOWNDRAFT（下沉气流）”在中文侧高度同形，术语辨识度不足（更适合用“环境下沉/补偿下沉/沉降”类译法区分）。
+
+#### 1.2 翻译准确性（0-25）：18/25
+
+主要发现:
+- Surface_fluxes.md 与 Turbulence_and_Dry_convection.md 的段落级语义对齐整体良好，子程序/变量名保留一致，中文表述总体可读。
+- Vegetation_model.md 的整体框架描述基本忠实，链表结构、斑块/队列层级等核心概念翻译可复核。
+- Cloud_processes.md 存在 2 处会导致物理流程理解错误的高优先级问题（P0）：
+  - “SUBSIDENCE”段落中文标签与解释容易被误解为“下沉气流（downdraft）”，掩盖其“补偿性环境下沉”的语义。
+  - “EVAP_PRECIP”段落首句将 “cloud top” 误译为 “云底”，属于关键位置概念错误。
+
+技术维度小计: 38/50
+
+### 2) 格式维度评分（0-30）
+
+#### 2.1 Markdown格式（0-15）：14/15
+
+结论:
+- 4 个文件标题均采用 “# English / 中文”形式；表格与代码块可解析，未见明显 Markdown 断裂问题。
+- <tt> 等 HTML 内联标签在对照段落中保留，属于“保真优先”做法；若后续渲染链路对 HTML 标签支持不稳定，需另行制定统一处理规则（本次不作为P0）。
+
+#### 2.2 中英对照格式（0-15）：14/15
+
+结论:
+- 采用“英文在上、中文在下”叠放格式且中英间有空行，符合 translation-standards.md:4.1。
+- 允许将源 HTML 单段 <p> 依句拆分为多组句对（translation-standards.md:4.1 已明确允许），本批次整体执行一致。
+
+格式维度小计: 28/30
+
+### 3) 完整性维度评分（0-20）
+
+#### 3.1 内容完整性（0-10）：9/10
+
+结论:
+- 未发现明显内容缺段：Vegetation_model.md 的主要章节（H3/H4 对应段）与表格均已覆盖；其余 3 文件关键段落亦可在对照 HTML 中找到对应。
+- 少量源文拼写错误在译文中被原样保留（或被更正但未标注），属于“可追溯性/一致性”问题，归入 P1 处理。
+
+#### 3.2 结构保真性（0-10）：9/10
+
+结论:
+- 章节层级与源 HTML 的主结构一致（例如 Vegetation_model.html 的各 H4 章节在 Vegetation_model.md 中均可对应）。
+- 文件路径与命名符合要求（doc/ModelDescription/*.md ↔ old-doc/ModelDescription/*.html）。
+
+完整性维度小计: 18/20
+
+---
+
+## 综合评分（0-100）
+
+- 技术维度: 38/50
+- 格式维度: 28/30
+- 完整性维度: 18/20
+- 综合得分: 84/100
+
+---
+
+## 修改记录（问题清单 + 建议 + 优先级）
+
+### P0（必须修复，否则不建议通过）
+
+1) Cloud_processes.md：区分 “DOWNDRAFT” 与 “SUBSIDENCE”，避免中文侧同形导致语义误导
+- 位置: doc/ModelDescription/Cloud_processes.md（“(4) DOWNDRAFT”与“(5) SUBSIDENCE”段落）
+- 现状: “(5) SUBSIDENCE”被译作“下沉循环”，与“下沉气流”段落在中文标签上重名且语义易混。
+- 建议: 将 “SUBSIDENCE” 译为“（补偿）环境下沉/沉降循环”等，并在解释中明确其“补偿上升/下沉质量通量”的背景，避免被误读为“下沉气流”。
+
+2) Cloud_processes.md：EVAP_PRECIP 段首 “cloud top” 误译为 “云底”
+- 位置: doc/ModelDescription/Cloud_processes.md（“(6) EVAP_PRECIP”段落首句）
+- 源文: “loops from the level below cloud top (LMAX-1) …”
+- 译文现状: “从云底以下的层级（LMAX-1）…”
+- 建议: 将“云底”改为“云顶”，即“从云顶以下的层级（LMAX-1）…”，并复核同段内与 cloud base/top 相关表述是否一致。
+
+### P1（建议尽快处理，显著提升评分与可维护性）
+
+3) Vegetation_model.md：统一 conductance 术语译法（建议与“气孔导度”同根一致）
+- 位置: doc/ModelDescription/Vegetation_model.md（正文与输出表格中 “water vapor conductance / canopy conductance”相关行）
+- 现状: “气孔导度”已采用，但同文件内 “conductance” 还出现“传导”译法（如“水汽传导/冠层传导/植被传导”）。
+- 建议: 统一为“导度”（如“水汽导度/冠层导度/植被导度”择一并全文件一致），并保证正文/表格一致。
+
+4) Vegetation_model.md：避免“根深”类不自然表达
+- 位置: doc/ModelDescription/Vegetation_model.md（如 “root depth distribution / 根深分布”）
+- 建议: 参照 translation-standards.md:3.2 示例，将“根深”改为“根系深度/根深度”，例如“根系深度分布/根系深度分布函数”等。
+
+5) 统一并落地“源文拼写错误”处理策略（translation-standards.md:6.2）
+- 现状: 本批次存在多处源文拼写错误在英文行被原样保留，且未在中文行标注“原文拼写：xxx”，影响可维护性与术语检索一致性。
+- 建议: 按规范执行“勘误 + 中文行括号标注原拼写”，并在本批次至少覆盖以下条目（均可在源 HTML 中定位）：
+  - Vegetation_model.html:22 “Farqhuar” → “Farquhar”（原文拼写：Farqhuar）
+  - Vegetation_model.html:109 “decidous” → “deciduous”（原文拼写：decidous）
+  - Surface_fluxes.html:190 “Monin-Obukov” → “Monin-Obukhov”（原文拼写：Monin-Obukov）
+  - Turbulence_and_Dry_convection.html:24 “ATURB_E1,f” → “ATURB_E1.f”（原文拼写：ATURB_E1,f）
+  - Cloud_processes.html:102 “autconversion” → “autoconversion”（原文拼写：autconversion）
+
+### P2（可规划：降低后续批次一致性成本）
+
+6) 新术语补录建议（建议择优补录到术语词典 v1.4，至少覆盖本批次高频术语）
+- canopy conductance / water vapor conductance → 冠层导度 / 水汽导度（或统一一个标准写法）
+- root depth distribution → 根系深度分布（或根深度分布，择一）
+- entrainment / detrainment → 卷入 / 夹卷
+- autoconversion / accretion → 自动转化 / 碰并
+- glaciation / Bergeron-Findeisen process → 冰川化 / Bergeron-Findeisen过程
+- Monin-Obukhov length → Monin-Obukhov长度
+- roughness length → 粗糙长度
+- drag coefficient → 曳力系数
+- Stanton number / Dalton number → Stanton数 / Dalton数
+- nonlocal vertical transport → 非局地垂直输送
+- second-order closure (SOC) → 二阶闭合（SOC）
+- bulk Richardson number → 总体理查森数
+
+---
+
+[CONVERSATION_ID]: 019c233e-c228-7771-981b-4e97776aa6af
