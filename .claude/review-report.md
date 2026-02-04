@@ -793,3 +793,170 @@
 ---
 
 [CONVERSATION_ID]: 019c233e-c228-7771-981b-4e97776aa6af
+
+---
+
+# ModelDescription 翻译质量审查报告（第五批/最后一批：任务#14/#16/#17）
+
+- 时间: 2026-02-04 22:35
+- 审查依据: .claude/request.md（第五批文档翻译审查请求/最后一批）
+- 对照源文件: old-doc/ModelDescription/对应HTML文件
+- 术语标准参考: .claude/terminology-dictionary.md（v1.4）
+- 格式标准参考: .claude/rules/translation-standards.md（v1.3）
+
+## 覆盖文件（7个）
+
+- doc/ModelDescription/GISS_Dynamic_ocean_model.md ↔ old-doc/ModelDescription/GISS_Dynamic_ocean_model.html
+- doc/ModelDescription/Ocean_Tracers.md ↔ old-doc/ModelDescription/Ocean_Tracers.html
+- doc/ModelDescription/Tracers.md ↔ old-doc/ModelDescription/Tracers.html
+- doc/ModelDescription/Aerosol_Tracers.md ↔ old-doc/ModelDescription/Aerosol_Tracers.html
+- doc/ModelDescription/Gas_Tracers.md ↔ old-doc/ModelDescription/Gas_Tracers.html
+- doc/ModelDescription/Special_Tracers.md ↔ old-doc/ModelDescription/Special_Tracers.html
+- doc/ModelDescription/Air_mass_Tracers.md ↔ old-doc/ModelDescription/Air_mass_Tracers.html
+
+---
+
+## 结论与建议
+
+- 综合评分: 85/100
+- 建议: 小幅修改后可通过（P0主要集中在“拼写错误处理策略”的落地不一致；修复后预计≥93）
+
+---
+
+## 评分详情（按 request.md 维度）
+
+### 1) 技术维度评分（0-50）
+
+#### 1.1 术语一致性（0-25）：22/25
+
+主要发现（证据）:
+- 海洋动力学术语整体与请求中的“暂定译法”一致，且跨文件一致性较好：
+  - non-Boussinesq → 非Boussinesq（GISS_Dynamic_ocean_model.md:3-4）
+  - C-grid/D-grid、upstream scheme、KPP 等译法稳定（GISS_Dynamic_ocean_model.md:5-14）
+  - pressure gradient force / equation of state / geopotential 等译法可复核（GISS_Dynamic_ocean_model.md:208-214 等段落）
+- 示踪物相关术语与词典条目能对齐的部分保持一致：
+  - rundeck → 运行配置（Tracers.md:10；terminology-dictionary.md:237）
+- 气溶胶与化学缩略词保留良好：TOMAS、CFC、PSC、CBM-4、RACM 等均稳定保留（Aerosol_Tracers.md、Gas_Tracers.md）。
+
+主要扣分点:
+- “elemental carbon / BC / EC”中文侧使用“元素碳/EC/BC”混用但未给出一次性口径说明，容易在后续词典补录时分裂（Aerosol_Tracers.md:17-20、125-134）。
+- request.md 的“detrainment → 夹出”口径已在 Gas_Tracers.md 中使用，但与第三批 Cloud_processes.md 的“夹卷”口径不同；建议最终在词典 v1.4 固化并回填前批次（跨批一致性问题，非本批次P0）。
+
+#### 1.2 翻译准确性（0-25）：23/25
+
+主要发现（证据）:
+- GISS_Dynamic_ocean_model.md 的状态方程推导与压力梯度力段落语义对齐良好，符号/单位保持一致（例如 α/β/Γ/Θ 定义段：GISS_Dynamic_ocean_model.md:96-133；压力梯度力段：GISS_Dynamic_ocean_model.md:208 起）。
+- Aerosol_Tracers.md 的 TOMAS 模型流程描述与源文一致，关键过程（碰并/凝结/成核、云内清除、干沉降）均覆盖（Aerosol_Tracers.md:1-31）。
+- Gas_Tracers.md 对 Shindell 机制的关键参数（51物种、156反应、Fast-J2、对流羽流输送等）保留完整（Gas_Tracers.md:19-33）。
+- 其余短文档（Ocean_Tracers/Air_mass_Tracers/Special_Tracers）语义对齐稳定，可复核。
+
+主要扣分点:
+- 少量中文措辞略拗口但不影响准确性（例如 “平均平均体积”：GISS_Dynamic_ocean_model.md:214）。
+- 部分公式排版未使用代码块/LaTeX，可能影响渲染可读性（见格式维度）。
+
+技术维度小计: 45/50
+
+### 2) 格式维度评分（0-30）
+
+#### 2.1 Markdown格式（0-15）：14/15
+
+结论:
+- 标题、段落、表格均可被 Markdown 解析；多数段落中英之间空行清晰。
+- 扣分点：GISS_Dynamic_ocean_model.md 的多行积分/公式块为“裸文本多行”，建议用代码块或 LaTeX 包裹以避免不同渲染器下错行（GISS_Dynamic_ocean_model.md:262-279 附近）。
+
+#### 2.2 中英对照格式（0-15）：12/15
+
+结论:
+- 大部分段落遵循“英文在上、中文在下”的句对/段对格式。
+- 扣分点（可定位）：
+  - 存在仅中文的小标题，缺少“English / 中文”配对（Tracers.md:27；Aerosol_Tracers.md:86；Special_Tracers.md:9）。
+  - Tracers.md 的列表项使用“同一行中英混排”，不符合严格叠放口径（Tracers.md:29-35）；建议改为“英文一行 + 中文一行”的列表句对形式。
+
+格式维度小计: 26/30
+
+### 3) 完整性维度评分（0-20）
+
+#### 3.1 内容完整性（0-10）：10/10
+
+结论:
+- 7 个文件均能在对应 HTML 中定位到全部段落/列表内容；未发现漏段。
+- Gas_Tracers.md 参考文献段落完整保留（Gas_Tracers.md:35-41）。
+
+#### 3.2 拼写处理（0-10）：4/10
+
+主要发现（与 request.md 第五章“更正+标注”策略不一致）:
+- request.md 明确列出并声称“已更正/已标注”的拼写错误，在译文英文行中仍保留误拼，或未标注：
+  - contect 未更正且未标注（GISS_Dynamic_ocean_model.md:18）
+  - enthapy 未更正，仅在中文行标注（GISS_Dynamic_ocean_model.md:32-33；68-69）
+  - coagualtion 未更正且未标注（Aerosol_Tracers.md:24）
+  - Availble 未更正，仅在中文行标注（Aerosol_Tracers.md:47-48）
+  - assummed 未更正，仅在中文行标注（Aerosol_Tracers.md:99-100）
+- 另有未纳入 request.md 拼写清单的明显误拼仍保留（示例）：
+  - spatically（应为 spatially）：GISS_Dynamic_ocean_model.md:12
+  - conjuction（应为 conjunction）：Gas_Tracers.md:3
+
+完整性维度小计: 14/20
+
+---
+
+## 综合评分（0-100）
+
+- 技术维度: 45/50
+- 格式维度: 26/30
+- 完整性维度: 14/20
+- 综合得分: 85/100
+
+---
+
+## 修改记录（问题清单 + 建议 + 优先级）
+
+### P0（必须修复，否则不建议提交为“最终整合版本”）
+
+1) 落地“原文拼写错误处理策略”（更正 + 中文括注原拼写）
+- 影响范围: doc/ModelDescription/GISS_Dynamic_ocean_model.md、doc/ModelDescription/Aerosol_Tracers.md（以及本批次其他文件中的明显误拼）
+- 现状证据:
+  - GISS_Dynamic_ocean_model.md:18 contect 未更正/未标注
+  - GISS_Dynamic_ocean_model.md:32-33、68-69 enthapy 未更正（仅中文标注）
+  - Aerosol_Tracers.md:24 coagualtion 未更正/未标注
+  - Aerosol_Tracers.md:47-48 Availble 未更正（仅中文标注）
+  - Aerosol_Tracers.md:99-100 assummed 未更正（仅中文标注）
+- 建议（对每一处误拼统一执行）:
+  - 英文行改为正确拼写
+  - 中文行末尾追加“（原文拼写：xxx）”
+
+### P1（建议尽快处理，提升一致性与可读性）
+
+2) 统一中英对照标题/小标题格式
+- 位置:
+  - Tracers.md:27（“## 示踪物类型”）
+  - Aerosol_Tracers.md:86（“## 气溶胶物种性质表”）
+  - Special_Tracers.md:9（“## 特殊示踪物类型”）
+- 建议: 改为 “## English / 中文”形式，保持目录结构一致。
+
+3) Tracers.md 列表改为严格叠放句对
+- 位置: doc/ModelDescription/Tracers.md:29-35
+- 建议: 每个条目拆为“英文行（含链接）”+“中文行”，避免同一行中英混排。
+
+4) GISS_Dynamic_ocean_model.md 公式块改为代码块或 LaTeX
+- 位置: doc/ModelDescription/GISS_Dynamic_ocean_model.md（多行积分/公式段落）
+- 建议: 使用代码块包裹多行公式，或用 LaTeX 以保证渲染稳定性与可读性。
+
+### P2（可规划：为最终整合与词典补录降低成本）
+
+5) 内部链接从 `.html` 迁移到 `.md`（如目标是 Markdown 文档站点）
+- 位置: doc/ModelDescription/Tracers.md:29-35
+- 建议: 将链接指向同目录下的 `.md` 文件（并保留必要的“源文链接”说明）。
+
+6) 术语词典 v1.4 补录建议（最小优先集合）
+- 建议优先补录（本批次高频/跨文件术语）:
+  - non-Boussinesq、free surface、C-grid/D-grid、upstream scheme、KPP
+  - isopycnal diffusion、mesoscale eddy、subgrid scale straits
+  - potential enthalpy / specific enthalpy / (potential) specific enthalpy
+  - specific volume / potential specific volume、geopotential、pressure gradient force、equation of state
+  - TOMAS、sectional approach、bins、(externally/internally mixed)、hydrophobic/hydrophilic
+  - coagulation、condensation、nucleation、scavenging（云内/云下）、dry deposition
+  - photolysis rates、Fast-J2、PSC、CBM-4、RACM、detrainment（与第三批口径统一后再入库）
+
+---
+
+[CONVERSATION_ID]: 019c2813-f6f6-7322-b30b-f6ff83c96711

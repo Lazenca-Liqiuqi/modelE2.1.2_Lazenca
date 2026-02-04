@@ -93,15 +93,20 @@ gmake setup RUN=run_name       # 编译和设置
 - [x] **UserGuide辅助文档翻译**: 诊断、示踪物、入门指南
 - [x] **版本0.2.0发布**: UserGuide体系重构完成
 
+#### ✅ 已完成的任务（新增）
+- [x] **ModelDescription技术文档翻译**: 全部28个文件翻译完成，覆盖大气、陆面、海洋、海冰、示踪物、系统架构等完整模块
+
 #### ⏳ 待执行的任务
 
-**🌪️ 第一阶段：ModelDescription技术文档翻译**
-- [ ] **大气模块文档翻译** (6个文件): Atmospheric_model, Dynamics, Radiation, Cloud_processes, Turbulence_and_Dry_convection, Surface_fluxes
-- [ ] **陆面模块文档翻译** (6个文件): Land_Surface_model, Ground_Hydrology, Vegetation_model, Snow_model, Lake_model, Rivers
-- [ ] **海洋模块文档翻译** (4个文件): Ocean_models, GISS_Dynamic_ocean_model, Q-flux_mixed_layer_model, Ocean_Tracers
-- [ ] **海冰模块文档翻译** (2个文件): Sea_ice_model, Basic_thermodynamics
-- [ ] **示踪物模块文档翻译** (5个文件): Tracers, Aerosol_Tracers, Gas_Tracers, Air_mass_Tracers, Special_Tracers
-- [ ] **系统架构文档翻译** (6个文件): Overall_model_structure, Source_code, Initialisation, Main_time_stepping, Diagnostics, Input_Output
+**🔧 第二阶段：支持文档翻译**
+- [ ] **misc目录文档翻译** (16个文件): ModelE_Coding_Standards.tex, CHANGES.txt, 诊断配置文件等
+- [ ] **HOWTO目录文档翻译** (5个文件): git_howto.html, newio.html等开发者指南
+
+**📋 第三阶段：项目完善**
+- [ ] **文档结构优化和导航建立**: 建立完整的文档导航系统
+- [ ] **术语词典扩展**: 覆盖地球系统模型专业术语
+- [ ] **全面质量检查和一致性验证**: 确保翻译质量和术语一致性
+- [ ] **最终优化和发布准备**: 完整性检查和版本发布
 
 **🔧 第二阶段：支持文档翻译**
 - [ ] **misc目录文档翻译** (16个文件): ModelE_Coding_Standards.tex, CHANGES.txt, 诊断配置文件等
@@ -117,9 +122,9 @@ gmake setup RUN=run_name       # 编译和设置
 
 - **版本**: 0.2.2（以CHANGELOG为准）
 - **进度**: 14/26（53.8%）——口径：shrimp任务
-- **阶段**: 2.1（ModelDescription大气模块翻译）
+- **阶段**: 2.1（ModelDescription技术文档翻译）——✅ **全部完成**
 - **质量**: Codex审查均分95+
-- **统计更新**: 2025.11.12
+- **统计更新**: 2026-02-04
 
 ## 项目进展
 
@@ -149,9 +154,10 @@ gmake setup RUN=run_name       # 编译和设置
 
 ### 下一步计划与风险提示
 
-- **当前任务**: 完成第一阶段大气模块文档翻译（6个文件）
+- **当前任务**: 🎉 **ModelDescription阶段完成！** 28个文件全部翻译完毕
+- **下一阶段**: 支持文档翻译（misc目录、HOWTO目录）
 - **文档策略**: 严格按科学领域分组，先文档后注释（注释暂不执行）
-- **版本同步**: 将0.2.0变更补录至CHANGELOG，建立稳定锚点
+- **待办事项**: 补录120+新术语到词典v1.4、更新翻译规范文件
 - **质量保障**: 建立CLAUDE↔CHANGELOG一致性校验，确保版本/日期/路径准确
 - **技术风险**: 术语一致性保障，地球系统专业术语覆盖
 
