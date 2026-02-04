@@ -1,10 +1,10 @@
-# ModelDescription翻译质量审查请求（第三批文档）
+# ModelDescription翻译质量审查请求（第四批文档）
 
 - 时间: 2026-02-03
-- 审查对象: 任务#8、#9、#11共4个翻译文件
+- 审查对象: 任务#13、#15、#19共6个翻译文件
 - 源文件对照: old-doc/ModelDescription/对应HTML文件
 - 术语标准参考: .claude/terminology-dictionary.md（v1.4）
-- 格式参考: .claude/rules/translation-standards.md（v1.1）
+- 格式参考: .claude/rules/translation-standards.md（v1.2）
 
 ---
 
@@ -25,7 +25,7 @@ modelE2.1.2_Lazenca/
 ├── .claude/
 │   ├── terminology-dictionary.md   # 术语词典v1.4
 │   └── rules/
-│       └── translation-standards.md  # 翻译规范v1.1
+│       └── translation-standards.md  # 翻译规范v1.2
 ```
 
 ---
@@ -33,7 +33,7 @@ modelE2.1.2_Lazenca/
 ## 二、项目状态与当前任务
 
 ### 项目进度
-- **已完成任务**: 8/14（57.1%）
+- **已完成任务**: 11/14（78.6%）
   - ✅ #7 大气基础模型文档（3个文件）
   - ✅ #10 陆面基础模型文档（3个文件）
   - ✅ #20 输入输出系统文档（1个文件）
@@ -42,23 +42,28 @@ modelE2.1.2_Lazenca/
   - ✅ #11 植被模型文档（1个文件）
   - ✅ #9 地表通量文档（1个文件）
   - ✅ #8 云和湍流过程文档（2个文件）
+  - ✅ #13 海洋基础模型文档（2个文件）
+  - ✅ #15 海冰模块文档（2个文件）
+  - ✅ #19 时间步进和诊断文档（2个文件）
 
-- **本次审查范围**: 任务#11、#9、#8的4个翻译文件
+- **本次审查范围**: 任务#13、#15、#19的6个翻译文件
 
 ### 本次工作内容
 
-**任务#11 - 植被模型文档**（1个文件，~320行）
-- Vegetation_model.md - Ent动态陆地生物圈模型（DGVM）、植物功能型（PFT）、生物物理、季节性、土壤生物地球化学
+**任务#13 - 海洋基础模型文档**（2个文件，~20行）
+- Ocean_models.md - 海洋模型概述
+- Q-flux_mixed_layer_model.md - Q-flux混合层模型详细说明
 
-**任务#9 - 地表通量文档**（1个文件，~449行）
-- Surface_fluxes.md - 行星边界层（PBL）计算、表面通量参数化、PBL_DRV.f和PBL.f模块详细说明
+**任务#15 - 海冰模块文档**（2个文件，~53行）
+- Sea_ice_model.md - 海冰模型配置概述
+- Basic_thermodynamics.md - 海冰热力学过程详解
 
-**任务#8 - 云和湍流过程文档**（2个文件，~378行）
-- Cloud_processes.md - 湿润对流、积云参数化、层状云、微物理过程
-- Turbulence_and_Dry_convection.md - 湍流闭合方案、干对流、ATURB.f和ATURB_E1.f
+**任务#19 - 时间步进和诊断文档**（2个文件，~32行）
+- Main_time_stepping_loop.md - 主时间步进循环，16个例程调用顺序
+- Diagnostics.md - 诊断系统概述
 
 ### 交付物
-- 4个Markdown翻译文件，采用中英对照叠放格式
+- 6个Markdown翻译文件，采用中英对照叠放格式
 - 位置：doc/ModelDescription/
 - 格式：UTF-8编码，Markdown语法
 
@@ -70,54 +75,55 @@ modelE2.1.2_Lazenca/
 
 | 序号 | 翻译文件 | 源文件 | 大小 | 内容概述 |
 |------|----------|--------|------|----------|
-| 1 | doc/ModelDescription/Vegetation_model.md | old-doc/ModelDescription/Vegetation_model.html | ~320行 | Ent动态陆地生物圈模型、PFT、生物物理、季节性、土壤生物地球化学、气象驱动表 |
-| 2 | doc/ModelDescription/Surface_fluxes.md | old-doc/ModelDescription/Surface_fluxes.html | ~449行 | PBL计算、表面通量、PBL_DRV.f和PBL.f模块、30+子程序详细说明 |
-| 3 | doc/ModelDescription/Cloud_processes.md | old-doc/ModelDescription/Cloud_processes.html | ~116行 | 湿润对流、积云参数化（MSTCNV）、层状云（LSCOND）、微物理、7+3个物理循环 |
-| 4 | doc/ModelDescription/Turbulence_and_Dry_convection.md | old-doc/ModelDescription/Turbulence_and_Dry_convection.html | ~262行 | 湍流闭合、干对流、ATURB.f和ATURB_E1.f对比、二阶闭合方案 |
+| 1 | doc/ModelDescription/Ocean_models.md | old-doc/ModelDescription/Ocean_models.html | ~3行 | 海洋模型标题 |
+| 2 | doc/ModelDescription/Q-flux_mixed_layer_model.md | old-doc/ModelDescription/Q-flux_mixed_layer_model.html | ~17行 | Q-flux混合层模型、旋合运行、海洋热辐合、深海扩散 |
+| 3 | doc/ModelDescription/Sea_ice_model.md | old-doc/ModelDescription/Sea_ice_model.html | ~6行 | 海冰模型配置概述 |
+| 4 | doc/ModelDescription/Basic_thermodynamics.md | old-doc/ModelDescription/Basic_thermodynamics.html | ~47行 | 海冰热力学过程：质量层结构、热力层、通量计算、冰花形成、融池 |
+| 5 | doc/ModelDescription/Main_time_stepping_loop.md | old-doc/ModelDescription/Main_time_stepping_loop.html | ~24行 | 主时间步进循环，16个例程的调用顺序详解 |
+| 6 | doc/ModelDescription/Diagnostics.md | old-doc/ModelDescription/Diagnostics.html | ~8行 | 诊断系统概述 |
 
-### 关键术语对照表（本次涉及，以下译法为本批次暂定；审查后择优补录到术语词典v1.4）
+### 关键术语对照表（本批次暂定译法）
 
 | 英文术语 | 暂定译法（待确认/待补录） | 出现位置 |
 |---------|----------|----------|
-| **植被模型术语** | | |
-| Dynamic Global Vegetation Model (DGVM) | 动态全球植被模型 | Vegetation_model.md |
-| Ent Terrestrial Biosphere Model (Ent TBM) | Ent陆地生物圈模型 | Vegetation_model.md |
-| plant functional types (PFTs) | 植物功能型 | Vegetation_model.md |
-| canopy | 冠层 | Vegetation_model.md |
-| biogeochemistry | 生物地球化学 | Vegetation_model.md |
-| photosynthesis | 光合作用 | Vegetation_model.md |
-| leaf area index (LAI) | 叶面积指数 | Vegetation_model.md |
-| stomatal conductance | 气孔导度 | Vegetation_model.md |
-| phenology | 物候 | Vegetation_model.md |
-| **表面通量术语** | | |
-| Planetary Boundary Layer (PBL) | 行星边界层 | Surface_fluxes.md |
-| turbulence closure scheme | 湍流闭合方案 | Surface_fluxes.md |
-| virtual potential temperature | 虚拟位温 | Surface_fluxes.md |
-| specific humidity | 比湿 | Surface_fluxes.md |
-| roughness length | 粗糙长度 | Surface_fluxes.md |
-| drag coefficient | 曳力系数 | Surface_fluxes.md |
-| Monin-Obukhov length | Monin-Obukhov长度 | Surface_fluxes.md |
-| friction velocity | 摩擦速度 | Surface_fluxes.md |
-| tridiagonal method | 三对角方法 | Surface_fluxes.md |
-| **云过程术语** | | |
-| moist convection | 湿润对流 | Cloud_processes.md |
-| cumulus parameterization | 积云参数化 | Cloud_processes.md |
-| mass flux closure | 质量通量闭合 | Cloud_processes.md |
-| entrainment | 卷入 | Cloud_processes.md |
-| detrainment | 夹卷 | Cloud_processes.md |
-| stratiform clouds | 层状云 | Cloud_processes.md |
-| large scale condensation | 大尺度凝结 | Cloud_processes.md |
-| autoconversion | 自动转化 | Cloud_processes.md |
-| accretion | 碰并 | Cloud_processes.md |
-| glaciation | 冰川化 | Cloud_processes.md |
-| Bergeron-Findeisen process | Bergeron-Findeisen过程 | Cloud_processes.md |
-| **湍流术语** | | |
-| dry convection | 干对流 | Turbulence_and_Dry_convection.md |
-| Turbulent Kinetic Energy (TKE) | 湍流动能 | Turbulence_and_Dry_convection.md |
-| second-order closure (SOC) | 二阶闭合 | Turbulence_and_Dry_convection.md |
-| nonlocal vertical transport | 非局地垂直输送 | Turbulence_and_Dry_convection.md |
-| bulk Richardson number | 总体理查森数 | Turbulence_and_Dry_convection.md |
-| adiabatic warming | 绝热增温 | Turbulence_and_Dry_convection.md |
+| **海洋模块术语** | | |
+| Ocean models | 海洋模型 | Ocean_models.md |
+| Q-flux | Q-flux（保持英文） | Q-flux_mixed_layer_model.md |
+| mixed layer | 混合层 | Q-flux_mixed_layer_model.md |
+| SST | 海表温度 | Q-flux_mixed_layer_model.md |
+| spin up run | 旋合运行 | Q-flux_mixed_layer_model.md |
+| ocean heat convergence | 海洋热辐合 | Q-flux_mixed_layer_model.md |
+| freshwater mass | 淡水质量 | Q-flux_mixed_layer_model.md |
+| climatology | 气候态值 | Q-flux_mixed_layer_model.md |
+| thermal equilibrium | 热平衡 | Q-flux_mixed_layer_model.md |
+| forcing | 强迫 | Q-flux_mixed_layer_model.md |
+| **海冰模块术语** | | |
+| sea ice model | 海冰模型 | Sea_ice_model.md |
+| sea ice concentration | 海冰密集度 | Sea_ice_model.md |
+| prognostic | 预报 | Sea_ice_model.md |
+| ice advection | 海冰平流 | Sea_ice_model.md |
+| frazil ice | 冰花 | Basic_thermodynamics.md |
+| basal fluxes | 底部通量 | Basic_thermodynamics.md |
+| lateral fluxes | 侧向通量 | Basic_thermodynamics.md |
+| lead fraction | 冰缝比例 | Basic_thermodynamics.md |
+| melt pond | 融池 | Basic_thermodynamics.md |
+| albedo | 反照率 | Basic_thermodynamics.md |
+| snow-ice formation | 雪冰形成 | Basic_thermodynamics.md |
+| sigma-coordinate | σ坐标 | Basic_thermodynamics.md |
+| **系统架构术语** | | |
+| time stepping loop | 时间步进循环 | Main_time_stepping_loop.md |
+| diagnostics | 诊断 | Diagnostics.md |
+| atmospheric dynamics | 大气动力学 | Main_time_stepping_loop.md |
+| moist convection | 湿润对流 | Main_time_stepping_loop.md |
+| large scale condensation | 大尺度凝结 | Main_time_stepping_loop.md |
+| radiative transfer | 辐射传输 | Main_time_stepping_loop.md |
+| advective tendencies | 平流趋势 | Main_time_stepping_loop.md |
+| atmospheric dissipation | 大气耗散 | Main_time_stepping_loop.md |
+| pressure filter | 压力滤波器 | Main_time_stepping_loop.md |
+| post-processing | 后处理 | Diagnostics.md |
+| budget page diagnostics | 预算页诊断 | Diagnostics.md |
+| lat-lon diags | 纬度-经度诊断 | Diagnostics.md |
+| lat-height diagnostics | 纬度-高度诊断 | Diagnostics.md |
 
 ---
 
@@ -128,33 +134,33 @@ modelE2.1.2_Lazenca/
 #### 1.1 术语一致性（25%）
 检查项：
 - [ ] 所有专业术语是否与术语词典v1.4一致
-- [ ] 本次翻译的大量新术语是否使用了标准、规范的译法
+- [ ] 本次翻译的新术语是否使用了标准、规范的译法
 - [ ] 同一术语在不同文件中是否保持一致
 - [ ] 是否存在口语化或过于简略的表达
-- [ ] 专有名词（Ent、PFT、PBL、MSTCNV、LSCOND等）是否正确保留
+- [ ] 例程名是否保持英文不变（SURFCE, UNDERICE, FORM_SI, MELT_SI, DIAGA等）
 
 重点审查：
-- "canopy"是否统一译为"冠层"（而非"树冠层"等）
-- "biogeochemistry"是否译为"生物地球化学"
-- "entrainment/detrainment"是否准确译为"卷入/夹卷"
-- "glaciation"在云微物理中是否译为"冰川化"
-- PBL相关术语（roughness length、drag coefficient等）是否与词典一致
-- 湍流闭合方案术语（second-order closure、nonlocal transport等）是否规范
+- "spin up run"译为"旋合运行"是否为标准译法
+- "ocean heat convergence"译为"海洋热辐合"是否准确
+- "sigma-coordinate"译为"σ坐标"是否准确
+- "lead fraction"译为"冰缝比例"是否准确
+- "prognostic"译为"预报"是否准确
+- "frazil ice"译为"冰花"是否准确
+- 例程名是否正确保持英文
 
 #### 1.2 翻译准确性（25%）
 检查项：
 - [ ] 技术内容是否准确传达原文含义
 - [ ] 复杂技术描述是否准确易懂
-- [ ] 子程序和模块说明是否准确
+- [ ] 例程和模块说明是否准确
 - [ ] 语句是否通顺流畅，避免生硬直译
 - [ ] 是否存在内容遗漏或误译
 
 重点审查：
-- Vegetation_model.md中Ent模型的复杂描述是否准确
-- Surface_fluxes.md中30+子程序的功能说明是否准确
-- Cloud_processes.md中7个主要物理循环的描述是否清晰
-- Turbulence_and_Dry_convection.md中ATURB.f和ATURB_E1.f的区别是否准确传达
-- 表格（Vegetation_model.md中的PFT列表、气象驱动表）是否正确翻译
+- Q-flux_mixed_layer_model.md中海洋热辐合和深海扩散的概念描述
+- Basic_thermodynamics.md中质量层结构和σ坐标的复杂描述
+- Main_time_stepping_loop.md中16个例程调用顺序的清晰度
+- Basic_thermodynamics.md第三段冰花形成过程的描述
 
 ### 2. 格式维度（权重30%）
 
@@ -162,22 +168,20 @@ modelE2.1.2_Lazenca/
 检查项：
 - [ ] 标题格式是否正确（`# English / 中文`）
 - [ ] 段落分隔是否清晰（中英文之间空一行）
-- [ ] 代码块和表格格式是否正确
 - [ ] 文件编码是否为UTF-8
 
 #### 2.2 中英对照格式（15%）
 检查项：
 - [ ] 是否采用"英文在上、中文在下"的叠放形式
 - [ ] 标题、段落是否保持原文结构
-- [ ] 表格翻译是否保持格式一致
+- [ ] 中英文段落对应清晰
 
 ### 3. 完整性维度（权重20%）
 
 #### 3.1 内容完整性（10%）
 检查项：
 - [ ] 是否存在内容遗漏
-- [ ] 文献引用是否保持不变
-- [ ] 参考文献列表是否完整
+- [ ] 例程名是否完整保留
 
 #### 3.2 结构保真性（10%）
 检查项：
@@ -203,41 +207,36 @@ modelE2.1.2_Lazenca/
 ### 历史评分参考
 - 任务#10：85/100（修改后预计≥90）
 - 任务#12/#18/#20：83/100（修改后预计≥90）
+- 任务#11/#9/#8：84/100（修改后预计≥90）
 
 ---
 
 ## 六、审查特别关注点
 
-### 1. 大量新术语的一致性
-本次翻译涉及大量新术语，特别是：
-- 植被模型术语：DGVM、PFT、canopy、biogeochemistry等
-- PBL术语：roughness length、drag coefficient、Monin-Obukhov length等
-- 云微物理术语：entrainment、detrainment、autoconversion、accretion、glaciation等
-- 湍流闭合术语：second-order closure、nonlocal transport等
+### 1. 新术语的准确性
+本次翻译涉及多个新领域术语，特别是：
+- 海洋科学术语：spin up run、ocean heat convergence、Q-flux等
+- 海冰科学术语：frazil ice、lead fraction、melt pond、sigma-coordinate等
+- 系统架构术语：time stepping loop、advective tendencies、budget page diagnostics等
 
 ### 2. 复杂技术描述的准确性
-- Vegetation_model.md中Ent模型的详细介绍（ Cohorts、Patch communities、Ent cells等概念）
-- Surface_fluxes.md中30+子程序的功能说明
-- Cloud_processes.md中7个湿润对流循环和3个层状云循环的描述
-- Turbulence_and_Dry_convection.md中ATURB.f和ATURB_E1.f的区别
+- Q-flux_mixed_layer_model.md中海洋热辐合计算和深海扩散的概念
+- Basic_thermodynamics.md中质量层结构和σ坐标的详细描述
+- Main_time_stepping_loop.md中16个例程的调用顺序和功能说明
 
-### 3. 表格翻译
-- Vegetation_model.md中有两个表格（PFT列表、气象驱动变量表、输出变量表）
-- 表格翻译需要保持格式一致性和术语准确性
+### 3. 与前批术语的一致性
+确保与前几批翻译（#7、#8、#9、#10、#11、#12、#15、#18、#20）的术语保持一致，特别是：
+- 云过程相关术语与#8（Cloud_processes）一致
+- 大气过程术语与#7、#8（Atmospheric_model、Dynamics、Cloud_processes）一致
+- 陆面过程术语与#10、#12（Ground_Hydrology、Lake_model）一致
 
-### 4. 与前批术语的一致性
-确保与前两批翻译（#7、#10、#12、#18、#20）的术语保持一致，特别是：
-- PBL相关术语与#7（Atmospheric_model、Dynamics）一致
-- 陆面水文相关术语与#10（Ground_Hydrology）一致
-- 陆面过程术语与#12（Lake_model、Rivers）一致
-
-### 5. 翻译规范v1.1的遵守情况
-检查是否遵守translation-standards.md v1.1中的新规范：
-- 段落拆分规则（4.1节）
-- 原文拼写错误处理策略（6.2节）
-- 术语词典一致性要求（8.1节）
-- 语义误导风险避免（8.2节）
-- 重复结构优化（8.3节）
+### 4. 翻译规范v1.2的遵守情况
+检查是否遵守translation-standards.md v1.2中的新规范：
+- 同根术语一致性（第十一章）
+- 术语辨识度（第十一章）
+- 位置概念准确性（第十一章）
+- 口语化表达需避免（第十一章）
+- 原文拼写错误处理策略（第十一章）
 
 ---
 
@@ -281,14 +280,15 @@ modelE2.1.2_Lazenca/
 
 ### 翻译规范
 - 文件位置：.claude/rules/translation-standards.md
-- 版本：v1.1
-- 更新内容：新增第八、九章节，总结第二批文档审查经验
+- 版本：v1.2
+- 更新内容：新增第十一、十二、十三章，总结第三批文档审查经验
 
 ### 历史审查报告
 - 文件位置：.claude/review-report.md
-- 包含3批次的审查记录：
+- 包含4批次的审查记录：
   - 任务#10：85/100
   - 任务#12/#18/#20：83/100
+  - 任务#11/#9/#8：84/100
   - 主要问题总结和改进建议
 
 ---
@@ -298,8 +298,8 @@ modelE2.1.2_Lazenca/
 用户原文："创建审查请求"
 
 需求背景：
-- 已完成3个新翻译任务（#11、#9、#8），共4个文件
-- 文档内容较前两批更复杂，涉及大量新术语
+- 已完成3个新翻译任务（#13、#15、#19），共6个文件
+- 涉及海洋科学、海冰科学、系统架构三个领域
 - 需要对新翻译文件进行质量审查
 - 确保翻译质量符合项目标准
 - 为后续翻译工作建立质量基准
@@ -309,6 +309,9 @@ modelE2.1.2_Lazenca/
 **审查请求创建时间**: 2026-02-03
 **预期审查完成时间**: 待定
 **审查者**: Codex AI
-**会话类型**: ModelDescription第三批文档质量审查
-**文件数量**: 4个文件（Vegetation_model.md、Surface_fluxes.md、Cloud_processes.md、Turbulence_and_Dry_convection.md）
-**会话ID**: 019c1ec0-f93f-7f72-94a9-1f11e741bb2a
+**会话类型**: ModelDescription第四批文档质量审查
+**文件数量**: 6个文件（Ocean_models.md、Q-flux_mixed_layer_model.md、Sea_ice_model.md、Basic_thermodynamics.md、Main_time_stepping_loop.md、Diagnostics.md）
+
+---
+
+[CONVERSATION_ID]: 019c233e-c228-7771-981b-4e97776aa6af

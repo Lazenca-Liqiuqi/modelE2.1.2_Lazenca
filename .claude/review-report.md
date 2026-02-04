@@ -618,3 +618,178 @@
 ---
 
 [CONVERSATION_ID]: 019c233e-c228-7771-981b-4e97776aa6af
+
+---
+
+# ModelDescription 翻译质量审查报告（第四批文档：任务#13/#15/#19）
+
+- 时间: 2026-02-03 23:55
+- 审查依据: .claude/request.md（第四批文档审查请求）
+- 对照源文件: old-doc/ModelDescription/对应HTML文件
+- 术语标准参考: .claude/terminology-dictionary.md（v1.4）
+- 格式标准参考: .claude/rules/translation-standards.md（v1.2）
+
+## 覆盖文件
+
+- doc/ModelDescription/Ocean_models.md ↔ old-doc/ModelDescription/Ocean_models.html
+- doc/ModelDescription/Q-flux_mixed_layer_model.md ↔ old-doc/ModelDescription/Q-flux_mixed_layer_model.html
+- doc/ModelDescription/Sea_ice_model.md ↔ old-doc/ModelDescription/Sea_ice_model.html
+- doc/ModelDescription/Basic_thermodynamics.md ↔ old-doc/ModelDescription/Basic_thermodynamics.html
+- doc/ModelDescription/Main_time_stepping_loop.md ↔ old-doc/ModelDescription/Main_time_stepping_loop.html
+- doc/ModelDescription/Diagnostics.md ↔ old-doc/ModelDescription/Diagnostics.html
+
+---
+
+## 结论与建议
+
+- 综合评分: 89/100
+- 建议: 小幅修改后可通过（存在P0术语/语义风险点；修复后预计≥95）
+
+---
+
+## 评分详情（按 request.md 维度）
+
+### 1) 技术维度评分（0-50）
+
+#### 1.1 术语一致性（0-25）：20/25
+
+主要发现:
+- 例程名/模块名保留正确：SURFCE、UNDERICE、FORM_SI、MELT_SI、DIAGA、DYNAM、print_diags 等均保持英文不变，符合审查要求。
+- 与词典 v1.4 可对照的条目基本一致：
+  - SST → 海表温度（terminology-dictionary.md:295）
+  - Albedo → 反照率（terminology-dictionary.md:180）
+  - Rundeck → 运行配置（terminology-dictionary.md:237；本批次译文用“运行配置”表述 run deck）
+- 存在 1 处术语层面的高风险误导（P0）：将 “spin up run” 译为“旋合运行”，易与“辐合/收敛”概念混淆（同段落中另有 “ocean heat convergence/海洋热辐合”）。
+- 存在 1 处与词典口径不完全一致的标题译名（P1）：词典条目 “Diagnostics → 诊断输出”（terminology-dictionary.md:142），当前文件标题为“诊断”。
+
+#### 1.2 翻译准确性（0-25）：22/25
+
+主要发现:
+- Q-flux 混合层段落与源 HTML 的两段 <p> 语义对齐清晰，关键量（freshwater mass、mixed layer depth、ocean heat convergence、thermal equilibrium、forcing）均未遗漏。
+- 海冰基础热力学 4 段内容与源 HTML 对齐：两质量层结构、UNDERICE/MELT_SI 通量流程、FORM_SI 冰花形成、融池/反照率关联，译文整体可复核。
+- 主时间步进循环与诊断段落均为单段长句，译文语义完整，例程调用顺序与括注说明未发现缺失。
+- 扣分点:
+  - “see above”在源 HTML 中为锚点链接（Q-flux_mixed_layer_model.html），译文用“见上文”但 Markdown 中无对应锚点，属于可用性/可追溯性小问题（P2）。
+
+技术维度小计: 42/50
+
+### 2) 格式维度评分（0-30）
+
+#### 2.1 Markdown格式（0-15）：15/15
+
+结论:
+- 标题格式符合“# English / 中文”；段落、引号、括号与变量名未破坏 Markdown 解析。
+
+#### 2.2 中英对照格式（0-15）：15/15
+
+结论:
+- 6 个文件均为“英文在上、中文在下”叠放形式，中英之间留空行；短文档（仅标题）也能接受。
+
+格式维度小计: 30/30
+
+### 3) 完整性维度评分（0-20）
+
+#### 3.1 内容完整性（0-10）：10/10
+
+结论:
+- Ocean_models 为纯标题页，译文保留标题即可，对照 HTML 一致。
+- 其余 5 文件均覆盖源 HTML 中全部段落内容，未见漏译。
+
+#### 3.2 结构保真性（0-10）：7/10
+
+主要扣分点:
+- 源 HTML 的锚点引用（Q-flux_mixed_layer_model.html 的 “see above”链接）未在 Markdown 中形成可追溯引用（见 P2）。
+- Diagnostics.html 对 DIAGA/DYNAM 使用 <TT> 标记强调；Markdown 采用纯文本保留不影响语义，但风格保真略降（非阻断）。
+
+完整性维度小计: 17/20
+
+---
+
+## 综合评分（0-100）
+
+- 技术维度: 42/50
+- 格式维度: 30/30
+- 完整性维度: 17/20
+- 综合得分: 89/100
+
+---
+
+## 修改记录（问题清单 + 建议 + 优先级）
+
+### P0（必须修复，否则不建议通过）
+
+1) Q-flux_mixed_layer_model.md：“spin up run”译法存在语义误导风险
+- 位置: doc/ModelDescription/Q-flux_mixed_layer_model.md（两处 “spin up run”）
+- 源文: “spin up run”
+- 译文现状: “旋合运行”
+- 风险: “旋合”更常指“（气象/流场）收敛/辐合”，与同段落 “ocean heat convergence/海洋热辐合”并列时更易引发误读。
+- 建议（择一并全文件统一）:
+  - 保留英文: “spin-up 运行”（中文行解释为“自旋预平衡/预平衡运行”等）
+  - 或译为“预平衡运行/自旋预热运行”，避免使用“旋合”字样。
+
+### P1（建议尽快处理，显著提升一致性）
+
+2) Diagnostics.md：标题译名与词典条目不一致
+- 位置: doc/ModelDescription/Diagnostics.md:1
+- 词典: Diagnostics → 诊断输出（terminology-dictionary.md:142）
+- 建议: 标题改为 “# Diagnostics / 诊断输出”，并在正文中继续使用“诊断/诊断输出”择一统一。
+
+### P2（可规划：提升可追溯性与后续一致性成本）
+
+3) Q-flux_mixed_layer_model.md：处理 “see above”锚点引用
+- 位置: doc/ModelDescription/Q-flux_mixed_layer_model.md（“见上文”）
+- 建议: 若无可对应锚点，可改为“见上文（原文锚点：#part4_2）”或直接保留英文链接文本，避免读者误以为本文档内有可跳转位置。
+
+4) 术语补录建议（补录到术语词典 v1.4，至少覆盖本批次新增术语）
+- spin-up run → spin-up 运行 / 预平衡运行（建议保留英文并给出中文释义）
+- ocean heat convergence → 海洋热辐合（或热收敛，择一并统一）
+- sea ice concentration → 海冰密集度（或海冰浓度，择一并统一）
+- frazil ice → 冰花
+- basal fluxes / lateral fluxes → 底部通量 / 侧向通量
+- lead fraction → 冰缝比例（或开阔水域比例，择一并统一）
+- melt pond → 融池
+- sigma-coordinate → σ坐标
+- post-processing → 后处理
+- budget page diagnostics → 预算页诊断
+- lat-lon diags / lat-height diagnostics → 纬度-经度诊断 / 纬度-高度诊断
+- (advective) tendencies → （平流）趋势
+- atmospheric dissipation → 大气耗散
+- pressure filter → 压力滤波器
+
+---
+
+[CONVERSATION_ID]: 019c233e-c228-7771-981b-4e97776aa6af
+
+---
+
+# 审查请求文档审查（.claude/request.md：第四批文档）
+
+- 时间: 2026-02-03 23:40
+- 对象: .claude/request.md（ModelDescription 翻译质量审查请求：第四批文档）
+
+## 结论
+
+- 综合评分: 93/100
+- 建议: 通过（已补齐会话ID；并修正1处跨批一致性表述，现可直接用于后续审查）
+
+## 关键发现
+
+1) 信息一致性良好，可作为审查输入
+- 文件顶部元信息（第四批、任务#13/#15/#19、6文件）与“需要审查的文件”表格一致。
+- 评分维度与权重（50/30/20）及子分上限（25/25/15/15/10/10）清晰，便于按条目输出。
+- 翻译规范引用已更新为 `.claude/rules/translation-standards.md` v1.2，并在“审查特别关注点”中引用了第十一章相关条目，口径一致。
+
+2) 已修正跨批一致性描述的语义偏差（避免误导审查者）
+- 原表述“海冰相关术语与#8（Cloud_processes）一致”不准确，已改为“云过程相关术语与#8一致”，与本批次文件（Main_time_stepping_loop.md 中涉及 moist convection/large scale condensation）更贴合。
+
+3) 会话ID已补齐，便于后续审查记录串联
+- 已在 `.claude/request.md` 末尾追加 `[CONVERSATION_ID]`。
+
+## 修改记录（已落地）
+
+- `.claude/request.md`：修正“与前批术语一致性”中的 1 处表述（海冰→云过程）
+- `.claude/request.md`：追加会话ID块（便于追溯）
+
+---
+
+[CONVERSATION_ID]: 019c233e-c228-7771-981b-4e97776aa6af
