@@ -375,10 +375,115 @@ This dictionary provides standardized terminology for the ModelE2.1.2_Lazenca pr
 
 ---
 
-**词典版本 | Dictionary Version**: v1.4
+## 14. 第6批次新增术语 | Batch 6 New Terminology
+
+### 平流层物理术语 | Stratospheric Physics Terms
+| English | 中文 | 注释 |
+|---------|------|------|
+| stratospheric drag | 平流层曳力 | 平流层中大尺度波动对平均流的阻力 |
+| Rayleigh damping | 瑞利阻尼 | 一种简化的波动阻尼参数化方案 |
+| gravity-wave drag | 重力波曳力 | 重力波破碎对平均流的动量 deposition |
+| moist convection | 湿润对流 | 包含凝结相变的对流过程（与"湿对流"统一） |
+| mountain waves | 地形波 | 山地激发的重力波 |
+| shear | 剪切 | 流速梯度的动力学效应 |
+| deformation | 变形 | 流体元的形变 |
+| wave breaking | 波破碎 | 重力波振幅过大导致的湍流混合 |
+| STRATDYN | 平流层动力学模块 | 计算平流层重力和波曳力的模块名 |
+
+### 海冰动力学术语 | Sea Ice Dynamics Terms
+| English | 中文 | 注释 |
+|---------|------|------|
+| ice advection | 海冰平流 | 海冰的平流输送过程 |
+| atmosphere-ice momentum stress | 大气-冰动量应力 | 大气作用在海冰上的动量通量 |
+| ice-ocean momentum stress | 冰-海洋动量应力 | 海冰作用在海洋上的动量通量 |
+| sea surface gradient | 海表梯度 | 海表高度或性质的空间变化率 |
+| internal ice pressures | 内部冰压力 | 海冰内部的应力状态 |
+| rheology | 流变学 | 研究材料流动和变形的科学 |
+| Flato-Hibler viscous-plastic rheology | Flato-Hibler粘-塑性流变学 | 一种常用的海冰流变学参数化方案 |
+| surface type fractions | 地表类型分数 | 网格单元内不同地表类型（冰、水、陆）的占比 |
+| surface flux calculation | 地表通量计算 | 地表面能量、动量、物质通量的计算 |
+| ice velocities | 冰速度 | 海冰运动速度 |
+| ice mass fluxes | 冰质量通量 | 海冰质量输送通量 |
+| fixed SST | 固定海表温度 | 海表温度不随时间变化的边界条件 |
+| ice and energy convergences | 冰和能量辐合 | 海冰平流导致的质量和能量汇聚 |
+| DYNSI | 海冰动力学初始化模块 | 计算冰速度和应力的模块名 |
+| ADVSI | 海冰平流模块 | 海冰平流输送计算的模块名 |
+| spin-up | spin-up/预平衡运行 | 模型从初始状态调整到平衡态的过程（保留英文） |
+
+### 海洋强迫术语 | Ocean Forcing Terms
+| English | 中文 | 注释 |
+|---------|------|------|
+| imposed sea surface conditions | 强迫海面条件 | 从外部数据 prescribed的海表条件 |
+| fixed (annually repeating) climatology | 固定（年度循环）气候态 | 重复每年的平均季节循环 |
+| transient (monthly varying) realisation | 瞬变（月变化）实现 | 随时间变化的真实数据集 |
+| monthly means | 月均值 | 每月的平均值 |
+| end of month values | 月末值 | 每月最后时刻的值 |
+| quadratic approximation | 二次近似 | 使用二次多项式插值的方法 |
+| interpolate | 插值 | 估计数据点之间值的方法 |
+| sea ice concentration | 海冰密集度 | 网格单元中海冰覆盖的分数 |
+| sea ice thickness | 海冰厚度 | 海冰的厚度 |
+| local scaling | 局地缩放 | 基于局部关系的调整方法 |
+| coupled model simulation | 耦合模型模拟 | 多个组件模型相互作用的模拟 |
+| ZSI file | ZSI文件 | 海冰厚度输入文件（Zonal Sea Ice） |
+
+### 水预算术语 | Water Budget Terms
+| English | 中文 | 注释 |
+|---------|------|------|
+| water budget | 水预算 | 系统中水质量的收支平衡 |
+| water reservoirs | 水体储库 | 储存水分的组成部分（水库易误解） |
+| atmosphere grid | 大气网格 | 大气模型的离散化网格 |
+| ocean grid | 海洋网格 | 海洋模型的离散化网格 |
+| prognostic variables | 预报变量 | 模型预测的状态变量（已收录） |
+| salt water mass | 咸水质量 | 含盐水的质量 |
+| subroutines | 子程序 | Fortran中执行特定任务的程序单元 |
+| flux array | 通量数组 | 临时存储物质通量的数组 |
+| dew | 露 | 水汽凝结的液态水 |
+| evaporation | 蒸发 | 液态水转化为气态水的过程（已收录） |
+| mass balance | 质量平衡 | 系统输入输出质量的守恒关系 |
+| AtmosQ | 大气水质量 | 大气柱中的总水质量 |
+| Clouds | 云水质量 | 云中的液态水质量 |
+| LandIce | 陆冰质量 | 陆地冰盖的质量 |
+| Ground | 地下水质量 | 土壤中的液态水质量 |
+| LakeIce | 湖冰质量 | 湖泊冰的质量 |
+| LiqLake | 湖泊液态水质量 | 湖泊中的液态水质量 |
+| SeaIce | 海冰质量 | 海冰的质量 |
+| LiqOcen | 海洋液态水质量 | 海洋中的液态水质量 |
+| MELTI | 融冰通量 | 冰融化产生的液态水通量 |
+| PREC | 降水通量 | 降水过程的水通量 |
+| RUNPSI | 海冰径流通量 | 从海冰表面流走的径流通量 |
+| RUNOLI | 陆冰径流通量 | 从陆冰表面流走的径流通量 |
+| RUNOE | 地下径流通量 | 从土壤流走的径流通量 |
+| EVAPOR | 蒸发通量 | 蒸发过程的水通量 |
+
+### 水文循环术语 | Hydrologic Cycle Terms
+| English | 中文 | 注释 |
+|---------|------|------|
+| hydrologic cycle | 水文循环 | 水在地球各圈层中的循环过程（已收录） |
+| water reservoirs | 水体储库 | 储存水分的组成部分（避免"水库"歧义） |
+| cloud liquid water | 云液态水 | 云中液态水滴 |
+| precipitation | 降水 | 大液态水或固态水从大气降落到地面（已收录） |
+| sea ice | 海冰 | 海洋中冻结的冰（已收录） |
+| ground water | 地下水 | 土壤和岩石孔隙中的水 |
+| glaciers | 冰川 | 大陆上长期存在的冰体 |
+| in air and in water tracers | 空气中和水中的示踪物 | 分别存在于大气和相水中的示踪物 |
+| precip | 降水 | 简写形式的降水（已收录） |
+| soluble gases | 可溶性气体 | 能溶于水的气体 |
+| water tracers | 水示踪物 | 用于追踪水运动的示踪物 |
+| isotopes | 同位素 | 相同元素但中子数不同的原子 |
+| age | 年龄 | 示踪物或水体的时间属性 |
+| source | 来源 | 示踪物的来源地或来源过程 |
+
+---
+
+**词典版本 | Dictionary Version**: v1.4 → v1.5
 **创建日期 | Creation Date**: 2025-10-28
-**最后更新 | Last Updated**: 2025-10-28
-**更新内容 | Update Notes**: v1.1添加12个编译和系统配置相关术语；v1.2基于Codex审查结果添加MacPorts、module load、scl enable等5个系统配置术语；v1.3添加MPICH2术语以确保文档与词典一致性；v1.4为Day 2-3任务添加transient simulation、JYEAR等关键参数术语
+**最后更新 | Last Updated**: 2026-02-05
+**更新内容 | Update Notes**:
+- v1.1添加12个编译和系统配置相关术语
+- v1.2基于Codex审查结果添加MacPorts、module load、scl enable等5个系统配置术语
+- v1.3添加MPICH2术语以确保文档与词典一致性
+- v1.4为Day 2-3任务添加transient simulation、JYEAR等关键参数术语
+- **v1.5为第6批次添加约65个新术语**，涵盖平流层物理、海冰动力学、海洋强迫、水预算、水文循环等领域
 **维护者 | Maintainer**: ModelE2.1.2_Lazenca翻译团队
 
 **使用说明 | Usage Notes**:

@@ -960,3 +960,154 @@
 ---
 
 [CONVERSATION_ID]: 019c2813-f6f6-7322-b30b-f6ff83c96711
+
+---
+
+# ModelDescription 第6批次文档翻译质量审查报告
+
+- 时间: 2026-02-05 00:37
+- 审查依据: .claude/request.md（第6批次文档审查请求）
+- 术语标准参考: .claude/terminology-dictionary.md（v1.4）
+- 格式标准参考: .claude/rules/translation-standards.md（v1.3）
+
+## 覆盖文件（5个）
+
+- doc/ModelDescription/Soluble_and_Water_mass_Tracers.md ↔ old-doc/ModelDescription/Soluble_and_Water_mass_Tracers.html
+- doc/ModelDescription/Stratospheric_processes.md ↔ old-doc/ModelDescription/Stratospheric_processes.html
+- doc/ModelDescription/Ice_advection.md ↔ old-doc/ModelDescription/Ice_advection.html
+- doc/ModelDescription/Imposed_Sea_surface_conditions.md ↔ old-doc/ModelDescription/Imposed_Sea_surface_conditions.html
+- doc/ModelDescription/Water_Budget.md ↔ old-doc/ModelDescription/Water_Budget.html
+
+## 关联校验
+
+- doc/ModelDescription/Tracers.md：内部链接均指向 `.md` 且目标文件均存在（已验证）。
+
+---
+
+## 结论与建议
+
+- 综合评分: 96/100
+- 建议: 通过（无P0；存在少量P1/P2建议项）
+
+---
+
+## 评分详情（按 request.md 评分构成）
+
+### 1) 技术维度（0-50）：47/50
+
+#### 1.1 术语一致性（0-25）：23/25
+
+主要发现:
+- 关键缩略词/专有名词保留正确：SDRAG、GWDRAG、STRATDYN、DYNSI、ADVSI、SST、ZSI 等均保留。
+- 与词典可直接对齐的术语保持一致：rundeck→“运行配置”（Tracers.md 中已采用）。
+- 术语跨文件一致性总体良好（海冰平流、海表温度等均稳定）。
+
+扣分点（P1）:
+- “moist convection”在本批次译为“湿对流”（Stratospheric_processes.md），而前批文档常用译法为“湿润对流”（例如 Cloud_processes/主循环语境）；建议统一，以满足“与前5批术语一致”目标。
+
+#### 1.2 翻译准确性（0-25）：24/25
+
+主要发现:
+- 5个文件均为短段落/清单型说明，语义与源 HTML 对齐清晰，无明显漏译。
+- Stratospheric_processes.html 中 4 处源文拼写错误已按请求策略更正（不附“原文拼写”标注），译文未残留这些误拼（已核验）。
+
+扣分点（P2）:
+- “non-trivial ocean model”译为“非平凡海洋模型”（Soluble_and_Water_mass_Tracers.md）略生硬，建议改为“非简化/较复杂的海洋模型”。
+
+### 2) 格式维度（0-30）：29/30
+
+#### 2.1 Markdown 格式（0-15）：15/15
+
+结论:
+- Markdown 语法、标题与代码块均可解析。
+- Water_Budget.md 的等式/方程均位于代码块中（已核验：代码块外无 `=` 行）。
+
+#### 2.2 中英对照格式（0-15）：14/15
+
+扣分点（P1）:
+- Tracers.md 的列表条目采用“同一行中英混排”（例如 `- [Air mass tracers](...) - 气质量示踪物`），若严格按“英文在上、中文在下”叠放口径，建议拆为两行句对。
+
+### 3) 完整性维度（0-20）：20/20
+
+#### 3.1 内容完整性（0-10）：10/10
+
+结论:
+- 5个文件均覆盖源 HTML 的全部段落/列表内容，无明显缺段。
+
+#### 3.2 模块完整性（0-10）：10/10
+
+结论:
+- 新增5个文件均已落位在 `doc/ModelDescription/`，且 Tracers.md 的内部链接验证通过；满足“模块100%完整”里程碑验证的必要条件。
+
+---
+
+## 修改记录（问题清单 + 建议 + 优先级）
+
+### P0（必须修复）
+
+- 未发现。
+
+### P1（建议修复，提升一致性/可维护性）
+
+1) 统一“moist convection”译法，保持与前批一致
+- 位置: doc/ModelDescription/Stratospheric_processes.md
+- 建议: 与既有文档统一为“湿润对流”（或在词典中固化“湿对流”为唯一标准后回填前批次）。
+
+2) Tracers.md 列表项改为严格叠放句对（提升格式一致性）
+- 位置: doc/ModelDescription/Tracers.md（Tracer types 列表）
+- 建议: 每个条目拆为“英文行（含链接）”+“中文行”。
+
+3) “water reservoirs”译法建议避免歧义
+- 位置: doc/ModelDescription/Soluble_and_Water_mass_Tracers.md
+- 风险: “水库”容易被理解为“人工水库”，而原意更接近“水体储库/水储库（reservoirs）”。
+- 建议: 译为“水体储库/水储库”，并在术语补录时固定。
+
+### P2（可选优化）
+
+4) 优化个别直译表达
+- 位置: doc/ModelDescription/Soluble_and_Water_mass_Tracers.md
+- 建议: “非平凡海洋模型”→“非简化/较复杂的海洋模型”。
+
+5) 可选：对源文未列入清单的明显误拼进行勘误
+- 示例位置: doc/ModelDescription/Ice_advection.md（源 HTML 里存在 `nad`、`the the` 等误拼）
+- 说明: request.md 本批次仅要求修复 Stratospheric_processes 的 4 处，但若目标是“最终整合版本”，可考虑一并勘误并保持可追溯性策略一致。
+
+---
+
+## 新术语补录建议（词典 v1.4）
+
+- stratospheric drag / Rayleigh damping / gravity-wave drag
+- mountain waves / wave breaking
+- atmosphere-ice momentum stress / ice-ocean momentum stress
+- internal ice pressures / rheology / viscous-plastic rheology
+- imposed sea surface conditions / (annually repeating) climatology / transient realisation / quadratic approximation / local scaling
+- water budget / water reservoirs / flux array
+
+---
+
+[CONVERSATION_ID]: 019c2813-f6f6-7322-b30b-f6ff83c96711
+
+---
+
+# ModelDescription 整体审查（复核）
+
+- 时间：2026-02-05 10:47
+- 范围：`doc/ModelDescription/*.md`（实际 36 个文件；请求文本标称 35 但枚举到 36）
+- 方法：全量扫描结果见 `.claude/audit_modeldescription.json`；抽样核验 Cloud_processes / Q-flux / 海洋动力 / 气溶胶示踪物高风险点
+
+## 结论
+
+- 综合评分：94/100（优秀）
+- 发布建议：可发布；为达到请求“≥95/100”目标，建议先完成下述 P1 修复
+
+## P1 问题
+
+1) `doc/ModelDescription/index.md:47` 存在失效内部链接 `Land_ice.md`（目标文件不存在）
+2) `.claude/request.md` 与实际目录在“文件数口径（35 vs 36）”上不一致，建议统一以避免验收歧义
+
+## P2 建议
+
+- `doc/ModelDescription/References.md:1` 标题可改为 `# References / 参考文献`，以对齐“English / 中文”格式口径
+- `doc/ModelDescription/index.md:1` 若希望全站风格一致，可补充英文对照标题（该文件作为中文索引，当前并非功能性问题）
+
+[CONVERSATION_ID]: 019c2998-762e-7350-90ba-f018fa6c50e2
