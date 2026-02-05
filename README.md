@@ -3,7 +3,7 @@
 [![GitHub release](https://img.shields.io/github/release/Lazenca-Liqiuqi/modelE2.1.2_Lazenca.svg)](https://github.com/Lazenca-Liqiuqi/modelE2.1.2_Lazenca)
 [![License](https://img.shields.io/badge/License-NASA%20Open%20Source-blue.svg)](LICENSE)
 [![Fortran](https://img.shields.io/badge/Fortran-90%2F95-blue.svg)](https://en.wikipedia.org/wiki/Fortran)
-[![Version](https://img.shields.io/badge/Version-0.2.2-green.svg)](https://github.com/Lazenca-Liqiuqi/modelE2.1.2_Lazenca)
+[![Version](https://img.shields.io/badge/Version-0.3.0-green.svg)](https://github.com/Lazenca-Liqiuqi/modelE2.1.2_Lazenca)
 
 **基于NASA GISS ModelE 2.1.2的个人分支 | Personal fork based on NASA GISS ModelE 2.1.2**
 
@@ -151,7 +151,7 @@ gmake setup RUN=my_run       # 编译模型并准备运行目录
 
 ## 当前状态
 
-- **版本**: 0.2.2（以CHANGELOG为准）
+- **版本**: 0.3.0（以CHANGELOG为准）
 - **进度**: 14/26（53.8%）——口径：shrimp任务
 - **阶段**: 2.1（ModelDescription技术文档翻译）——✅ **全部完成**
 - **质量**: Codex审查均分95+

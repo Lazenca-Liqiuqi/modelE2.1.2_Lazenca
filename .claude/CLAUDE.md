@@ -110,7 +110,7 @@ gmake setup RUN=run_name       # 编译和设置
 
 ## 当前状态
 
-- **版本**: 0.2.2（以CHANGELOG为准）
+- **版本**: 0.3.0（以CHANGELOG为准）
 - **进度**: 14/26（53.8%）——口径：shrimp任务
 - **阶段**: 2.1（ModelDescription技术文档翻译）——✅ **全部完成**
 - **质量**: Codex审查均分95+
