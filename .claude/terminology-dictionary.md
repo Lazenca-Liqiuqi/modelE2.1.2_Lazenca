@@ -475,7 +475,101 @@ This dictionary provides standardized terminology for the ModelE2.1.2_Lazenca pr
 
 ---
 
-**词典版本 | Dictionary Version**: v1.4 → v1.5
+## 15. 第1-2批次HOWTO新增术语 | Batch 1-2 HOWTO New Terminology
+
+### Git版本控制术语 | Git Version Control Terms
+| English | 中文 | 注释 |
+|---------|------|------|
+| revision control system | 版本控制系统 | 管理代码变更的系统 |
+| distributed | 分布式 | Git的分布式架构特性 |
+| clone | 克隆 | 复制整个仓库的操作 |
+| commit | 提交 | 将更改保存到仓库的操作 |
+| push | 推送 | 将本地提交发送到远程仓库 |
+| pull | 拉取 | 从远程仓库获取并合并更改 |
+| checkout | 检出 | 切换分支或恢复文件的操作 |
+| branch | 分支 | 独立的开发线 |
+| master branch | 主分支 | 默认的主开发分支 |
+| repository | 仓库 | 存储项目代码的地方 |
+| remote | 远程 | 远程仓库或远程分支 |
+| remote branch | 远程分支 | 存在于远程仓库的分支 |
+| local branch | 本地分支 | 存在于本地的分支 |
+| tracking branch | 跟踪分支 | 跟踪远程分支的本地分支 |
+| merge | 合并 | 将一个分支的更改整合到另一个分支 |
+| conflict | 冲突 | 两个更改不能自动合并的情况 |
+| central repository | 中央仓库 | 主要的共享代码仓库 |
+
+### 单列模型术语 | Single-Column Model Terms
+| English | 中文 | 注释 |
+|---------|------|------|
+| single-column model (SCM) | 单列模型（SCM） | 只处理单个垂直柱的模型配置 |
+| forcing | 强迫 | 驱动模型的外部条件或趋势 |
+| forcing term | 强迫项 | 替代大尺度动力学的强迫项 |
+| nudging | 松弛 | 向参考状态逼近的技术 |
+| nudging strength | 松弛强度 | 松弛逼近的强度系数 |
+| profile | 廓线 | 垂直分布或垂直剖面 |
+| temperature profile | 温度廓线 | 温度随高度的变化 |
+| wind profile | 风廓线 | 风随高度的变化 |
+| geostrophic wind | 地转风 | 平衡气压梯度力的风 |
+| sensible heat flux | 感热通量 | 温度相关的热通量 |
+| latent heat flux | 潜热通量 | 相变相关的热通量 |
+| radiative heating rate | 辐射加热率 | 辐射导致的温度变化率 |
+| flux divergence | 通量散度 | 通量的空间导数 |
+| friction velocity | 摩擦速度 | 表面摩擦相关的特征速度 |
+| surface roughness height | 地表粗糙高度 | 描述地表粗糙度的参数 |
+| ancillary data | 辅助数据 | 支持模型运行的额外数据 |
+
+### 时间管理术语 | Time Management Terms
+| English | 中文 | 注释 |
+|---------|------|------|
+| time evolution | 时间演化 | 模拟状态随时间的变化 |
+| orbital parameters | 轨道参数 | 行星轨道的相关参数 |
+| calendar properties | 日历属性 | 日历系统的特性 |
+| encapsulation | 封装 | OOP中隐藏实现细节的特性 |
+| object-oriented programming (OOP) | 面向对象编程 | 基于对象和类的编程范式 |
+| class | 类 | OOP中的对象模板 |
+| subclass | 子类 | 继承自另一个类的类 |
+| base class | 基类 | 被继承的父类 |
+| rational number | 有理数 | 可以表示为分数的数 |
+| epoch | 纪元 | 时间计量的参考点 |
+| time boundary | 时间边界 | 时间步的边界点 |
+| pseudo-Julian calendar | 伪儒略历 | 简化的儒略历变体 |
+| exoplanet | 系外行星 | 太阳系以外的行星 |
+| subcycling | 子循环 | 更短时间步的循环 |
+| timestep | 时间步 | 数值积分的时间间隔 |
+| time constant | 时间常数 | 描述过程时间尺度的参数 |
+
+### NEW_IO/I/O系统术语 | NEW_IO/I/O System Terms
+| English | 中文 | 注释 |
+|---------|------|------|
+| NEW_IO | NEW_IO系统 | ModelE的新I/O系统 |
+| rundeck | 运行配置 | 定义模型运行参数的配置文件 |
+| restart file | 重启文件 | 保存模型状态用于重启的文件 |
+| accumulation array | 累加数组 | 累积诊断数据的数组 |
+| scaled diagnostics | 缩放诊断输出 | 经过缩放处理的诊断输出 |
+| netcdf | NetCDF格式 | 网络通用数据格式 |
+| parallel-netcdf (PNETCDF) | 并行NetCDF（PNETCDF） | 支持并行I/O的NetCDF变体 |
+| cubed-sphere grid | 立方体球面网格 | 减少极地奇异性的网格 |
+| native grid | 原生网格 | 模型默认使用的网格 |
+| remap | 重映射 | 将数据从一个网格转换到另一个网格 |
+| remap file | 重映射文件 | 包含重映射权重的文件 |
+| lat-lon | 经纬度 | 经度和纬度坐标 |
+| budget page | 预算页 | 显示能量/物质收支的输出页 |
+| diagnostic category | 诊断类别 | 诊断输出的分类 |
+| postprocessing | 后处理 | 模拟运行后的数据处理 |
+| metadata | 元数据 | 描述数据的数据 |
+| subdaily | 亚日 | 时间分辨率小于一天 |
+| time average | 时间平均 | 多个时间步的平均 |
+| diagnostics table | 诊断表 | 表格形式的诊断输出 |
+| acc-file | acc文件 | 累加文件（accumulation file） |
+| hyperslab | 数据超板 | 多维数据的子集 |
+| binary sequential access | 二进制顺序访问 | Fortran传统的文件访问方式 |
+| auxiliary output | 辅助输出 | 额外的诊断输出 |
+| hemisphere mean | 半球平均 | 南半球或北半球的平均值 |
+| global mean | 全球平均 | 全球区域的平均值 |
+
+---
+
+**词典版本 | Dictionary Version**: v1.5 → v1.6
 **创建日期 | Creation Date**: 2025-10-28
 **最后更新 | Last Updated**: 2026-02-05
 **更新内容 | Update Notes**:
@@ -483,7 +577,8 @@ This dictionary provides standardized terminology for the ModelE2.1.2_Lazenca pr
 - v1.2基于Codex审查结果添加MacPorts、module load、scl enable等5个系统配置术语
 - v1.3添加MPICH2术语以确保文档与词典一致性
 - v1.4为Day 2-3任务添加transient simulation、JYEAR等关键参数术语
-- **v1.5为第6批次添加约65个新术语**，涵盖平流层物理、海冰动力学、海洋强迫、水预算、水文循环等领域
+- v1.5为第6批次添加约65个新术语，涵盖平流层物理、海冰动力学、海洋强迫、水预算、水文循环等领域
+- **v1.6为第1-2批次HOWTO添加约60个新术语**，涵盖Git版本控制、单列模型、时间管理、NEW_IO系统等领域
 **维护者 | Maintainer**: ModelE2.1.2_Lazenca翻译团队
 
 **使用说明 | Usage Notes**:

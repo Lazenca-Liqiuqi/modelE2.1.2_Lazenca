@@ -2,8 +2,8 @@
 
 ## 会话信息
 - **工作日期**: 2026-02-05
-- **会话类型**: ModelDescription整体审查请求生成与审查报告问题修复
-- **版本**: 0.2.2
+- **会话类型**: 第1-2批次HOWTO翻译与审查
+- **版本**: 0.3.0（进行中）
 
 ## 项目概况
 
@@ -12,223 +12,255 @@
 ## 工作任务
 
 ### 主要任务
-- 生成ModelDescription整体审查请求（36个文件）
-- 修复Codex审查报告中的问题（2个P1 + 1个P2）
+- 翻译HOWTO目录第1-2批次文档（4个文件）
+- 生成Codex审查请求
+- 补录术语到词典v1.6
+- 统一项目格式规范
 
 ### 任务状态
-- ✅ 生成整体审查请求（`.claude/request.md`）
-- ✅ 修复P1-1：删除index.md中的失效链接（Land_ice.md）
-- ✅ 修复P1-2：统一request.md中的文件数口径（35→36，共11处）
-- ✅ 修复P2：统一辅助文档标题格式（index.md、References.md）
+- ✅ 翻译SCM.txt（67行，P2）
+- ✅ 翻译git_howto.html（311行，P1）
+- ✅ 翻译time_management.txt（113行，P1）
+- ✅ 翻译newio.html（739行，**P0关键文档**）
+- ✅ 生成HOWTO翻译审查请求
+- ✅ Codex审查完成（96/100优秀）
+- ✅ 补录术语到词典v1.6（约60个新术语）
+- ✅ 统一格式规范到v1.4
 
 ## 工作内容
 
-### 1. 生成整体审查请求
+### 1. HOWTO目录翻译（第1-2批次）
 
-#### 请求文件
-- `.claude/request.md` - ModelDescription整体审查与质量评估请求
+#### 第1批次：快速建立信心
+**SCM.md**（67行，P2）:
+- 源文件：`old-doc/HOWTO/SCM.txt`
+- 目标文件：`doc/HOWTO/SCM.md`
+- 内容：单列模型使用指南
+- 新术语：15个（单列模型、强迫、松弛、廓线等）
 
-#### 请求内容
-- **项目基本信息**: 36个文档，6大模块完整覆盖
-- **项目状态与进展**: 6批次翻译历史，平均评分95.5
-- **审查目标与范围**: 36个文档详细清单（大气7+陆面6+海洋5+海冰3+示踪物6+系统6+辅助3）
-- **审查要点**: 5个维度（术语一致性、翻译准确性、格式规范性、完整性、链接有效性）
-- **评分标准**: 技术维度50% + 格式维度30% + 完整性维度20%
-- **特殊关注点**: 跨批次一致性、术语规模（600+术语）、文档规模（10万字+）
+**git_howto.md**（311行，P1）:
+- 源文件：`old-doc/HOWTO/git_howto.html`
+- 目标文件：`doc/HOWTO/git_howto.md`
+- 内容：Git版本控制使用指南
+- 格式：HTML→Markdown转换
+- 新术语：15个（clone、commit、push、pull等）
 
-#### 文件清单（36个文档）
-**大气模块（7个）**:
-1. Atmospheric_model.md
-2. Dynamics.md
-3. Cloud_processes.md
-4. Radiation.md
-5. Surface_fluxes.md
-6. Turbulence_and_Dry_convection.md
-7. Stratospheric_processes.md
+#### 第2批次：核心开发者文档⭐
+**time_management.md**（113行，P1）:
+- 源文件：`old-doc/HOWTO/time_management.txt`
+- 目标文件：`doc/HOWTO/time_management.md`
+- 内容：时间管理系统架构（OOP设计）
+- 特殊处理：原文3处拼写错误已更正并标注
+- 新术语：15个（封装、类、对象、纪元等）
 
-**陆面模块（6个）**:
-8. Land_Surface_model.md
-9. Ground_Hydrology.md
-10. Snow_model.md
-11. Vegetation_model.md
-12. Lake_model.md
-13. Rivers.md
+**newio.md**（739行，**P0关键文档**）:
+- 源文件：`old-doc/HOWTO/newio.html`
+- 目标文件：`doc/HOWTO/newio.md`
+- 内容：NEW_IO系统完整指南（19个章节）
+- 诊断类别：20个（aj/aij/aijl/consrv/agc等）
+- 特殊处理：目录锚点已补齐（`<a id="..."></a>`）
+- 新术语：35个（重启文件、累加数组、后处理等）
 
-**海洋模块（5个）**:
-14. Ocean_models.md
-15. Imposed_Sea_surface_conditions.md
-16. Q-flux_mixed_layer_model.md
-17. GISS_Dynamic_ocean_model.md
-18. Ocean_Tracers.md
+### 2. Codex质量审查
 
-**海冰模块（3个）**:
-19. Sea_ice_model.md
-20. Basic_thermodynamics.md
-21. Ice_advection.md
+#### 审查请求
+- 文件：`.claude/request.md`
+- 审查范围：4个HOWTO翻译文档
+- 审查维度：5个（术语一致性30%、翻译准确性30%、格式规范性20%、完整性10%、特殊处理10%）
 
-**示踪物模块（6个）**:
-22. Tracers.md
-23. Air_mass_Tracers.md
-24. Soluble_and_Water_mass_Tracers.md
-25. Gas_Tracers.md
-26. Aerosol_Tracers.md
-27. Special_Tracers.md
+#### 审查结果
+**综合评分**: **96/100**（优秀）✅
+- 建议：**通过**
+- P0文档（newio.md）：**97/100** ✅ 满足≥96目标
 
-**系统架构（6个）**:
-28. Overall_model_structure.md
-29. Source_code_and_directory_structure.md
-30. Initialisation.md
-31. Main_time_stepping_loop.md
-32. Diagnostics.md
-33. Input_Output.md
-34. Water_Budget.md
+#### 分维度评分
+| 维度 | 权重 | 评分 | 状态 |
+|------|------|------|------|
+| 术语一致性 | 30% | 28/30 | 良好 |
+| 翻译准确性 | 30% | 29/30 | 优秀 |
+| 格式规范性 | 20% | 19/20 | 优秀 |
+| 完整性 | 10% | 10/10 | 完美 |
+| 特殊处理 | 10% | 10/10 | 完美 |
 
-**辅助文档（3个）**:
-35. References.md
-36. index.md
+#### 文档级评分
+- SCM.md：**96/100** ✅
+- git_howto.md：**95/100** ✅
+- time_management.md：**96/100** ✅
+- newio.md：**97/100** ✅（P0）
 
-### 2. 修复审查报告问题
+#### 关键修复（已完成）
+1. **newio.md**：目录锚点补齐（`<a id="..."></a>`）
+2. **time_management.md**：原文拼写错误更正并标注
+   - `repsonsibilities` → `responsibilities`
+   - `AbsractCalendar` → `AbstractCalendar`
+   - `currenTime` → `currentTime`
 
-#### 审查报告来源
-- `.claude/comprehensive-review-report.md` - Codex整体审查与质量评估报告
-- **原始评分**: 94/100（优秀）
-- **问题**: 2个P1 + 1个P2
+### 3. 术语词典补录（v1.5 → v1.6）
 
-#### P1-1: 修复索引中的失效链接
-- **文件**: `doc/ModelDescription/index.md:47`
-- **问题**: 链接到不存在的 `Land_ice.md`
-- **修复**: 删除该行 `- [Land_ice](Land_ice.md) - 陆冰`
+#### 新增章节
+- **第15章**：第1-2批次HOWTO新增术语
 
-#### P1-2: 统一文件数口径
-- **文件**: `.claude/request.md`
-- **问题**: 标称"35个文件"，但枚举清单实际列到36个
-- **修复**: 将所有"35"更正为"36"（共11处）
-  1. 标题：35个文件 → 36个文件
-  2. 概览：翻译总数 35个文档 → 36个文档
-  3. 状态：35/35 文档 → 36/36 文档
-  4. 审查目标：35个文档 → 36个文档
-  5. 文件范围：35个文档 → 36个文档
-  6. 完整性检查：35个文档存在 → 36个文档存在
-  7. 链接验证：35个链接 → 36个链接
-  8. 检查项：35个文档链接 → 36个文档链接
-  9. 文档规模：总文档数 35个 → 36个
-  10. 交付物清单：翻译文件（35个）→ 翻译文件（36个）
-  11. 审查期望：35个文档翻译完整 → 36个文档翻译完整
+#### 新增术语分类（约60个）
 
-#### P2: 统一辅助文档标题格式
-- **文件**: `doc/ModelDescription/index.md`
-  - 修复: `# ModelE2.1.2_Lazenca 模型描述文档索引` → `# Index / ModelE2.1.2_Lazenca 模型描述文档索引`
-- **文件**: `doc/ModelDescription/References.md`
-  - 修复: `# References` → `# References / 参考文献`
+**Git版本控制术语（17个）**:
+- clone、commit、push、pull、checkout、branch、repository、remote、merge、conflict等
+
+**单列模型术语（16个）**:
+- single-column model (SCM)、forcing、nudging、profile、sensible heat flux、latent heat flux等
+
+**时间管理术语（15个）**:
+- time evolution、encapsulation、class、subclass、rational number、epoch、pseudo-Julian calendar等
+
+**NEW_IO/I/O术语（25个）**:
+- restart file、accumulation array、scaled diagnostics、cubed-sphere grid、remap、postprocessing、metadata等
+
+### 4. 格式规范统一
+
+#### 更新文件
+- `.claude/rules/translation-standards.md`：v1.3 → v1.4
+
+#### 主要更新
+1. **规范适用范围**：明确覆盖ModelDescription、HOWTO、misc目录及Fortran代码
+2. **格式标准统一声明**：
+   - 标题格式：`# English / 中文` 或分两行
+   - 段落格式：英文在上，中文在下，中间空一行
+   - **不使用【中文翻译】标记**（保持简洁）
+   - 代码块保留原样
+
+#### 解决的问题
+> Codex审查报告建议："统一'格式规范'的口径：`.claude/rules/translation-standards.md` 与 `.claude/translation-format-standard.md` 对标题/空行要求存在差异"
 
 ## 交付物
 
-### 审查文件
-- `.claude/request.md` - ModelDescription整体审查与质量评估请求（已更新）
+### 翻译文档（4个）
+- `doc/HOWTO/SCM.md`
+- `doc/HOWTO/git_howto.md`
+- `doc/HOWTO/time_management.md`
+- `doc/HOWTO/newio.md`
 
-### 修复的文件
-- `doc/ModelDescription/index.md` - 删除失效链接，修正标题格式
-- `doc/ModelDescription/References.md` - 修正标题格式
+### 审查文件（2个）
+- `.claude/request.md` - HOWTO翻译审查请求
+- `.claude/review-report.md` - Codex审查报告（96/100优秀）
 
-### 审查报告（已存在）
-- `.claude/comprehensive-review-report.md` - Codex整体审查与质量评估报告（94/100优秀）
+### 更新的配置文件（2个）
+- `.claude/terminology-dictionary.md` - v1.5 → v1.6（新增约60个术语）
+- `.claude/rules/translation-standards.md` - v1.3 → v1.4（统一格式标准）
 
 ## 状态变动
 
-### 修复前状态
-- **综合评分**: 94/100（优秀）
-- **存在问题**: 2个P1问题 + 1个P2问题
-- **可发布**: 是，但建议修复P1以达到≥95/100
+### 翻译前状态
+- **HOWTO目录翻译**: 0/8 文档（0%）
+- **术语词典版本**: v1.5
+- **格式规范版本**: v1.3
+- **格式规范冲突**: 与translation-format-standard.md存在差异
 
-### 修复后状态
-- **预期评分**: ≥95/100（优秀）
-- **存在问题**: 无P1/P2问题
-- **可发布**: 是，已达到发布标准
+### 翻译后状态
+- **HOWTO目录翻译**: **4/8 文档（50%）** ✅
+  - 第1批次：2个文档 ✅
+  - 第2批次：2个文档 ✅（含P0关键文档）
+- **术语词典版本**: **v1.6** ✅（新增约60个术语）
+- **格式规范版本**: **v1.4** ✅（格式标准已统一）
+- **Codex审查评分**: **96/100（优秀）** ✅
 
 ### 项目完成度
 - **ModelDescription技术文档翻译**: **36/36 (100%)** ✅
-  - 大气模块: 7个文件 ✅
-  - 陆面模块: 6个文件 ✅
-  - 海洋模块: 5个文件 ✅
-  - 海冰模块: 3个文件 ✅
-  - 示踪物模块: 6个文件 ✅
-  - 系统架构: 6个文件 ✅
-  - 辅助文档: 3个文件 ✅
+- **HOWTO支持文档翻译**: **4/8 (50%)** 🔄
+  - SCM单列模型指南 ✅
+  - Git使用指南 ✅
+  - 时间管理系统 ✅
+  - NEW_IO系统（P0）✅
+  - Fortran编程规范 ⏳
+  - 运行配置说明 ⏳
+  - 版本变更历史 ⏳
 
 ### Git状态
 - **分支**: master
 - **工作区**: 有未提交的修改
-  - 修改：3个文件（index.md、References.md、request.md）
+  - 新增：4个翻译文档（doc/HOWTO/）
+  - 更新：2个配置文件（.claude/）
 
 ## 工具
 
 ### 使用的主要工具
-- **Read工具**: 读取审查报告、待修复文件
-- **Edit工具**: 修复文件内容（共14处编辑）
-- **Write工具**: 生成审查请求文档
-- **Skill工具**: 调用项目记忆skill查看格式规范
-- **TaskList工具**: 查看任务列表状态
+- **Read工具**: 读取源文档、审查报告、格式规范
+- **Write工具**: 创建翻译文档、审查请求
+- **Edit工具**: 更新词典和格式规范
+- **TaskList工具**: 管理9个翻译任务
+- **TaskUpdate工具**: 更新任务状态（4个completed）
+- **Skill工具**:
+  - Codex协作：生成审查请求
+  - 项目记忆：查看格式规范
+  - task-complete：完成工作收尾
 
 ### 技术方法
-- 全量自动扫描验证（基于`.claude/audit_modeldescription.json`）
-- 高风险抽样核验
-- 术语一致性探针检查
-- 链接有效性验证
+- 中英对照叠放格式翻译
+- HTML→Markdown格式转换
+- 原文拼写错误处理（更正+可追溯标注）
+- 目录锚点补齐（`<a id="..."></a>`）
+- 术语分类管理（4大类别）
 
 ### 参考文档
-- `.claude/translation-standards.md` - 翻译规范v1.3
-- `.claude/terminology-dictionary.md` - 术语词典v1.5
-- `.claude/comprehensive-review-report.md` - Codex审查报告
+- `.claude/rules/translation-standards.md` - 翻译规范v1.3→v1.4
+- `.claude/terminology-dictionary.md` - 术语词典v1.5→v1.6
+- `.claude/review-report.md` - Codex审查报告
+- `old-doc/HOWTO/*.txt` - 源文档（TXT格式）
+- `old-doc/HOWTO/*.html` - 源文档（HTML格式）
 
 ## 经验教训
 
 ### 关键发现
-1. **文件数口径不一致**: request.md标称35个，但枚举清单实际36个，需要统一口径
-2. **失效链接检查**: index.md中存在指向不存在文件的链接，需要全面检查
-3. **标题格式规范**: 辅助文档也需要遵循"English / 中文"格式
-4. **自动化扫描价值**: Codex使用自动化扫描工具（audit_modeldescription.json）提高了审查效率
+1. **HTML→Markdown转换**：需要保留目录锚点（`<a id="..."></a>`），否则链接会失效
+2. **原文拼写错误处理**：采用"更正+可追溯标注"策略，在中文译文后添加"（原文拼写：xxx）"
+3. **格式规范冲突**：translation-standards.md与translation-format-standard.md存在差异，需要统一口径
+4. **术语规模增长**：第1-2批次新增约60个术语，需要及时补录到词典
 
 ### 最佳实践
-1. **文件计数一致性**: 确保请求文件中的文件数与实际枚举清单一致
-2. **链接有效性检查**: 发布前验证所有内部链接目标文件存在
-3. **标题格式统一**: 所有文档（包括辅助文档）遵循统一格式
-4. **自动化审查**: 使用脚本进行全量扫描，提高审查覆盖率
+1. **中英对照叠放格式**：标题用`# English / 中文`，段落用英文在上中文在下
+2. **P0文档特别关注**：newio.md是关键文档，目录锚点和诊断类别需要特别仔细
+3. **术语分类管理**：按Git/SCM/时间管理/I/O系统分类，便于查找和维护
+4. **原文错误标注**：确保可追溯性，帮助读者回溯到原文
 
 ## 下一步计划
 
 根据项目进度，下一步可以执行以下工作：
 
-### ModelDescription阶段完成
-- ✅ **所有36个文档翻译已完成**
-- ✅ **整体审查请求已生成**
-- ✅ **审查报告问题已修复**
-- 📝 **待办**: 进行Git提交
-- 📝 **待办**: 更新CLAUDE.md和README.md
-- 📝 **待办**: 准备版本发布
+### 第3-4批次：完成HOWTO翻译
+- [ ] **第3批次**：翻译misc/ModelE_Coding_Standards.tex（LaTeX→Markdown，781行）
+- [ ] **第4批次**：翻译misc/rundeck.txt + misc/CHANGES.txt（218+315行）
+
+### 收尾工作
+- [ ] 更新术语词典至v1.7（第3-4批次术语）
+- [ ] 更新CLAUDE.md工作阶段信息
+- [ ] 更新README.md项目状态
+- [ ] 发布v0.4.0版本
 
 ### 后续阶段规划
-**🔧 第二阶段：支持文档翻译**
-- [ ] **misc目录文档翻译**（16个文件）
-- [ ] **HOWTO目录文档翻译**（5个文件）
+**🔧 第二阶段：支持文档翻译**（进行中）
+- ✅ HOWTO目录4个文档（第1-2批次）
+- ⏳ misc目录3个文档（第3-4批次）
+- ⏳ 术语词典持续更新
 
 **📋 第三阶段：项目完善**
-- [ ] **文档结构优化和导航建立**
-- [ ] **术语词典扩展**
-- [ ] **全面质量检查和一致性验证**
-- [ ] **最终优化和发布准备**
+- [ ] 文档结构优化和导航建立
+- [ ] 术语词典进一步扩展
+- [ ] 全面质量检查和一致性验证
+- [ ] 最终优化和发布准备
 
 ## 注意事项
 
-- 版本0.2.2已发布，本次工作为审查请求生成和问题修复
-- ModelDescription所有36个文件翻译全部完成，质量评估≥95/100
+- 版本0.3.0进行中，本次完成第1-2批次HOWTO翻译（4/8文档，50%）
+- Codex审查评分96/100（优秀），所有文档均通过审查
+- 术语词典已更新至v1.6（新增约60个术语）
+- 格式规范已统一至v1.4
 - 工作区有未提交的修改，需要commit
-- 审查报告问题已全部修复（2个P1 + 1个P2）
-- 项目已达到发布标准
+- P0文档newio.md达到97/100，超过≥96目标
 
 ---
 
 **记录生成时间**: 2026-02-05
 **记录生成者**: Claude Code
-**会话类型**: ModelDescription整体审查请求生成与审查报告问题修复
-**修复问题**: P1-1（失效链接）、P1-2（文件数口径）、P2（标题格式）
-**预期评分**: ≥95/100（优秀）
+**会话类型**: 第1-2批次HOWTO翻译与审查
+**完成文档**: 4个（SCM/git_howto/time_management/newio）
+**Codex评分**: 96/100（优秀）
+**词典版本**: v1.5 → v1.6
+**规范版本**: v1.3 → v1.4

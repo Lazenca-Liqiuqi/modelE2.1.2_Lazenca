@@ -1,7 +1,7 @@
-# ModelDescription整体审查与质量评估请求
+# ModelE2.1.2_Lazenca HOWTO翻译审查请求
 
-**审查类型**: 整体质量评估
-**审查范围**: ModelDescription所有文档（36个文件）
+**审查类型**: 批次翻译质量审查
+**审查范围**: HOWTO目录翻译文档（4个文件）
 **生成时间**: 2026-02-05
 **翻译者**: Claude Code
 **词典版本**: v1.5
@@ -13,26 +13,26 @@
 ### 项目概况
 - **项目名称**: ModelE2.1.2_Lazenca - NASA GISS地球系统模型中文翻译
 - **项目类型**: 大气环流模型(GCM)/地球系统模型文档翻译
-- **翻译范围**: ModelDescription技术文档
-- **当前版本**: 0.2.2
-- **翻译总数**: 36个文档（34个核心技术文档 + 2个辅助文档）
+- **翻译范围**: 支持文档翻译（HOWTO目录）
+- **当前版本**: 0.3.0
+- **翻译批次**: 第1-2批次（支持文档翻译阶段）
 
 ### 项目结构
 ```
 modelE2.1.2_Lazenca/
-├── doc/ModelDescription/    # 翻译输出目录
-│   ├── 大气模块 (7个文件)   ✅ 100%
-│   ├── 陆面模块 (6个文件)   ✅ 100%
-│   ├── 海洋模块 (5个文件)   ✅ 100%
-│   ├── 海冰模块 (3个文件)   ✅ 100%
-│   ├── 示踪物模块 (6个文件) ✅ 100%
-│   ├── 系统架构 (6个文件)   ✅ 100%
-│   ├── 辅助文档 (2个文件)   ✅ 100%
-│   └── index.md              # 文档索引（新增）
-├── old-doc/ModelDescription/ # 原始HTML文档
+├── doc/HOWTO/              # 翻译输出目录
+│   ├── SCM.md              ✅ 第1批次
+│   ├── git_howto.md        ✅ 第1批次
+│   ├── time_management.md  ✅ 第2批次
+│   └── newio.md            ✅ 第2批次（P0关键文档）
+├── old-doc/HOWTO/          # 原始文档
+│   ├── SCM.txt
+│   ├── git_howto.html
+│   ├── time_management.txt
+│   └── newio.html
 └── .claude/
     ├── terminology-dictionary.md v1.5  # 术语词典
-    └── translation-standards.md        # 翻译规范
+    └── translation-standards.md v1.3   # 翻译规范
 ```
 
 ---
@@ -40,301 +40,346 @@ modelE2.1.2_Lazenca/
 ## 二、项目状态与进展
 
 ### 当前状态
-- **阶段**: ModelDescription技术文档翻译 - **✅ 已完成**
-- **完成度**: 36/36 文档（**100%**）
-- **质量目标**: Codex审查均分90+
+- **阶段**: 第二阶段：支持文档翻译（HOWTO目录）
+- **完成度**: 4/8 文档（50%）
+- **质量目标**: Codex审查均分 ≥ 95/100
+- **P0文档目标**: newio.md ≥ 96/100
 
 ### 翻译批次历史
 
-| 批次 | 文件数 | 评分 | 主要内容 | 状态 |
-|------|--------|------|----------|------|
-| 第1批 | 6个 | ≥90/100 | 大气基础模块（Atmospheric_model等） | ✅ 完成 |
-| 第2批 | 3个 | ≥90/100 | 陆面模块部分（Ground_Hydrology等） | ✅ 完成 |
-| 第3批 | 6个 | ≥90/100 | 陆面+系统架构（Vegetation_model等） | ✅ 完成 |
-| 第4批 | 6个 | ≥90/100 | 海洋、海冰、系统架构（Q-flux等） | ✅ 完成 |
-| 第5批 | 7个 | 85→96/100 | 海洋、示踪物（GISS_Dynamic_ocean等） | ✅ 完成 |
-| **第6批** | **5个** | **96→≥98/100** | **补全文档**（Stratospheric_processes等） | ✅ 完成 |
-
-**总翻译批次**: 6批
-**总文件数**: 35个
-**平均评分**: 95.5/100
+| 批次 | 文件数 | 优先级 | 主要内容 | 状态 |
+|------|--------|--------|----------|------|
+| 第1批 | 2个 | P1-P2 | SCM单列模型、Git使用指南 | ✅ 完成 |
+| 第2批 | 2个 | P1-P0 | 时间管理、NEW_IO系统 | ✅ 完成 |
+| 第3批 | 1个 | P2 | Fortran编程规范（LaTeX） | ⏳ 待进行 |
+| 第4批 | 2个 | P1 | 运行配置、版本历史 | ⏳ 待进行 |
 
 ---
 
-## 三、本次工作内容
+## 三、用户原始需求
+
+> 用户请求：创建审查请求，审查HOWTO里面的所有文档。
 
 ### 任务背景
-
-在完成前5批次翻译（28个文件）后，通过文件完整性检查发现：
-1. **示踪物体系不完整**: Soluble_and_Water_mass_Tracers.html缺失
-2. **平流层物理缺失**: Stratospheric_processes.html是大气模块重要组成部分
-3. **海冰动力学不完整**: Ice_advection.html包含Flato-Hibler流变学关键技术
-4. **海洋强迫条件缺失**: Imposed_Sea_surface_conditions.html是Q-flux模型配套文档
-5. **水循环核心方程缺失**: Water_Budget.html包含完整的水质量追踪系统
-
-### 第6批次翻译的文件（5个）
-
-| 文件名 | 原文行数 | 内容概述 | 新术语数 |
-|--------|----------|----------|----------|
-| Soluble_and_Water_mass_Tracers.md | 13行 | 可溶性和水质量示踪物 | ~15个 |
-| Stratospheric_processes.md | 20行 | 平流层曳力和重力波曳力 | ~10个 |
-| Ice_advection.md | 34行 | 海冰平流和Flato-Hibler流变学 | ~12个 |
-| Imposed_Sea_surface_conditions.md | 31行 | 强迫海面条件（SST、海冰） | ~8个 |
-| Water_Budget.md | 144行 | 水预算完整方程系统 | ~20个 |
-
-### 本次翻译交付物
-- **5个翻译完成的.md文件**: 采用中英对照叠放格式
-- **2个辅助文档**: References.md（参考文献转换）、index.md（中文索引）
-- **约65个新术语**: 已补录到词典v1.5
-- **模块完整性**: 所有6大模块达到100%完整
-- **链接有效性**: Tracers.md内部链接全部有效
-
-### 词典更新
-- **版本**: v1.4 → v1.5
-- **新增术语**: 约65个
-- **更新章节**: 第14章"第6批次新增术语"
+完成第1-2批次翻译（4个文档），需要对这4个翻译文档进行Codex质量审查，确保翻译质量符合项目标准后继续后续批次。
 
 ---
 
-## 四、审查目标与范围
+## 四、本次工作内容与交付物
+
+### 翻译完成的文档（4个）
+
+| # | 文件名 | 源文件 | 目标文件 | 优先级 | 行数 | 内容概述 |
+|---|--------|--------|----------|--------|------|----------|
+| 1 | SCM | old-doc/HOWTO/SCM.txt | doc/HOWTO/SCM.md | P2 | 67 | 单列模型使用指南 |
+| 2 | git_howto | old-doc/HOWTO/git_howto.html | doc/HOWTO/git_howto.md | P1 | 311 | Git版本控制使用指南 |
+| 3 | time_management | old-doc/HOWTO/time_management.txt | doc/HOWTO/time_management.md | P1 | 113 | 时间管理系统架构 |
+| 4 | newio | old-doc/HOWTO/newio.html | doc/HOWTO/newio.md | **P0** | 739 | NEW_IO系统完整指南 |
+
+### 交付物
+- **4个Markdown翻译文档**: 采用中英对照叠放格式
+- **新术语识别**: 约35-53个新术语（待补录到词典v1.6/v1.7）
+- **格式转换**: HTML→Markdown，保持原有结构
+
+### 内容特点
+
+**SCM.md**（67行）:
+- 单列模型（SCM）配置和使用
+- 输入文件格式要求（netCDF）
+- 运行时参数说明
+- 现有运行配置模板
+
+**git_howto.md**（311行）:
+- Git分布式版本控制系统概念
+- 安装和配置指南
+- 常用Git命令（clone/commit/push/pull等）
+- 分支管理
+- CVS模拟模式
+
+**time_management.md**（113行）:
+- 时间管理系统的重要性
+- 典型用法（访问时间信息）
+- 实现细节（面向对象设计）
+- 主要类和职责（Rational/BaseTime/Calendar等）
+
+**newio.md**（739行，P0关键文档）:
+- 运行配置和环境设置
+- 重启文件检查和比较
+- 保存量到重启文件
+- 获取缩放诊断输出
+- 时间平均和重映射
+- 打印诊断表
+- 文件格式转换
+- 19个完整章节
+
+---
+
+## 五、审查目标与范围
 
 ### 审查目标
 
-本次审查是ModelDescription翻译项目的**最终质量评估**，目标是：
-
-1. **验证完整性**: 确认所有36个文档翻译完整，无遗漏
-2. **验证一致性**: 检查跨6批次术语使用是否一致
-3. **验证格式**: 确认所有文档符合翻译规范
-4. **验证质量**: 评估翻译质量是否达到生产级标准
-5. **生成评估**: 生成最终质量评估报告
+1. **验证术语一致性**: 检查与词典v1.5的一致性，新术语处理的合理性
+2. **验证翻译准确性**: 技术内容准确传达，语句流畅性
+3. **验证格式规范性**: Markdown格式、中英对照叠放格式
+4. **验证完整性**: 内容完整、结构保真
+5. **质量评估**: 生成质量评分和改进建议
 
 ### 审查范围
 
-#### 文件范围（36个文档）
+#### 文件范围（4个文档）
+1. `doc/HOWTO/SCM.md`
+2. `doc/HOWTO/git_howto.md`
+3. `doc/HOWTO/time_management.md`
+4. `doc/HOWTO/newio.md`（P0关键文档）
 
-**大气模块（7个）**:
-1. Atmospheric_model.md
-2. Dynamics.md
-3. Cloud_processes.md
-4. Radiation.md
-5. Surface_fluxes.md
-6. Turbulence_and_Dry_convection.md
-7. Stratospheric_processes.md ✨
-
-**陆面模块（6个）**:
-8. Land_Surface_model.md
-9. Ground_Hydrology.md
-10. Snow_model.md
-11. Vegetation_model.md
-12. Lake_model.md
-13. Rivers.md
-
-**海洋模块（5个）**:
-14. Ocean_models.md
-15. Imposed_Sea_surface_conditions.md ✨
-16. Q-flux_mixed_layer_model.md
-17. GISS_Dynamic_ocean_model.md
-18. Ocean_Tracers.md
-
-**海冰模块（3个）**:
-19. Sea_ice_model.md
-20. Basic_thermodynamics.md
-21. Ice_advection.md ✨
-
-**示踪物模块（6个）**:
-22. Tracers.md
-23. Air_mass_Tracers.md
-24. Soluble_and_Water_mass_Tracers.md ✨
-25. Gas_Tracers.md
-26. Aerosol_Tracers.md
-27. Special_Tracers.md ✨
-
-**系统架构（6个）**:
-28. Overall_model_structure.md
-29. Source_code_and_directory_structure.md
-30. Initialisation.md
-31. Main_time_stepping_loop.md
-32. Diagnostics.md
-33. Input_Output.md
-34. Water_Budget.md ✨
-
-**辅助文档（2个）**:
-35. References.md ✨
-36. index.md ✨
-
-✨ = 第6批次新增
-
-#### 关联文件验证
-- doc/ModelDescription/Tracers.md → 内部链接验证
-- doc/ModelDescription/index.md → 目录索引完整性
+#### 参考文件
+- `.claude/rules/translation-standards.md` - 翻译规范v1.3
+- `.claude/rules/terminology-dictionary.md` - 术语词典v1.5
+- 源文件：`old-doc/HOWTO/*.txt`, `old-doc/HOWTO/*.html`
 
 ---
 
-## 五、审查要点与检查清单
+## 六、审查要点与检查清单
 
-### 5.1 术语一致性检查（权重30%）
+### 6.1 术语一致性检查（权重30%）
 
 #### 检查方法
-- 抽查100个高频术语，检查是否与词典v1.5一致
-- 验证跨6批次术语使用是否统一
-- 检查同根术语译名是否一致
-- 验证专有名词保留是否正确
+- 验证已知术语与词典v1.5的一致性
+- 评估新术语选择的合理性
+- 检查跨文档术语使用的一致性
+- 验证Git相关术语的统一性
+- 验证时间管理术语的准确性
+- 验证I/O系统术语的规范性
 
-#### 关键术语类别（100个）
+#### 关键术语类别
 
-**大气物理术语（20个）**:
-- General Circulation Model → 大气环流模型
-- Planetary Boundary Layer → 行星边界层
-- cloud microphysics → 云微物理
-- moist convection → 湿润对流（第6批已修正）
-- mountain waves → 地形波
-- entrainment/detrainment → 卷入/夹卷
-- cloud top/cloud base → 云顶/云底
-- stomatal conductance → 气孔导度
-- canopy conductance → 冠层导度（第3批已统一）
+**Git术语（15个）**:
+| English | 期望译法 | 词典v1.5 |
+|---------|----------|----------|
+| revision control system | 版本控制系统 | ✅ |
+| distributed | 分布式 | - |
+| clone | 克隆 | - |
+| commit | 提交 | - |
+| push | 推送 | - |
+| pull | 拉取 | - |
+| checkout | 检出 | - |
+| branch | 分支 | - |
+| master branch | 主分支 | - |
+| repository | 仓库 | - |
+| remote branch | 远程分支 | - |
+| local branch | 本地分支 | - |
+| track | 跟踪 | - |
+| conflict | 冲突 | - |
+| merge | 合并 | - |
 
-**海洋和海冰术语（20个）**:
-- sea surface temperature (SST) → 海表温度
-- sea ice concentration → 海冰密集度
-- ice advection → 海冰平流
-- viscous-plastic rheology → 粘-塑性流变学
-- Flato-Hibler rheology → Flato-Hibler流变学
-- internal ice pressures → 内部冰压力
-- ice mass fluxes → 冰质量通量
-- spin-up → spin-up/预平衡运行
-- non-Boussinesq → 非Boussinesq
-- pressure gradient force → 压力梯度力
+**SCM术语（10个）**:
+| English | 期望译法 | 词典v1.5 |
+|---------|----------|----------|
+| single-column model | 单列模型 | - |
+| SCM | 单列模型 | - |
+| forcing | 强迫 | ✅ |
+| nudging | 松弛 | - |
+| profile | 廓线 | - |
+| sensible heat flux | 感热通量 | ✅ |
+| latent heat flux | 潜热通量 | ✅ |
+| geostrophic wind | 地转风 | ✅ |
+| radiative heating rate | 辐射加热率 | - |
+| friction velocity | 摩擦速度 | - |
 
-**示踪物术语（20个）**:
-- air mass tracers → 气质量示踪物
-- water mass tracers → 水质量示踪物
-- soluble gases → 可溶性气体
-- TOMAS → TOMAS二矩气溶胶分档模型
-- coagulation → 碰并
-- condensation → 凝结
-- nucleation → 成核
-- scavenging → 清除
-- dry deposition → 干沉降
-- isotopes → 同位素
+**时间管理术语（15个）**:
+| English | 期望译法 | 词典v1.5 |
+|---------|----------|----------|
+| time evolution | 时间演化 | - |
+| orbital parameters | 轨道参数 | - |
+| calendar properties | 日历属性 | - |
+| encapsulation | 封装 | - |
+| object-oriented programming | 面向对象编程 | ✅ |
+| class | 类 | ✅ |
+| subclass | 子类 | ✅ |
+| base class | 基类 | - |
+| rational number | 有理数 | - |
+| epoch | 纪元 | - |
+| time boundary | 时间边界 | - |
+| pseudo-Julian calendar | 伪儒略历 | - |
+| exoplanet | 系外行星 | - |
+| subcycling | 子循环 | - |
+| timestep | 时间步 | ✅ |
 
-**陆面和水文术语（20个）**:
-- canopy → 冠层
-- root depth → 根系深度（第3批已修正）
-- runoff → 径流
-- evapotranspiration → 蒸散发
-- water budget → 水预算
-- water reservoirs → 水体储库（第6批已修正）
-- prognostic variables → 预报变量
-- flux array → 通量数组
-- mass balance → 质量平衡
-
-**系统架构术语（20个）**:
-- driver routine → 驱动例程
-- subroutines → 子程序
-- rundeck → 运行配置
-- restart file → 重启文件（第2批已修正）
-- preprocessor directives → 预处理器指令
-- diagnostics → 诊断输出（第4批已修正）
+**I/O系统术语（25个）**:
+| English | 期望译法 | 词典v1.5 |
+|---------|----------|----------|
+| NEW_IO | NEW_IO系统 | - |
+| rundeck | 运行配置 | ✅ |
+| restart file | 重启文件 | ✅ |
+| accumulation array | 累加数组 | - |
+| scaled diagnostics | 缩放诊断输出 | - |
+| netcdf | NetCDF格式 | ✅ |
+| parallel-netcdf | 并行NetCDF | - |
+| cubed-sphere grid | 立方体球面网格 | ✅ |
+| native grid | 原生网格 | - |
+| remapping | 重映射 | - |
+| lat-lon | 经纬度 | - |
+| budget page | 预算页 | - |
+| diagnostic category | 诊断类别 | - |
+| postprocessing | 后处理 | - |
+| metadata | 元数据 | - |
+| subdaily | 亚日 | - |
+| time average | 时间平均 | - |
 
 #### 检查项
-- [ ] 所有术语与词典v1.5一致
-- [ ] 跨6批次术语使用完全统一
-- [ ] 同根术语译名完全一致
-- [ ] 专有名词保留正确
-- [ ] 缩略词处理规范
+- [ ] 所有已知术语与词典v1.5一致
+- [ ] 新术语选择合理、符合学科规范
+- [ ] Git术语在git_howto.md中统一
+- [ ] SCM术语在SCM.md中准确
+- [ ] 时间管理术语在time_management.md中准确
+- [ ] I/O术语在newio.md中规范
+- [ ] 跨4个文档术语使用一致
+- [ ] 避免口语化表达
 
-### 5.2 翻译准确性检查（权重30%）
+### 6.2 翻译准确性检查（权重30%）
 
 #### 检查方法
-- 抽查关键段落，验证技术内容准确性
-- 检查方程和公式是否完整保留
-- 验证专有名词、模块名、变量名保真度
-- 检查中文表述是否通顺流畅
+- 验证技术内容准确传达原意
+- 检查命令行参数准确性
+- 验证代码示例保真度
+- 检查中文表述流畅性
+- 验证无遗漏或误译
 
 #### 重点检查文档
 
-**技术密集文档**:
-- GISS_Dynamic_ocean_model.md（状态方程推导）
-- Cloud_processes.md（云微物理过程）
-- Aerosol_Tracers.md（TOMAS模型）
-- Water_Budget.md（完整方程系统）
-- Vegetation_model.md（植被参数化）
+**newio.md**（P0文档，739行）:
+- 19个章节内容完整性
+- 20个诊断类别准确性
+- I/O命令正确性
+- 文件格式转换流程
+- 配置参数说明清晰度
+
+**git_howto.md**（311行）:
+- Git工作流程描述准确性
+- 命令使用示例正确性
+- 分支管理流程清晰度
+
+**time_management.md**（113行）:
+- OOP概念准确传达
+- 类设计描述准确性
+- 时间管理机制清晰度
+
+**SCM.md**（67行）:
+- 单列模型配置准确性
+- 输入文件格式说明清晰度
+- 运行时参数说明准确性
 
 #### 检查项
 - [ ] 技术内容准确传达原意
-- [ ] 方程变量100%保真
-- [ ] 专有名词正确保留
+- [ ] 命令行参数准确无误
+- [ ] 代码示例100%保真
 - [ ] 中文表述通顺流畅
+- [ ] 无直译+括号解释模式
 - [ ] 无内容遗漏或误译
 
-### 5.3 格式规范性检查（权重20%）
+### 6.3 格式规范性检查（权重20%）
 
 #### 检查方法
 - 验证Markdown语法正确性
-- 检查标题格式统一性
-- 验证中英对照叠放格式
-- 检查代码块和公式格式
+- 检查中英对照叠放格式
+- 验证HTML→Markdown转换完整性
+- 检查代码块格式
 - 验证列表和表格格式
 
 #### 检查项
-- [ ] 标题格式：`# English / 中文`
+- [ ] 标题格式：`# English / 中文`或`# English`后换行`# 中文`
 - [ ] 段落格式：英文在上，中文在下，空行分隔
-- [ ] 代码块格式：使用 ``` 包裹
-- [ ] 列表格式：Markdown列表语法正确
+- [ ] 代码块格式：使用 ```fortran 或 ```bash
+- [ ] 列表格式：Markdown列表语法正确（- 或 1.）
+- [ ] 链接格式：[text](url) 或 <url>
 - [ ] 表格格式：Markdown表格语法正确
+- [ ] HTML标签正确转换（HTML→Markdown）
 
-### 5.4 完整性检查（权重10%）
+#### 特殊格式检查
+
+**git_howto.md**:
+- HTML列表→Markdown列表转换
+- 代码块格式正确
+- 链接格式正确
+
+**newio.md**:
+- 目录链接正确
+- 表格格式正确
+- 代码示例格式正确
+- 章节标题层级清晰
+
+### 6.4 完整性检查（权重10%）
 
 #### 检查内容
-- 验证所有36个文档存在
+- 验证所有4个文档存在
 - 检查内容无遗漏
 - 验证文件编码正确（UTF-8）
 - 检查文件命名符合规范
 - 验证目录位置正确
 
-#### 模块完整性验证
-- [ ] 大气模块7个文件完整
-- [ ] 陆面模块6个文件完整
-- [ ] 海洋模块5个文件完整
-- [ ] 海冰模块3个文件完整
-- [ ] 示踪物模块6个文件完整
-- [ ] 系统架构6个文件完整
+#### 检查项
+- [ ] SCM.md存在且完整（67行源文件）
+- [ ] git_howto.md存在且完整（311行源文件）
+- [ ] time_management.md存在且完整（113行源文件）
+- [ ] newio.md存在且完整（739行源文件）
+- [ ] 文件编码为UTF-8
+- [ ] 文件命名符合规范（.html→.md）
+- [ ] 目录位置正确（doc/HOWTO/）
 
-### 5.5 链接有效性验证（权重10%）
+### 6.5 特殊处理检查（权重10%）
 
 #### 检查内容
-- 验证Tracers.md内部链接（6个链接）
-- 验证index.md目录链接（36个链接）
-- 检查所有链接指向.md文件（非.html）
-- 验证链接目标文件存在
+- 原文拼写错误处理
+- 代码注释翻译准确性
+- 专有名词保留
+- 缩写词处理
+- URL和路径保留
+
+#### 重点检查
+
+**time_management.md原文错误**:
+- `repsonsibilities` → `responsibilities`
+- `AbsractCalendar` → `AbstractCalendar`
+- `currenTime` → `currentTime`
+- 翻译中是否正确处理并标注
 
 #### 检查项
-- [ ] Tracers.md: Air_mass_Tracers.md ✅
-- [ ] Tracers.md: Soluble_and_Water_mass_Tracers.md ✅
-- [ ] Tracers.md: Gas_Tracers.md ✅
-- [ ] Tracers.md: Aerosol_Tracers.md ✅
-- [ ] Tracers.md: Ocean_Tracers.md ✅
-- [ ] Tracers.md: Special_Tracers.md ✅
-- [ ] index.md: 所有36个文档链接 ✅
+- [ ] 原文拼写错误已更正并标注
+- [ ] 专有名词正确保留（NASA GISS、DOE ARM等）
+- [ ] 缩写词处理合理（SCM、I/O、PBL等）
+- [ ] URL和路径完整保留
+- [ ] 文件名和命令正确保留
+- [ ] 代码注释未翻译（保持原样）
 
 ---
 
-## 六、评分标准
+## 七、评分标准
 
 ### 综合评分构成
 
-- **技术维度（50%）**: 术语一致性 + 翻译准确性
-- **格式维度（30%）**: Markdown格式 + 中英对照格式
-- **完整性维度（20%）**: 内容完整 + 模块完整 + 链接有效
+- **术语一致性（30%）**: 与词典一致性、新术语合理性
+- **翻译准确性（30%）**: 技术准确、语句流畅
+- **格式规范性（20%）**: Markdown格式、对照格式
+- **完整性（10%）**: 内容完整、结构保真
+- **特殊处理（10%）**: 错误处理、专有名词
 
 ### 通过标准
 
-- **综合评分 ≥ 90分**: 优秀（Excellent），可发布
-- **综合评分 80-89分**: 良好（Good），小幅改进后可发布
-- **综合评分 < 80分**: 需要重大改进
+| 文档 | 优先级 | 目标评分 | 状态 |
+|------|--------|----------|------|
+| SCM.md | P2 | ≥ 95/100 | 待审查 |
+| git_howto.md | P1 | ≥ 95/100 | 待审查 |
+| time_management.md | P1 | ≥ 95/100 | 待审查 |
+| newio.md | **P0** | **≥ 96/100** | 待审查 |
+| **整体平均** | - | **≥ 95/100** | 待审查 |
 
-### 评分参考
+### 评分等级
+- **96-100分**: 优秀，直接通过
+- **90-95分**: 良好，小修改后通过
+- **80-89分**: 一般，需修改后复审
+- **<80分**: 不合格，需重新翻译
 
+### 评分参考（ModelDescription历史）
 | 批次 | 评分 | 评级 |
 |------|------|------|
 | 第1批 | ≥90/100 | 优秀 |
@@ -347,112 +392,157 @@ modelE2.1.2_Lazenca/
 
 ---
 
-## 七、特殊关注点
+## 八、特殊关注事项
 
-### 7.1 跨批次一致性
+### 8.1 P0文档：newio.md
 
-**关键验证点**:
-- "moist convection"统一为"湿润对流"（第6批修正）
-- "conductance"统一为"导度"（第3批统一）
-- "root depth"统一为"根系深度"（第3批修正）
-- "restart file"统一为"重启文件"（第2批修正）
-- "spin-up"保留英文并添加中文释义（第4批建立）
+**为什么是P0**:
+- 第2批次关键文档（739行）
+- 涉及I/O系统核心概念和配置
+- 20个诊断类别详细说明
+- 质量目标：≥ 96/100
 
-### 7.2 术语规模
+**需要特别关注**:
+- 诊断类别名称准确性（aj/aij/aijl等）
+- I/O命令准确性（scaleacc/sumfiles/diffreport等）
+- 文件格式转换流程清晰度
+- 配置参数说明准确性
+- 19个章节结构完整性
 
-- **总术语数**: 600+个专业术语
-- **词典版本**: v1.5
-- **术语类别**: 14个类别完整覆盖
-- **新增术语**: 第6批次约65个
+### 8.2 Git术语一致性
 
-### 7.3 文档规模
+**挑战**:
+- git_howto.md涉及大量Git术语
+- 需要确保译法统一
 
-- **总文档数**: 36个
-- **总字数**: 约100,000+字（中英对照）
-- **技术密度**: 高（包含大量方程、公式、参数）
+**关键术语**:
+- clone/commit/push/pull/checkout
+- branch（分支）/merge（合并）
+- repository（仓库）/remote（远程）
+- track（跟踪）/conflict（冲突）
 
-### 7.4 质量控制机制
+### 8.3 新术语识别
 
-- **Codex审查**: 6批次审查，平均评分95.5
-- **P0问题**: 全部修复
-- **P1问题**: 95%以上修复
-- **P2问题**: 可选优化项全部完成
+**预计新增术语**:
+- 第1批次：约15-18个（Git+SCM）
+- 第2批次：约20-35个（时间管理+I/O）
+- **总计**：约35-53个新术语
+
+**需要评估**:
+- 新术语译法合理性
+- 是否符合学科规范
+- 是否需要补录到词典v1.6/v1.7
+
+### 8.4 原文错误处理
+
+**time_management.txt错误**:
+- `repsonsibilities`（原文拼写错误）
+- `AbsractCalendar`（原文拼写错误）
+- `currenTime`（原文拼写错误）
+
+**期望处理**:
+- 在译文中使用正确拼写
+- 在中文译文后添加"（原文拼写：xxx）"说明
+- 确保读者可以回溯到原文
 
 ---
 
-## 八、交付物清单
+## 九、审查输出要求
 
-### 翻译文件（36个）
+### 审查报告结构
 
-**核心技术文档（33个）**:
-- 大气模块（7个）✅
-- 陆面模块（6个）✅
-- 海洋模块（5个）✅
-- 海冰模块（3个）✅
-- 示踪物模块（6个）✅
-- 系统架构（6个）✅
+请生成`.claude/review-report.md`，包含以下内容：
 
-**辅助文档（2个）**:
-- References.md ✨
-- index.md ✨
+#### 1. 综合评估
+- 整体质量评价
+- 综合评分（0-100）
+- 通过/退回建议
+- 关键发现摘要
 
-### 术语词典
+#### 2. 分维度评分
+- **术语一致性（30%）**：评分、问题列表、改进建议
+- **翻译准确性（30%）**：评分、问题列表、改进建议
+- **格式规范性（20%）**：评分、问题列表、改进建议
+- **完整性（10%）**：评分、问题列表、改进建议
+- **特殊处理（10%）**：评分、问题列表、改进建议
 
-- terminology-dictionary.md v1.5 ✨
-- 新增约65个术语
-- 更新版本信息和更新说明
+#### 3. 文档级详细审查
+对每个文档进行详细分析：
 
-### 分析报告
+**SCM.md**:
+- 评分（目标≥95）
+- 主要问题（如有）
+- 修改建议（如有）
 
-1. unconverted-files-analysis.md（未转换文件分析）
-2. missing-files-translation-summary.md（第6批次总结）
-3. unconverted-files-final-analysis.md（最终完整性分析）
-4. comprehensive-review-report.md（整体审查报告）
+**git_howto.md**:
+- 评分（目标≥95）
+- 主要问题（如有）
+- 修改建议（如有）
+
+**time_management.md**:
+- 评分（目标≥95）
+- 主要问题（如有）
+- 修改建议（如有）
+
+**newio.md**（P0文档）:
+- 评分（目标≥96）
+- 主要问题（如有）
+- 修改建议（如有）
+- **特别说明**：P0文档审查意见
+
+#### 4. 术语补录建议
+列出需要补录到词典v1.6/v1.7的新术语：
+- Git术语
+- SCM术语
+- 时间管理术语
+- I/O系统术语
+
+#### 5. 修改记录
+提供具体修改建议，包括：
+- 文件路径
+- 行号（如有）
+- 原文
+- 建议修改
+- 修改理由
+
+---
+
+## 十、审查完成后的后续步骤
+
+### 如果通过（≥95分）
+1. 根据建议进行小修改（如有）
+2. 补录新术语到词典v1.6/v1.7
+3. 更新任务状态（任务#1-4完成）
+4. 继续第3批次翻译（ModelE_Coding_Standards.tex）
+
+### 如果退回（<95分）
+1. 根据修改记录进行修改
+2. 重新提交Codex审查
+3. 直至通过标准
+
+---
+
+## 附录：关键文件路径
+
+### 翻译规范
+- `.claude/rules/translation-standards.md` - 翻译规范v1.3
+- `.claude/rules/terminology-dictionary.md` - 术语词典v1.5
 
 ### 审查文件
+- `.claude/request.md` - 本次审查请求
+- `.claude/review-report.md` - 审查报告（待生成）
 
-- request.md（第6批次审查请求）
-- review-report.md（第6批次审查报告）
+### 翻译文档
+- `doc/HOWTO/SCM.md`
+- `doc/HOWTO/git_howto.md`
+- `doc/HOWTO/time_management.md`
+- `doc/HOWTO/newio.md`
 
----
-
-## 九、审查期望
-
-### 主要期望
-
-1. **完整性验证**: 确认所有36个文档翻译完整
-2. **一致性验证**: 确认跨批次术语使用统一
-3. **质量评估**: 生成最终质量评分和评级
-4. **问题识别**: 如有重大问题，提供详细清单
-5. **发布建议**: 提供是否可发布的建议
-
-### 次要期望
-
-1. **改进建议**: 如有改进空间，提供优化建议
-2. **最佳实践**: 总结本次翻译的最佳实践
-3. **后续工作**: 建议后续工作方向
-
----
-
-## 十、后续工作
-
-### 审查通过后
-
-1. **项目记忆更新**: 更新LAST_CLAUDE_PROGRESS.md和README.md
-2. **Git提交**: 提交第6批次翻译工作
-3. **发布准备**: 准备v1.0发布说明
-
-### 后续阶段
-
-**🔧 第二阶段：支持文档翻译**
-- misc目录文档翻译（16个文件）
-- HOWTO目录文档翻译（5个文件）
-
-**📋 第三阶段：项目完善**
-- 文档结构优化和导航建立
-- 术语词典进一步扩展
-- 全面质量检查和一致性验证
-- 最终优化和发布准备
+### 源文档
+- `old-doc/HOWTO/SCM.txt`
+- `old-doc/HOWTO/git_howto.html`
+- `old-doc/HOWTO/time_management.txt`
+- `old-doc/HOWTO/newio.html`
 
 ---
 
@@ -460,22 +550,6 @@ modelE2.1.2_Lazenca/
 **请求生成时间**: 2026-02-05
 **期望审查完成时间**: 尽快
 **审查者**: Codex AI
-
----
-
-## 附录：关键文件路径
-
-### 翻译规范
-- `.claude/translation-standards.md` - 翻译规范v1.3
-- `.claude/terminology-dictionary.md` - 术语词典v1.5
-
-### 审查文件
-- `.claude/comprehensive-review-report.md` - 整体审查报告（已生成）
-- `.claude/review-report.md` - 历史审查报告（6批次）
-
-### 文档目录
-- `doc/ModelDescription/` - 所有翻译文档
-- `doc/ModelDescription/index.md` - 文档索引入口
 
 ---
 
