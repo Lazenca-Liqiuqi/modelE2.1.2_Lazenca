@@ -1,146 +1,92 @@
-# ModelE2.1.2_Lazenca｜HOWTO 翻译质量审查报告（第1-2批次）
+# ModelE2.1.2_Lazenca｜misc 翻译质量审查报告（第3-4批次）
 
-- 时间：2026-02-05 22:48
+- 时间：2026-02-07 22:34
 - 审查类型：批次翻译质量审查
-- 审查范围：`doc/HOWTO/` 目录 4 个翻译文档
-- 参考依据：`.claude/request.md`、`.claude/rules/translation-standards.md (v1.3)`、`.claude/terminology-dictionary.md (v1.5)`、`.claude/translation-format-standard.md (v1.0)`
+- 审查范围：`doc/misc/` 目录 3 个翻译文档
+- 参考依据：`.claude/request.md`、`.claude/rules/translation-standards.md (v1.4)`、`.claude/terminology-dictionary.md (v1.6)`
 
 ## 1. 综合评估
 
-- 综合评分：**96/100**
-- 建议：**通过**（满足≥95；P0 文档 `newio.md` 满足≥96）
-- 关键结论：翻译整体准确、结构保真；发现的 2 个阻断项（P0）已在本次审查中完成修复：
-  - `doc/HOWTO/newio.md`：目录（TOC）锚点链接原本在 Markdown 渲染中会失效，已补齐显式锚点。
-  - `doc/HOWTO/time_management.md`：原文拼写错误处理未按规范“更正+可追溯标注”，已更正并标注。
+- 综合评分：**95/100**
+- 建议：**通过**（满足≥90；未发现遗留 P0）
+- 总体结论：3 个文档译文整体准确、结构保真、代码/命令保持良好；发现的主要问题集中在 **Markdown 目录锚点可用性** 与 **术语一致性** 两类，其中影响使用体验/一致性的项已在本次审查中落地修复。
 
 ## 2. 分维度评分（按权重）
 
 | 维度 | 权重 | 评分 | 主要问题（摘要） |
 |---|---:|---:|---|
-| 术语一致性 | 30% | 28/30 | Git/NEW_IO/SCM 相关新术语大量未入词典（需补录），但译文内部基本一致 |
-| 翻译准确性 | 30% | 29/30 | 个别句子仍有轻微欧化/直译痕迹，但不影响技术含义 |
-| 格式规范性 | 20% | 19/20 | `newio.md` 目录锚点已修复；少量标题/段落对照风格在不同规范文件间存在口径差异（建议统一） |
-| 完整性 | 10% | 10/10 | 4 个文档均存在，章节结构与源文档匹配，代码/命令/路径保留良好 |
-| 特殊处理 | 10% | 10/10 | `time_management` 原文拼写错误已按“更正+标注”策略处理 |
-
-> 说明：术语一致性扣分主要来自“词典缺口”而非译文乱用；建议尽快补录以锁定后续批次一致性。
+| 术语一致性 | 30% | 27/30 | 词典 v1.6 对 misc 领域（编程规范/配置段落）覆盖仍有缺口（如 dummy argument、indentation、coding conventions 等），个别译词需固化 |
+| 翻译准确性 | 30% | 28/30 | 技术语义整体可靠；`CHANGES.md` 采用压缩翻译策略导致细节被有意省略（符合策略但影响“逐条可追溯性”） |
+| 格式规范性 | 20% | 19/20 | `ModelE_Coding_Standards.md` 原目录锚点在双语标题下会失效，已补齐显式锚点；其余 Markdown 结构良好 |
+| 压缩翻译策略 | 10% | 9/10 | `CHANGES.md` 保留版本区间与关键特性，压缩范围总体合理；建议在文首更明确声明“压缩原则/省略类型” |
+| 完整性 | 10% | 10/10 | 3 个目标文件均存在、编码为 UTF-8（无 BOM），源文件对应关系清晰 |
 
 ## 3. 文档级详细审查
 
-### 3.1 `doc/HOWTO/SCM.md`（目标≥95）
+### 3.1 `doc/misc/ModelE_Coding_Standards.md`
 
 - 评分：**96/100**
-- 优点：
-  - 源文档结构与条目完整保留（输入文件列表、运行时参数、模板 deck 等）。
-  - 专有名词/文件名/变量名保留准确（如 `SCM_NML`、`SCM_lon`、`SCM_lat` 等）。
-- 主要问题（非阻断）：
-  - 个别术语建议固化：`profile` 当前译为“廓线”，建议在词典补录并在全项目保持一致。
+- 关键发现与处置：
+  - **P0（已修复）**：目录（TOC）使用 `(#id)`，但正文标题为“双语标题”，多数 Markdown 渲染器生成的自动锚点会包含中文/标点，导致 `#introduction` 等链接不可用；已在正文对应位置补齐显式锚点（示例：`doc/misc/ModelE_Coding_Standards.md:49`、`doc/misc/ModelE_Coding_Standards.md:604`、`doc/misc/ModelE_Coding_Standards.md:939`）。
+- 转换质量（LaTeX→Markdown）：
+  - `\require` / `\recommend` 语义提示框转换为 `> **🔴 Mandatory / 强制**` 与 `> **📘 Encouraged / 鼓励**`，表达清晰、位置合理。
+  - 章节层级（section/subsection/subsubsection）与 TOC 层级一致。
+- 仍可优化（P2）：
+  - 原文存在少量拼写问题（如 `sofware`、`inscrutible`），当前译文未逐项按“更正+可追溯标注”处理；如后续追求更高一致性，建议统一策略并仅针对“可能误导读者”的错误做更正标注。
 
-### 3.2 `doc/HOWTO/git_howto.md`（目标≥95）
+### 3.2 `doc/misc/rundeck.md`
 
 - 评分：**95/100**
-- 优点：
-  - 技术语义传达准确，命令/代码块保留完整（`git clone/checkout/branch` 等）。
-  - 关键概念对译稳定（central repository → 中央仓库，local commits → 本地提交等）。
-- 主要问题（非阻断）：
-  - Git 术语目前未在 `.claude/terminology-dictionary.md` 中标准化（clone/commit/push/pull/checkout 等），建议补录以避免后续文档漂移。
+- 关键发现与处置：
+  - **P1（已修复）**：术语与词典不一致：
+    - `Object modules` 译为“目标模块”不符合词典 v1.6（Object modules → 对象模块），已统一为“对象模块”（示例：`doc/misc/rundeck.md:121`）。
+    - `Namelist` 被译作“名称列表”不符合词典 v1.6（Namelist → Fortran名录/参数名录），已统一为“Fortran名录（namelist）”（示例：`doc/misc/rundeck.md:236`、`doc/misc/rundeck.md:310`）。
+- 仍可优化（P2）：
+  - 文档中保留了源文档的个别拼写问题（如 `Currenlty` / `variabes` 等）；可在不影响对照的前提下考虑“更正+标注”。
 
-### 3.3 `doc/HOWTO/time_management.md`（目标≥95）
+### 3.3 `doc/misc/CHANGES.md`
 
-- 评分：**96/100**
-- 关键修复（本次审查已完成）：
-  - 原文拼写错误更正并标注可追溯信息：
-    - `doc/HOWTO/time_management.md:76-77`：`repsonsibilities` → `responsibilities`，中文行追加“（原文拼写：repsonsibilities）”。
-    - `doc/HOWTO/time_management.md:99-100`：`AbsractCalendar` → `AbstractCalendar`，中文标题标注“（原文拼写：AbsractCalendar）”。
-    - `doc/HOWTO/time_management.md:135-136`：`currenTime` → `currentTime`，中文行标注“（原文拼写：currenTime）”。
-  - 小节标题补齐中英对照（如 `Rational/BaseTime/...`），提升一致性（参见 `doc/HOWTO/time_management.md:81+`）。
-- 仍可优化（非阻断）：
-  - 个别长句可进一步中文化以提高可读性，但当前不影响理解。
+- 评分：**94/100**
+- 压缩翻译策略评估：
+  - 版本区间主标题完整保留（AR4→AR5、2-3-4+→AR4 等），关键特性条目翻译到位；压缩对“过时 bug 修复细节”的省略符合请求策略。
+- 关键发现与处置：
+  - **P1（已修复）**：术语一致性：词典 v1.6 将 `Diagnostics` 标准化为“诊断输出”，原文中小标题曾写作“诊断”，已统一为“诊断输出”（示例：`doc/misc/CHANGES.md:257`、`doc/misc/CHANGES.md:349`）。
+- 仍可优化（P2）：
+  - 建议在文首增加更明确的压缩说明（如“保留版本号/主要特性；省略细碎修复；不改变技术方向描述”），增强读者预期管理。
 
-### 3.4 `doc/HOWTO/newio.md`（P0，目标≥96）
+## 4. 问题列表（分级）
 
-- 评分：**97/100**
-- 关键修复（本次审查已完成）：
-  - 目录（TOC）锚点补齐：源 HTML 依赖 `<a name="...">`，Markdown 若无显式锚点将导致 `(#rundeck/#model_state/...)` 失效。
-  - 已在各章节标题前补充 `<a id="..."></a>`，覆盖全文所有被引用的锚点（示例：`doc/HOWTO/newio.md:35,91,112,153,...,739`）。
-  - 同步修正章节标题用词以匹配目录与源文档：`doc/HOWTO/newio.md:155` 将 “save ... to the restart file” 改为 “save ... in the restart file”。
-- 仍可优化（非阻断）：
-  - NEW_IO 相关术语密集，建议优先补录词典（见第 4 节），否则后续批次易出现“同物异译”。
+### P0（阻断）
+- 无（本次发现的 TOC 锚点问题已修复）。
 
-## 4. 术语补录建议（v1.6/v1.7）
+### P1（重要）
+- `doc/misc/rundeck.md`：Object modules / Namelist 术语与词典不一致（已修复）。
+- `doc/misc/CHANGES.md`：Diagnostics 译名与词典不一致（已修复）。
 
-### 4.1 Git 术语（建议优先补录）
+### P2（建议改进）
+- `doc/misc/ModelE_Coding_Standards.md` / `doc/misc/rundeck.md`：对原文拼写错误的处理策略可进一步统一（是否更正、是否标注“原文拼写”）。
+- `doc/misc/CHANGES.md`：压缩翻译的省略规则可在文首更明确。
 
-| English | 建议译法 | 备注 |
-|---|---|---|
-| clone | 克隆 | `git clone` 语境 |
-| commit | 提交 | 名词/动词均常用 |
-| push | 推送 | |
-| pull | 拉取 | 与“拉取请求”区分可在注释说明 |
-| checkout | 检出 | |
-| branch | 分支 | |
-| repository | 仓库 | |
-| remote | 远程 | remote branch/remote repo |
-| merge | 合并 | |
-| conflict | 冲突 | |
-| tracking branch | 跟踪分支 | |
+## 5. 修改记录（本次审查已落地）
 
-### 4.2 SCM 术语
+- `doc/misc/ModelE_Coding_Standards.md`：补齐 TOC 引用的显式锚点（`<a id="..."></a>`），保证 `(#id)` 在双语标题下可用（示例：`doc/misc/ModelE_Coding_Standards.md:49`）。
+- `doc/misc/rundeck.md`：统一术语到词典 v1.6：
+  - `Object modules` → “对象模块”（示例：`doc/misc/rundeck.md:121`）。
+  - `Namelist` → “Fortran名录（namelist）”（示例：`doc/misc/rundeck.md:236`、`doc/misc/rundeck.md:310`）。
+- `doc/misc/CHANGES.md`：统一 `Diagnostics` → “诊断输出”（示例：`doc/misc/CHANGES.md:257`）。
 
-| English | 建议译法 | 备注 |
-|---|---|---|
-| single-column model (SCM) | 单列模型（SCM） | |
-| forcing (term) | 强迫（项） | 建议统一“强迫/强迫项”口径 |
-| nudging | 松弛（nudge）/松弛同化 | 可在首次出现处括注英文 |
-| profile | 廓线/剖面 | 当前译文用“廓线”，建议在词典锁定 |
-| run deck / rundeck | 运行配置（rundeck） | 建议统一译法与保留英文策略 |
+## 6. 新术语补录建议（词典 v1.6 → v1.7）
 
-### 4.3 时间管理术语
+> 以下为 misc 批次强相关且在词典 v1.6 中未见标准条目的候选项（建议按“是否跨文档复用/是否易漂移”排序补录）。
 
-| English | 建议译法 | 备注 |
-|---|---|---|
-| encapsulation | 封装 | |
-| epoch | 纪元 | |
-| pseudo-Julian calendar | 伪儒略历 | |
-| exoplanet | 系外行星 | |
-| (clock) tick | 时钟 tick/滴答步 | 可保留 tick 并释义 |
-
-### 4.4 NEW_IO / I/O 系统术语
-
-| English | 建议译法 | 备注 |
-|---|---|---|
-| restart file | 重启文件 | 词典 v1.5 已收录，建议在 HOWTO 里保持一致 |
-| cubed-sphere | 立方体球面 | |
-| remap | 重映射 | |
-| acc-file (accumulation file) | acc 文件/累积文件 | 建议保留 acc 并释义 |
-| scaled diagnostics | 缩放诊断输出 | |
-| diagnostics table | 诊断表 | |
-| parallel-netcdf (PNETCDF) | 并行 NetCDF（PNETCDF） | 建议大小写统一策略 |
-
-## 5. 修改记录（本次审查落地的具体修改）
-
-> 注：以下为“已在工作区内完成”的最小必要修复，目的为满足规范与可用性；不包含风格性重写。
-
-### 5.1 `doc/HOWTO/newio.md`
-
-- `doc/HOWTO/newio.md:35` 等：为 TOC 中引用的锚点补充显式 `<a id="..."></a>`（覆盖 `rundeck/model_state/diffreport/defvar/pdE/.../local_info`）。
-  - 原因：TOC 使用 `(#id)`，Markdown 默认锚点生成规则与源 HTML 的 `<a name="id">` 不一致，导致链接不可用。
-- `doc/HOWTO/newio.md:155`：章节标题 “save ... to the restart file” → “save ... in the restart file”。
-  - 原因：与源 HTML/TOC 文案保持一致。
-
-### 5.2 `doc/HOWTO/time_management.md`
-
-- `doc/HOWTO/time_management.md:76`：`repsonsibilities` → `responsibilities`；`doc/HOWTO/time_management.md:77` 追加“（原文拼写：repsonsibilities）”。
-- `doc/HOWTO/time_management.md:99`：`AbsractCalendar` → `AbstractCalendar`；`doc/HOWTO/time_management.md:100` 标注“（原文拼写：AbsractCalendar）”。
-- `doc/HOWTO/time_management.md:135`：`currenTime` → `currentTime`；`doc/HOWTO/time_management.md:136` 标注“（原文拼写：currenTime）”。
-- `doc/HOWTO/time_management.md`：补齐 `###` 级标题的中英对照（如 `Rational/BaseTime/...`）。
-
-## 6. 结论与后续建议
-
-- 结论：本批次 4 个 HOWTO 文档达到质量门槛，建议通过并进入下一批次。
-- 建议后续（按优先级）：
-  1. 将第 4 节列出的 Git/SCM/NEW_IO 术语补录到 `.claude/terminology-dictionary.md`（v1.6/v1.7）。
-  2. 统一“格式规范”的口径：`.claude/rules/translation-standards.md` 与 `.claude/translation-format-standard.md` 对标题/空行要求存在差异，建议明确 HOWTO 采用哪一套，以减少后续审查争议。
+- coding conventions → 编程规范/编码约定（建议锁定其一）
+- naming conventions → 命名约定
+- indentation → 缩进
+- dummy argument → 虚拟参数/形式参数（建议锁定其一，并与 Fortran 社区常用译法对齐）
+- counter-productive → 适得其反（可选，不强制入词典）
+- legibility → 可读性（可选）
+- conductance → 导度（建议补录，因 `CHANGES.md` 多次出现同根术语）
+- Qflux / Q-flux → Q-flux（可保留英文并释义，建议补录）
 
 ---
 

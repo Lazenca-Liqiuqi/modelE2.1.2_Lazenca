@@ -569,16 +569,117 @@ This dictionary provides standardized terminology for the ModelE2.1.2_Lazenca pr
 
 ---
 
-**词典版本 | Dictionary Version**: v1.5 → v1.6
+## 16. 第3-4批次misc新增术语 | Batch 3-4 misc New Terminology
+
+### 编程规范术语 | Coding Standards Terms
+| English | 中文 | 注释 |
+|---------|------|------|
+| coding conventions | 编程规范 | 代码编写约定和最佳实践 |
+| naming conventions | 命名约定 | 变量、函数、模块等命名规则 |
+| indentation | 缩进 | 代码块的缩进空格数 |
+| counter-productive | 适得其反 | 效果与预期相反 |
+| legibility | 可读性 | 代码易于阅读和理解的程度 |
+| mixed-case convention | 大小写混合约定 | 多词名称使用大小写区分单词的命名方式 |
+| underscore | 下划线 | 字符连接符 |
+| upstream scheme | 上游方案 | 数值平流计算方案 |
+| quadratic upstream | 二次上游 | 高阶精度的上游方案 |
+| column index | 列索引 | 垂直层索引 |
+| variable length | 可变长度 | 长度可变的属性 |
+
+### Fortran语言构造术语 | Fortran Language Constructs Terms
+| English | 中文 | 注释 |
+|---------|------|------|
+| dummy argument | 虚拟参数 | 过程的形式参数 |
+| actual argument | 实际参数 | 调用过程时传入的参数 |
+| intent attribute | 意图属性 | 指定参数用途（in/out/inout） |
+| private statement | 私有语句 | 限制实体访问权限的语句 |
+| public attribute | 公有属性 | 允许外部访问的属性 |
+| encapsulation | 封装 | 隐藏实现细节的面向对象特性 |
+| F2003 standard | Fortran 2003标准 | 2003年发布的Fortran语言标准 |
+| F2008 standard | Fortran 2008标准 | 2008年发布的Fortran语言标准 |
+| KIND= mechanism | KIND=机制 | Fortan中指定数值精度的方法 |
+| real*8 | real*8 | 非标准但广泛使用的双精度实数声明 |
+| entry statement | entry语句 | 已过时的Fortran特性 |
+| arithmetic if | 算术if | 已过时的条件跳转语句 |
+| computed goto | 计算goto | 已过时的多分支跳转语句 |
+| statement label | 语句标签 | 标记代码位置的数字编号 |
+| auto-indent | 自动缩进 | 编辑器自动调整缩进的功能 |
+
+### 配置文件术语 | Configuration File Terms
+| English | 中文 | 注释 |
+|---------|------|------|
+| rundeck | 运行配置 | ModelE模型运行配置文件（.R扩展名） |
+| preprocessor options | 预处理器选项 | CPP预处理器指令 |
+| run options | 运行选项 | 模型运行环境设置 |
+| object modules | 对象模块 | 需要编译的源文件列表 |
+| components | 组件 | 物理模块子目录 |
+| component options | 组件选项 | 传递给特定组件的选项 |
+| data input files | 数据输入文件 | 模型运行所需的输入数据 |
+| label and namelist | 标签和名称列表 | 运行名称和Fortran namelist |
+| run-time parameters | 运行时参数 | 模型运行时可配置的参数 |
+| restart parameters | 重启参数 | 控制重启文件读写的参数 |
+| timing parameters | 计时参数 | 控制时间步长的参数 |
+| namelist | Fortran名录 | Fortran的参数输入机制 |
+| base name | 基本名称 | 不含扩展名的文件名 |
+| search path | 搜索路径 | 查找文件的路径列表 |
+| absolute path | 绝对路径 | 从根目录开始的完整路径 |
+| GCMSEARCHPATH | GCM搜索路径 | ModelE数据文件搜索路径变量 |
+| fall-back | 回退 | 备用方案 |
+| time step | 时间步长 | 模拟的时间间隔 |
+
+### 版本和模型术语 | Version and Model Terms
+| English | 中文 | 注释 |
+|---------|------|------|
+| AR4 | AR4 | 第四次评估报告（2007年） |
+| AR5 | AR5 | 第五次评估报告（2013年） |
+| Qflux model | Q-flux模型 | 混合层海洋能量平衡模型 |
+| Q-flux | 热通量 | 海洋热量输送 |
+| ice advection | 冰平流 | 海冰的平流输运 |
+| cloud optical thickness | 云光学厚度 | 云的光学特性参数 |
+| precip phase | 降水相态 | 降水为液态或固态 |
+| super-cooled precip | 过冷降水 | 温度低于0°C的液态降水 |
+| ground hydrology | 地面水文学 | 地表水循环过程 |
+| conservation diagnostics | 守恒诊断 | 检查能量/物质守恒的诊断输出 |
+| sub-daily diagnostics | 亚日诊断 | 时间分辨率小于一天的输出 |
+| cloud radiative properties | 云辐射特性 | 云与辐射相互作用的特性 |
+| PGI compiler | PGI编译器 | Portland Group编译器 |
+| plug and play | 即插即用 | 模块化组件易于替换的特性 |
+| ice dynamics | 冰动力学 | 海冰运动和形变过程 |
+| air mass tracer | 空气质量示踪物 | 追踪空气运动的示踪物 |
+| water mass tracer | 水质量示踪物 | 追踪水运动的示踪物 |
+| wet deposition | 湿沉降 | 通过降水去除大气物质 |
+| dry deposition | 干沉降 | 无降水时的大气物质去除 |
+| soluble gases | 可溶性气体 | 可溶于水的气体 |
+| budget page | 预算页 | 能量/物质收支诊断页 |
+| diagnostic printout | 诊断打印输出 | 文本形式的诊断信息 |
+| unit number | 单元编号 | Fortran文件标识符 |
+| FILEMANAGER module | 文件管理器模块 | 管理Fortran文件单元的模块 |
+| local distribution | 本地分发 | 本地化的软件安装 |
+| lock file | 锁文件 | 防止并发访问冲突的文件 |
+| NAMELIST input | NAMELIST输入 | Fortran的参数输入格式 |
+| TAUI/E | TAUI/E | 时间单位输入变量（旧） |
+| YEARI/E | YEARI/E | 年份输入变量 |
+| DT | DT | 时间步长变量 |
+| DTsrc | DTsrc | 源时间步长（=1小时） |
+| PLTOP | PLTOP | 层顶压力 |
+| sea ice salinity | 海冰盐度 | 海冰中的盐分含量 |
+| two layer model | 双层模型 | 双层能量/质量守恒模型 |
+| energy/mass conserving | 能量/质量守恒 | 保持能量和质量不变 |
+| throughout the atmosphere | 整个大气 | 从地面到大气顶 |
+
+---
+
+**词典版本 | Dictionary Version**: v1.6 → v1.7
 **创建日期 | Creation Date**: 2025-10-28
-**最后更新 | Last Updated**: 2026-02-05
+**最后更新 | Last Updated**: 2026-02-07
 **更新内容 | Update Notes**:
 - v1.1添加12个编译和系统配置相关术语
 - v1.2基于Codex审查结果添加MacPorts、module load、scl enable等5个系统配置术语
 - v1.3添加MPICH2术语以确保文档与词典一致性
 - v1.4为Day 2-3任务添加transient simulation、JYEAR等关键参数术语
 - v1.5为第6批次添加约65个新术语，涵盖平流层物理、海冰动力学、海洋强迫、水预算、水文循环等领域
-- **v1.6为第1-2批次HOWTO添加约60个新术语**，涵盖Git版本控制、单列模型、时间管理、NEW_IO系统等领域
+- v1.6为第1-2批次HOWTO添加约60个新术语，涵盖Git版本控制、单列模型、时间管理、NEW_IO系统等领域
+- **v1.7为第3-4批次misc添加约85个新术语**，涵盖编程规范、Fortran语言构造、配置文件、版本历史等领域
 **维护者 | Maintainer**: ModelE2.1.2_Lazenca翻译团队
 
 **使用说明 | Usage Notes**:
