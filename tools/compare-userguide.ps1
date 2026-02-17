@@ -1,7 +1,7 @@
 # Compare renamed UserGuide Markdown files with old HTML originals
 param(
   [string]$NewRoot = "D:\\data\\project\\modelE2.1.2_Lazenca\\doc\\UserGuide",
-  [string]$OldRoot = "D:\\data\\project\\modelE2.1.2_Lazenca\\old-doc\\UserGuide",
+  [string]$OldRoot = "D:\\data\\project\\modelE2.1.2_Lazenca\\doc\\archive-old-doc\\UserGuide",
   [string]$ReportPath = "D:\\data\\project\\modelE2.1.2_Lazenca\\.claude\\review-userguide-renamed.txt"
 )
 
@@ -98,7 +98,7 @@ foreach ($md in $mdFiles) {
 
 # Link integrity scan
 $linkIssues = @()
-foreach ($md in $mdFiles + (Get-Item (Join-Path $NewRoot 'index.md'))) {
+foreach ($md in $mdFiles) {
   $content = Get-Content -Raw -Path $md.FullName
   $matches = Select-String -InputObject $content -Pattern "\[(?<text>[^\]]+)\]\((?<url>[^)]+)\)" -AllMatches
   foreach ($m in $matches.Matches) {
