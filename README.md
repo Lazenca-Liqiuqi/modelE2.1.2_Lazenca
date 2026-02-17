@@ -3,7 +3,7 @@
 [![GitHub release](https://img.shields.io/github/release/Lazenca-Liqiuqi/modelE2.1.2_Lazenca.svg)](https://github.com/Lazenca-Liqiuqi/modelE2.1.2_Lazenca)
 [![License](https://img.shields.io/badge/License-NASA%20Open%20Source-blue.svg)](LICENSE)
 [![Fortran](https://img.shields.io/badge/Fortran-90%2F95-blue.svg)](https://en.wikipedia.org/wiki/Fortran)
-[![Version](https://img.shields.io/badge/Version-0.4.0-green.svg)](https://github.com/Lazenca-Liqiuqi/modelE2.1.2_Lazenca)
+[![Version](https://img.shields.io/badge/Version-0.4.1-green.svg)](https://github.com/Lazenca-Liqiuqi/modelE2.1.2_Lazenca)
 
 **基于NASA GISS ModelE 2.1.2的个人分支 | Personal fork based on NASA GISS ModelE 2.1.2**
 
