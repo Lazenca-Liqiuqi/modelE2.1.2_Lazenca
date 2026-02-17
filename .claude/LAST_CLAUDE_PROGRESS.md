@@ -2,211 +2,164 @@
 
 ## 会话信息
 - **工作日期**: 2026-02-17
-- **会话类型**: 文档翻译收尾与项目清理
-- **版本**: 0.4.0
+- **会话类型**: 文档排版优化（批次1）
+- **版本**: 0.4.1
 
 ## 项目概况
 
 **项目名称**: ModelE2.1.2_Lazenca - NASA GISS地球系统模型中文翻译
 
-本次工作完成了文档翻译的收尾工作、目录结构整合、统一导航创建，以及根目录清理。
+本次工作启动了文档排版优化计划，完成了批次1（misc + HOWTO）的7个文档优化，验证了排版优化流程。
 
 ## 工作任务
 
 ### 主要任务
-- 翻译剩余old-doc文件（HYCOM.html、HOWTO/index.html、misc/index.html）
-- 整合目录结构（old-doc → doc/archive-old-doc）
-- 创建统一文档导航（doc/README.md）
-- 删除重复内容和子目录索引
-- Codex质量审查与修正
-- 根目录清理（删除空目录和翻译辅助工具）
+- 创建文档排版优化任务清单（5个任务）
+- 完成批次1（misc + HOWTO）的7个文档排版优化
+- 通过Codex多轮审查（最终96/100分）
 
 ### 任务状态
-- ✅ 翻译HYCOM.md（海洋模型文档）
-- ✅ 翻译HOWTO/index.md（目录索引）
-- ✅ 翻译misc/index.md（目录索引，含翻译状态表）
-- ✅ 移动old-doc到doc/archive-old-doc
-- ✅ 创建doc/README.md统一导航
-- ✅ 删除4个子目录index文件
-- ✅ 删除重复的DeveloperGuide目录
-- ✅ Codex审查（87/100）并修正问题
-- ✅ 修复工具脚本路径
-- ✅ 删除.tree空目录
-- ✅ 删除tools翻译辅助工具目录
-- ✅ Codex审查（87/100）并修正问题
-- ✅ 修复工具脚本路径
+- ✅ 创建任务清单和依赖关系
+- ✅ 读取并分析7个文档的格式问题
+- ✅ 修正标题格式（统一为 `# English / 中文`）
+- ✅ 补充缺失的文档结束标记
+- ✅ 优化术语翻译（misplaced、expedient）
+- ✅ 删除SCM.md中Document End后的重复内容
+- ✅ 统一末尾空行为1个
+- ✅ Codex审查（96/100）通过
 
 ## 工作内容
 
-### 1. 翻译剩余文档
+### 1. 任务规划
 
-#### HYCOM.md
-- **源文件**: `old-doc/ModelDescription/HYCOM.html`
-- **目标文件**: `doc/ModelDescription/HYCOM.md`
-- **内容**: HYCOM海洋模型简介（基于MICOM的等密度面模型）
-- **特殊处理**: 标注原文拼写错误（isopyncal → isopycnal）
+创建5个任务来跟踪文档排版优化进度：
+1. 批次1: misc + HOWTO 文档排版优化 ✅
+2. 批次2-5: UserGuide 文档排版优化（42个）
+3. 批次6-10: ModelDescription 文档排版优化（36个）
+4. 批次11: 导航文档优化（1个）
+5. 最终验收与Codex综合审查
 
-#### HOWTO/index.md
-- **源文件**: `old-doc/HOWTO/index.html`
-- **目标文件**: `doc/HOWTO/index.md`
-- **内容**: HOWTO目录索引（4个子文档链接）
-- **格式**: 中英对照，链接更新为.md
+### 2. 批次1文档排版优化
 
-#### misc/index.md
-- **源文件**: `old-doc/misc/index.html`
-- **目标文件**: `doc/misc/index.md`
-- **内容**: misc目录索引，含翻译状态表
-- **特点**: 标注已翻译/跳过/待翻译的文档
+**处理文件**：
+| 文件 | 修改内容 |
+|------|----------|
+| `doc/misc/ModelE_Coding_Standards.md` | 术语翻译优化 |
+| `doc/misc/rundeck.md` | 末尾空行修正 |
+| `doc/misc/CHANGES.md` | 无需修改 ✅ |
+| `doc/HOWTO/SCM.md` | 标题格式、删除重复内容 |
+| `doc/HOWTO/git_howto.md` | 标题格式统一 |
+| `doc/HOWTO/time_management.md` | 标题格式、结束标记 |
+| `doc/HOWTO/newio.md` | 标题格式、术语翻译 |
 
-### 2. 目录结构整合
+**修改统计**：
+| 类型 | 修改内容 | 文件数 |
+|------|----------|--------|
+| 标题格式 | 统一为 `# English / 中文` 单行格式 | 4 |
+| 文档结束标记 | 补充缺失的标记 | 2 |
+| 术语翻译 | misplaced→不必要的, expedient→高效便捷 | 2 |
+| 内容清理 | 删除Document End后重复内容 | 1 |
+| 末尾空行 | 统一为1个空行 | 7 |
 
-#### old-doc迁移
-- `old-doc/` → `doc/archive-old-doc/`
-- 93个文件完整迁移
-- 保留原始英文文档作为历史存档
+### 3. Codex审查过程
 
-#### DeveloperGuide删除
-- `doc/DeveloperGuide/1.3.3-directory_structure.md`
-- 原因：重复内容，无对应原始文件
-- ModelDescription已有完整翻译
+#### 第一次审查: 82/100
+- 发现问题：标题格式不统一、术语未翻译、Document End后残留内容
 
-### 3. 统一导航创建
+#### 第二次审查: 88.7/100
+- 发现问题：术语翻译仍保留英文词汇在中文句中
 
-#### doc/README.md重构
-- 整合所有目录的索引内容
-- 包含UserGuide、ModelDescription、HOWTO、misc完整导航
-- 添加文档统计和翻译规范说明
-
-#### 删除的子目录索引（4个）
-- `doc/ModelDescription/index.md`
-- `doc/HOWTO/index.md`
-- `doc/misc/index.md`
-- `doc/UserGuide/0-index.md`
-
-### 4. Codex审查与修正
-
-#### 审查结果
-**综合评分**: **87/100**
-- 建议修正后再通过
-
-#### 发现的问题
-1. 文档数量统计不一致
-2. 导航未覆盖全部文档
-3. 工具脚本路径未同步
-
-#### 已修正
-1. 统计数字：91 → 86
-2. 添加遗漏的文档入口
-3. 更新tools/compare-userguide.ps1路径
-
-### 5. 工具脚本修复
-
-#### tools/compare-userguide.ps1
-- OldRoot路径：`old-doc\UserGuide` → `doc\archive-old-doc\UserGuide`
-- 移除对index.md的引用（UserGuide索引已删除）
+#### 最终审查: 96/100 ✅ 通过
+- 所有P1问题已修正
+- 7个文档的Document End均为单一且位于末尾
+- 标题格式全部统一
 
 ## 交付物
 
-### 新增文件
-- `doc/ModelDescription/HYCOM.md`
-- `doc/README.md`（重写为统一导航）
+### 修改文件（6个）
+- `doc/HOWTO/SCM.md` - 修正标题格式、删除重复内容
+- `doc/HOWTO/git_howto.md` - 修正标题格式
+- `doc/HOWTO/newio.md` - 修正标题格式、优化术语翻译
+- `doc/HOWTO/time_management.md` - 修正标题格式、补充结束标记
+- `doc/misc/ModelE_Coding_Standards.md` - 优化术语翻译
+- `doc/misc/rundeck.md` - 修正末尾空行
 
-### 删除文件/目录（8个）
-- `doc/DeveloperGuide/1.3.3-directory_structure.md`
-- `doc/ModelDescription/index.md`
-- `doc/HOWTO/index.md`
-- `doc/misc/index.md`
-- `doc/UserGuide/0-index.md`
-- `.tree/`（空目录）
-- `tools/`（翻译辅助工具目录）
-
-### 移动目录
-- `old-doc/` → `doc/archive-old-doc/`（93个文件）
-
-### 修改文件
-- `tools/compare-userguide.ps1`（已删除）
+### Git提交
+- `dac19e3` 优化批次1文档排版：misc + HOWTO (7个文档)
 
 ## 状态变动
 
-### 文档统计
-| 指标 | 变更前 | 变更后 |
-|------|--------|--------|
-| 翻译文档总数 | 93个 | 86个 |
-| UserGuide | 45个 | 42个 |
-| ModelDescription | 37个 | 36个 |
-| HOWTO | 5个 | 4个 |
-| misc | 4个 | 3个 |
-| DeveloperGuide | 1个 | 0个（删除） |
-
-### 目录结构
-| 变更 | 说明 |
+### 任务进度
+| 任务 | 状态 |
 |------|------|
-| old-doc/ → doc/archive-old-doc/ | 原始文档存档 |
-| 删除doc/DeveloperGuide/ | 重复内容 |
-| 删除.tree/ | 空目录 |
-| 删除tools/ | 翻译辅助工具（已完成使命） |
-| doc/README.md | 唯一文档导航入口 |
+| 批次1: misc + HOWTO | ✅ completed |
+| 批次2-5: UserGuide | ⏳ pending |
+| 批次6-10: ModelDescription | ⏳ pending |
+| 批次11: 导航文档 | ⏳ pending |
+| 最终验收 | ⏳ pending |
 
-### 项目完成度
-- **文档翻译**: **100%完成** ✅
-- **目录整合**: **100%完成** ✅
-- **统一导航**: **100%完成** ✅
-- **根目录清理**: **100%完成** ✅
+### 排版优化进度
+- **总文档数**: 86个
+- **已完成**: 7个 (8.1%)
+- **待处理**: 79个
 
-### Git状态
+### 版本状态
+- **版本**: 保持0.4.1不变
 - **分支**: master
-- **待提交**: 1个文件删除
+- **领先origin**: 5个提交
 
 ## 工具
 
 ### 使用的主要工具
-- **Read工具**: 读取源文档、现有索引
-- **Write工具**: 创建翻译文档、统一导航
-- **Edit工具**: 修改README、工具脚本
-- **Bash工具**: Git操作、目录移动
-- **Skill工具**: 项目记忆格式查询
-- **Codex**: 质量审查（87/100）
+- **Task工具**: 任务创建、依赖设置、状态更新
+- **Read工具**: 读取文档内容
+- **Edit工具**: 文件编辑修正
+- **Codex**: 文档质量审查（codex exec）
+- **Grep工具**: 搜索文件内容
+- **Bash工具**: Git操作
 
 ### 技术方法
-- 中英对照叠放格式翻译
-- 目录整合与索引统一
-- Git目录移动（保留历史）
+- 分批次处理（每批7-12个文档）
+- Codex多轮审查（P1问题必须修正）
+- 标题格式统一为 `# English / 中文`
 
 ## 经验教训
 
 ### 关键发现
-1. **重复内容识别**: DeveloperGuide中的文件无原始来源，与ModelDescription重复
-2. **索引整合价值**: 统一导航比分散索引更清晰
-3. **工具脚本同步**: 目录结构变更后需同步更新相关脚本
+1. **标题格式一致性**: HOWTO文档存在分行和单行两种格式，需统一为单行
+2. **术语翻译完整性**: 保留英文词汇在中文句中会影响Codex评分
+3. **Document End规范**: 必须确保结束标记后无残留内容
 
 ### 最佳实践
-1. **目录整合**: 使用`mv`命令移动目录，Git会自动识别为重命名
-2. **索引删除**: 删除子目录索引前确保内容已整合到统一导航
-3. **审查验证**: Codex审查能有效发现统计数字不一致等问题
+1. **审查前检查**: 先用正则检查格式问题，再提交Codex审查
+2. **多轮修正**: Codex审查能发现细节问题，需要多轮修正
+3. **批量处理**: 同类问题批量修正效率更高
 
 ## 下一步计划
 
-### 当前阶段完成
-- ✅ 文档翻译收尾
-- ✅ 目录结构整合
-- ✅ 统一导航创建
+### 待执行任务
+1. 批次2-5: UserGuide文档排版优化（42个文档）
+2. 批次6-10: ModelDescription文档排版优化（36个文档）
+3. 批次11: 导航文档优化（1个文档）
+4. 最终验收与Codex综合审查
 
-### 后续可执行
-- [ ] 更新CLAUDE.md工作阶段信息
-- [ ] 更新README.md项目状态
-- [ ] 发布新版本
+### 预计工作量
+- UserGuide: 14-17小时
+- ModelDescription: 15-18小时
+- 导航文档: 1小时
+- **总计**: 约35小时
 
 ## 注意事项
 
-- 本次工作完成了文档翻译的收尾工作
-- Codex审查评分87/100，所有问题已修正
-- 工作区有未提交的修改，需要commit
-- doc/README.md现在是唯一的文档导航入口
+- 批次1已完成并提交，验证了排版优化流程
+- 排版优化工作量大，建议分多次会话完成
+- 每个批次完成后需要Codex审查确保质量
+- Codex审查通过标准：≥90分
 
 ---
 
 **记录生成时间**: 2026-02-17
 **记录生成者**: Claude Code
-**会话类型**: 文档翻译收尾与目录整合
-**完成文档**: 3个翻译 + 1个统一导航
-**Codex评分**: 87/100（修正后预计≥90）
+**会话类型**: 文档排版优化（批次1）
+**完成文档**: 7个
+**Codex评分**: 96/100 ✅
