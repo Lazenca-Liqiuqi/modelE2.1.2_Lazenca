@@ -1,5 +1,4 @@
-# Using GISS ModelE in single-column mode (master branch only)
-# 在单列模式下使用GISS ModelE（仅限master分支）
+# Using GISS ModelE in single-column mode (master branch only) / 在单列模式下使用GISS ModelE（仅限master分支）
 
 Source code files dedicated to single-column model (SCM) are as follows:
 单列模型（SCM）专用源代码文件如下：
@@ -147,3 +146,7 @@ Existing run-deck templates include the following:
 
 -- SCM_DYCOMS-II-RF02.R: DYCOMS case study described by Ackerman et al. (2009)
 -- SCM_DYCOMS-II-RF02.R：Ackerman等人（2009）描述的DYCOMS案例研究
+
+---
+
+**Document End / 文档结束**

@@ -224,7 +224,7 @@ Clearly there are advantages to shorter names as well, and a good compromise is 
 显然，短名称也有优势，而好的折衷是一门艺术。
 
 Note that concern about time spent (wasted) typing longer names is generally misplaced, as numerous studies have shown that source code is read many more times than than it is written.
-请注意，对输入长名称所花费（浪费）的时间的担忧通常是 misplaced 的，因为大量研究表明源代码被阅读的次数远多于被编写的次数。
+请注意，对输入长名称所花费（浪费）的时间的担忧通常是不必要的，因为大量研究表明源代码被阅读的次数远多于被编写的次数。
 
 Further, many modern software editors provide means to "auto-complete" names, which further reduces concerns over typing long names.
 此外，许多现代软件编辑器提供"自动完成"名称的方法，这进一步减少了对输入长名称的担忧。
@@ -969,4 +969,3 @@ The elisp code in Figure 4, when inserted into a users `.emacs` file, will cause
 ---
 
 **Document End / 文档结束**
-

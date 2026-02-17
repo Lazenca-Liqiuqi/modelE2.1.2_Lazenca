@@ -1,13 +1,11 @@
-# NEW_IO
-# NEW_IO系统指南
+# NEW_IO / NEW_IO系统指南
 
 M. Kelley, November 2010
 M. Kelley，2010年11月
 
 ---
 
-## Table of Contents
-## 目录
+## Table of Contents / 目录
 
 - [HOW-TO configure your rundeck and set up your environment](#rundeck) - 如何配置运行配置和设置环境
 - [HOW-TO examine a quantity in the restart file](#model_state) - 如何检查重启文件中的量
@@ -34,8 +32,7 @@ M. Kelley，2010年11月
 
 <a id="rundeck"></a>
 
-## HOW-TO configure your rundeck and set up your environment
-## 如何配置运行配置和设置环境
+## HOW-TO configure your rundeck and set up your environment / 如何配置运行配置和设置环境
 
 Cubed-sphere rundecks function in NEW_IO mode only and no changes are necessary.
 立方体球面运行配置仅在NEW_IO模式下运行，无需任何更改。
@@ -90,8 +87,7 @@ Again, see [Local information](#local_info)
 
 <a id="model_state"></a>
 
-## HOW-TO examine a quantity in the restart file
-## 如何检查重启文件中的量
+## HOW-TO examine a quantity in the restart file / 如何检查重启文件中的量
 
 To view a plot of the instantaneous state of particular model variables, one can open a restart file using a [netcdf-aware](#plotting) plotting package.
 要查看特定模型变量瞬时状态的图，可以使用[支持netcdf的](#plotting)绘图包打开重启文件。
@@ -111,8 +107,7 @@ To simply print the (local) values of one or model variables to the screen, use 
 
 <a id="diffreport"></a>
 
-## HOW-TO compare restart files
-## 如何比较重启文件
+## HOW-TO compare restart files / 如何比较重启文件
 
 Say you have two restart files `fort.2.8proc.nc` and `fort.2.1proc.nc` whose comparison will tell you whether the model produced the same result on 8 processors versus 1.
 假设您有两个重启文件`fort.2.8proc.nc`和`fort.2.1proc.nc`，它们的比较将告诉您模型在8个处理器上是否产生与1个处理器相同的结果。
@@ -152,8 +147,7 @@ ncdiff fort.2.8proc.nc fort.2.1proc.nc diff.nc
 
 <a id="defvar"></a>
 
-## HOW-TO save a quantity in the restart file
-## 如何在重启文件中保存量
+## HOW-TO save a quantity in the restart file / 如何在重启文件中保存量
 
 As of March 2010, NEW_IO versions of existing model input/output routines exist alongside the default `io_XYZ` versions, but with a `new_` prefix.
 截至2010年3月，现有模型输入/输出例程的NEW_IO版本与默认的`io_XYZ`版本并存，但带有`new_`前缀。
@@ -245,8 +239,7 @@ If a read routine is called for a nonexistent variable, a warning message is pri
 
 <a id="scaleacc"></a>
 
-## HOW-TO obtain scaled diagnostics
-## 如何获取缩放诊断输出
+## HOW-TO obtain scaled diagnostics / 如何获取缩放诊断输出
 
 ```bash
 scaleacc acc-file acc-array-name[,name2,name3...]
@@ -358,8 +351,7 @@ Model E diagnostics categories configured for `scaleacc` include:
 
 <a id="sumfiles"></a>
 
-## HOW-TO do time averages
-## 如何进行时间平均
+## HOW-TO do time averages / 如何进行时间平均
 
 ```bash
 sumfiles acc-files-to-be-summed
@@ -397,8 +389,7 @@ In addition to "sum", it currently understands "min" and "max"; other operations
 
 <a id="remap"></a>
 
-## HOW-TO obtain lat-lon outputs from a cubed-sphere run
-## 如何从立方体球面运行获取经纬度输出
+## HOW-TO obtain lat-lon outputs from a cubed-sphere run / 如何从立方体球面运行获取经纬度输出
 
 For a cubed-sphere run whose so-called "native grid" is not a latitude-longitude mesh, scaled diagnostics from accumulation arrays such as `aij` can be output on the native grid or remapped to a user-specified latitude-longitude grid.
 对于所谓的"原生网格"不是经纬度网格的立方体球面运行，来自累加数组（如`aij`）的缩放诊断可以在原生网格上输出，或重新映射到用户指定的经纬度网格。
@@ -437,8 +428,7 @@ For more information, contact the author.
 
 <a id="tables"></a>
 
-## HOW-TO print the diagnostics tables
-## 如何打印诊断表
+## HOW-TO print the diagnostics tables / 如何打印诊断表
 
 To allow a large amount of output to be perused quickly, modelE provides routines which print certain categories of results in tabular form (e.g. zonal means).
 为了允许快速浏览大量输出，modelE提供了以表格形式打印某些类别结果的例程（例如纬向平均）。
@@ -479,8 +469,7 @@ Currently available print programs and their syntax for January 1901 of a run E0
 
 <a id="gissbin"></a>
 
-## HOW-TO convert netcdf to GISS-binary format
-## 如何将netcdf转换为GISS二进制格式
+## HOW-TO convert netcdf to GISS-binary format / 如何将netcdf转换为GISS二进制格式
 
 GISS-binary files can be created from netcdf files using one of these programs:
 可以使用以下程序之一从netcdf文件创建GISS二进制文件：
@@ -536,8 +525,7 @@ write_2d_as_giss4d JAN1901.ajlE001xyz.nc JAN1901.ajlE001xyz.giss4d      # extrac
 
 <a id="pdE"></a>
 
-## HOW-TO obtain scaled diagnostics (short version)
-## 如何获取缩放诊断输出（简版）
+## HOW-TO obtain scaled diagnostics (short version) / 如何获取缩放诊断输出（简版）
 
 R. Ruedy has created a NEW_IO version of the `pdE` script which executes the commands described in the previous sections.
 R. Ruedy创建了`pdE`脚本的NEW_IO版本，该脚本执行前面章节中描述的命令。
@@ -552,8 +540,7 @@ Execute `pdE` without arguments to see the syntax of its usage.
 
 <a id="ncksprt"></a>
 
-## HOW-TO print a netcdf variable in ASCII format
-## 如何以ASCII格式打印netcdf变量
+## HOW-TO print a netcdf variable in ASCII format / 如何以ASCII格式打印netcdf变量
 
 The script `ncksprt` employs the NCO utility `ncks` to print the values of variables in ASCII format, with further formatting of the output done by UNIX `sed`, `awk`, and `paste`.
 脚本`ncksprt`使用NCO工具`ncks`以ASCII格式打印变量的值，输出的进一步格式化由UNIX `sed`、`awk`和`paste`完成。
@@ -584,8 +571,7 @@ Examples:
 
 <a id="hemis"></a>
 
-## HOW-TO extract hemispheric/global means
-## 如何提取半球/全球平均值
+## HOW-TO extract hemispheric/global means / 如何提取半球/全球平均值
 
 To avoid making standalone programs understand the details of horizontal grids and area weightings, the model computes hemispheric and global means of accumulation quantities, saves these means in auxiliary arrays in acc-files, and defines auxiliary scaled output quantities having the suffix `_hemis`.
 为了避免让独立程序理解水平网格和面积加权的细节，模型计算累加量的半球和全球平均值，将这些平均值保存在acc文件中的辅助数组中，并定义具有后缀`_hemis`的辅助缩放输出量。
@@ -613,8 +599,7 @@ The `scaleacc` program defines the means of diagnostics which are ratios using t
 
 <a id="subdd"></a>
 
-## HOW-TO write "subdaily" diagnostics in netcdf format
-## 如何以netcdf格式写入"亚日"诊断
+## HOW-TO write "subdaily" diagnostics in netcdf format / 如何以netcdf格式写入"亚日"诊断
 
 (The reader is assumed to be familiar with the workings of the subdaily diagnostics code.)
 （假定读者熟悉亚日诊断代码的工作原理。）
@@ -639,8 +624,7 @@ The coding for the default format will soon be changed to use this interface.
 
 <a id="add_diag"></a>
 
-## HOW-TO add a new diagnostic to an existing category
-## 如何向现有类别添加新诊断
+## HOW-TO add a new diagnostic to an existing category / 如何向现有类别添加新诊断
 
 For the most part, postprocessing by standalone programs does not change the procedure.
 在大多数情况下，通过独立程序进行后处理不会更改程序。
@@ -673,14 +657,13 @@ The number of such special cases has declined recently and hopefully the trend w
 ---
 
 Finally, for outputs that are simple functions of already-existing outputs, it may be more expedient to calculate/extract them using generic tools rather than adding new code to modelE.
-最后，对于作为现有输出的简单函数的输出，使用通用工具计算/提取它们可能比向modelE添加新代码更 expedient。
+最后，对于作为现有输出的简单函数的输出，使用通用工具计算/提取它们可能比向modelE添加新代码更高效便捷。
 
 ---
 
 <a id="special_cat"></a>
 
-## Special diagnostic calculations
-## 特殊诊断计算
+## Special diagnostic calculations / 特殊诊断计算
 
 Special-purpose programs for outputs not fitting the generic-postprocessing mold include:
 不适合通用后处理模式的输出的专用程序包括：
@@ -695,8 +678,7 @@ Special-purpose programs for outputs not fitting the generic-postprocessing mold
 
 <a id="add_diag_cat"></a>
 
-## HOW-TO add a new category of diagnostic
-## 如何添加新的诊断类别
+## HOW-TO add a new category of diagnostic / 如何添加新的诊断类别
 
 Recipe to be written.
 配方待写。
@@ -705,8 +687,7 @@ Recipe to be written.
 
 <a id="probs"></a>
 
-## Troubleshooting
-## 故障排除
+## Troubleshooting / 故障排除
 
 Known causes of aberrant behavior:
 异常行为的已知原因：
@@ -718,8 +699,7 @@ Known causes of aberrant behavior:
 
 <a id="plotting"></a>
 
-## Plotting options
-## 绘图选项
+## Plotting options / 绘图选项
 
 To be written.
 待写。
@@ -728,8 +708,7 @@ To be written.
 
 <a id="rules"></a>
 
-## How it works
-## 工作原理
+## How it works / 工作原理
 
 Move mk_diags/conventions.txt here.
 将mk_diags/conventions.txt移至此处。
@@ -738,8 +717,7 @@ Move mk_diags/conventions.txt here.
 
 <a id="local_info"></a>
 
-## Local information
-## 本地信息
+## Local information / 本地信息
 
 ```
                        On Discover:
@@ -759,4 +737,8 @@ remap files: /discover/nobackup/mkelley5/remap_files
 
 NCO programs: /usr/local/other/NCO/3.9.9_gcc/bin
 ```
+
+---
+
+**Document End / 文档结束**
 

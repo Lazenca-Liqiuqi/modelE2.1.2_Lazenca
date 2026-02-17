@@ -1,5 +1,4 @@
-# Accessing and Manipulating Time in ModelE
-# ModelE中的时间访问与操作
+# Accessing and Manipulating Time in ModelE / ModelE中的时间访问与操作
 
 ---
 
@@ -11,8 +10,7 @@ With the introduction of the requirement to support planets other than Earth inc
 
 ---
 
-## Typical Usage
-## 典型用法
+## Typical Usage / 典型用法
 
 Most model developers should only need to know how to access certain time-related quantities such as hour, day, month, year, etc.
 大多数模型开发者只需要知道如何访问某些时间相关的量，如小时、日、月、年等。
@@ -64,8 +62,7 @@ Such clocks could be used to manage subcycling and other esoteric purposes.
 
 ---
 
-## Implementation Details
-## 实现细节
+## Implementation Details / 实现细节
 
 The time management facility is constructed with a number of interacting classes.
 时间管理设施由多个相互交互的类构成。
@@ -78,14 +75,12 @@ The major classes and their primary responsibilities are as follows:
 
 ---
 
-### Rational
-### 有理数
+### Rational / 有理数
 
 This class implements a rational number of the form (w + n/d) where {w,n,d} are all 8-byte integers.
 此类实现形式为(w + n/d)的有理数，其中{w,n,d}都是8字节整数。
 
-### BaseTime
-### 基准时间
+### BaseTime / 基准时间
 
 BaseTime objects contain time since some arbitrary epoch, measured in seconds.
 BaseTime对象包含自某个任意纪元以来的时间，以秒为单位测量。
@@ -96,8 +91,7 @@ BaseTime是Rational的子类（即它扩展了Rational），是模型中时间�
 The choice of Rational rather than floating point is not immediately obvious, but stems from the requirement to ensure that questions such as "What day is it?" have well-defined answers even on time boundaries.
 选择有理数而不是浮点数乍看之下不太明显，但源于确保诸如"今天是哪一天？"之类的问题即使在时间边界上也有明确定义答案的要求。
 
-### AbstractCalendar
-### 抽象日历（原文拼写：AbsractCalendar）
+### AbstractCalendar / 抽象日历
 
 This base class is used to relate BaseTime objects (i.e. raw seconds) to more useful time units such as hour, day, month, etc.
 此基类用于将BaseTime对象（即原始秒数）与更有用的时间单位（如小时、日、月等）关联起来。
@@ -108,8 +102,7 @@ Multiple subclasses of AbstractCalendar have been implemented to support the ori
 (See other document on Orbits and Calendars.)
 （参见关于轨道和日历的其他文档。）
 
-### Time
-### 时间
+### Time / 时间
 
 This class extends BaseTime, but includes a calendar component.
 此类扩展了BaseTime，但包含一个日历组件。
@@ -120,8 +113,7 @@ Time objects can therefore be queried for hour, month, etc.
 One can think of it as a BaseTime plus an interpretation for ease-of-use.
 可以将其理解为BaseTime加上一种便于使用的解释。
 
-### TimeInterval
-### 时间间隔
+### TimeInterval / 时间间隔
 
 This class represents the amount of time that between two events.
 此类表示两个事件之间的时间量。
@@ -129,8 +121,7 @@ This class represents the amount of time that between two events.
 This class is not yet used in the model, but may eventually support so-called "alarms" for periodic processes.
 此类在模型中尚未使用，但最终可能支持所谓的"警报"用于周期性过程。
 
-### ModelClock
-### 模型时钟
+### ModelClock / 模型时钟
 
 This class combines a Time object (currentTime) and a BaseTime object (dt).
 此类结合了一个Time对象（currentTime）和一个BaseTime对象（dt）。（原文拼写：currenTime）
@@ -147,4 +138,8 @@ All queries (e.g. hour, day, month, etc) are relayed to the currentTime componen
 - "repsonsibilities" → "responsibilities"
 - "AbsractCalendar" → "AbstractCalendar"
 - "currenTime" → "currentTime"
+
+---
+
+**Document End / 文档结束**
 

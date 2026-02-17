@@ -1,9 +1,8 @@
-# Git HOW-TO document for the GISS GCM
-# GISS GCM的Git使用指南文档
+# Git HOW-TO document for the GISS GCM / GISS GCM的Git使用指南文档
 
 ---
 
-## Git
+## Git / Git概述
 
 Git is a revision control system as CVS is.
 Git是像CVS一样的版本控制系统。
@@ -43,7 +42,7 @@ Since by its nature Git doesn't force the developer to send changes to the centr
 
 ---
 
-## Setting Up
+## Setting Up / 环境设置
 
 To work with Git you need to have it installed on your computer.
 要使用Git，您需要在计算机上安装它。
@@ -98,13 +97,12 @@ If you are going to use Git on more than one computer make sure that these varia
 
 ---
 
-## Useful Git commands
+## Useful Git commands / 常用Git命令
 
 Useful Git commands (apart from the initial "git clone ..." all commands are executed from inside of modelE directory tree):
 常用Git命令（除了初始的"git clone ..."外，所有命令都从modelE目录树内执行）：
 
-### 1. to check out the main branch of modelE
-### 1. 检出modelE的主分支
+### 1. to check out the main branch of modelE / 1. 检出modelE的主分支
 
 (equivalent of "cvs checkout modelE")
 （相当于"cvs checkout modelE"）
@@ -122,8 +120,7 @@ This will create a directory modelE with all model code in it.
 It will also create a hidden directory modelE/.git with Git version control information in it (this among other things will include entire history of the code so that a lot of Git operations can be performed without access to the main server).
 它还将创建一个隐藏目录modelE/.git，其中包含Git版本控制信息（其中包括代码的完整历史记录，因此可以在不访问主服务器的情况下执行许多Git操作）。
 
-### 2. to switch to a branch
-### 2. 切换到分支
+### 2. to switch to a branch / 2. 切换到分支
 
 (after you downloaded the code with "git clone...")
 （在使用"git clone..."下载代码之后）
@@ -158,8 +155,7 @@ The first time you execute this command Git will say that it has created a local
 Next time it will just switch the branch.
 下次将直接切换分支。
 
-### 3. to update the code in your working directory to the latest code in the repository on simplex
-### 3. 将工作目录中的代码更新为simplex仓库中的最新代码
+### 3. to update the code in your working directory to the latest code in the repository on simplex / 3. 将工作目录中的代码更新为simplex仓库中的最新代码
 
 (equivalent of "cvs update"):
 （相当于"cvs update"）：
@@ -184,8 +180,7 @@ git pull username@host_name:/path_to_modelE_dir branch_name
 But be carefull when using this explicit command, for example, if you omit branch_name you will be pulling from the master branch, even if locally you are on a different branch.
 但在使用这个明确命令时要小心，例如，如果省略branch_name，您将从主分支拉取，即使在本地您处于不同的分支。
 
-### 4. to commit your code to the central repository on simplex
-### 4. 将代码提交到simplex的中央仓库
+### 4. to commit your code to the central repository on simplex / 4. 将代码提交到simplex的中央仓库
 
 you have to execute two commands:
 您必须执行两个命令：
@@ -296,7 +291,7 @@ http://simplex.giss.nasa.gov/cgi-bin/gitweb.cgi
 
 ---
 
-## Working with branches
+## Working with branches / 分支操作
 
 Git treats branches as local objects, which means that by default information about a new branch is not pushed to parent repository.
 Git将分支视为本地对象，这意味着默认情况下不会将新分支的信息推送到父仓库。
@@ -372,7 +367,7 @@ git push origin branch_name
 
 ---
 
-## Using Git as a CVS server
+## Using Git as a CVS server / 将Git用作CVS服务器
 
 Git is capable of simulating the behavior of CVS server, which means that one can access central Git repository using "cvs" (instead of "git") on local machine.
 Git能够模拟CVS服务器的行为，这意味着可以在本地计算机上使用"cvs"（而不是"git"）访问中央Git仓库。
@@ -425,3 +420,7 @@ Don't try to use these commands on the modelE directory checked out from the old
 
 This method should be treated just as a temporary hack.
 此方法应仅被视为临时权宜之计。
+
+---
+
+**Document End / 文档结束**
