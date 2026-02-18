@@ -1,27 +1,46 @@
+# ============================================================================ #
 # ModelE2.1.2_Lazenca 主 Makefile | Main Makefile
 # NASA GISS Earth System Model (Lazenca Fork)
-# 主构建文件，包含默认目标和帮助信息 | Main build file with default targets and help info
+# ============================================================================ #
+#
+# 主构建文件，包含默认目标和帮助信息
+# Main build file with default targets and help info
+#
+# ============================================================================ #
 
 .SUFFIXES:
 .PHONY: update help
 
-#
+# ---------------------------------------------------------------------------- #
+# 目录结构配置 | Directory Structure Configuration
+# ---------------------------------------------------------------------------- #
 # modelE directory structure | modelE 目录结构
+
 MODEL_E_ROOT = .
 MODEL_DIR = $(MODEL_E_ROOT)/model
 CONFIG_DIR = $(MODEL_E_ROOT)/config
 
+# 静默输出模式 | Silent output mode
 ifeq ($(VERBOSE_OUTPUT),NO)
   MAKEFLAGS=-s
 endif
 
+# 当前版本号 | Current release version
 CURRENT_RELEASE=$(shell [ -s $(MODEL_DIR)/version ] && cat $(MODEL_DIR)/version)
+
+# ---------------------------------------------------------------------------- #
+# 默认目标 | Default Target
+# ---------------------------------------------------------------------------- #
 
 default:
 	@echo "All make commands should be executed from 'decks' "
 	@echo "directory. Please 'cd decks' before running any commands"
 	@echo "所有 make 命令都应该在 'decks' 目录中执行"
 	@echo "请在运行任何命令之前先 'cd decks'"
+
+# ---------------------------------------------------------------------------- #
+# 帮助信息 | Help Information
+# ---------------------------------------------------------------------------- #
 
 help:
 	@echo "ModelE2.1.2_Lazenca Build System Help | 构建系统帮助信息"
@@ -31,17 +50,32 @@ help:
 	@echo "这是主 Makefile。详细的构建命令，请查看 model 目录下的 Makefile"
 	$(MAKE) -C $(MODEL_DIR) help
 
+# 包含规则文件 | Include rules file
 sinclude $(CONFIG_DIR)/rules.mk
+
+# ---------------------------------------------------------------------------- #
+# CVS 仓库更新 | CVS Repository Update
+# ---------------------------------------------------------------------------- #
+# 从 CVS 仓库自动更新到指定版本
+# Automatic update from CVS repository to specified release
+#
+# 用法 | Usage: make update RELEASE=<version>
+# 示例 | Example: make update RELEASE=ModelE2.1.2
 
 update:
 	@echo "CVS Repository Update | CVS 仓库更新"
 	@echo "=================================="
+
+	# 检查版本参数 | Check release parameter
 	@if [ "$(RELEASE)" = "" ] ; then \
 	  echo "You have to specify new release with RELEASE=..." ; \
 	  echo "必须使用 RELEASE=... 指定新版本" ; exit 1 ; \
 	fi
+
 	@echo "--- Starting automatic update from CVS repository ---"
 	@echo "--- 开始从 CVS 仓库自动更新 ---"
+
+	# 检查是否在分支上 | Check if on a branch
 	@echo "Checking if current directory tree is a branch | 检查当前目录树是否为分支"
 	@if cvs status | grep "Sticky *Tag:.*none" ; then \
 	  echo "Some of your files are on the main trunk. Will not update." ; \
@@ -50,6 +84,8 @@ update:
 	  echo "需要在分支上才能进行自动更新。" ;\
 	  echo "Exiting" ; exit 1 ; \
 	fi
+
+	# 检查当前版本信息 | Check current release info
 	@echo "Checking if the model knows its current release | 检查模型是否知道当前版本"
 	@if [ "$(CURRENT_RELEASE)" = "" ] ; then \
 	  echo "No information on current release. Exiting." ; \
@@ -60,9 +96,11 @@ update:
 	  echo "当前版本: $(CURRENT_RELEASE)" ; \
 	else \
 	  echo "No tag $(CURRENT_RELEASE) in repository." ;\
-	  echo "仓库中没有 $(CURRENT_RELEASE) 标签。";\
+	  echo "仓库中没有 $(CURRENT_RELEASE) 标签。" ;\
 	  echo "Will not update. Exiting"; exit 1 ; \
 	fi
+
+	# 搜索目标版本 | Search for target release
 	@echo "Searching repository for specified tag: $(RELEASE)"
 	@echo "在仓库中搜索指定标签: $(RELEASE)"
 	@if cvs status -v README | grep $(RELEASE) ; then \
@@ -73,6 +111,8 @@ update:
 	  echo "CVS 仓库中没有 $(RELEASE) 标签" ;\
 	  echo "Will not update. Exiting"; exit 1 ; \
 	fi
+
+	# 检查目录树状态 | Check directory tree status
 	@echo "Checking current directory tree | 检查当前目录树"
 	@if cvs status | grep "Status: *Needs" ; then \
 	  echo "The files listed above are not up-to-date" ; \
@@ -80,12 +120,16 @@ update:
 	  echo "Do 'cvs update' first. Exiting." ; \
 	  echo "请先执行 'cvs update'。退出。" ; exit 1; \
 	fi
+
+	# 提交当前更改 | Commit current changes
 	@echo "Commiting your latest changes to CVS | 提交最新更改到 CVS"
 	@cvs commit -m "last commit before update to $(RELEASE)" ; \
 	if [ ! $$? = 0 ] ; then \
 	  echo "Something went wrong with commit. Aborting..." ; \
 	  echo "提交出错。中止..." ; exit 1 ; \
 	fi
+
+	# 最后检查 | Final check
 	@echo "Just in case, last check before we start the update."
 	@echo "最后检查，然后开始更新。"
 	@if cvs status | grep "Status:" | grep -v "Up-to-date" ; then \
@@ -94,6 +138,8 @@ update:
 	  echo "Can not do automatic update. Aborting." ; \
 	  echo "无法自动更新。中止。" ; exit 1 ; \
 	fi
+
+	# 执行更新 | Execute update
 	@echo "----------   updating   ----------"
 	@echo "----------   开始更新   ----------"
 	@echo "(using: -j $(CURRENT_RELEASE) -j $(RELEASE) )"
@@ -109,6 +155,8 @@ update:
 	  echo "--- Successfully updated to $(RELEASE) ---" ; \
 	  echo "--- 成功更新到 $(RELEASE) ---" ; \
 	fi
+
+	# 检查冲突 | Check for conflicts
 	@echo "Checking for possible conflicts | 检查可能的冲突"
 	@if cvs status | grep "Status:.*conflict" ; then \
 	  echo "The files listed above had conflicts on merge." ; \
@@ -116,6 +164,8 @@ update:
 	  echo "Please check them. " ; \
 	  echo "请检查它们。" ; \
 	fi
+
+	# 完成提示 | Completion message
 	@echo "After you check your model for possible conflicts"
 	@echo "当你检查了模型的可能冲突后"
 	@echo "It will be a good idea to commit this new version to cvs"
@@ -124,3 +174,7 @@ update:
 	@echo "使用 'cvs commit' "
 	@echo "----------   finished   ----------"
 	@echo "----------   完成   ----------"
+
+# ============================================================================ #
+# Document End / 文档结束
+# ============================================================================ #
