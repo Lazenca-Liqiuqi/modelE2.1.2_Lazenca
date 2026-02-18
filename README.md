@@ -61,13 +61,14 @@ gmake config COMPILER=gfortran ModelE_Support=$HOME/ModelE_Support
 
 ### 基本工作流程
 
-> 所有操作都应在 `decks` 目录中进行
+所有操作都应在 `decks` 目录中进行
 
 ```bash
 cd decks    # 进入工作目录
 ```
 
 #### 步骤1: 创建 Rundeck
+
 ```bash
 gmake rundeck RUN=my_run     # 创建运行配置
 ```
@@ -108,45 +109,7 @@ gmake setup RUN=my_run       # 编译模型并准备运行目录
 | `exe` | 编译 gcm 并将可执行文件放入运行目录 |
 | `htmldoc` | 为此运行创建基于 Web 的文档 |
 
-> 提示: 运行 `gmake` 不带参数将显示简短帮助信息
-
----
-
-## 项目文档系统
-
-### 文档架构
-
-本项目采用完整的现代化文档系统：
-
-| 文档 | 描述 |
-|------|------|
-| **CLAUDE.md** | AI 技术概览 |
-| **README.md** | 用户指南 (this file) |
-| **CHANGELOG.md** | 版本历史 |
-
-### 技术文档
-
-| 文档 | 内容 |
-|------|---------|
-| **doc/PROJECT_ANALYSIS_REPORT.md** | 全面项目分析报告和现代化路线图 |
-| **doc/PROJECT_MEMORY_INDEX.md** | 项目记忆系统索引和使用指南 |
-
-### 翻译项目状态
-
-**🎉 文档翻译与排版优化全部完成！**
-
-| 类别 | 数量 | 状态 |
-|------|------|------|
-| UserGuide | 42 | ✅ 完成 |
-| ModelDescription | 36 | ✅ 完成 |
-| HOWTO | 4 | ✅ 完成 |
-| misc | 3 | ✅ 完成 |
-| 导航文档 | 1 | ✅ 完成 |
-| **总计** | **86** | ✅ **100%** |
-
-**排版优化**: Codex审查100/100（满分）
-
----
+提示: 运行 `gmake` 不带参数将显示简短帮助信息
 
 ## 当前状态
 

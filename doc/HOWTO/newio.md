@@ -37,8 +37,9 @@ To reconfigure a rundeck for NEW_IO, change the following:
 要为NEW_IO重新配置运行配置，请进行以下更改：
 
 - `#define NEW_IO` in the `Preprocessor Options` section
+  
   - 在`预处理器选项`部分添加`#define NEW_IO`
-
+  
 - in the `Object Modules:` section, replace `IORSF` by `IO_DRV`. If doing a tracer run, add `TRDIAG` somewhere.
   - 在`对象模块：`部分，用`IO_DRV`替换`IORSF`。如果进行示踪物运行，在某处添加`TRDIAG`。
 
