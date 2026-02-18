@@ -3,7 +3,7 @@
 [![GitHub release](https://img.shields.io/github/release/Lazenca-Liqiuqi/modelE2.1.2_Lazenca.svg)](https://github.com/Lazenca-Liqiuqi/modelE2.1.2_Lazenca)
 [![License](https://img.shields.io/badge/License-NASA%20Open%20Source-blue.svg)](LICENSE)
 [![Fortran](https://img.shields.io/badge/Fortran-90%2F95-blue.svg)](https://en.wikipedia.org/wiki/Fortran)
-[![Version](https://img.shields.io/badge/Version-0.4.1-green.svg)](https://github.com/Lazenca-Liqiuqi/modelE2.1.2_Lazenca)
+[![Version](https://img.shields.io/badge/Version-0.5.0-green.svg)](https://github.com/Lazenca-Liqiuqi/modelE2.1.2_Lazenca)
 
 **基于NASA GISS ModelE 2.1.2的个人分支 | Personal fork based on NASA GISS ModelE 2.1.2**
 
@@ -150,7 +150,7 @@ gmake setup RUN=my_run       # 编译模型并准备运行目录
 
 ## 当前状态
 
-- **版本**: 0.4.1（以CHANGELOG为准）
+- **版本**: 0.5.0（以CHANGELOG为准）
 - **进度**: 文档翻译与排版优化100%完成（86个翻译文档）
 - **质量**: Codex审查100/100（满分）
 - **词典版本**: v1.7（700+术语）
@@ -162,6 +162,7 @@ gmake setup RUN=my_run       # 编译模型并准备运行目录
 
 #### 最新版本
 
+- **0.5.0** 2026.02.17 文档排版优化完成 - 质量提升
 - **0.4.1** 2026.02.17 文档翻译收尾与目录整合 - 项目完善
 - **0.4.0** 2026.02.07 支持文档翻译完成 - 项目里程碑
 
