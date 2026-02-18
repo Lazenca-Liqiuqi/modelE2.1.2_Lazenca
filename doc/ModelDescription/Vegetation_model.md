@@ -394,3 +394,5 @@ Su, H.-B., K. T. Paw and R. H. Shaw (1996). "Development of a coupled leaf and c
 Yang, W.Z., Ni-Meister, W., Kiang, N.Y., Moorcroft, P.R., Strahler, A.H., Oliphant, A. (2010) A clumped-foliage canopy radiative transfer model for a Global Dynamic Terrestrial Ecosystem Model II: Comparison to measurements. Agricultural and Forest Meteorology 150, 895-907.
 
 Zhan, X. W., Y. K. Xue and G. J. Collatz (2003). "An analytical approach for estimating CO2 and heat fluxes over the Amazonian region." Ecological Modelling 162(1-2): 97-117.
+
+**Document End / 文档结束**

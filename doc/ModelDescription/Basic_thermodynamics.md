@@ -11,3 +11,5 @@ Frazil ice formation can occur in the ocean and lakes in open water conditions a
 
 Snow can be compacted into ice by accumulating over a maximum thickness, or by rain or surface melting. Surface melting is kept track of since it is used to estimate melt pond formation for the albedo calculation. No specific snow-ice formation is yet included.
 雪可以通过积累超过最大厚度，或通过降雨或表面融化而压实成冰。表面融化被跟踪，因为它被用于估算反照率计算中的融池形成。尚未包含具体的雪冰形成过程。
+
+**Document End / 文档结束**

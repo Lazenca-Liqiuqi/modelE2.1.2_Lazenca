@@ -472,3 +472,5 @@ produces output for diagnostic purposes.
 
 fgrid2 computes functional relationship of z and xi; it is used in function rtsafe(fgrid2,x1,x2,xacc), the latter is called by subroutine griddr.
 fgrid2计算z和xi的函数关系；它用于函数rtsafe(fgrid2,x1,x2,xacc)中，后者由子程序griddr调用。
+
+**Document End / 文档结束**

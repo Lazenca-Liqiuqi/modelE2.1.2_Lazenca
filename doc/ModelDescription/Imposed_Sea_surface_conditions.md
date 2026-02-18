@@ -20,3 +20,5 @@ Sea ice thickness is also fixed in these cases, but given the lack of reliable g
 
 However, if the sea surface conditions come from the output of a coupled model simulation, sea ice thickness can be provided as an input, by using the ZSI file, which is interpolated similarly.
 然而，如果海面条件来自耦合模型模拟的输出，则可以通过使用ZSI文件提供海冰厚度作为输入，该文件以类似方式插值。
+
+**Document End / 文档结束**

@@ -164,3 +164,5 @@ Schmidt, G. A., R. Ruedy, J.E. Hansen, I. Aleinov, N. Bell, M. Bauer, S. Bauer, 
 
 For diagnostic purposes, the model also contains options to calculate an ISCCP simulator version of the cloud fraction and radiative properties (SUBROUTINE ISCCP_CLOUD_TYPES).
 为了诊断目的，模型还包含计算云分数和辐射属性的ISCCP模拟器版本的选项（子程序ISCCP_CLOUD_TYPES）。
+
+**Document End / 文档结束**

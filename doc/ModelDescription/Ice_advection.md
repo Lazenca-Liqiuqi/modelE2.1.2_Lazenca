@@ -20,3 +20,5 @@ In the fixed SST case, using the ice advection does not change the ice variables
 
 The q-fluxes need to be consistent with the ice advection, and so if ICEDYN_DRV ICEDYN is used in the spin-up, it must also be used in the q-flux model (and vice versa).
 q-flux需要与海冰平流保持一致，因此如果在spin-up中使用ICEDYN_DRV ICEDYN，则必须在q-flux模型中也使用（反之亦然）。
+
+**Document End / 文档结束**

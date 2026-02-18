@@ -284,3 +284,5 @@ Conversely, there are no two other points such that the mean value of an arbitra
 
 This mathematical result is even more elegant because the double integral above can be calculated from an evaluation of the polynomial at the points -x and x.
 这个数学结果更加优雅，因为上述二重积分可以通过在点-x和x处计算多项式来计算。
+
+**Document End / 文档结束**
