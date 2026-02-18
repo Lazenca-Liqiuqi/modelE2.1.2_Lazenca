@@ -3,8 +3,6 @@
 M. Kelley, November 2010
 M. Kelley，2010年11月
 
----
-
 ## Table of Contents / 目录
 
 - [HOW-TO configure your rundeck and set up your environment](#rundeck) - 如何配置运行配置和设置环境
@@ -27,8 +25,6 @@ M. Kelley，2010年11月
 - [Plotting options](#plotting) - 绘图选项
 - [How it works](#rules) - 工作原理
 - [Local information](#local_info) - 本地信息
-
----
 
 <a id="rundeck"></a>
 
@@ -58,8 +54,6 @@ To reconfigure a rundeck for NEW_IO, change the following:
   (The [Local information](#local_info) section will point you to some existing netcdf GIC files)
   - （[本地信息](#local_info)部分将为您指出一些现有的netcdf GIC文件）
 
----
-
 Most systems running modelE have a netcdf installation which is probably already specified in your .modelErc file.
 大多数运行modelE的系统都已安装netcdf，可能已在您的.modelErc文件中指定。
 
@@ -68,8 +62,6 @@ However, your PATH environment variable may not include the location of two impo
 
 If it doesn't, add `NETCDFHOME/bin` to your PATH (`NETCDFHOME` denoting whatever is present in your .modelErc).
 如果不包含，请将`NETCDFHOME/bin`添加到您的PATH中（`NETCDFHOME`表示.modelErc中存在的任何内容）。
-
----
 
 Unless indicated otherwise, standalone programs/scripts referenced below are installed in a location noted in the [Local information](#local_info) section.
 除非另有说明，下面引用的独立程序/脚本安装在[本地信息](#local_info)部分注明的位置。
@@ -82,8 +74,6 @@ Though not necessary to run the model, the NCO package is a prerequisite for the
 
 Again, see [Local information](#local_info)
 再次，参见[本地信息](#local_info)
-
----
 
 <a id="model_state"></a>
 
@@ -98,12 +88,8 @@ However, note that restart files are not currently written with coordinate data 
 Thankfully there exist packages like the CDAT GUI `vcdat` that accept just about any input and plot it in gridpoint space.
 幸运的是，存在像CDAT GUI `vcdat`这样的包，它几乎接受任何输入并在网格点空间中绘制。
 
----
-
 To simply print the (local) values of one or model variables to the screen, use the `ncksprt` utility described [here:](#ncksprt)
 要简单地将一个或模型变量的（本地）值打印到屏幕，请使用[这里描述的](#ncksprt)`ncksprt`工具
-
----
 
 <a id="diffreport"></a>
 
@@ -119,8 +105,6 @@ To print a report of which variables differ, and their maximum absolute and rela
 diffreport fort.2.8proc.nc fort.2.1proc.nc
 ```
 
----
-
 To suppress reports for certain variables, an optional third command-line argument can be passed to `diffreport` specifying a dummy netcdf variable whose attributes contain a list of on/off switches.
 要禁止某些变量的报告，可以向`diffreport`传递可选的第三个命令行参数，指定一个虚拟netcdf变量，其属性包含开关列表。
 
@@ -134,16 +118,12 @@ diffreport fort.2.8proc.nc fort.2.1proc.nc is_npes_reproducible
 Here, the `is_npes_reproducible` variable is defined by modelE to contain a list of (diagnostic) arrays known to have roundoff differences on different processor counts.
 在这里，`is_npes_reproducible`变量由modelE定义，包含已知在不同处理器数上具有舍入差异的（诊断）数组列表。
 
----
-
 For a broader look at a potential problem, the NCO utility `ncdiff` can be used to generate a file containing the differences which can then be viewed (or printed with `ncksprt`):
 要更广泛地查看潜在问题，可以使用NCO工具`ncdiff`生成包含差异的文件，然后可以查看（或使用`ncksprt`打印）：
 
 ```bash
 ncdiff fort.2.8proc.nc fort.2.1proc.nc diff.nc
 ```
-
----
 
 <a id="defvar"></a>
 
@@ -164,8 +144,6 @@ There is no requirement that the Fortran name in the code match the netcdf name 
 The ordering of variables in a netcdf file is arbitrary since they are always read/written using their netcdf names.
 netcdf文件中变量的顺序是任意的，因为它们总是使用其netcdf名称进行读/写。
 
----
-
 ```fortran
 ! write distributed array u to the netcdf variable 'u':
     call write_dist_data(grid,fid,'u',u) ! grid is a dist_grid object, fid is file ID
@@ -180,8 +158,6 @@ netcdf文件中变量的顺序是任意的，因为它们总是使用其netcdf�
     call read_data(grid,fid,'s0',s0,bcast_all=.true.) ! bcast_all is an optional argument
 ```
 
----
-
 Subroutines `write_dist_data,read_dist_data` take an optional argument `jdim` which specifies which dimension is the LAST horizontal dimension;
 子程序`write_dist_data,read_dist_data`采用可选参数`jdim`，它指定哪个维度是最后一个水平维度；
 
@@ -190,8 +166,6 @@ if `jdim` is not specified it is assumed to be 2, which is the case for model ar
 
 To write an array dimensioned L,I,J, set `jdim=3`
 要写入维度为L,I,J的数组，请设置`jdim=3`
-
----
 
 Before calling one of these I/O routines, the shapes of model variables and their netcdf names must have been declared already, via a call to `defvar` in one of the `def_rsf_XYZ` subroutines.
 在调用这些I/O例程之一之前，必须已经通过在`def_rsf_XYZ`子程序之一中调用`defvar`来声明模型变量的形状及其netcdf名称。
@@ -206,8 +180,6 @@ The sizes of dimensions are inferred from those of Fortran arrays passed to `def
     call defvar(grid,fid,idacc,'idacc(nsampl)')
 ```
 
----
-
 For distributed arrays, a prefix `dist_` must be added to dimension names.
 对于分布式数组，必须向维度名称添加前缀`dist_`。
 
@@ -219,23 +191,17 @@ The sizes of distributed dimensions are taken from the `grid` object.
     call defvar(grid,fid,t,'t(dist_im,dist_jm,lm)')  ! grid is a dist_grid object, fid is file ID
 ```
 
----
-
 Obviously many model variables share dimensions; it is not necessary to declare separate dimension names for each variable.
 显然，许多模型变量共享维度；不必为每个变量声明单独的维度名称。
 
 If a dimension is ever redeclared with a different size than previously, `defvar` will abort.
 如果维度以前后不同的大小重新声明，`defvar`将中止。
 
----
-
 If a call to one of the write routines is made for a variable that does not exist in the output file, they will abort.
 如果为输出文件中不存在的变量调用写入例程之一，它们将中止。
 
 If a read routine is called for a nonexistent variable, a warning message is printed but execution will continue; this behavior is useful when restarting from older model versions for example.
 如果为不存在的变量调用读取例程，将打印警告消息但执行将继续；例如，当从较旧的模型版本重启时，此行为很有用。
-
----
 
 <a id="scaleacc"></a>
 
@@ -251,8 +217,6 @@ scaleacc acc-file acc-array-name[,name2,name3...]
    scaleacc JAN1901.accE001xyz.nc all
 ```
 
----
-
 The standalone (i.e. run-independent) `scaleacc` utility converts the contents of an accumulation array to final scaled form in much the same way as the `pdE` command.
 独立（即与运行无关的）`scaleacc`工具以与`pdE`命令非常相似的方式将累加数组的内容转换为最终缩放形式。
 
@@ -261,8 +225,6 @@ Accumulations are divided by the number of times they were accumulated, scale fa
 
 The name of the output file produced is the name of the accumulation file with the "acc" substring replaced by the name of the accumulation array (this differs from the filename choices of `pdE`).
 生成的输出文件的名称是累加文件的名称，其中"acc"子字符串被累加数组的名称替换（这与`pdE`的文件名选择不同）。
-
----
 
 From the end user's point of view, there are a few other minor procedural differences compared to "standard" `pdE`:
 从最终用户的角度来看，与"标准"`pdE`相比，还有一些其他次要的程序差异：
@@ -278,8 +240,6 @@ From the end user's point of view, there are a few other minor procedural differ
 
 - `scaleacc` does not calculate diagnostics defined using nontrivial operations on time-mean output; [special standalone programs](#special_cat) have been created for this purpose.
   - `scaleacc`不计算使用对时间平均输出的非平凡操作定义的诊断；[特殊独立程序](#special_cat)已为此目的创建。
-
----
 
 Model E diagnostics categories configured for `scaleacc` include:
 为`scaleacc`配置的模型E诊断类别包括：
@@ -347,8 +307,6 @@ Model E diagnostics categories configured for `scaleacc` include:
 - `icij`: Viscous-plastic ice dynamics, longitude-latitude fields
   - `icij`：粘-塑性冰动力学，经度-纬度场
 
----
-
 <a id="sumfiles"></a>
 
 ## HOW-TO do time averages / 如何进行时间平均
@@ -359,8 +317,6 @@ sumfiles acc-files-to-be-summed
 # Example: produce the JJA1901 accumulations of run E001xyz:
    sumfiles {JUN,JUL,AUG}1901.accE001xyz.nc
 ```
-
----
 
 The scaled diagnostics for a multi-month averaging period are generated by applying `scaleacc` to an acc-file generated by `sumfiles` which contains sums over the months in this averaging period.
 多月平均周期的缩放诊断是通过将`scaleacc`应用于由`sumfiles`生成的acc文件生成的，该文件包含此平均周期中月份的总和。
@@ -374,8 +330,6 @@ Caution should be used when applying regular expressions like `*1901.accE001xyz.
 Multi-year sums can be calculated by applying `sumfiles` to single-year sums.
 可以通过将`sumfiles`应用于单年总和来计算多年总和。
 
----
-
 The `sumfiles` program can do more than the computation of the sums used to define time averages.
 `sumfiles`程序可以做的不仅仅是计算用于定义时间平均的总和。
 
@@ -384,8 +338,6 @@ In fact, the only accumulation arrays it sums are those having a netcdf attribut
 
 In addition to "sum", it currently understands "min" and "max"; other operations can easily be added.
 除了"sum"之外，它目前理解"min"和"max"；可以轻松添加其他操作。
-
----
 
 <a id="remap"></a>
 
@@ -404,8 +356,6 @@ Native-grid accumulation arrays remain native in acc-files; remapping to a diffe
    scaleacc JAN1901.accE001xyz.nc aij remap_C90_288x180.nc
 ```
 
----
-
 The name of the remap file is arbitrary since the resolutions of the cubed-sphere and latitude-longitude grids are taken from its contents.
 重映射文件的名称是任意的，因为立方体球面和经纬度网格的分辨率取自其内容。
 
@@ -423,8 +373,6 @@ The choice of remapping method for a particular diagnostic (first- versus second
 
 For more information, contact the author.
 有关更多信息，请联系作者。
-
----
 
 <a id="tables"></a>
 
@@ -445,8 +393,6 @@ Each standalone program is designed to print one and only one category of output
 Tables are printed to standard output which can be redirected to user-specified output files.
 表打印到标准输出，可以重定向到用户指定的输出文件。
 
----
-
 Currently available print programs and their syntax for January 1901 of a run E001xyz are:
 当前可用的打印程序及其语法（运行E001xyz的1901年1月）如下：
 
@@ -465,8 +411,6 @@ Currently available print programs and their syntax for January 1901 of a run E0
    prtostat E001xyz JAN1901                   # reads ojl and oij output files
 ```
 
----
-
 <a id="gissbin"></a>
 
 ## HOW-TO convert netcdf to GISS-binary format / 如何将netcdf转换为GISS二进制格式
@@ -482,8 +426,6 @@ write_2d_as_giss4d infile.nc outfile [ varname OR dimname1 dimname2 ]
 which behave identically save for the coordinate information written to "GISS 4D" files.
 它们的行为完全相同，除了写入"GISS 4D"文件的坐标信息。
 
----
-
 If the optional argument `varname` is specified, only that netcdf variable is written to the GISS-binary file; otherwise all dimension-matched variables are written.
 如果指定了可选参数`varname`，则只有该netcdf变量被写入GISS二进制文件；否则，写入所有维度匹配的变量。
 
@@ -492,8 +434,6 @@ If the optional arguments `dimname1` and `dimname2` are specified, dimension-mat
 
 If `dimname1` and `dimname2` are not specified, they are assumed to correspond to the first two dimensions of 3D+ variables.
 如果未指定`dimname1`和`dimname2`，则假定它们对应于3D+变量的前两个维度。
-
----
 
 A two-dimensional variable is written as a single fortran record, and each record of a 3D+ variable contains a two-dimensional "slab" of data spanning the two dimensions `dimname1` and `dimname2`.
 二维变量作为单个fortran记录写入，3D+变量的每个记录包含跨越两个维度`dimname1`和`dimname2`的二维"数据板"。
@@ -507,8 +447,6 @@ The slab dimensions need not be the first two of a given variable, nor consecuti
 If `long_name` is absent, the netcdf variable name is used in the title.
 如果缺少`long_name`，则在标题中使用netcdf变量名称。
 
----
-
 Examples:
 示例：
 
@@ -520,8 +458,6 @@ write_giss2d JAN1901.aijlE001xyz.nc JAN1901.aijlE001xyz.giss2d lon plm  # aijl v
 write_giss2d JAN1901.aijlE001xyz.nc JAN1901.aijlE001xyz.giss2d          # all aijl variables will be split along their 3rd dimension
 write_2d_as_giss4d JAN1901.ajlE001xyz.nc JAN1901.ajlE001xyz.giss4d      # extract all AJL fields
 ```
-
----
 
 <a id="pdE"></a>
 
@@ -535,8 +471,6 @@ It collects the printed tables for all diagnostics categories into a single text
 
 Execute `pdE` without arguments to see the syntax of its usage.
 执行不带参数的`pdE`以查看其使用语法。
-
----
 
 <a id="ncksprt"></a>
 
@@ -554,8 +488,6 @@ The syntax for specifying dimension bounds is that of NCO: integers correspond t
 Although it can be used to print multidimensional hyperslabs of data, this tool was intended for point or one-dimensional reports.
 虽然它可以用于打印多维数据超板，但此工具旨在用于点或一维报告。
 
----
-
 Examples:
 示例：
 
@@ -566,8 +498,6 @@ Examples:
 # model variables t(i,j,l),q(i,j,l) at i=20 and j=10 for l=1 to l=5
    ncksprt -v t,q -d im,10 -d jm,10 -d lm,1,5 fort.2.nc  # netcdf dimension names are im,jm,lm in the restart file
 ```
-
----
 
 <a id="hemis"></a>
 
@@ -582,8 +512,6 @@ These auxiliary outputs have a dimension name `shnhgm` of size 3 in addition to 
 The first position in the `shnhgm` dimension contains the southern hemisphere mean, the second the northern hemisphere, and the third the global mean.
 `shnhgm`维度中的第一个位置包含南半球平均值，第二个包含北半球平均值，第三个包含全球平均值。
 
----
-
 From an aij output file for example, the hemispheric and/or global means of surface air temperature can be printed using `ncksprt`
 例如，从aij输出文件，可以使用`ncksprt`打印地表气温的半球和/或全球平均值
 
@@ -595,8 +523,6 @@ ncksprt -v tsurf_hemis -d shnhgm,3 JAN1901.aijE001xyz.nc # print global mean onl
 The `scaleacc` program defines the means of diagnostics which are ratios using the ratio of the means of the respective accumulations.
 `scaleacc`程序使用各自累加平均值的比率来定义作为比率的诊断的平均值。
 
----
-
 <a id="subdd"></a>
 
 ## HOW-TO write "subdaily" diagnostics in netcdf format / 如何以netcdf格式写入"亚日"诊断
@@ -604,23 +530,17 @@ The `scaleacc` program defines the means of diagnostics which are ratios using t
 (The reader is assumed to be familiar with the workings of the subdaily diagnostics code.)
 （假定读者熟悉亚日诊断代码的工作原理。）
 
----
-
 A line `#define NEW_IO_SUBDD` in the `Preprocessor Options` section of a rundeck is currently required to override the default output format for these diagnostics (one lat-lon slice per Fortran binary sequential-access record).
 运行配置的`预处理器选项`部分中的一行`#define NEW_IO_SUBDD`当前是覆盖这些诊断的默认输出格式（每个Fortran二进制顺序访问记录一个经纬度切片）所必需的。
 
 Note that this option currently requires that the model be built with parallel netcdf.
 请注意，此选项当前要求使用parallel netcdf构建模型。
 
----
-
 The default routine `write_data` outputs only one lat-lon slice per call; for simplicity/efficiency, an alternate interface `write_subdd` was introduced to allow output of 3- and higher-dimensional arrays in one call.
 默认例程`write_data`每次调用仅输出一个经纬度切片；为了简单/效率，引入了备用接口`write_subdd`以允许在一次调用中输出3维及更高维度的数组。
 
 The coding for the default format will soon be changed to use this interface.
 默认格式的编码将很快更改为使用此接口。
-
----
 
 <a id="add_diag"></a>
 
@@ -631,8 +551,6 @@ For the most part, postprocessing by standalone programs does not change the pro
 
 However, it does require attention to a few details that are sometimes overlooked.
 然而，它确实需要注意有时被忽略的一些细节。
-
----
 
 Firstly, the short names of output quantities must be accepted by the netcdf library: they must begin with an alphabetic character followed by zero or more alphanumeric characters (including underscores).
 首先，输出量的短名称必须被netcdf库接受：它们必须以字母字符开头，后跟零个或多个字母数字字符（包括下划线）。
@@ -646,20 +564,14 @@ The metadata for the numerator should contain the index of the denominator.
 Some categories of diagnostics in modelE (e.g. `aij,ajl`) are already scaled online using this denominator system, so there are examples to follow.
 modelE中的某些诊断类别（例如`aij,ajl`）已经使用此分母系统进行在线缩放，因此有示例可循。
 
----
-
 More challenging for standalone postprocessing are diagnostics that are declared locally within modelE print programs, or those having some meta-metadata not registered anywhere (e.g. which tracer outputs need division by gridcell area when most others don't, or vice versa).
 对于独立后处理来说，更具挑战性的是在modelE打印程序中本地声明的诊断，或那些在任何地方都未注册某些元元数据的诊断（例如，哪些示踪物输出需要除以网格单元面积，而大多数不需要，反之亦然）。
 
 The number of such special cases has declined recently and hopefully the trend will continue.
 此类特殊情况的数量最近有所下降，希望这一趋势将继续。
 
----
-
 Finally, for outputs that are simple functions of already-existing outputs, it may be more expedient to calculate/extract them using generic tools rather than adding new code to modelE.
 最后，对于作为现有输出的简单函数的输出，使用通用工具计算/提取它们可能比向modelE添加新代码更高效便捷。
-
----
 
 <a id="special_cat"></a>
 
@@ -674,16 +586,12 @@ Special-purpose programs for outputs not fitting the generic-postprocessing mold
 - `prtostat`: prints selected ocean circulation statistics from time-mean output
   - `prtostat`：从时间平均输出打印选定的海洋环流统计
 
----
-
 <a id="add_diag_cat"></a>
 
 ## HOW-TO add a new category of diagnostic / 如何添加新的诊断类别
 
 Recipe to be written.
 配方待写。
-
----
 
 <a id="probs"></a>
 
@@ -695,8 +603,6 @@ Known causes of aberrant behavior:
 - Application of `sumfiles/scaleacc` to acc-files residing in a mass-storage facility. Some facilities have commands to create temporary copies of slow-media (tape) files on higher-performance media. The coding of `sumfiles/scaleacc` assumes that once a file has been successfully opened, its contents will remain available during execution. Unfortunately, files can sometimes "disappear" before execution completes.
   - 将`sumfiles/scaleacc`应用于驻留在大容量存储设施中的acc文件。某些设施有命令在更高性能的媒体上创建慢速介质（磁带）文件的临时副本。`sumfiles/scaleacc`的编码假设一旦文件成功打开，其内容将在执行期间保持可用。不幸的是，文件有时会在执行完成前"消失"。
 
----
-
 <a id="plotting"></a>
 
 ## Plotting options / 绘图选项
@@ -704,16 +610,12 @@ Known causes of aberrant behavior:
 To be written.
 待写。
 
----
-
 <a id="rules"></a>
 
 ## How it works / 工作原理
 
 Move mk_diags/conventions.txt here.
 将mk_diags/conventions.txt移至此处。
-
----
 
 <a id="local_info"></a>
 
@@ -730,14 +632,11 @@ netcdf GIC files in /discover/nobackup/projects/giss/prod_input_files:
                      GIC.144X90.DEC01.1.ext.nc           2x2.5  lat-lon resolution
                      GIC.288X180.DEC01.1.ext.nc          1x1.25 lat-lon resolution
 
-
 PNETCDFHOME=/discover/nobackup/mkelley5/pnetcdf-1.2.0  (ifort 10.1.017, impi 3.2.011)
 
 remap files: /discover/nobackup/mkelley5/remap_files
 
 NCO programs: /usr/local/other/NCO/3.9.9_gcc/bin
 ```
-
----
 
 **Document End / 文档结束**

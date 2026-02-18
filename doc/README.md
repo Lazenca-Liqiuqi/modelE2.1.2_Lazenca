@@ -2,8 +2,6 @@
 
 这是NASA GISS ModelE 2.1.2（Lazenca分支）的中文翻译文档库，涵盖大气环流模型(GCM)、海洋、陆面、海冰、化学等完整地球系统组件。
 
----
-
 ## 快速导航 / Quick Navigation
 
 | 目录 | 说明 | 文档数 |
@@ -13,8 +11,6 @@
 | [HOWTO](#3-howto-操作指南) | 操作指南：实用信息 | 4 |
 | [misc](#4-misc-杂项文档) | 杂项文档：编码规范、变更历史 | 3 |
 | [archive-old-doc](#5-archive-old-doc-原始文档存档) | 原始英文文档存档 | 93 |
-
----
 
 ## 1. UserGuide 用户指南
 
@@ -112,8 +108,6 @@
 | [Installing NetCDF library](UserGuide/11.1-Installing_NetCDF_library.md) | 安装NetCDF库 |
 | [Vegetation Guide](UserGuide/11.2-Vegetation_Guide.md) | 植被指南 |
 
----
-
 ## 2. ModelDescription 模型描述
 
 ModelE技术文档，描述大气、海洋、陆面、海冰、示踪物等完整地球系统组件。
@@ -189,8 +183,6 @@ ModelE技术文档，描述大气、海洋、陆面、海冰、示踪物等完�
 |------|------|
 | [References](ModelDescription/References.md) | 参考文献 |
 
----
-
 ## 3. HOWTO 操作指南
 
 实用的操作指南和信息。
@@ -202,8 +194,6 @@ ModelE技术文档，描述大气、海洋、陆面、海冰、示踪物等完�
 | [SCM](HOWTO/SCM.md) | 如何以单列模式运行模型 |
 | [time_management](HOWTO/time_management.md) | 如何使用时间管理系统 |
 
----
-
 ## 4. misc 杂项文档
 
 辅助文档和参考资料。
@@ -214,8 +204,6 @@ ModelE技术文档，描述大气、海洋、陆面、海冰、示踪物等完�
 | [ModelE_Coding_Standards](misc/ModelE_Coding_Standards.md) | 编码规范 |
 | [rundeck](misc/rundeck.md) | Rundeck配置详解 |
 
----
-
 ## 5. archive-old-doc 原始文档存档
 
 原始英文文档存档，包含：
@@ -224,8 +212,6 @@ ModelE技术文档，描述大气、海洋、陆面、海冰、示踪物等完�
 - `UserGuide/` - 原始用户指南
 - `misc/` - 原始杂项文档
 - `obsolete/` - 过时文档
-
----
 
 ## 文档统计 / Statistics
 
@@ -237,8 +223,6 @@ ModelE技术文档，描述大气、海洋、陆面、海冰、示踪物等完�
 | HOWTO | 4个 |
 | misc | 3个 |
 
----
-
 ## 翻译规范 / Translation Standards
 
 - **格式**: 中英对照叠放格式（英文在上，中文在下）
@@ -246,16 +230,12 @@ ModelE技术文档，描述大气、海洋、陆面、海冰、示踪物等完�
 - **术语**: 遵循术语词典 v1.7
 - **质量**: Codex审查均分 95+
 
----
-
 ## 版本信息 / Version
 
 - **基础模型**: NASA GISS ModelE 2.1.2
 - **分支版本**: Lazenca Fork
 - **当前版本**: 0.4.0
 - **最后更新**: 2026-02-17
-
----
 
 **探索地球系统，理解气候变化 | Explore Earth Systems, Understand Climate Change**
 

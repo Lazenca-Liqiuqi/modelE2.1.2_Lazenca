@@ -6,8 +6,6 @@ rundeck（扩展名为.R的文件）是一个包含特定模型运行的完整�
 Directory modelE/templates contains typical rundecks which can be used as examples.
 目录modelE/templates包含典型的rundeck，可用作示例。
 
----
-
 ## Rundeck structure / Rundeck结构
 
 Rundeck consists of a number of sections describing different aspects of the run.
@@ -52,8 +50,6 @@ Here is the list of rundeck sections in proper order:
 Any text after the last section is considered a comment and is ignored.
 最后一部分之后的任何文本都被视为注释并被忽略。
 
----
-
 ## Run name and comment / 运行名称和注释
 
 The first line of this section should start from the name of this rundeck (including .R) and contain short information on the run (no more than 80 characters).
@@ -61,8 +57,6 @@ The first line of this section should start from the name of this rundeck (inclu
 
 The rest of this section is a comment.
 此部分的其余内容是注释。
-
----
 
 ## Preprocessor Options / 预处理器选项
 
@@ -89,8 +83,6 @@ Keep in mind that these preprocessing options are passed by means of creating a 
 When adding preprocessing instructions to a source file one should make sure that rundeck_opts.h is included at the start of this file.
 在向源文件添加预处理器指令时，应确保在此文件开头包含rundeck_opts.h。
 
----
-
 ## Run Options / 运行选项
 
 Starts with the line
@@ -115,8 +107,6 @@ which sets a corresponding stack size.
 
 Currenlty if the default stack size is bigger than the one requested this option is ignored.
 当前，如果默认堆栈大小大于请求的大小，则忽略此选项。
-
----
 
 ## Object modules / 对象模块
 
@@ -145,8 +135,6 @@ These options are specified between "||" after the file name, for example " MODE
 The files located inside "Components" should not be listed in this section.
 位于"Components"内的文件不应在此部分列出。
 
----
-
 ## Components / 组件
 
 Starts with a line
@@ -164,8 +152,6 @@ Keep in mind that each Component will be compiled into a library which will be t
 
 As a result in a case of a name conflict (more than one subroutine with the same name is present) the preference will be given to the one located in modelE/model directory.
 因此，在名称冲突的情况下（存在多个同名的子例程），将优先选择位于modelE/model目录中的那个。
-
----
 
 ## Component Options / 组件选项
 
@@ -204,8 +190,6 @@ The use of this option is discouraged for the production runs though (which shou
 Similar option OVERWRITE_F90SRCS can be used to specify F90 files.
 类似的选项OVERWRITE_F90SRCS可用于指定F90文件。
 
----
-
 ## Data input files / 数据输入文件
 
 Starts with a line
@@ -231,8 +215,6 @@ where <short_name> is the name of the file used in the code and <path to the act
 The pass is specified with respect to GCMSEARCHPATH directory, unless it starts with "/" in which case it is an absolute path.
 路径是相对于GCMSEARCHPATH目录指定的，除非它以"/"开头，在这种情况下它是绝对路径。
 
----
-
 ## Label and Namelist / 标签和Fortran名录
 
 Starts with a line
@@ -254,8 +236,6 @@ DTFIX=<time_step>
 
 where <time_step> is a fall-back time step (s) which the model should use if it discovers internal instability.
 其中<time_step>是回退时间步长（秒），如果模型发现内部不稳定，应使用该步长。
-
----
 
 ## Run-time parameters / 运行时参数
 
@@ -295,8 +275,6 @@ In case of an array <param_value> is a coma-separated list of values.
 Values should be of the same type as the parameter they are assigned to (as it is declared in the model code).
 值应与分配给的参数类型相同（如在模型代码中声明的）。
 
----
-
 ## Restart and timing parameters / 重启和计时参数
 
 Starts with a line
@@ -311,7 +289,5 @@ This section contains the fortran namelist for the timing and restart parameters
 
 By default these should be set to start the model from some kind of initial conditions and run it for one hour of model time (for "make setup ...").
 默认情况下，这些应设置为从某种初始条件启动模型，并运行一小时模型时间（用于"make setup ..."）。
-
----
 
 **Document End / 文档结束**

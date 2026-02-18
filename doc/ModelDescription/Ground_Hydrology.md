@@ -12,8 +12,6 @@ Evapotransiration takes water from the surface pools, and from below as a functi
 Runoff is calculated using a TOPmodel approach.
 径流使用TOPmodel方法计算。
 
----
-
 ## Just testing MathJax system here / MathJax系统测试
 
 Here is an example of in-line formula: $W_i = x$

@@ -1,14 +1,10 @@
 # Accessing and Manipulating Time in ModelE / ModelE中的时间访问与操作
 
----
-
 Tracking the evolution of time is an essential aspect of the model infrastructure, and it is relied upon to control the activation of a variety of physical processes and diagnostics.
 跟踪时间的演化是模型基础设施的一个重要方面，它被用于控制各种物理过程和诊断输出的激活。
 
 With the introduction of the requirement to support planets other than Earth including different orbital parameters (i.e. different calendar properties), it was essential to improve the encapsulation of time management to ensure consistent treatment.
 随着引入支持地球以外行星（包括不同的轨道参数，即不同的日历属性）的要求，必须改进时间管理的封装以确保一致的处理。
-
----
 
 ## Typical Usage / 典型用法
 
@@ -43,8 +39,6 @@ call modelEclock%get(year=year, month=month, ...)
 All arguments are optional - keywords are required.
 所有参数都是可选的——关键字是必需的。
 
----
-
 Another convenient interface is to check to see if this this is the first timestep in a new day:
 另一个方便的接口是检查这是否是新的一天中的第一个时间步：
 
@@ -60,8 +54,6 @@ In the future there may be separate clock objects inside some model components.
 Such clocks could be used to manage subcycling and other esoteric purposes.
 此类时钟可用于管理子循环和其他特殊用途。
 
----
-
 ## Implementation Details / 实现细节
 
 The time management facility is constructed with a number of interacting classes.
@@ -72,8 +64,6 @@ Those with little experience with object-oriented programming may find some of t
 
 The major classes and their primary responsibilities are as follows:
 主要的类及其主要职责如下：（原文拼写：repsonsibilities）
-
----
 
 ### Rational / 有理数
 
@@ -132,13 +122,9 @@ ModelEClock是此类的对象，如介绍中所述，它作为模拟期间所有
 All queries (e.g. hour, day, month, etc) are relayed to the currentTime component, and time is advanced through calls to the nextTick() method.
 所有查询（如小时、日、月等）都被传递给currentTime组件，时间通过调用nextTick()方法推进。
 
----
-
 **注：原文中存在三处拼写错误；译文已更正并在对应中文行中标注（原文拼写：...）以保留可追溯性。**
 - "repsonsibilities" → "responsibilities"
 - "AbsractCalendar" → "AbstractCalendar"
 - "currenTime" → "currentTime"
-
----
 
 **Document End / 文档结束**

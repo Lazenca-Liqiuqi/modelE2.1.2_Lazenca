@@ -1,7 +1,5 @@
 # Git HOW-TO document for the GISS GCM / GISS GCM的Git使用指南文档
 
----
-
 ## Git / Git概述
 
 Git is a revision control system as CVS is.
@@ -39,8 +37,6 @@ One should remember though that until the code is pushed to the central reposito
 
 Since by its nature Git doesn't force the developer to send changes to the central repository as often as CVS does, it is advisable that one keeps the local copy of the code on a filesystem which is regularly backed up.
 由于Git本质上不像CVS那样强制开发者频繁地将更改发送到中央仓库，因此建议将代码的本地副本保存在定期备份的文件系统上。
-
----
 
 ## Setting Up / 环境设置
 
@@ -94,8 +90,6 @@ where `your_name` is the name Git will be using to identify you (in commit info 
 
 If you are going to use Git on more than one computer make sure that these variable are set to identical values on all computers.
 如果您将在多台计算机上使用Git，请确保这些变量在所有计算机上设置为相同的值。
-
----
 
 ## Useful Git commands / 常用Git命令
 
@@ -202,8 +196,6 @@ Once the information is successfully pushed to simplex Git will send a message t
 So if you don't receive such message you may want to check if your "commit" and "push" went through correctly.
 因此，如果您没有收到这样的消息，您可能需要检查您的"commit"和"push"是否正确执行。
 
----
-
 If you are working on more than one branch, then instead of "git push" it is more safe to execute
 如果您在多个分支上工作，那么代替"git push"，执行以下命令更安全：
 
@@ -214,8 +206,6 @@ git push origin HEAD
 This will push only your current local branch to the remote branch with the same name, while "git push" will push changes on all your branches which were committed but not pushed yet (and that may be not what you want).
 这只会将您当前的本地分支推送到同名的远程分支，而"git push"将推送所有已提交但尚未推送的分支的更改（这可能不是您想要的）。
 
----
-
 It is possible that when you try to "push" Git will complain about possible conflicts and refuse to push.
 当您尝试"push"时，Git可能会抱怨可能的冲突并拒绝推送。
 
@@ -224,8 +214,6 @@ This situation is similar to trying to do "cvs commit" when your code in not up-
 
 In this case you have to do "git pull", resolve conflicts in your local directory and then repeat "git commit", "git push".
 在这种情况下，您必须执行"git pull"，解决本地目录中的冲突，然后重复"git commit"、"git push"。
-
----
 
 Sometimes "git pull" will request that you do local "git commit" first.
 有时"git pull"会要求您先执行本地"git commit"。
@@ -241,8 +229,6 @@ Typically Git produces useful messages when executing the commands.
 
 If something doesn't work as expected read them and most likely you will know what to do.
 如果某些操作没有按预期工作，请阅读这些消息，很可能您会知道该怎么做。
-
----
 
 This small set of commands should get you started.
 这小部分命令应该足以让您开始使用。
@@ -280,16 +266,12 @@ so that others could profit from the answers.
 You also may get your answers quicker since other people familiar with Git may read it.
 您也可能更快地获得答案，因为其他熟悉Git的人可能会阅读它。
 
----
-
 As with CVS we will have a Git repository viewer installed at
 与CVS一样，我们将安装一个Git仓库查看器，位于：
 
 ```
 http://simplex.giss.nasa.gov/cgi-bin/gitweb.cgi
 ```
-
----
 
 ## Working with branches / 分支操作
 
@@ -349,8 +331,6 @@ One should mention that if for a local branch we have chosen a name which is dif
 One can use this functionality to create ones own branch which one wants to periodically update from a public remote branch.
 可以使用此功能创建自己的分支，并希望定期从公共远程分支更新。
 
----
-
 To create a simple local branch (which will start from the current checked out state) typically one does
 要创建一个简单的本地分支（将从当前检出的状态开始），通常执行
 
@@ -365,8 +345,6 @@ If one wants then to commit it to central repository (to make it available to ot
 git push origin branch_name
 ```
 
----
-
 ## Using Git as a CVS server / 将Git用作CVS服务器
 
 Git is capable of simulating the behavior of CVS server, which means that one can access central Git repository using "cvs" (instead of "git") on local machine.
@@ -374,8 +352,6 @@ Git能够模拟CVS服务器的行为，这意味着可以在本地计算机上�
 
 The use of such method is not encouraged and should be avoided if at all possible, but there may be circumstances when one can't use "git" (you have no control over local machine and can't install Git, connection is too slow to download the entire repository, you use a regression script which was written for CVS and was not yet converted to Git etc.).
 不鼓励使用这种方法，如果可能的话应避免使用，但在某些情况下可能无法使用"git"（您无法控制本地计算机且无法安装Git、连接太慢无法下载整个仓库、您使用的是为CVS编写的回归脚本且尚未转换为Git等）。
-
----
 
 If you decide to use this method keep in mind that only limited set of CVS operation is supported (pretty much just simple "checkout", "update" and "commit").
 如果您决定使用此方法，请记住只支持有限的CVS操作集（基本上只有简单的"checkout"、"update"和"commit"）。
@@ -420,7 +396,5 @@ Don't try to use these commands on the modelE directory checked out from the old
 
 This method should be treated just as a temporary hack.
 此方法应仅被视为临时权宜之计。
-
----
 
 **Document End / 文档结束**

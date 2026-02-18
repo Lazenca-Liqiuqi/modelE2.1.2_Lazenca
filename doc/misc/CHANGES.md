@@ -2,8 +2,6 @@
 
 本文档记录ModelE从早期版本到AR5版本的主要变更历史。
 
----
-
 ## Changes from modelE (AR4) to modelE (AR5) / 从modelE (AR4)到modelE (AR5)的变更
 
 - Higher resolution versions available (2x2.5)
@@ -31,8 +29,6 @@
   更完整的诊断输出
 
 > （注：这些是差异的非常精简的摘要）
-
----
 
 ## Changes from modelE-2-3-4+ to modelE1 (or 3.0) (AR4) / 从modelE-2-3-4+到modelE1（或3.0）(AR4)的变更
 
@@ -72,8 +68,6 @@
 - option to run with smaller physics time step
   使用更小物理时间步长的运行选项
 
----
-
 ## Changes from modelE-2-3 to modelE-2-3-4+ / 从modelE-2-3到modelE-2-3-4+的变更
 
 - new conductance scheme option for land surface
@@ -93,8 +87,6 @@
 
 - minor bug fixes and diagnostic improvements
   小型bug修复和诊断改进
-
----
 
 ## Major changes from version modelE-2-1 to modelE-2-3 / 从modelE-2-1到modelE-2-3的主要变更
 
@@ -137,8 +129,6 @@
 - surface velocities (ice, ocean) no used as input into surface boundary conditions.
   表面速度（冰、海洋）现在用作表面边界条件的输入。
 
----
-
 ## Major changes from version modelE-2-0-1 to modelE-2-1 / 从modelE-2-0-1到modelE-2-1的主要变更
 
 - Qflux model now has option to include ice advection.
@@ -171,8 +161,6 @@
 - Code is now compatible with PGI (Portland Group) compiler.
   代码现在与PGI（Portland Group）编译器兼容。
 
----
-
 ## Major changes from version modelE-2-0 to modelE-2-0-1 / 从modelE-2-0到modelE-2-0-1的主要变更
 
 - Minor fixes to almost all components
@@ -186,8 +174,6 @@
 
 - Changes to makefiles for compilation using Linux compilers (Absoft + Lahey/Fujitsu)
   使用Linux编译器（Absoft + Lahey/Fujitsu）编译的makefile变更
-
----
 
 ## Major changes from version modelE-1-3-3 to modelE-2-0 / 从modelE-1-3-3到modelE-2-0的主要变更
 
@@ -283,8 +269,6 @@
 
 - automatic re-starting with smaller timestep for some crashes (set from initial rundeck)
   某些崩溃时使用较小时间步长自动重新启动（从初始rundeck设置）
-
----
 
 ## Major Changes from Model II' to modelE-1-3-3 / 从Model II'到modelE-1-3-3的主要变更
 
@@ -401,7 +385,5 @@
 
 - Turbulence can now be applied throughtout the atmosphere (ATURB.f).
   湍流现在可应用于整个大气（ATURB.f）。
-
----
 
 **Document End / 文档结束**

@@ -12,8 +12,6 @@ Source code files dedicated to single-column model (SCM) are as follows:
 -- ATMDYN_SCM{,_EXT}.f: code for replacing large-scale dynamics with forcing terms
 -- ATMDYN_SCM{,_EXT}.f：用强迫项替代大尺度动力学的代码
 
----
-
 It is possible to run ModelE in single-column model mode with several options for initialization and forcing.
 ModelE可以以单列模型模式运行，并提供多种初始化和强迫选项。
 
@@ -25,8 +23,6 @@ Set preprocessor option #define SCM.
 
 Include object modules SCM_COM, SCM, ATMDYN_SCM, and ATMDYN_SCM_EXT prior to CLOUDS_COM.
 在CLOUDS_COM之前包含对象模块 SCM_COM、SCM、ATMDYN_SCM 和 ATMDYN_SCM_EXT。
-
----
 
 User-supplied input files may currently include the following:
 用户提供的输入文件当前可包括以下内容：
@@ -70,8 +66,6 @@ User-supplied input files may currently include the following:
 -- SCM_FNUDGE: thermodynamic nudging strength profile
 -- SCM_FNUDGE：热力学松弛强度廓线
 
----
-
 Each netCDF input file must contain UTC "year", "month", "day", and "hour" variables as integer time series with dimension "nt".
 每个netCDF输入文件必须包含UTC "year"、"month"、"day" 和 "hour" 变量，作为维度 "nt" 的整数时间序列。
 
@@ -86,8 +80,6 @@ For each profile variable, the pressure grid must be fixed in time if more than 
 
 Profile variables can be combined in a single input file if they share the same pressure grid.
 如果廓线变量共享相同的气压网格，可以在一个输入文件中组合。
-
----
 
 Run-time parameters include the following:
 运行时参数包括以下内容：
@@ -119,8 +111,6 @@ Run-time parameters include the following:
 -- SCM_tau: nudging time constant for temperature and moisture profiles
 -- SCM_tau：温度和湿度廓线的松弛时间常数
 
----
-
 The shell script modelE/exec/extract_scm.sh uses SCM_lat and SCM_lon to extract ancillary input data for a given SCM run location.
 Shell脚本 modelE/exec/extract_scm.sh 使用 SCM_lat 和 SCM_lon 为给定SCM运行位置提取辅助输入数据。
 
@@ -133,8 +123,6 @@ Diagnostics are obtained using the GCM-native subdaily diagnostics system.
 Diagnostics made available using this system are opt-in, with variable names specified in SUBDD{,1,2,3,etc} strings within the run deck.
 此系统提供的诊断输出是可选启用的，变量名在运行配置的 SUBDD{,1,2,3,etc} 字符串中指定。
 
----
-
 Existing run-deck templates include the following:
 现有的运行配置模板包括以下内容：
 
@@ -146,7 +134,5 @@ Existing run-deck templates include the following:
 
 -- SCM_DYCOMS-II-RF02.R: DYCOMS case study described by Ackerman et al. (2009)
 -- SCM_DYCOMS-II-RF02.R：Ackerman等人（2009）描述的DYCOMS案例研究
-
----
 
 **Document End / 文档结束**
