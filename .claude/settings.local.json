@@ -57,16 +57,8 @@
   },
   "enableAllProjectMcpServers": true,
   "enabledMcpjsonServers": [
-    "sequential-thinking",
-    "repomix",
-    "shrimp-task-manager",
     "context7",
     "deepwiki",
-    "web-search-prime",
-    "tavily-mcp",
-    "zai-mcp-server",
-    "ccusage",
-    "browsermcp",
     "codex"
   ],
   "outputStyle": "default"

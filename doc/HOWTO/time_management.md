@@ -122,9 +122,4 @@ ModelEClock是此类的对象，如介绍中所述，它作为模拟期间所有
 All queries (e.g. hour, day, month, etc) are relayed to the currentTime component, and time is advanced through calls to the nextTick() method.
 所有查询（如小时、日、月等）都被传递给currentTime组件，时间通过调用nextTick()方法推进。
 
-**注：原文中存在三处拼写错误；译文已更正并在对应中文行中标注（原文拼写：...）以保留可追溯性。**
-- "repsonsibilities" → "responsibilities"
-- "AbsractCalendar" → "AbstractCalendar"
-- "currenTime" → "currentTime"
-
 **Document End / 文档结束**
